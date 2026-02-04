@@ -16,12 +16,13 @@ import java.util.regex.Pattern;
 
 import javax.swing.JTextArea;
 
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 
 import freemarker.template.Template;
 
@@ -191,7 +192,7 @@ public abstract class ExcelTo extends Thread {
 				Map<String, String> infoMap = new LinkedHashMap<String, String>();
 				try {
 					XSSFCell cellSOrC = sheet.getRow(this.flagCS).getCell(colume);
-					if ((cellSOrC != null) && (cellSOrC.getCellType() != 3)) {
+					if ((cellSOrC != null) && (cellSOrC.getCellType() != CellType.BLANK)) {
 						String serverOrClient = sheet.getRow(this.flagCS).getCell(colume).getStringCellValue().toLowerCase();
 
 						if ((row <= this.flagNameCN) && (serverOrClient != null) && (!serverOrClient.equals(""))) {
@@ -240,30 +241,34 @@ public abstract class ExcelTo extends Thread {
 
 	private Object processCellAndGetDate(XSSFSheet sheet, XSSFCell cell, String dateType)
 			throws Exception {
-		if ((cell == null) || (cell.getCellType() == 3)) {
+		if ((cell == null) || (cell.getCellType() == CellType.BLANK)) {
 			cell = setDefaultValue(sheet, dateType);
 		}
 
 		switch (cell.getCellType()) {
-		case 0:
+		case NUMERIC:
 			return formatSciNot(cell.getNumericCellValue());
-		case 1:
+		case STRING:
 			String value = cell.getStringCellValue();
 
 			if (dateType.equalsIgnoreCase("json")) {
 				checkJSONFormat(value);
 			}
 			return value;
-		case 4:
+		case BOOLEAN:
 			if ((!dateType.equals("boolean")) && (!dateType.equals("String")))
 				throw new Exception("☢数据类型不应当是Boolean类型");
 
 			return Boolean.valueOf(cell.getBooleanCellValue());
-		case 2:
+		case FORMULA:
 			return checkDataForFormula(cell, dateType);
-		case 3:
+		case BLANK:
+			return setDefaultValue(sheet, dateType).getStringCellValue();
+		case _NONE:
+		case ERROR:
+		default:
+			throw new Exception("☢未知数据类型！");
 		}
-		throw new Exception("☢未知数据类型！");
 	}
 
 	public XSSFCell setDefaultValue(XSSFSheet sheet, String dateType) {
@@ -286,15 +291,15 @@ public abstract class ExcelTo extends Thread {
 	}
 
 	public void checkSnAndSaveType(XSSFCell cell, String dateType) throws Exception {
-		if ((cell == null) || (cell.getCellType() == 3)) {
+		if ((cell == null) || (cell.getCellType() == CellType.BLANK)) {
 			throw new Exception("ID列不能为空!");
 		}
 
 		String sn = null;
 
-		if (cell.getCellType() == 0) {
+		if (cell.getCellType() == CellType.NUMERIC) {
 			sn = String.valueOf(cell.getNumericCellValue());
-		} else if (cell.getCellType() == 2)
+		} else if (cell.getCellType() == CellType.FORMULA)
 			sn = cell.getCellFormula();
 		else {
 			sn = cell.getStringCellValue();

@@ -15,7 +15,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.pwrd.excel.CustomRun;
 
 public class DropDragJFrame extends JFrame implements DropTargetListener{
