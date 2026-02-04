@@ -34863,7 +34863,7 @@ public final class Msg {
      * <code>optional int32 hpCur = 6;</code>
      *
      * <pre>
-     *当前血量	
+     *当前血量    
      * </pre>
      */
     boolean hasHpCur();
@@ -34871,7 +34871,7 @@ public final class Msg {
      * <code>optional int32 hpCur = 6;</code>
      *
      * <pre>
-     *当前血量	
+     *当前血量    
      * </pre>
      */
     int getHpCur();
@@ -35259,7 +35259,7 @@ public final class Msg {
      * <code>optional int32 hpCur = 6;</code>
      *
      * <pre>
-     *当前血量	
+     *当前血量    
      * </pre>
      */
     public boolean hasHpCur() {
@@ -35269,7 +35269,7 @@ public final class Msg {
      * <code>optional int32 hpCur = 6;</code>
      *
      * <pre>
-     *当前血量	
+     *当前血量    
      * </pre>
      */
     public int getHpCur() {
@@ -36068,7 +36068,7 @@ public final class Msg {
        * <code>optional int32 hpCur = 6;</code>
        *
        * <pre>
-       *当前血量	
+       *当前血量    
        * </pre>
        */
       public boolean hasHpCur() {
@@ -36078,7 +36078,7 @@ public final class Msg {
        * <code>optional int32 hpCur = 6;</code>
        *
        * <pre>
-       *当前血量	
+       *当前血量    
        * </pre>
        */
       public int getHpCur() {
@@ -36088,7 +36088,7 @@ public final class Msg {
        * <code>optional int32 hpCur = 6;</code>
        *
        * <pre>
-       *当前血量	
+       *当前血量    
        * </pre>
        */
       public Builder setHpCur(int value) {
@@ -36101,7 +36101,7 @@ public final class Msg {
        * <code>optional int32 hpCur = 6;</code>
        *
        * <pre>
-       *当前血量	
+       *当前血量    
        * </pre>
        */
       public Builder clearHpCur() {
@@ -96518,13 +96518,13 @@ public final class Msg {
    *
    * <pre>
    *状态改变
-   *skillback = 0;		//技能击退
-   *stun = 1;				//眩晕
-   *immobilize = 2;		//冻结
-   *silence = 3;			//沉默
-   *skill_shake = 4;		//施法前摇
-   *skill_charm = 5;		//魅惑
-   *skill_hypnosis = 6;	//催眠
+   *skillback = 0;        //技能击退
+   *stun = 1;                //眩晕
+   *immobilize = 2;        //冻结
+   *silence = 3;            //沉默
+   *skill_shake = 4;        //施法前摇
+   *skill_charm = 5;        //魅惑
+   *skill_hypnosis = 6;    //催眠
    * </pre>
    */
   public static final class SCUnitobjStatusChange extends
@@ -96943,13 +96943,13 @@ public final class Msg {
      *
      * <pre>
      *状态改变
-     *skillback = 0;		//技能击退
-     *stun = 1;				//眩晕
-     *immobilize = 2;		//冻结
-     *silence = 3;			//沉默
-     *skill_shake = 4;		//施法前摇
-     *skill_charm = 5;		//魅惑
-     *skill_hypnosis = 6;	//催眠
+     *skillback = 0;        //技能击退
+     *stun = 1;                //眩晕
+     *immobilize = 2;        //冻结
+     *silence = 3;            //沉默
+     *skill_shake = 4;        //施法前摇
+     *skill_charm = 5;        //魅惑
+     *skill_hypnosis = 6;    //催眠
      * </pre>
      */
     public static final class Builder extends
@@ -125607,7 +125607,7 @@ public final class Msg {
      * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
      *
      * <pre>
-     *	optional int32 type = 1; // 背包类型号
+     *    optional int32 type = 1; // 背包类型号
      * </pre>
      */
     java.util.List<org.gof.demo.worldsrv.msg.Msg.DBagUpdate> 
@@ -125616,7 +125616,7 @@ public final class Msg {
      * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
      *
      * <pre>
-     *	optional int32 type = 1; // 背包类型号
+     *    optional int32 type = 1; // 背包类型号
      * </pre>
      */
     org.gof.demo.worldsrv.msg.Msg.DBagUpdate getUpdates(int index);
@@ -125624,7 +125624,7 @@ public final class Msg {
      * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
      *
      * <pre>
-     *	optional int32 type = 1; // 背包类型号
+     *    optional int32 type = 1; // 背包类型号
      * </pre>
      */
     int getUpdatesCount();
@@ -125632,7 +125632,7 @@ public final class Msg {
      * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
      *
      * <pre>
-     *	optional int32 type = 1; // 背包类型号
+     *    optional int32 type = 1; // 背包类型号
      * </pre>
      */
     java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DBagUpdateOrBuilder> 
@@ -125641,7 +125641,7 @@ public final class Msg {
      * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
      *
      * <pre>
-     *	optional int32 type = 1; // 背包类型号
+     *    optional int32 type = 1; // 背包类型号
      * </pre>
      */
     org.gof.demo.worldsrv.msg.Msg.DBagUpdateOrBuilder getUpdatesOrBuilder(
@@ -125759,7 +125759,7 @@ public final class Msg {
      * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
      *
      * <pre>
-     *	optional int32 type = 1; // 背包类型号
+     *    optional int32 type = 1; // 背包类型号
      * </pre>
      */
     public java.util.List<org.gof.demo.worldsrv.msg.Msg.DBagUpdate> getUpdatesList() {
@@ -125769,7 +125769,7 @@ public final class Msg {
      * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
      *
      * <pre>
-     *	optional int32 type = 1; // 背包类型号
+     *    optional int32 type = 1; // 背包类型号
      * </pre>
      */
     public java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DBagUpdateOrBuilder> 
@@ -125780,7 +125780,7 @@ public final class Msg {
      * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
      *
      * <pre>
-     *	optional int32 type = 1; // 背包类型号
+     *    optional int32 type = 1; // 背包类型号
      * </pre>
      */
     public int getUpdatesCount() {
@@ -125790,7 +125790,7 @@ public final class Msg {
      * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
      *
      * <pre>
-     *	optional int32 type = 1; // 背包类型号
+     *    optional int32 type = 1; // 背包类型号
      * </pre>
      */
     public org.gof.demo.worldsrv.msg.Msg.DBagUpdate getUpdates(int index) {
@@ -125800,7 +125800,7 @@ public final class Msg {
      * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
      *
      * <pre>
-     *	optional int32 type = 1; // 背包类型号
+     *    optional int32 type = 1; // 背包类型号
      * </pre>
      */
     public org.gof.demo.worldsrv.msg.Msg.DBagUpdateOrBuilder getUpdatesOrBuilder(
@@ -126087,7 +126087,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public java.util.List<org.gof.demo.worldsrv.msg.Msg.DBagUpdate> getUpdatesList() {
@@ -126101,7 +126101,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public int getUpdatesCount() {
@@ -126115,7 +126115,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public org.gof.demo.worldsrv.msg.Msg.DBagUpdate getUpdates(int index) {
@@ -126129,7 +126129,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public Builder setUpdates(
@@ -126150,7 +126150,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public Builder setUpdates(
@@ -126168,7 +126168,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public Builder addUpdates(org.gof.demo.worldsrv.msg.Msg.DBagUpdate value) {
@@ -126188,7 +126188,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public Builder addUpdates(
@@ -126209,7 +126209,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public Builder addUpdates(
@@ -126227,7 +126227,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public Builder addUpdates(
@@ -126245,7 +126245,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public Builder addAllUpdates(
@@ -126263,7 +126263,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public Builder clearUpdates() {
@@ -126280,7 +126280,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public Builder removeUpdates(int index) {
@@ -126297,7 +126297,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public org.gof.demo.worldsrv.msg.Msg.DBagUpdate.Builder getUpdatesBuilder(
@@ -126308,7 +126308,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public org.gof.demo.worldsrv.msg.Msg.DBagUpdateOrBuilder getUpdatesOrBuilder(
@@ -126322,7 +126322,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DBagUpdateOrBuilder> 
@@ -126337,7 +126337,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public org.gof.demo.worldsrv.msg.Msg.DBagUpdate.Builder addUpdatesBuilder() {
@@ -126348,7 +126348,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public org.gof.demo.worldsrv.msg.Msg.DBagUpdate.Builder addUpdatesBuilder(
@@ -126360,7 +126360,7 @@ public final class Msg {
        * <code>repeated .org.gof.demo.worldsrv.msg.DBagUpdate updates = 2;</code>
        *
        * <pre>
-       *	optional int32 type = 1; // 背包类型号
+       *    optional int32 type = 1; // 背包类型号
        * </pre>
        */
       public java.util.List<org.gof.demo.worldsrv.msg.Msg.DBagUpdate.Builder> 
@@ -238660,7 +238660,7 @@ public final class Msg {
      * <code>optional int64 memberId = 1;</code>
      *
      * <pre>
-     *对方的humanId	
+     *对方的humanId    
      * </pre>
      */
     boolean hasMemberId();
@@ -238668,7 +238668,7 @@ public final class Msg {
      * <code>optional int64 memberId = 1;</code>
      *
      * <pre>
-     *对方的humanId	
+     *对方的humanId    
      * </pre>
      */
     long getMemberId();
@@ -238780,7 +238780,7 @@ public final class Msg {
      * <code>optional int64 memberId = 1;</code>
      *
      * <pre>
-     *对方的humanId	
+     *对方的humanId    
      * </pre>
      */
     public boolean hasMemberId() {
@@ -238790,7 +238790,7 @@ public final class Msg {
      * <code>optional int64 memberId = 1;</code>
      *
      * <pre>
-     *对方的humanId	
+     *对方的humanId    
      * </pre>
      */
     public long getMemberId() {
@@ -239034,7 +239034,7 @@ public final class Msg {
        * <code>optional int64 memberId = 1;</code>
        *
        * <pre>
-       *对方的humanId	
+       *对方的humanId    
        * </pre>
        */
       public boolean hasMemberId() {
@@ -239044,7 +239044,7 @@ public final class Msg {
        * <code>optional int64 memberId = 1;</code>
        *
        * <pre>
-       *对方的humanId	
+       *对方的humanId    
        * </pre>
        */
       public long getMemberId() {
@@ -239054,7 +239054,7 @@ public final class Msg {
        * <code>optional int64 memberId = 1;</code>
        *
        * <pre>
-       *对方的humanId	
+       *对方的humanId    
        * </pre>
        */
       public Builder setMemberId(long value) {
@@ -239067,7 +239067,7 @@ public final class Msg {
        * <code>optional int64 memberId = 1;</code>
        *
        * <pre>
-       *对方的humanId	
+       *对方的humanId    
        * </pre>
        */
       public Builder clearMemberId() {
@@ -239754,7 +239754,7 @@ public final class Msg {
      * <code>optional int64 memberId = 2;</code>
      *
      * <pre>
-     *对方的humanId	
+     *对方的humanId    
      * </pre>
      */
     boolean hasMemberId();
@@ -239762,7 +239762,7 @@ public final class Msg {
      * <code>optional int64 memberId = 2;</code>
      *
      * <pre>
-     *对方的humanId	
+     *对方的humanId    
      * </pre>
      */
     long getMemberId();
@@ -239903,7 +239903,7 @@ public final class Msg {
      * <code>optional int64 memberId = 2;</code>
      *
      * <pre>
-     *对方的humanId	
+     *对方的humanId    
      * </pre>
      */
     public boolean hasMemberId() {
@@ -239913,7 +239913,7 @@ public final class Msg {
      * <code>optional int64 memberId = 2;</code>
      *
      * <pre>
-     *对方的humanId	
+     *对方的humanId    
      * </pre>
      */
     public long getMemberId() {
@@ -240223,7 +240223,7 @@ public final class Msg {
        * <code>optional int64 memberId = 2;</code>
        *
        * <pre>
-       *对方的humanId	
+       *对方的humanId    
        * </pre>
        */
       public boolean hasMemberId() {
@@ -240233,7 +240233,7 @@ public final class Msg {
        * <code>optional int64 memberId = 2;</code>
        *
        * <pre>
-       *对方的humanId	
+       *对方的humanId    
        * </pre>
        */
       public long getMemberId() {
@@ -240243,7 +240243,7 @@ public final class Msg {
        * <code>optional int64 memberId = 2;</code>
        *
        * <pre>
-       *对方的humanId	
+       *对方的humanId    
        * </pre>
        */
       public Builder setMemberId(long value) {
@@ -240256,7 +240256,7 @@ public final class Msg {
        * <code>optional int64 memberId = 2;</code>
        *
        * <pre>
-       *对方的humanId	
+       *对方的humanId    
        * </pre>
        */
       public Builder clearMemberId() {

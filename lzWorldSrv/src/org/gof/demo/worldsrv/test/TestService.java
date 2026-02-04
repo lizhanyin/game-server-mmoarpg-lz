@@ -13,28 +13,28 @@ import org.gof.demo.worldsrv.support.Log;
  *
  */
 @DistrClass(
-		servId = D.SERV_TEST
+        servId = D.SERV_TEST
 )
-public class TestService extends GameServiceBase {	
-	
-	/**
-	 * 初始化数据
-	 * @return
-	 */
-	protected void init() {
-		
-	}
-	
-	public TestService(GamePort port) {
-		super(port);
-	}
+public class TestService extends GameServiceBase {    
+    
+    /**
+     * 初始化数据
+     * @return
+     */
+    protected void init() {
+        
+    }
+    
+    public TestService(GamePort port) {
+        super(port);
+    }
 
-	@DistrMethod
-	public void csTestService(int msgId) {
-		TestManager.inst().testManager();
-		
-		Log.game.info("TestService has received CSTest, CODE is [{}]", msgId);
-		TestManager.inst().reLoadConf();
-		port.returns("AAA");
-	}	
+    @DistrMethod
+    public void csTestService(int msgId) {
+        TestManager.inst().testManager();
+        
+        Log.game.info("TestService has received CSTest, CODE is [{}]", msgId);
+        TestManager.inst().reLoadConf();
+        port.returns("AAA");
+    }    
 }

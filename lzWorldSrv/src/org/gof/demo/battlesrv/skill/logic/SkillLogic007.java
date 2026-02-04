@@ -14,23 +14,23 @@ import org.gof.demo.worldsrv.config.ConfSkillEffect;
  *
  */
 public class SkillLogic007 extends AbstractSkillLogicActive{
-	public String dispelSNs;		//驱散效果集合
-	
-	@Override
-	public void init(SkillCommon skillCommon, ConfSkillEffect conf) {
-		//父类方法初始化了范围前三个参数
-		super.init(skillCommon, conf);
-		dispelSNs = conf.param1;
-	}
+    public String dispelSNs;        //驱散效果集合
+    
+    @Override
+    public void init(SkillCommon skillCommon, ConfSkillEffect conf) {
+        //父类方法初始化了范围前三个参数
+        super.init(skillCommon, conf);
+        dispelSNs = conf.param1;
+    }
 
-	@Override
-	public void doSkillEffectToTar(UnitObject unitDef) {
-		//驱散各种buff
-		String[] sns = dispelSNs.split(",");
-		List<String> types = Arrays.asList(sns);
-		
-		for(String type : types) {
-			BuffManager.inst().dispel(unitDef, type);
-		}
-	}
+    @Override
+    public void doSkillEffectToTar(UnitObject unitDef) {
+        //驱散各种buff
+        String[] sns = dispelSNs.split(",");
+        List<String> types = Arrays.asList(sns);
+        
+        for(String type : types) {
+            BuffManager.inst().dispel(unitDef, type);
+        }
+    }
 }

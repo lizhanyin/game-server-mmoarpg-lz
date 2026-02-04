@@ -6,8 +6,8 @@ package org.gof.demo.battlesrv.support;
  *
  */
 public enum HpLostKey {
-	SKILL,			//技能伤害
-	BUFF,			//debuff伤害
-	DOT,				//dot伤害
-	BULLET			//bullet伤害
+    SKILL,            //技能伤害
+    BUFF,            //debuff伤害
+    DOT,                //dot伤害
+    BULLET            //bullet伤害
 }

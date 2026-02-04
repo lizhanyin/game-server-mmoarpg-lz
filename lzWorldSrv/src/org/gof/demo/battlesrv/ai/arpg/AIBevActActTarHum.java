@@ -11,25 +11,25 @@ import org.gof.demo.battlesrv.stageObj.UnitObject;
  * @author GaoZhangCheng
  */
 public class AIBevActActTarHum extends AIBevLeaf {
-	
-	public AIBevActActTarHum(AI ai) {
-		this.ai = ai;
-	}
+    
+    public AIBevActActTarHum(AI ai) {
+        this.ai = ai;
+    }
 
-	@Override
-	public boolean execute(Param param) {
-		UnitObject unitObj = ai.humanObj;
-		if(unitObj == null) {
-			return false;
-		}
-		
-		if(unitObj.beAttacked.isEmpty()) {
-			return false;
-		}
-		
-		ai.targetObj = ai.humanObj.beAttacked.get(0);
-		return true;
-		
-	}
+    @Override
+    public boolean execute(Param param) {
+        UnitObject unitObj = ai.humanObj;
+        if(unitObj == null) {
+            return false;
+        }
+        
+        if(unitObj.beAttacked.isEmpty()) {
+            return false;
+        }
+        
+        ai.targetObj = ai.humanObj.beAttacked.get(0);
+        return true;
+        
+    }
 
 }

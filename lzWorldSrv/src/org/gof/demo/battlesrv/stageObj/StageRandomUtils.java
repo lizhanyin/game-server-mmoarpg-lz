@@ -14,17 +14,17 @@ public class StageRandomUtils {
     
     public StageRandomUtils(List<Integer> seek)
     {
-    	this.seek = seek;
-    	this.seekCount = seek.size();
-    	this.seekCur = 0;
+        this.seek = seek;
+        this.seekCount = seek.size();
+        this.seekCur = 0;
     }
     
     public StageRandomUtils(int count) {
-    	this.seekCur = 0;
-    	this.seekCount = count;
-    	for (int i = 0; i < seekCount; i++) {
-    		seek.add(RandomUtils.nextInt((int)div));
-		}
+        this.seekCur = 0;
+        this.seekCount = count;
+        for (int i = 0; i < seekCount; i++) {
+            seek.add(RandomUtils.nextInt((int)div));
+        }
     }
     
     public double nextDouble()

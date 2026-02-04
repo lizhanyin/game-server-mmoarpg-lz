@@ -9,15 +9,15 @@ import org.gof.demo.worldsrv.msg.Msg.CSSignIn;
 
 public class ActivityMsgHandler {
 
-	/**
-	 * 每日签到
-	 * @param param
-	 */
-	@MsgReceiver(CSSignIn.class)
-	public void onCSSignIn(MsgParam param) {
-		HumanObject humanObj = param.getHumanObject();
-		
-		ActivityManager.inst().signIn(humanObj);
-	}
-	
+    /**
+     * 每日签到
+     * @param param
+     */
+    @MsgReceiver(CSSignIn.class)
+    public void onCSSignIn(MsgParam param) {
+        HumanObject humanObj = param.getHumanObject();
+        
+        ActivityManager.inst().signIn(humanObj);
+    }
+    
 }

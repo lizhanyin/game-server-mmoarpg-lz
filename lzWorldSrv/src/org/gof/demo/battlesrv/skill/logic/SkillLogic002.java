@@ -15,35 +15,35 @@ import org.gof.demo.worldsrv.config.ConfSkillEffect;
  *
  */
 public class SkillLogic002 extends AbstractSkillLogicActive{
-	public int dotSn;			//dotSn			
-	
-	@Override
-	public void init(SkillCommon skillCommon, ConfSkillEffect conf) {
-		//父类方法初始化了范围前三个参数
-		super.init(skillCommon, conf);
-		dotSn = Utils.intValue(conf.param1);
-	}
-	
-	@Override
-	public void doSkillEffect(SkillParam position) {
-		UnitObject uo = skill.unitObj;
-		if(uo == null || uo.isDie()) {
-			return;
-		}
-		
-		Vector2D vec = position.tarPos;
-		UnitObject unitObj = position.tarUo;
-		
-		if(conf.targetSelf) {
-			vec = skill.unitObj.posNow;
-			unitObj = skill.unitObj;
-		}
-		
-		DotManager.inst().create(skill.unitObj.stageObj, dotSn, skill.confSkill.sn ,skill.unitObj, skill.unitObj, unitObj, vec, skill.skillShakePct );
-	}
+    public int dotSn;            //dotSn            
+    
+    @Override
+    public void init(SkillCommon skillCommon, ConfSkillEffect conf) {
+        //父类方法初始化了范围前三个参数
+        super.init(skillCommon, conf);
+        dotSn = Utils.intValue(conf.param1);
+    }
+    
+    @Override
+    public void doSkillEffect(SkillParam position) {
+        UnitObject uo = skill.unitObj;
+        if(uo == null || uo.isDie()) {
+            return;
+        }
+        
+        Vector2D vec = position.tarPos;
+        UnitObject unitObj = position.tarUo;
+        
+        if(conf.targetSelf) {
+            vec = skill.unitObj.posNow;
+            unitObj = skill.unitObj;
+        }
+        
+        DotManager.inst().create(skill.unitObj.stageObj, dotSn, skill.confSkill.sn ,skill.unitObj, skill.unitObj, unitObj, vec, skill.skillShakePct );
+    }
 
-	@Override
-	public void doSkillEffectToTar(UnitObject unitDef) {
-		
-	}
+    @Override
+    public void doSkillEffectToTar(UnitObject unitDef) {
+        
+    }
 }

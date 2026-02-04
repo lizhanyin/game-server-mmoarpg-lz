@@ -20,55 +20,55 @@ import org.gof.demo.worldsrv.character.HumanObjectServiceProxy;
  */
 public class SeamService extends SeamServiceBase  {
 
-	public SeamService(Port port) {
-		super(port);
-	}
-	
-	/**
-	 * 登陆阶段接收消息函数
-	 */
-	@Override
-	public int methodAccountMsg() {
-		return AccountServiceProxy.EnumCall.ORG_GOF_DEMO_SEAM_ACCOUNT_ACCOUNTSERVICE_MSGHANDLER_LONG_CONNECTIONSTATUS_BYTES;
-	}
+    public SeamService(Port port) {
+        super(port);
+    }
+    
+    /**
+     * 登陆阶段接收消息函数
+     */
+    @Override
+    public int methodAccountMsg() {
+        return AccountServiceProxy.EnumCall.ORG_GOF_DEMO_SEAM_ACCOUNT_ACCOUNTSERVICE_MSGHANDLER_LONG_CONNECTIONSTATUS_BYTES;
+    }
 
-	/**
-	 * 游戏阶段接收消息函数
-	 */
-	@Override
-	public int methodWorldMsg() {
-		return HumanObjectServiceProxy.EnumCall.ORG_GOF_DEMO_WORLDSRV_CHARACTER_HUMANOBJECTSERVICE_MSGHANDLER_LONG_BYTES;
-	}
+    /**
+     * 游戏阶段接收消息函数
+     */
+    @Override
+    public int methodWorldMsg() {
+        return HumanObjectServiceProxy.EnumCall.ORG_GOF_DEMO_WORLDSRV_CHARACTER_HUMANOBJECTSERVICE_MSGHANDLER_LONG_BYTES;
+    }
 
-	/**
-	 * 登陆阶段连接中断消息函数
-	 */
-	@Override
-	public int methodAccountLost() {
-		return AccountServiceProxy.EnumCall.ORG_GOF_DEMO_SEAM_ACCOUNT_ACCOUNTSERVICE_CONNCLOSED_LONG;
-	}
+    /**
+     * 登陆阶段连接中断消息函数
+     */
+    @Override
+    public int methodAccountLost() {
+        return AccountServiceProxy.EnumCall.ORG_GOF_DEMO_SEAM_ACCOUNT_ACCOUNTSERVICE_CONNCLOSED_LONG;
+    }
 
-	/**
-	 * 游戏阶段连接中断消息函数
-	 */
-	@Override
-	public int methodWorldLost() {
-		return HumanObjectServiceProxy.EnumCall.ORG_GOF_DEMO_WORLDSRV_CHARACTER_HUMANOBJECTSERVICE_CONNCLOSED_LONG;
-	}
-	
-	/**
-	 * 登陆阶段连接验证消息函数
-	 */
-	@Override
-	public int methodAccountCheck() {
-		return AccountServiceProxy.EnumCall.ORG_GOF_DEMO_SEAM_ACCOUNT_ACCOUNTSERVICE_CONNCHECK_LONG;
-	}
+    /**
+     * 游戏阶段连接中断消息函数
+     */
+    @Override
+    public int methodWorldLost() {
+        return HumanObjectServiceProxy.EnumCall.ORG_GOF_DEMO_WORLDSRV_CHARACTER_HUMANOBJECTSERVICE_CONNCLOSED_LONG;
+    }
+    
+    /**
+     * 登陆阶段连接验证消息函数
+     */
+    @Override
+    public int methodAccountCheck() {
+        return AccountServiceProxy.EnumCall.ORG_GOF_DEMO_SEAM_ACCOUNT_ACCOUNTSERVICE_CONNCHECK_LONG;
+    }
 
-	/**
-	 * 游戏阶段连接验证消息函数
-	 */
-	@Override
-	public int methodWorldCheck() {
-		return HumanObjectServiceProxy.EnumCall.ORG_GOF_DEMO_WORLDSRV_CHARACTER_HUMANOBJECTSERVICE_CONNCHECK_LONG;
-	}
+    /**
+     * 游戏阶段连接验证消息函数
+     */
+    @Override
+    public int methodWorldCheck() {
+        return HumanObjectServiceProxy.EnumCall.ORG_GOF_DEMO_WORLDSRV_CHARACTER_HUMANOBJECTSERVICE_CONNCHECK_LONG;
+    }
 }

@@ -34,7 +34,7 @@ prx.listenResult(this::_result_loadGeneralData,  "humanObj", humanObj);
 4 修改MsgReceiver 和 Listener
 ---------------------------
  WorldStartup::main中进行以下修改：
-	
+    
     //初始化基本环境
     //MsgSender.init();
     //Event.init();

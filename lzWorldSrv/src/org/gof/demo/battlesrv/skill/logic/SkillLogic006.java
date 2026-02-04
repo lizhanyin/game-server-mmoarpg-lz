@@ -19,52 +19,52 @@ import org.gof.demo.worldsrv.support.Log;
  *
  */
 public class SkillLogic006 extends AbstractSkillLogicActive{
-	public String monsSN;			//怪物sn
-	@Override
-	public void init(SkillCommon skillCommon, ConfSkillEffect conf) {
-		super.init(skillCommon, conf);
-		monsSN = (conf.param1);
-		
-	}
-	
-	@Override
-	 public void doSkillEffectToTar(UnitObject unitDef) {
-		if(!unitDef.isMonsterObj()) {
-			return;
-		}
-		
-		ConfCharacterMonster conf = ConfCharacterMonster.get(monsSN); 
-		if(conf == null) {
-			Log.fight.info("SkillLogic006 monSn error: {}", monsSN);
-			return;
-		}
-		
-		UnitObject monObj = unitDef;
-		
-		ConfPropCalc propBase = ConfPropCalc.get(conf.level);
-		ConfPropFactor propFactor = ConfPropFactor.get(conf.propFactor);
-		PropCalc basePropCalc = new PropCalc(Utils.toJOSNString(propBase.propName, propBase.propValue));
-		basePropCalc.mul(propFactor.propName, propFactor.propValue);
-		
-		unitDef.dataPers.unitPropPlus.setBase(basePropCalc.toJSONStr());
-		
+    public String monsSN;            //怪物sn
+    @Override
+    public void init(SkillCommon skillCommon, ConfSkillEffect conf) {
+        super.init(skillCommon, conf);
+        monsSN = (conf.param1);
+        
+    }
+    
+    @Override
+     public void doSkillEffectToTar(UnitObject unitDef) {
+        if(!unitDef.isMonsterObj()) {
+            return;
+        }
+        
+        ConfCharacterMonster conf = ConfCharacterMonster.get(monsSN); 
+        if(conf == null) {
+            Log.fight.info("SkillLogic006 monSn error: {}", monsSN);
+            return;
+        }
+        
+        UnitObject monObj = unitDef;
+        
+        ConfPropCalc propBase = ConfPropCalc.get(conf.level);
+        ConfPropFactor propFactor = ConfPropFactor.get(conf.propFactor);
+        PropCalc basePropCalc = new PropCalc(Utils.toJOSNString(propBase.propName, propBase.propValue));
+        basePropCalc.mul(propFactor.propName, propFactor.propValue);
+        
+        unitDef.dataPers.unitPropPlus.setBase(basePropCalc.toJSONStr());
+        
         //清理技能
         monObj.getUnit().setSkill("{}");
         
-		//初始化技能
-		monObj.getUnit().setSkill(SkillManager.inst().firstInitSkills(conf.skillGroupSn));
-		
-		//初始化技能
-		SkillManager.inst().initSkill(monObj);
-		
-		UnitManager.inst().propCalc(monObj);
-		
-		monObj.modelSn = conf.modelSn;
-		monObj.sn = monsSN;
-		monObj.name = conf.name;
-		
-		//发送怪物更新消息
-		StageManager.inst().sendMsgToArea(monObj.createMsgUpdate(), unitDef.stageObj, unitDef.posNow);
-	}
+        //初始化技能
+        monObj.getUnit().setSkill(SkillManager.inst().firstInitSkills(conf.skillGroupSn));
+        
+        //初始化技能
+        SkillManager.inst().initSkill(monObj);
+        
+        UnitManager.inst().propCalc(monObj);
+        
+        monObj.modelSn = conf.modelSn;
+        monObj.sn = monsSN;
+        monObj.name = conf.name;
+        
+        //发送怪物更新消息
+        StageManager.inst().sendMsgToArea(monObj.createMsgUpdate(), unitDef.stageObj, unitDef.posNow);
+    }
 
 }

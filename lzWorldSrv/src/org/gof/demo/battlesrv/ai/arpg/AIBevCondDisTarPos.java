@@ -11,27 +11,27 @@ import org.gof.demo.battlesrv.stageObj.UnitObject;
  * @author GaoZhangCheng
  */
 public class AIBevCondDisTarPos extends AIBevLeaf{
-	private double dis = 0;
-	public AIBevCondDisTarPos(AI ai, double dis, boolean logic) {
-		this.ai = ai;
-		nonLogic = logic;
-		this.dis = dis;
-	}
-	public AIBevCondDisTarPos(AI ai, double dis) {
-		this.ai = ai;
-		this.dis = dis;
-	}
-	@Override
-	public boolean execute(Param param) {
-		boolean result = false;
-		
-		UnitObject uniObj = ai.unitObj;
-		
-		if(uniObj.posNow.distance(ai.tarMovePos) < dis) {
-			return true;
-		} 
-		
-		return result;
-	}
+    private double dis = 0;
+    public AIBevCondDisTarPos(AI ai, double dis, boolean logic) {
+        this.ai = ai;
+        nonLogic = logic;
+        this.dis = dis;
+    }
+    public AIBevCondDisTarPos(AI ai, double dis) {
+        this.ai = ai;
+        this.dis = dis;
+    }
+    @Override
+    public boolean execute(Param param) {
+        boolean result = false;
+        
+        UnitObject uniObj = ai.unitObj;
+        
+        if(uniObj.posNow.distance(ai.tarMovePos) < dis) {
+            return true;
+        } 
+        
+        return result;
+    }
 
 }

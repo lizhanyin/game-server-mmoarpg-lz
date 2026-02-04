@@ -20,11 +20,11 @@ public abstract class AIBevLeaf {
     abstract public boolean execute(Param param);
     
     public boolean executeLogic(Param param) {
-    	boolean result = execute(param);
-    	if(nonLogic) {
-			result = !result;
-		}
-    	return result;
+        boolean result = execute(param);
+        if(nonLogic) {
+            result = !result;
+        }
+        return result;
     }
     
 }

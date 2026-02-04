@@ -12,31 +12,31 @@ import org.gof.demo.worldsrv.msg.Msg.DItem;
  */
 public abstract class AbstractItem extends ItemBase {
 
-	public AbstractItem() {
-		super();
-	}
+    public AbstractItem() {
+        super();
+    }
 
-	public AbstractItem(Record record) {
-		super(record);
-	}
+    public AbstractItem(Record record) {
+        super(record);
+    }
 
-	/**
-	 * 创建消息
-	 * 
-	 * @return 消息Builder
-	 */
-	public DItem.Builder createMsg() {
-		DItem.Builder dItem = DItem.newBuilder();
-		int sn = getSn();
-		dItem.setCode(sn);
-		dItem.setNum(getNum());
-		dItem.setPos(getPosition());
-		dItem.setBind(getBind());
-		boolean isNew = isIsNew();
-		if (isNew) {
-			setIsNew(false);
-		}
-		dItem.setIsNew(isNew);
-		return dItem;
-	}
+    /**
+     * 创建消息
+     * 
+     * @return 消息Builder
+     */
+    public DItem.Builder createMsg() {
+        DItem.Builder dItem = DItem.newBuilder();
+        int sn = getSn();
+        dItem.setCode(sn);
+        dItem.setNum(getNum());
+        dItem.setPos(getPosition());
+        dItem.setBind(getBind());
+        boolean isNew = isIsNew();
+        if (isNew) {
+            setIsNew(false);
+        }
+        dItem.setIsNew(isNew);
+        return dItem;
+    }
 }

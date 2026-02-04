@@ -9,11 +9,11 @@ import org.gof.demo.worldsrv.stage.StageObject;
  * 支持到时后自动移出场景
  */
 public abstract class TemporaryObject extends WorldObject {
-	public TemporaryObject(StageObject stageObj) {
-		super(stageObj);
-		this.id = Port.applyId();
-	}
+    public TemporaryObject(StageObject stageObj) {
+        super(stageObj);
+        this.id = Port.applyId();
+    }
 
-	@Override
-	public abstract Msg.DStageObject.Builder createMsg();
+    @Override
+    public abstract Msg.DStageObject.Builder createMsg();
 }
