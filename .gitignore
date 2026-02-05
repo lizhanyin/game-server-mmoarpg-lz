@@ -2,6 +2,7 @@
 
 target/
 
+.history
 .idea
 .spec-workflow
 

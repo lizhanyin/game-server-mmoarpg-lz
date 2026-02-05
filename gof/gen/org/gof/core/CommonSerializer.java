@@ -1,11 +1,11 @@
 package org.gof.core;
+
 import org.gof.core.gen.GofGenFile;
-import org.gof.core.InputStream;
 
 @GofGenFile
-public final class CommonSerializer{
-    public static org.gof.core.interfaces.ISerializable create(int id){
-        switch(id){
+public final class CommonSerializer {
+    public static org.gof.core.interfaces.ISerializable create(int id) {
+        switch (id) {
             case 1097158212:
                 return new org.gof.core.support.ConnectionStatus();
             case 517232605:
@@ -35,8 +35,8 @@ public final class CommonSerializer{
         }
         return null;
     }
-    public static void init(){
+
+    public static void init() {
         InputStream.setCreateCommonFunc(CommonSerializer::create);
     }
 }
-

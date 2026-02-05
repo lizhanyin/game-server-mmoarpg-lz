@@ -13,7 +13,7 @@ import org.gof.core.support.log.LogCore;
 
 @GofGenFile
 public final class HumanCreateApplyServiceProxy extends ProxyBase {
-    public final class EnumCall{
+    public static final class EnumCall{
         public static final int ORG_GOF_DEMO_WORLDSRV_COMMON_HUMANCREATEAPPLYSERVICE_APPLY_INT_STRING_STRING = 1;
     }
     private static final String SERV_ID = "humanCreateApply";
@@ -46,7 +46,6 @@ public final class HumanCreateApplyServiceProxy extends ProxyBase {
     /**
      * 获取实例
      * 大多数情况下可用此函数获取
-     * @param localPort
      * @return
      */
     public static HumanCreateApplyServiceProxy newInstance() {
@@ -68,7 +67,6 @@ public final class HumanCreateApplyServiceProxy extends ProxyBase {
     
     /**
      * 创建实例
-     * @param localPort
      * @param node
      * @param port
      * @param id
@@ -84,8 +82,7 @@ public final class HumanCreateApplyServiceProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
      * @param context
      */
     @Override
@@ -95,8 +92,7 @@ public final class HumanCreateApplyServiceProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
      * @param context
      */
     public void listenResult(GofFunction2<Param, Param> method, Param context) {

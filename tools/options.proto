@@ -1,0 +1,13 @@
+// options.proto
+// 从 Options.java 生成的 descriptor 数据反推
+// 注意：根据生成的 Java 代码分析，应该使用 proto2 语法
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+
+// 消息ID扩展
+extend .google.protobuf.MessageOptions {
+  int32 msgid = 54321;
+}

@@ -1,6 +1,5 @@
 package org.gof.demo.worldsrv.rank;
                     
-import java.util.List;  
 import org.gof.core.Port;
 import org.gof.core.CallPoint;
 import org.gof.core.Service;
@@ -9,10 +8,8 @@ import org.gof.core.support.Param;
 import org.gof.core.support.log.LogCore;
 import org.gof.core.gen.proxy.ProxyBase;
 import org.gof.core.support.function.*;
-//import org.gof.demo.EnumCall;
 import org.gof.core.gen.GofGenFile;
 import org.gof.core.entity.EntityBase;
-import java.util.List;
 import org.gof.demo.worldsrv.entity.CompetitionHuman;
 
 @GofGenFile

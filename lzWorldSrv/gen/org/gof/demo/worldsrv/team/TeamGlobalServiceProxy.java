@@ -9,12 +9,7 @@ import org.gof.core.support.Param;
 import org.gof.core.support.log.LogCore;
 import org.gof.core.gen.proxy.ProxyBase;
 import org.gof.core.support.function.*;
-//import org.gof.demo.EnumCall;
 import org.gof.core.gen.GofGenFile;
-import org.gof.core.entity.EntityBase;
-import java.util.List;
-import org.gof.demo.worldsrv.human.HumanGlobalInfo;
-import java.util.Map;
 import org.gof.demo.worldsrv.character.HumanObject;
 
 @GofGenFile
@@ -54,7 +49,7 @@ public final class TeamGlobalServiceProxy extends ProxyBase {
     private static final String SERV_ID = "team";
     
     private CallPoint remote;
-    private Port localPort2;
+    private Port localPort;
     
     /**
      * 私有构造函数

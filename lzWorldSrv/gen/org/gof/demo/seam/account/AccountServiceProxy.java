@@ -70,7 +70,6 @@ public final class AccountServiceProxy extends ProxyBase {
     
     /**
      * 创建实例
-     * @param localPort
      * @param node
      * @param port
      * @param id
@@ -86,8 +85,7 @@ public final class AccountServiceProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
      * @param context
      */
     @Override
@@ -97,8 +95,7 @@ public final class AccountServiceProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
      * @param context
      */
     public void listenResult(GofFunction2<Param, Param> method, Param context) {
