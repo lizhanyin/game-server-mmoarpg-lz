@@ -23,7 +23,7 @@ public class ConnService extends Service {
      * 因为各种特殊原因，会出现连接已断开，但是游戏服务器没有清理的BUG。
      * 出现这种问题后，发送的消息会不停报错，影响系统稳定。
      * 
-     * @param connId
+     * @param connId id
      */
     @DistrMethod
     public void check(long connId) {

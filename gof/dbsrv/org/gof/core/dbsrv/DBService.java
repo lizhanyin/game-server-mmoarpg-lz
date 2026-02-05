@@ -146,9 +146,7 @@ public class DBService extends Service {
     
     /**
      * 新增一条数据
-     * @param tableName
-     * @param chunk
-     * @param cache
+     * @param record
      * @throws SQLException
      * @throws IOException 
      */
@@ -250,13 +248,13 @@ public class DBService extends Service {
      * 根据主键获取数据
      * 本操作不会造成写缓存的刷新
      * @param tableName        表名
-     * @param id            主键
+     * @param ids            主键
      */
     @DistrMethod
     public void get(String tableName, List<Long> ids) {
         //最终返回值
         List<Record> results = new ArrayList<>();
-        
+
         //TODO 查询缓存 暂时取消 missIds == ids
         List<Long> missIds = ids;
         
@@ -347,7 +345,6 @@ public class DBService extends Service {
      * 获取全部数据集合
      * 支持排序
      * @param tableName
-     * @param params
      */
     @DistrMethod
     public void findAll(String tableName) {
@@ -603,7 +600,7 @@ public class DBService extends Service {
     
     /**
      * SQL结果数量查询基础函数
-     * @param sql
+     * @param flush
      * @param whereAndOther
      * @param params
      * @return
@@ -646,8 +643,9 @@ public class DBService extends Service {
     
     /**
      * 查询返回单体数据的基础函数
+     * @param flush
      * @param tableName
-     * @param servId
+     * @param params
      * @return
      */
     private void utilGetBy(boolean flush, String tableName, Object... params) {
@@ -658,7 +656,8 @@ public class DBService extends Service {
      * 通过ID获得返回值的工具类
      * 只有这里会调用查询了，就不进一步抽象了...
      * @param tableName
-     * @param servId
+     * @param sql
+     * @param params
      * @return
      */
     private List<Record> utilGet(String tableName, String sql, Object... params) {
@@ -759,7 +758,11 @@ public class DBService extends Service {
     
     /**
      * 多表查询或返回部分值时 无法缓存结果
-     * @param sql
+     * @param flush 是否需要先刷新缓存
+     * @param single 是否返回单一结果
+     * @param tableName
+     * @param columns
+     * @param whereAndOther
      * @param params
      * @return
      */
@@ -878,7 +881,9 @@ public class DBService extends Service {
     
     /**
      * 多表查询或返回部分值时 无法缓存结果
-     * @param sql
+     * @param tableName
+     * @param columns
+     * @param whereAndOther
      * @param params
      * @return
      */
@@ -972,7 +977,7 @@ public class DBService extends Service {
     /**
      * 查询信息基础函数工具函数
      * 用来生成where语句
-     * @param tableName
+     * @param paramsFilter
      * @return
      */
     private String utilBaseGenSqlWhere(Map<String, Object> paramsFilter) {
@@ -1016,7 +1021,7 @@ public class DBService extends Service {
     /**
      * 查询信息基础函数工具函数
      * 用来生成orderBy语句
-     * @param tableName
+     * @param params
      * @return
      */
     private String utilBaseGenSqlOrderBy(Map<String, OrderBy> params) {
@@ -1042,7 +1047,8 @@ public class DBService extends Service {
     /**
      * 查询信息基础函数工具函数
      * 用来生成limit语句
-     * @param tableName
+     * @param firstResult
+     * @param maxResults
      * @return
      */
     private String utilBaseGenSqlLimit(int firstResult, int maxResults) {

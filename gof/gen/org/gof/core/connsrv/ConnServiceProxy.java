@@ -14,7 +14,7 @@ import org.gof.core.gen.GofGenFile;
 
 @GofGenFile
 public final class ConnServiceProxy extends ProxyBase {
-    public final class EnumCall{
+    public static final class EnumCall{
         public static final int ORG_GOF_CORE_CONNSRV_CONNSERVICE_CHECK_LONG = 1;
     }
     
@@ -34,11 +34,8 @@ public final class ConnServiceProxy extends ProxyBase {
     @SuppressWarnings("unchecked")
     public Object getMethodFunction(Service service, int methodKey) {
         ConnService serv = (ConnService)service;
-        switch (methodKey) {
-            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNSERVICE_CHECK_LONG: {
-                return (GofFunction1<Long>)serv::check;
-            }
-            default: break;
+        if (methodKey == EnumCall.ORG_GOF_CORE_CONNSRV_CONNSERVICE_CHECK_LONG) {
+            return (GofFunction1<Long>) serv::check;
         }
         return null;
     }
@@ -62,7 +59,6 @@ public final class ConnServiceProxy extends ProxyBase {
     
     /**
      * 创建实例
-     * @param localPort
      * @param node
      * @param port
      * @param id
@@ -78,8 +74,7 @@ public final class ConnServiceProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
      * @param context
      */
     public void listenResult(GofFunction2<Param, Param> method, Object...context) {
@@ -88,8 +83,7 @@ public final class ConnServiceProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
      * @param context
      */
     public void listenResult(GofFunction2<Param, Param> method, Param context) {

@@ -17,7 +17,7 @@ import org.gof.core.support.function.GofFunction3;
 
 @GofGenFile
 public final class ConnectionProxy extends ProxyBase {
-    public final class EnumCall{
+    public static final class EnumCall{
         public static final int ORG_GOF_CORE_CONNSRV_CONNECTION_CLOSE = 1;
         public static final int ORG_GOF_CORE_CONNSRV_CONNECTION_GETMSGBUF = 2;
         public static final int ORG_GOF_CORE_CONNSRV_CONNECTION_INITMSGBUF_CALLPOINT = 3;
@@ -45,37 +45,21 @@ public final class ConnectionProxy extends ProxyBase {
     @SuppressWarnings("unchecked")
     public Object getMethodFunction(Service service, int methodKey) {
         Connection serv = (Connection)service;
-        switch (methodKey) {
-            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_CLOSE: {
-                return (GofFunction0)serv::close;
-            }
-            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_GETMSGBUF: {
-                return (GofFunction0)serv::getMsgBuf;
-            }
-            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_INITMSGBUF_CALLPOINT: {
-                return (GofFunction1<CallPoint>)serv::initMsgBuf;
-            }
-            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_SENDMSG_LIST_LIST: {
-                return (GofFunction2<List, List>)serv::sendMsg;
-            }
-            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_SENDMSG_INT_CHUNK: {
-                return (GofFunction2<Integer, Chunk>)serv::sendMsg;
-            }
-            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_SENDMSGBUF: {
-                return (GofFunction0)serv::sendMsgBuf;
-            }
-            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_SETSTATUS_INT: {
-                return (GofFunction1<Integer>)serv::setStatus;
-            }
-            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_UPDATESTATUS_CONNECTIONSTATUS: {
-                return (GofFunction1<ConnectionStatus>)serv::updateStatus;
-            }
-            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_UPDATESTATUS_STRING_STRING_LONG: {
-                return (GofFunction3<String, String, Long>)serv::updateStatus;
-            }
-            default: break;
-        }
-        return null;
+        return switch (methodKey) {
+            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_CLOSE -> (GofFunction0) serv::close;
+            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_GETMSGBUF -> (GofFunction0) serv::getMsgBuf;
+            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_INITMSGBUF_CALLPOINT ->
+                    (GofFunction1<CallPoint>) serv::initMsgBuf;
+            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_SENDMSG_LIST_LIST,
+                 EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_SENDMSG_INT_CHUNK -> (GofFunction2<List<Integer>, List<Chunk>>) serv::sendMsg;
+            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_SENDMSGBUF -> (GofFunction0) serv::sendMsgBuf;
+            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_SETSTATUS_INT -> (GofFunction1<Integer>) serv::setStatus;
+            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_UPDATESTATUS_CONNECTIONSTATUS ->
+                    (GofFunction1<ConnectionStatus>) serv::updateStatus;
+            case EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_UPDATESTATUS_STRING_STRING_LONG ->
+                    (GofFunction3<String, String, Long>) serv::updateStatus;
+            default -> null;
+        };
     }
     
     
@@ -97,7 +81,6 @@ public final class ConnectionProxy extends ProxyBase {
     
     /**
      * 创建实例
-     * @param localPort
      * @param node
      * @param port
      * @param id
@@ -113,8 +96,8 @@ public final class ConnectionProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
+     * @param context
      * @param context
      */
     public void listenResult(GofFunction2<Param, Param> method, Object...context) {
@@ -123,8 +106,8 @@ public final class ConnectionProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
+     * @param context
      * @param context
      */
     public void listenResult(GofFunction2<Param, Param> method, Param context) {
@@ -160,7 +143,7 @@ public final class ConnectionProxy extends ProxyBase {
         localPort.call(remote, EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_INITMSGBUF_CALLPOINT, new Object[]{ connPoint });
     }
     
-    public void sendMsg(List idList, List chunkList) {
+    public void sendMsg(List<Integer> idList, List<Chunk> chunkList) {
         localPort.call(remote, EnumCall.ORG_GOF_CORE_CONNSRV_CONNECTION_SENDMSG_LIST_LIST, new Object[]{ idList, chunkList });
     }
     

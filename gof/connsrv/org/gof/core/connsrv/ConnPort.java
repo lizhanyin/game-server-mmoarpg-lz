@@ -23,8 +23,8 @@ public class ConnPort extends Port {
         super.pulseOverride();
 
         // 接收数据
-        for (Iterator<Connection> iter = ServerHandler.conns.iterator(); iter.hasNext();) {
-            iter.next().handleInput();
+        for (Connection connection : ServerHandler.conns) {
+            connection.handleInput();
         }
     }
 }

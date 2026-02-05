@@ -2,4 +2,7 @@
 
 target/
 
+.idea
 .spec-workflow
+
+*.iml

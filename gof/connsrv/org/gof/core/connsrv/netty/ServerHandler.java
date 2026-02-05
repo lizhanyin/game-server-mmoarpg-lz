@@ -40,8 +40,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 建立新连接
-     * 
-     * @throws Exception
+     *
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -89,8 +88,6 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 有异常发生
-     * 
-     * @throws Exception
      */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {

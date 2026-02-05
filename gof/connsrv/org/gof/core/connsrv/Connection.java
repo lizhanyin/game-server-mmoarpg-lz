@@ -62,8 +62,8 @@ public class Connection extends Service {
     /**
      * FIXME 获取连接ID Entty 4.1恢复channel.id()函数前 先用这个暂代
      * 
-     * @param channel
-     * @return
+     * @param channel 通道名称
+     * @return hash
      */
     public static int getId(Channel channel) {
         return channel.hashCode();
@@ -141,8 +141,8 @@ public class Connection extends Service {
 
         // 记录日志
         // if (log.isDebugEnabled() && msgId != 1212) {
-        // log.debug("发送消息至客户端：account={}, connId={}, msgId={}", m_status.account, m_id,
-        // msgId);
+        //     log.debug("发送消息至客户端：account={}, connId={}, msgId={}", m_status.account, m_id,
+        //     msgId);
         // }
     }
 
@@ -182,7 +182,7 @@ public class Connection extends Service {
     /**
      * 初始化消息缓存 只有在掉线重连的时候才用的上
      * 
-     * @param connPoint
+     * @param connPoint 调用点
      */
     @DistrMethod
     public void initMsgBuf(CallPoint connPoint) {
@@ -202,8 +202,6 @@ public class Connection extends Service {
 
     /**
      * 发送消息缓存的数据 只有在消息重新连接的时候才用的上
-     * 
-     * @param connPoint
      */
     @DistrMethod
     public void sendMsgBuf() {
@@ -319,9 +317,7 @@ public class Connection extends Service {
 
     public void handleInput() {
         // 启动定时器
-        if (!datas.isEmpty()) {
-
-        }
+        //if (!datas.isEmpty()) {}
 
         while (!datas.isEmpty()) {
             try {
@@ -337,7 +333,7 @@ public class Connection extends Service {
     /**
      * 消息接受
      * 
-     * @param msgbuf
+     * @param msgbuf 消息
      */
     private void handleIncoming(byte[] msgbuf) {
         int mid = Utils.bytesToInt(msgbuf, 4);
@@ -444,7 +440,7 @@ public class Connection extends Service {
     /**
      * 获取连接状态字符串信息
      * 
-     * @return
+     * @return 状态
      */
     public String getStatusString() {
         return m_status.toString();

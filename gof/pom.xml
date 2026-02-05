@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.gof</groupId>
-    <artifactId>core</artifactId>
+    <artifactId>platform</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
@@ -19,15 +19,15 @@
         <maven.compiler.target>25</maven.compiler.target>
 
         <!-- 依赖版本 -->
-        <log4j.version>2.24.3</log4j.version>
+        <log4j.version>2.25.3</log4j.version>
         <slf4j.version>2.0.16</slf4j.version>
-        <commons-lang3.version>3.17.0</commons-lang3.version>
+        <commons-lang3.version>3.18.0</commons-lang3.version>
         <netty.version>4.2.9.Final</netty.version>
         <protobuf.version>3.22.3</protobuf.version>
         <jeromq.version>0.6.0</jeromq.version>
         <fastjson2.version>2.0.54</fastjson2.version>
         <httpclient4.version>4.5.14</httpclient4.version>
-        <httpclient5.version>5.4.2</httpclient5.version>
+        <httpclient5.version>5.4</httpclient5.version>
         <quartz.version>2.5.0</quartz.version>
         <javassist.version>3.30.2-GA</javassist.version>
         <freemarker.version>2.3.34</freemarker.version>
@@ -149,7 +149,7 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>core</sourceDirectory>
+        <sourceDirectory>src</sourceDirectory>
 
         <plugins>
             <!-- Build Helper Maven Plugin -->
@@ -166,6 +166,7 @@
                         </goals>
                         <configuration>
                             <sources>
+                                <source>core</source>
                                 <source>connsrv</source>
                                 <source>dbsrv</source>
                                 <source>gen</source>

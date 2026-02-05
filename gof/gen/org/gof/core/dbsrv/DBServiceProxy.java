@@ -17,7 +17,7 @@ import java.util.List;
 
 @GofGenFile
 public final class DBServiceProxy extends ProxyBase {
-    public final class EnumCall{
+    public static final class EnumCall{
         public static final int ORG_GOF_CORE_DBSRV_DBSERVICE_COUNTBY_BOOLEAN_STRING_OBJECTS = 1;
         public static final int ORG_GOF_CORE_DBSRV_DBSERVICE_COUNTBYQUERY_BOOLEAN_STRING_STRING_OBJECTS = 2;
         public static final int ORG_GOF_CORE_DBSRV_DBSERVICE_DELETE_STRING_LONG = 3;
@@ -56,74 +56,50 @@ public final class DBServiceProxy extends ProxyBase {
     @SuppressWarnings("unchecked")
     public Object getMethodFunction(Service service, int methodKey) {
         DBService serv = (DBService)service;
-        switch (methodKey) {
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_COUNTBY_BOOLEAN_STRING_OBJECTS: {
-                return (GofFunction3<Boolean, String, Object[]>)serv::countBy;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_COUNTBYQUERY_BOOLEAN_STRING_STRING_OBJECTS: {
-                return (GofFunction4<Boolean, String, String, Object[]>)serv::countByQuery;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_DELETE_STRING_LONG: {
-                return (GofFunction2<String, Long>)serv::delete;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_EXECUTE_BOOLEAN_BOOLEAN_STRING_OBJECTS: {
-                return (GofFunction4<Boolean, Boolean, String, Object[]>)serv::execute;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDALL_STRING: {
-                return (GofFunction1<String>)serv::findAll;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDBY_BOOLEAN_INT_INT_STRING_OBJECTS: {
-                return (GofFunction5<Boolean, Integer, Integer, String, Object[]>)serv::findBy;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDBY_BOOLEAN_STRING_OBJECTS: {
-                return (GofFunction3<Boolean, String, Object[]>)serv::findBy;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDBYQUERY_BOOLEAN_STRING_STRING_OBJECTS: {
-                return (GofFunction4<Boolean, String, String, Object[]>)serv::findByQuery;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDBYQUERY_BOOLEAN_STRING_LIST_STRING_OBJECTS: {
-                return (GofFunction5<Boolean, String, List, String, Object[]>)serv::findByQuery;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDFIELDSET: {
-                return (GofFunction0)serv::findFieldSet;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FLUSH: {
-                return (GofFunction0)serv::flush;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FLUSH_STRING: {
-                return (GofFunction1<String>)serv::flush;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GET_STRING_LONG: {
-                return (GofFunction2<String, Long>)serv::get;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GET_STRING_LIST: {
-                return (GofFunction2<String, List>)serv::get;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GETBY_BOOLEAN_STRING_OBJECTS: {
-                return (GofFunction3<Boolean, String, Object[]>)serv::getBy;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GETBYQUERY_BOOLEAN_STRING_STRING_OBJECTS: {
-                return (GofFunction4<Boolean, String, String, Object[]>)serv::getByQuery;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GETBYQUERY_BOOLEAN_STRING_LIST_STRING_OBJECTS: {
-                return (GofFunction5<Boolean, String, List, String, Object[]>)serv::getByQuery;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_INSERT_RECORD: {
-                GofFunction1<Record> f = (record) -> { try { serv.insert(record); } catch(Exception e) { throw new org.gof.core.support.SysException(e); } };
-                return f;
-            }
-            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_UPDATE_STRING_LONG_CHUNK_BOOLEAN: {
-                return (GofFunction4<String, Long, Chunk, Boolean>)serv::update;
-            }
-            default: break;
-        }
-        return null;
+        return switch (methodKey) {
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_COUNTBY_BOOLEAN_STRING_OBJECTS ->
+                    (GofFunction3<Boolean, String, Object[]>) serv::countBy;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_COUNTBYQUERY_BOOLEAN_STRING_STRING_OBJECTS ->
+                    (GofFunction4<Boolean, String, String, Object[]>) serv::countByQuery;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_DELETE_STRING_LONG -> (GofFunction2<String, Long>) serv::delete;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_EXECUTE_BOOLEAN_BOOLEAN_STRING_OBJECTS ->
+                    (GofFunction4<Boolean, Boolean, String, Object[]>) serv::execute;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDALL_STRING -> (GofFunction1<String>) serv::findAll;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDBY_BOOLEAN_INT_INT_STRING_OBJECTS ->
+                    (GofFunction5<Boolean, Integer, Integer, String, Object[]>) serv::findBy;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDBY_BOOLEAN_STRING_OBJECTS ->
+                    (GofFunction3<Boolean, String, Object[]>) serv::findBy;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDBYQUERY_BOOLEAN_STRING_STRING_OBJECTS ->
+                    (GofFunction4<Boolean, String, String, Object[]>) serv::findByQuery;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDBYQUERY_BOOLEAN_STRING_LIST_STRING_OBJECTS ->
+                    (GofFunction5<Boolean, String, List<String>, String, Object[]>) serv::findByQuery;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDFIELDSET -> (GofFunction0) serv::findFieldSet;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FLUSH -> (GofFunction0) serv::flush;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FLUSH_STRING -> (GofFunction1<String>) serv::flush;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GET_STRING_LONG,
+                 EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GET_STRING_LIST -> (GofFunction2<String, Long>) serv::get;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GETBY_BOOLEAN_STRING_OBJECTS ->
+                    (GofFunction3<Boolean, String, Object[]>) serv::getBy;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GETBYQUERY_BOOLEAN_STRING_STRING_OBJECTS ->
+                    (GofFunction4<Boolean, String, String, Object[]>) serv::getByQuery;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GETBYQUERY_BOOLEAN_STRING_LIST_STRING_OBJECTS ->
+                    (GofFunction5<Boolean, String, List<String>, String, Object[]>) serv::getByQuery;
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_INSERT_RECORD -> (GofFunction1<Record>) (record) -> {
+                try {
+                    serv.insert(record);
+                } catch (Exception e) {
+                    throw new org.gof.core.support.SysException(e);
+                }
+            };
+            case EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_UPDATE_STRING_LONG_CHUNK_BOOLEAN ->
+                    (GofFunction4<String, Long, Chunk, Boolean>) serv::update;
+            default -> null;
+        };
     }
     
     /**
      * 获取实例
      * 大多数情况下可用此函数获取
-     * @param localPort
      * @return
      */
     public static DBServiceProxy newInstance() {
@@ -145,7 +121,6 @@ public final class DBServiceProxy extends ProxyBase {
     
     /**
      * 创建实例
-     * @param localPort
      * @param node
      * @param port
      * @param id
@@ -161,8 +136,7 @@ public final class DBServiceProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
      * @param context
      */
     public void listenResult(GofFunction2<Param, Param> method, Object...context) {
@@ -171,8 +145,7 @@ public final class DBServiceProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
      * @param context
      */
     public void listenResult(GofFunction2<Param, Param> method, Param context) {
@@ -228,7 +201,7 @@ public final class DBServiceProxy extends ProxyBase {
         localPort.call(remote, EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDBYQUERY_BOOLEAN_STRING_STRING_OBJECTS, new Object[]{ flush, tableName, whereAndOther, params });
     }
     
-    public void findByQuery(boolean flush, String tableName, List columns, String whereAndOther, Object... params) {
+    public void findByQuery(boolean flush, String tableName, List<String> columns, String whereAndOther, Object... params) {
         localPort.call(remote, EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_FINDBYQUERY_BOOLEAN_STRING_LIST_STRING_OBJECTS, new Object[]{ flush, tableName, columns, whereAndOther, params });
     }
     
@@ -248,7 +221,7 @@ public final class DBServiceProxy extends ProxyBase {
         localPort.call(remote, EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GET_STRING_LONG, new Object[]{ tableName, id });
     }
     
-    public void get(String tableName, List ids) {
+    public void get(String tableName, List<Integer> ids) {
         localPort.call(remote, EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GET_STRING_LIST, new Object[]{ tableName, ids });
     }
     
@@ -260,7 +233,7 @@ public final class DBServiceProxy extends ProxyBase {
         localPort.call(remote, EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GETBYQUERY_BOOLEAN_STRING_STRING_OBJECTS, new Object[]{ flush, tableName, whereAndOther, params });
     }
     
-    public void getByQuery(boolean flush, String tableName, List columns, String whereAndOther, Object... params) {
+    public void getByQuery(boolean flush, String tableName, List<String> columns, String whereAndOther, Object... params) {
         localPort.call(remote, EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GETBYQUERY_BOOLEAN_STRING_LIST_STRING_OBJECTS, new Object[]{ flush, tableName, columns, whereAndOther, params });
     }
     

@@ -12,20 +12,19 @@ public class ConnStartup {
     public static Node CONN_NODE;
 
     /**
-     * @param args
-     * @throws InterruptedException
+     * @param args 入参
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         // 设置个默认值 便于系统调试
         if (args.length == 0) {
             args = new String[] { "0" };
         }
 
         // 验证参数数量
-        if (args.length < 1) {
-            System.out.println("useage: servId");
-            return;
-        }
+//        if (args.length < 1) {
+//            System.out.println("useage: servId");
+//            return;
+//        }
 
         // Log4j日志文件名称
         System.setProperty("logFileName", "conn" + args[0]);
@@ -44,9 +43,9 @@ public class ConnStartup {
 
         // 启动日志信息
         LogCore.core.info("================================================");
-        LogCore.core.info(nodeId + " started.");
-        LogCore.core.info("Listen:" + nodeAddr);
-        LogCore.core.info("ServerId:" + serverId);
+        LogCore.core.info("{} started.", nodeId);
+        LogCore.core.info("Listen:{}", nodeAddr);
+        LogCore.core.info("ServerId:{}", serverId);
         LogCore.core.info("================================================");
 
         // 系统关闭时进行清理
@@ -61,7 +60,7 @@ public class ConnStartup {
     /**
      * 启动连接服务
      * 
-     * @param node
+     * @param node 节点
      */
     public static void startup(Node node) {
         // 设置启动node

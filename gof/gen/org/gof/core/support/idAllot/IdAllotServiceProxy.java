@@ -47,7 +47,6 @@ public final class IdAllotServiceProxy extends ProxyBase {
     /**
      * 获取实例
      * 大多数情况下可用此函数获取
-     * @param localPort
      * @return
      */
     public static IdAllotServiceProxy newInstance() {
@@ -69,7 +68,6 @@ public final class IdAllotServiceProxy extends ProxyBase {
     
     /**
      * 创建实例
-     * @param localPort
      * @param node
      * @param port
      * @param id

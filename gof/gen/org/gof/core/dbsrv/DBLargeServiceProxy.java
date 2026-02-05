@@ -1,21 +1,21 @@
 package org.gof.core.dbsrv;
                     
-import java.util.List;  
-import org.gof.core.Port;
 import org.gof.core.CallPoint;
+import org.gof.core.CallReturn;
+import org.gof.core.Port;
 import org.gof.core.Service;
+import org.gof.core.gen.GofGenFile;
+import org.gof.core.gen.proxy.ProxyBase;
 import org.gof.core.support.Distr;
 import org.gof.core.support.Param;
+import org.gof.core.support.function.GofFunction2;
+import org.gof.core.support.function.GofFunction3;
+import org.gof.core.support.function.GofFunction5;
 import org.gof.core.support.log.LogCore;
-import org.gof.core.gen.proxy.ProxyBase;
-import org.gof.core.support.function.*;
-//import org.gof.core.EnumCall;
-import org.gof.core.gen.GofGenFile;
-import org.gof.core.CallReturn;
 
 @GofGenFile
 public final class DBLargeServiceProxy extends ProxyBase {
-    public final class EnumCall{
+    public static final class EnumCall{
         public static final int ORG_GOF_CORE_DBSRV_DBLARGESERVICE_COUNTANDRETURN_CALLRETURN_STRING_OBJECTS = 1;
         public static final int ORG_GOF_CORE_DBSRV_DBLARGESERVICE_EXECUTEUPDATE_STRING_OBJECTS = 2;
         public static final int ORG_GOF_CORE_DBSRV_DBLARGESERVICE_EXECUTEUPDATE_BOOLEAN_STRING_OBJECTS = 3;
@@ -60,7 +60,6 @@ public final class DBLargeServiceProxy extends ProxyBase {
     /**
      * 获取实例
      * 大多数情况下可用此函数获取
-     * @param localPort
      * @return
      */
     public static DBLargeServiceProxy newInstance() {
@@ -82,7 +81,6 @@ public final class DBLargeServiceProxy extends ProxyBase {
     
     /**
      * 创建实例
-     * @param localPort
      * @param node
      * @param port
      * @param id
@@ -98,8 +96,7 @@ public final class DBLargeServiceProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
      * @param context
      */
     public void listenResult(GofFunction2<Param, Param> method, Object...context) {
@@ -108,8 +105,7 @@ public final class DBLargeServiceProxy extends ProxyBase {
     
     /**
      * 监听返回值
-     * @param obj
-     * @param methodName
+     * @param method
      * @param context
      */
     public void listenResult(GofFunction2<Param, Param> method, Param context) {

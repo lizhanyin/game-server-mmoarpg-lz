@@ -51,8 +51,10 @@ public final class IdAllot extends EntityBase {
         }
         
         DBServiceProxy prx = DBServiceProxy.newInstance();
-        prx.insert(record);
-        
+        if (prx != null) {
+            prx.insert(record);
+        }
+
         //重置状态
         record.resetStatus();
     }
@@ -108,8 +110,10 @@ public final class IdAllot extends EntityBase {
 
         //将升级包同步至DB服务器
         DBServiceProxy prx = DBServiceProxy.newInstance();
-        prx.update(getTableName(), getId(), path, sync);
-        
+        if (prx != null) {
+            prx.update(getTableName(), getId(), path, sync);
+        }
+
         //回收缓冲包
         BufferPool.deallocate(path.buffer);
         
@@ -123,7 +127,9 @@ public final class IdAllot extends EntityBase {
     @Override
     public void remove() {
         DBServiceProxy prx = DBServiceProxy.newInstance();
-        prx.delete(getTableName(), getId());
+        if (prx != null) {
+            prx.delete(getTableName(), getId());
+        }
     }
 
     /**

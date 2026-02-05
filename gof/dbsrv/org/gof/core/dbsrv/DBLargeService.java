@@ -54,8 +54,7 @@ public class DBLargeService extends Service {
             int num = 1;
             for(Object val : params) {
                 //属性值 如果是List则判定为in语句
-                if(val instanceof Collection) {
-                    Collection<?> vals = (Collection<?>) val;
+                if(val instanceof Collection<?> vals) {
                     //设置in参数
                     for(Object v : vals) {
                         ps.setObject(num, v);
@@ -96,11 +95,9 @@ public class DBLargeService extends Service {
             }
             
             //返回值
-            Object result = null;
+            Object result;
             if(single && !results.isEmpty()) {
-                result = results.get(0);
-            } else if(single && results.isEmpty()) {
-                result = null;
+                result = results.getFirst();
             } else {
                 result = results;
             }
@@ -127,8 +124,7 @@ public class DBLargeService extends Service {
             int num = 1;
             for(Object val : params) {
                 //属性值 如果是List则判定为in语句
-                if(val instanceof Collection) {
-                    Collection<?> vals = (Collection<?>) val;
+                if(val instanceof Collection<?> vals) {
                     //设置in参数
                     for(Object v : vals) {
                         ps.setObject(num, v);
@@ -168,8 +164,8 @@ public class DBLargeService extends Service {
     /**
      * 执行SQL语句，支持?占位符
      * 一般用来执行update或insert语句
-     * @param sql
      * @param needResult 是否需要返回值通知调用者
+     * @param sql
      * @param params
      */
     @DistrMethod

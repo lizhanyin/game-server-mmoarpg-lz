@@ -14,11 +14,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URLEncoder;
-import java.security.KeyManagementException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,10 +30,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.math.NumberUtils;
@@ -43,23 +37,15 @@ import static org.apache.commons.lang3.math.NumberUtils.isCreatable;
 import org.apache.commons.lang3.reflect.ConstructorUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.apache.commons.lang3.reflect.MethodUtils;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.conn.ClientConnectionManager;
-import org.apache.http.conn.scheme.Scheme;
-import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
+import org.apache.hc.client5.http.classic.methods.HttpGet;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.entity.UrlEncodedFormEntity;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.HttpEntity;
+import org.apache.hc.core5.http.NameValuePair;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.message.BasicNameValuePair;
 import org.apache.logging.log4j.message.ParameterizedMessage;
 
 import com.alibaba.fastjson2.JSON;
@@ -837,7 +823,7 @@ public class Utils {
 
     /**
      * 进行Get请求操作
-     * 
+     *
      * @return
      */
     public static String httpGet(String url, Map<String, String> params) {
@@ -865,36 +851,34 @@ public class Utils {
                 urlStrFinal = urlStrFinal.substring(0, urlStrFinal.length() - 1);
             }
 
-            // 请求地址
+            // 使用 HttpClient 5 推荐的方式：HttpClientResponseHandler 确保自动资源释放
             HttpGet get = new HttpGet(urlStrFinal);
 
-            // 准备环境
-            try (CloseableHttpClient http = HttpClients.createDefault();
-                    CloseableHttpResponse response = http.execute(get);) {
+            try (CloseableHttpClient http = HttpClients.createDefault()) {
+                return http.execute(get, response -> {
+                    HttpEntity entity = response.getEntity();
 
-                // 返回内容
-                HttpEntity entity = response.getEntity();
-
-                // 主体数据
-                InputStream in = entity.getContent();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                // 读取
-                StringBuilder sb = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    sb.append(line);
-                }
-
-                return sb.toString();
+                    // 主体数据
+                    try (InputStream in = entity.getContent();
+                         BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
+                        // 读取
+                        StringBuilder sb = new StringBuilder();
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                            sb.append(line);
+                        }
+                        return sb.toString();
+                    }
+                });
             }
-        } catch (IOException | UnsupportedOperationException e) {
+        } catch (IOException e) {
             throw new SysException(e);
         }
     }
 
     /**
      * 通过HTTPS请求获取json格式的返回
-     * 
+     *
      * @param urlStr
      * @param data
      * @return
@@ -925,64 +909,35 @@ public class Utils {
                 urlStrFinal = urlStrFinal.substring(0, urlStrFinal.length() - 1);
             }
 
-            HttpClient httpClient = new DefaultHttpClient();
-            httpClient = wrapHttpsClient(httpClient);
-            HttpGet httpGet = new HttpGet(urlStrFinal);
-            HttpResponse response = httpClient.execute(httpGet);
-            HttpEntity httpEntity = response.getEntity();
-            if (httpEntity != null) {
-                html = EntityUtils.toString(httpEntity);
+            // 使用 HttpClient 5 推荐的方式：HttpClientResponseHandler 确保自动资源释放
+            try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+                HttpGet httpGet = new HttpGet(urlStrFinal);
+
+                // 使用 ResponseHandler 确保自动资源释放（HttpClient 5 推荐方式）
+                html = httpClient.execute(httpGet, response -> {
+                    HttpEntity httpEntity = response.getEntity();
+                    if (httpEntity != null) {
+                        return EntityUtils.toString(httpEntity);
+                    }
+                    return "";
+                });
+                return html;
             }
-            return html;
-        } catch (IOException | org.apache.http.ParseException e) {
+        } catch (IOException e) {
             throw new SysException("返回内容为:" + html, e);
-        }
-    }
-
-    /**
-     * 构造一个可以接受任意HTTPS协议的client
-     * 
-     * @param base
-     * @return
-     */
-    public static HttpClient wrapHttpsClient(HttpClient base) {
-        try {
-            SSLContext ctx = SSLContext.getInstance("TLS");
-            X509TrustManager tm = new X509TrustManager() {
-                @Override
-                public void checkClientTrusted(X509Certificate[] xcs, String string) throws CertificateException {
-                }
-
-                @Override
-                public void checkServerTrusted(X509Certificate[] xcs, String string) throws CertificateException {
-                }
-
-                @Override
-                public X509Certificate[] getAcceptedIssuers() {
-                    return null;
-                }
-            };
-            ctx.init(null, new TrustManager[] { tm }, null);
-            SSLSocketFactory ssf = new SSLSocketFactory(ctx);
-            ssf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-            ClientConnectionManager ccm = base.getConnectionManager();
-            SchemeRegistry sr = ccm.getSchemeRegistry();
-            sr.register(new Scheme("https", ssf, 443));
-            return new DefaultHttpClient(ccm, base.getParams());
-        } catch (KeyManagementException | NoSuchAlgorithmException ex) {
-            ex.printStackTrace();
-            return null;
+        } catch (Exception e) {
+            throw new SysException("HTTPS请求失败", e);
         }
     }
 
     /**
      * 进行Post请求操作
-     * 
+     *
      * @return
      */
     public static String httpPost(String url, Map<String, String> params) {
         try {
-            // 参数
+            // 参数 - 使用 HttpClient 5 的 API
             List<NameValuePair> nvps = new ArrayList<>();
             for (Entry<String, String> entry : params.entrySet()) {
                 Object key = entry.getKey();
@@ -992,31 +947,30 @@ public class Utils {
                 nvps.add(new BasicNameValuePair(key.toString(), valStr));
             }
 
-            // 请求地址
+            // 请求地址 - 使用 HttpClient 5 的 API
             HttpPost post = new HttpPost(url);
             // 设置参数
-            post.setEntity(new UrlEncodedFormEntity(nvps, "UTF-8"));
+            post.setEntity(new UrlEncodedFormEntity(nvps, StandardCharsets.UTF_8));
 
-            // 准备环境
-            try (CloseableHttpClient http = HttpClients.createDefault();
-                    CloseableHttpResponse response = http.execute(post);) {
+            // 使用 HttpClient 5 推荐的方式：HttpClientResponseHandler 确保自动资源释放
+            try (CloseableHttpClient http = HttpClients.createDefault()) {
+                return http.execute(post, response -> {
+                    HttpEntity entity = response.getEntity();
 
-                // 返回内容
-                HttpEntity entity = response.getEntity();
-
-                // 主体数据
-                InputStream in = entity.getContent();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                // 读取
-                StringBuilder sb = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    sb.append(line);
-                }
-
-                return sb.toString();
+                    // 主体数据
+                    try (InputStream in = entity.getContent();
+                         BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
+                        // 读取
+                        StringBuilder sb = new StringBuilder();
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                            sb.append(line);
+                        }
+                        return sb.toString();
+                    }
+                });
             }
-        } catch (IOException | UnsupportedOperationException e) {
+        } catch (IOException e) {
             throw new SysException(e);
         }
     }
