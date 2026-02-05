@@ -17,7 +17,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <!-- Dependency versions -->
-        <poi.version>5.3.0</poi.version>
+        <poi.version>5.4.0</poi.version>
         <fastjson.version>2.0.53</fastjson.version>
         <dom4j.version>2.1.4</dom4j.version>
         <xmlbeans.version>5.2.1</xmlbeans.version>
@@ -39,6 +39,18 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>${poi.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-lang3</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.20.0</version>
         </dependency>
 
         <!-- FastJSON for JSON processing -->

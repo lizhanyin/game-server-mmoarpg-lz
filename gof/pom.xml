@@ -27,7 +27,7 @@
         <jeromq.version>0.6.0</jeromq.version>
         <fastjson2.version>2.0.54</fastjson2.version>
         <httpclient4.version>4.5.14</httpclient4.version>
-        <httpclient5.version>5.4</httpclient5.version>
+        <httpclient5.version>5.4.3</httpclient5.version>
         <quartz.version>2.5.0</quartz.version>
         <javassist.version>3.30.2-GA</javassist.version>
         <freemarker.version>2.3.34</freemarker.version>
@@ -100,12 +100,6 @@
         </dependency>
 
         <!-- HttpClient -->
-        <!-- HttpClient 4 (保留用于现有代码兼容) -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>${httpclient4.version}</version>
-        </dependency>
         <!-- HttpClient 5 (新代码推荐使用) -->
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
@@ -149,8 +143,6 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>src</sourceDirectory>
-
         <plugins>
             <!-- Build Helper Maven Plugin -->
             <plugin>

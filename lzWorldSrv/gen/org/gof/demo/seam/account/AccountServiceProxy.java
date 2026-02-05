@@ -13,7 +13,7 @@ import org.gof.core.support.function.GofFunction3;
 
 @GofGenFile
 public final class AccountServiceProxy extends ProxyBase {
-    public final class EnumCall{
+    public static final class EnumCall{
         public static final int ORG_GOF_DEMO_SEAM_ACCOUNT_ACCOUNTSERVICE_CONNCHECK_LONG = 1;
         public static final int ORG_GOF_DEMO_SEAM_ACCOUNT_ACCOUNTSERVICE_CONNCLOSED_LONG = 2;
         public static final int ORG_GOF_DEMO_SEAM_ACCOUNT_ACCOUNTSERVICE_MSGHANDLER_LONG_CONNECTIONSTATUS_BYTES = 3;

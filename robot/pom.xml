@@ -20,7 +20,7 @@
         <maven.compiler.target>25</maven.compiler.target>
 
         <!-- 依赖版本 -->
-        <log4j.version>2.24.3</log4j.version>
+        <log4j.version>2.25.3</log4j.version>
         <slf4j.version>2.0.16</slf4j.version>
         <netty.version>4.2.9.Final</netty.version>
         <protobuf.version>4.29.3</protobuf.version>
@@ -35,7 +35,7 @@
         <!-- GOF 核心框架 -->
         <dependency>
             <groupId>org.gof</groupId>
-            <artifactId>core</artifactId>
+            <artifactId>platform</artifactId>
             <version>1.0.0</version>
         </dependency>
 

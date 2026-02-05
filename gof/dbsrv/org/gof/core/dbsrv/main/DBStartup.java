@@ -54,7 +54,7 @@ public class DBStartup {
         //启动日志信息
         LogCore.core.info("================================================");
         LogCore.core.info("pwdbsrv started.");
-        LogCore.core.info("Listen:" + Distr.getNodeAddr(Distr.NODE_DB));
+        LogCore.core.info("Listen:{}", Distr.getNodeAddr(Distr.NODE_DB));
         LogCore.core.info("================================================");
         
         //系统关闭时进行清理
