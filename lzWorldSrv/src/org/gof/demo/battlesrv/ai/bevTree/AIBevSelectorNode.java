@@ -9,16 +9,16 @@ import org.gof.core.support.Param;
  */
 public class AIBevSelectorNode extends AIBevNodeControl{
 
-	@Override
-	public boolean execute(Param param) {
+    @Override
+    public boolean execute(Param param) {
         boolean result = false;
         for (AIBevLeaf iterable_element : child) {
-        	if(iterable_element.executeLogic(param)) {
-        		return true;
-        	}
-		}
+            if(iterable_element.executeLogic(param)) {
+                return true;
+            }
+        }
         return result;
-	}
-	
+    }
+    
 
 }

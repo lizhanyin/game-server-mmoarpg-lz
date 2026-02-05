@@ -18,31 +18,31 @@ import org.gof.demo.worldsrv.stage.StageManager;
  */
 public class AIBevActMoveTarObj extends AIBevLeaf {
 
-	private double dis = 0;
-	public AIBevActMoveTarObj(AI ai, double dis) {
-		this.ai = ai;
-		this.dis = dis;
-	}
+    private double dis = 0;
+    public AIBevActMoveTarObj(AI ai, double dis) {
+        this.ai = ai;
+        this.dis = dis;
+    }
 
-	@Override
-	public boolean execute(Param param) {
-		UnitObject unitObj = ai.targetObj;
-		if(unitObj != null) {
-			double dis = ai.unitObj.posNow.distance(unitObj.posNow);
-			Vector2D tarPos = Vector2D.lookAtDis(ai.unitObj.posNow, unitObj.posNow, ai.unitObj.posNow, dis - this.dis);
-			if(ai.unitObj.posNow.distance(tarPos) < 0.1) {
-				return true;
-			}
+    @Override
+    public boolean execute(Param param) {
+        UnitObject unitObj = ai.targetObj;
+        if(unitObj != null) {
+            double dis = ai.unitObj.posNow.distance(unitObj.posNow);
+            Vector2D tarPos = Vector2D.lookAtDis(ai.unitObj.posNow, unitObj.posNow, ai.unitObj.posNow, dis - this.dis);
+            if(ai.unitObj.posNow.distance(tarPos) < 0.1) {
+                return true;
+            }
 
-			Vector3D dir = new Vector3D();
-			List<Vector3D> path = Utils.ofList(StageManager.getHeight(ai.unitObj.stageObj.sn, tarPos));
-			ai.unitObj.move(StageManager.getHeight(ai.unitObj.stageObj.sn, ai.unitObj.posNow), path, dir, false);
-			return true;
-			
-			
-		} else {
-			return false;
-		}
-	}
+            Vector3D dir = new Vector3D();
+            List<Vector3D> path = Utils.ofList(StageManager.getHeight(ai.unitObj.stageObj.sn, tarPos));
+            ai.unitObj.move(StageManager.getHeight(ai.unitObj.stageObj.sn, ai.unitObj.posNow), path, dir, false);
+            return true;
+            
+            
+        } else {
+            return false;
+        }
+    }
 
 }

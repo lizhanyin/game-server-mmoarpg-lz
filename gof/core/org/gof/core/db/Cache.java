@@ -5,6 +5,6 @@ package org.gof.core.db;
  * 因为开放后的危险性，暂定屏蔽此功能。
  */
 public enum Cache {
-	TRUE,
-	FALSE
+    TRUE,
+    FALSE
 }

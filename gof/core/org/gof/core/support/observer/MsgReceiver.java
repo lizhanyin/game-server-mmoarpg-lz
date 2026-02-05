@@ -10,5 +10,5 @@ import com.google.protobuf.GeneratedMessage;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface MsgReceiver {
-	Class<? extends GeneratedMessage>[] value();
+    Class<? extends GeneratedMessage>[] value();
 }

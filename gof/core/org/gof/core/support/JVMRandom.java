@@ -66,6 +66,7 @@ public final class JVMRandom extends Random {
      * @param seed ignored
      * @throws UnsupportedOperationException
      */
+    @Override
     public synchronized void setSeed(long seed) {
         if (this.constructed) {
             throw new UnsupportedOperationException();
@@ -78,6 +79,7 @@ public final class JVMRandom extends Random {
      * @return Nothing, this method always throws an UnsupportedOperationException.
      * @throws UnsupportedOperationException
      */
+    @Override
     public synchronized double nextGaussian() {
         throw new UnsupportedOperationException();
     }
@@ -88,6 +90,7 @@ public final class JVMRandom extends Random {
      * @param byteArray ignored
      * @throws UnsupportedOperationException
      */
+    @Override
     public void nextBytes(byte[] byteArray) {
         throw new UnsupportedOperationException();
     }
@@ -101,6 +104,7 @@ public final class JVMRandom extends Random {
      * </p>
      * @return the random int
      */
+    @Override
     public int nextInt() {
         return nextInt(Integer.MAX_VALUE);
     }
@@ -114,6 +118,7 @@ public final class JVMRandom extends Random {
      * @return the random int
      * @throws IllegalArgumentException when <code>n &lt;= 0</code>
      */
+    @Override
     public int nextInt(int n) {
         return SHARED_RANDOM.nextInt(n);
     }
@@ -127,6 +132,7 @@ public final class JVMRandom extends Random {
      * </p>
      * @return the random long
      */
+    @Override
     public long nextLong() {
         return nextLong(Long.MAX_VALUE);
     }
@@ -141,7 +147,8 @@ public final class JVMRandom extends Random {
      * @return the random long
      * @throws IllegalArgumentException when <code>n &lt;= 0</code>
      */
-    public static long nextLong(long n) {
+    @Override
+    public long nextLong(long n) {
         if (n <= 0) {
             throw new IllegalArgumentException(
                 "Upper bound for nextInt must be positive"
@@ -169,6 +176,7 @@ public final class JVMRandom extends Random {
      *
      * @return the random boolean
      */
+    @Override
     public boolean nextBoolean() {
         return SHARED_RANDOM.nextBoolean();
     }
@@ -180,6 +188,7 @@ public final class JVMRandom extends Random {
      *
      * @return the random float
      */
+    @Override
     public float nextFloat() {
         return SHARED_RANDOM.nextFloat();
     }
@@ -189,6 +198,7 @@ public final class JVMRandom extends Random {
      *
      * @return the random double
      */
+    @Override
     public double nextDouble() {
         return SHARED_RANDOM.nextDouble();
     }

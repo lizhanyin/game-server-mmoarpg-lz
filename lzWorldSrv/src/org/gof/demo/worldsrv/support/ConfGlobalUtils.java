@@ -5,14 +5,14 @@ import org.gof.demo.worldsrv.support.enumKey.ConfGlobalKey;
 
 public class ConfGlobalUtils {
 
-	private ConfGlobalUtils() { }
+    private ConfGlobalUtils() { }
 
-	public static String getStrValue(ConfGlobalKey key) {
-		return ConfGolbal.get(key.SN).strValue;
-	}
+    public static String getStrValue(ConfGlobalKey key) {
+        return ConfGolbal.get(key.SN).strValue;
+    }
 
-	public static int getValue(ConfGlobalKey key) {
-		return ConfGolbal.get(key.SN).value;
-	}
+    public static int getValue(ConfGlobalKey key) {
+        return ConfGolbal.get(key.SN).value;
+    }
 
 }

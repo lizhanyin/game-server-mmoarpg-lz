@@ -14,12 +14,12 @@ import org.gof.demo.battlesrv.stageObj.UnitObject;
  */
 public abstract class AbstractSkillLogicPassive extends AbstractSkillLogic{
 
-	public abstract boolean canTrigger(SkillEventKey key, boolean isAtker);
-	
-	/**
-	 * 被动技能
-	 * @param skillParamVO
-	 */
-	public abstract void trigger(SkillEventKey key, UnitObject tarUnit,  SkillParam position, SkillParamVO skillParamVO);
-	
+    public abstract boolean canTrigger(SkillEventKey key, boolean isAtker);
+    
+    /**
+     * 被动技能
+     * @param skillParamVO
+     */
+    public abstract void trigger(SkillEventKey key, UnitObject tarUnit,  SkillParam position, SkillParamVO skillParamVO);
+    
 }

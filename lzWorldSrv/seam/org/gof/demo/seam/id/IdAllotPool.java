@@ -10,11 +10,11 @@ import org.gof.demo.worldsrv.support.C;
  */
 public class IdAllotPool extends IdAllotPoolBase {
 
-	public IdAllotPool(Port port) {
-		super(port, C.GAME_PLATFORM_ID, C.GAME_SERVER_ID);
-	}
-	
-	public IdAllotPool(Port port, int applyNum, int warnNum) {
-		super(port, C.GAME_PLATFORM_ID, C.GAME_SERVER_ID, applyNum, warnNum);
-	}
+    public IdAllotPool(Port port) {
+        super(port, C.GAME_PLATFORM_ID, C.GAME_SERVER_ID);
+    }
+    
+    public IdAllotPool(Port port, int applyNum, int warnNum) {
+        super(port, C.GAME_PLATFORM_ID, C.GAME_SERVER_ID, applyNum, warnNum);
+    }
 }

@@ -5,36 +5,37 @@ import java.io.IOException;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.gof.core.InputStream;
 import org.gof.core.OutputStream;
-import org.gof.core.interfaces.ISerilizable;
+import org.gof.core.interfaces.ISerializable;
 
-public class Field implements ISerilizable {
-	public String name;				//字段名称 实体与数据库相同
-	public int columnType;			//数据库字段类型
-	public int columnLen;			//数据库字段长度
-	public int entityType;			//实体字段类型
-	
+public class Field implements ISerializable {
+    public String name;           // 字段名称 实体与数据库相同
+    public int columnType;        // 数据库字段类型
+    public int columnLen;         // 数据库字段长度
+    public int entityType;        // 实体字段类型
 
-	public void writeTo(OutputStream stream) throws IOException {
-		stream.write(name);
-		stream.write(columnType);
-		stream.write(columnLen);
-		stream.write(entityType);
-	}
-	
-	public void readFrom(InputStream stream) throws IOException {
-		name = stream.read();
-		columnType = stream.read();
-		columnLen = stream.read();
-		entityType = stream.read();
-	}
-	
-	@Override
-	public String toString() {
-		return new ToStringBuilder(this)
-				.append("name", name)
-				.append("columnType", columnType)
-				.append("columnLen", columnLen)
-				.append("entityType", entityType)
-				.toString();
-	}
+    @Override
+    public void writeTo(OutputStream stream) throws IOException {
+        stream.write(name);
+        stream.write(columnType);
+        stream.write(columnLen);
+        stream.write(entityType);
+    }
+
+    @Override
+    public void readFrom(InputStream stream) throws IOException {
+        name = stream.read();
+        columnType = stream.read();
+        columnLen = stream.read();
+        entityType = stream.read();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("name", name)
+                .append("columnType", columnType)
+                .append("columnLen", columnLen)
+                .append("entityType", entityType)
+                .toString();
+    }
 }

@@ -13,35 +13,35 @@ import org.gof.demo.worldsrv.config.ConfSkillEffect;
  *子弹
  */
 public class SkillLogic004 extends AbstractSkillLogicActive{
-public int bulletSn;					
-	
-	@Override
-	public void init(SkillCommon skillCommon, ConfSkillEffect conf) {
-		//父类方法初始化了范围前三个参数
-		super.init(skillCommon, conf);
-		bulletSn = Utils.intValue(conf.param1);
-	}
-	
-	@Override
-	public void doSkillEffect(SkillParam position) {
-		UnitObject uo = skill.unitObj;
-		if(uo == null || uo.isDie()) {
-			return;
-		}
-		
-		Vector2D vec = position.tarPos;
-		UnitObject unitObj = position.tarUo;
-		
-		if(conf.targetSelf) {
-			vec = skill.unitObj.posNow;
-			unitObj = skill.unitObj;
-		}
-		
-		BulletManager.inst().create(skill.unitObj.stageObj, bulletSn, skill.confSkill.sn ,skill.unitObj, skill.unitObj, unitObj, vec);
-	}
+public int bulletSn;                    
+    
+    @Override
+    public void init(SkillCommon skillCommon, ConfSkillEffect conf) {
+        //父类方法初始化了范围前三个参数
+        super.init(skillCommon, conf);
+        bulletSn = Utils.intValue(conf.param1);
+    }
+    
+    @Override
+    public void doSkillEffect(SkillParam position) {
+        UnitObject uo = skill.unitObj;
+        if(uo == null || uo.isDie()) {
+            return;
+        }
+        
+        Vector2D vec = position.tarPos;
+        UnitObject unitObj = position.tarUo;
+        
+        if(conf.targetSelf) {
+            vec = skill.unitObj.posNow;
+            unitObj = skill.unitObj;
+        }
+        
+        BulletManager.inst().create(skill.unitObj.stageObj, bulletSn, skill.confSkill.sn ,skill.unitObj, skill.unitObj, unitObj, vec);
+    }
 
-	@Override
-	public void doSkillEffectToTar(UnitObject unitDef) {
-		
-	}
+    @Override
+    public void doSkillEffectToTar(UnitObject unitDef) {
+        
+    }
 }

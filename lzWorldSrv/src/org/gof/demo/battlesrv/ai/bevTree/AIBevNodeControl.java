@@ -10,12 +10,12 @@ import java.util.List;
  */
 public abstract class AIBevNodeControl extends AIBevLeaf{
 
-	protected List<AIBevLeaf> child = new ArrayList<AIBevLeaf>();
+    protected List<AIBevLeaf> child = new ArrayList<AIBevLeaf>();
 
-	public void addChild(AIBevLeaf leaf) {
-		child.add(leaf);
-	}
-	public void clear() {
-		child.clear();
-	}
+    public void addChild(AIBevLeaf leaf) {
+        child.add(leaf);
+    }
+    public void clear() {
+        child.clear();
+    }
 }

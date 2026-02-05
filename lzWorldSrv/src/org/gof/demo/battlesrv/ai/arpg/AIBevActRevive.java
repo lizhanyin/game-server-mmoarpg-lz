@@ -15,28 +15,28 @@ import org.gof.demo.worldsrv.support.Log;
  */
 public class AIBevActRevive extends AIBevLeaf {
 
-	public AIBevActRevive(AI ai) {
-		this.ai = ai;
-	}
-	
-	@Override
-	public boolean execute(Param param) {
-		rebirth(ai.unitObj);
-		return true;
-	}	
-	
-	public void rebirth(UnitObject unitObj) {
-		// 重设出生点，血量，攻击目标等
-		unitObj.getUnit().setHpCur(unitObj.getUnit().getHpMax());
-		unitObj.posNow.set(unitObj.posBegin);
+    public AIBevActRevive(AI ai) {
+        this.ai = ai;
+    }
+    
+    @Override
+    public boolean execute(Param param) {
+        rebirth(ai.unitObj);
+        return true;
+    }    
+    
+    public void rebirth(UnitObject unitObj) {
+        // 重设出生点，血量，攻击目标等
+        unitObj.getUnit().setHpCur(unitObj.getUnit().getHpMax());
+        unitObj.posNow.set(unitObj.posBegin);
 
-		unitObj.stageShow();
-		
-		ai.behavior = AIBehaviorKey.NORMAL;
+        unitObj.stageShow();
+        
+        ai.behavior = AIBehaviorKey.NORMAL;
 
-		if (unitObj.isInWorld() == false) {
-			Log.temp.info(ExceptionUtils.getStackTrace(new Throwable()));
-		}
-		
-	}
+        if (unitObj.isInWorld() == false) {
+            Log.temp.info(ExceptionUtils.getStackTrace(new Throwable()));
+        }
+        
+    }
 }

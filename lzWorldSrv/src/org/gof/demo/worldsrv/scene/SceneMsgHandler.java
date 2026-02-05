@@ -12,28 +12,28 @@ import org.gof.demo.worldsrv.msg.Msg.CSSceneTrigger;
  * @author GaoZhangCheng
  */
 public class SceneMsgHandler {
-	
-	/**
-	 * 前端激活触发
-	 * @param param
-	 */
-	@MsgReceiver(CSSceneTrigger.class)
-	public void onCSSceneTrigger(MsgParam param) {
-		HumanObject humanObj = param.getHumanObject();
-		
-		CSSceneTrigger msg = param.getMsg();
-		SceneManager.inst().clientDoTrigger(humanObj.stageObj, msg.getPoltId(), msg.getTriggerId());
-	}
-	
-	/**
-	 * 前端完成事件
-	 * @param param
-	 */
-	@MsgReceiver(CSSceneEvent.class)
-	public void onCSSceneEvent(MsgParam param) {
-		HumanObject humanObj = param.getHumanObject();
-		
-		CSSceneEvent msg = param.getMsg();
-		SceneManager.inst().finishEvent(msg.getEventId(), msg.getPoltId(), humanObj.stageObj);
-	}
+    
+    /**
+     * 前端激活触发
+     * @param param
+     */
+    @MsgReceiver(CSSceneTrigger.class)
+    public void onCSSceneTrigger(MsgParam param) {
+        HumanObject humanObj = param.getHumanObject();
+        
+        CSSceneTrigger msg = param.getMsg();
+        SceneManager.inst().clientDoTrigger(humanObj.stageObj, msg.getPoltId(), msg.getTriggerId());
+    }
+    
+    /**
+     * 前端完成事件
+     * @param param
+     */
+    @MsgReceiver(CSSceneEvent.class)
+    public void onCSSceneEvent(MsgParam param) {
+        HumanObject humanObj = param.getHumanObject();
+        
+        CSSceneEvent msg = param.getMsg();
+        SceneManager.inst().finishEvent(msg.getEventId(), msg.getPoltId(), humanObj.stageObj);
+    }
 }

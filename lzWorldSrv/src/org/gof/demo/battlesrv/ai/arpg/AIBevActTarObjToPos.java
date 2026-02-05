@@ -13,24 +13,24 @@ import org.gof.demo.worldsrv.character.GeneralObject;
  * @author GaoZhangCheng
  */
 public class AIBevActTarObjToPos extends AIBevLeaf {
-	private double dis = 0;
-	public AIBevActTarObjToPos(AI ai, double dis) {
-		this.ai = ai;
-		this.dis = dis;
-	}
+    private double dis = 0;
+    public AIBevActTarObjToPos(AI ai, double dis) {
+        this.ai = ai;
+        this.dis = dis;
+    }
 
-	@Override
-	public boolean execute(Param param) {
-		
-		UnitObject unitObj = ai.targetObj;
-		if(unitObj != null) {
-			double dis = ai.unitObj.posNow.distance(unitObj.posNow);
-			ai.tarMovePos = Vector2D.lookAtDis(ai.unitObj.posNow, unitObj.posNow, ai.unitObj.posNow, dis - this.dis);
-			return true;
-			
-			
-		} else {
-			return false;
-		}
-	}
+    @Override
+    public boolean execute(Param param) {
+        
+        UnitObject unitObj = ai.targetObj;
+        if(unitObj != null) {
+            double dis = ai.unitObj.posNow.distance(unitObj.posNow);
+            ai.tarMovePos = Vector2D.lookAtDis(ai.unitObj.posNow, unitObj.posNow, ai.unitObj.posNow, dis - this.dis);
+            return true;
+            
+            
+        } else {
+            return false;
+        }
+    }
 }

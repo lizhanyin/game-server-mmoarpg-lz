@@ -21,46 +21,46 @@ import com.pwrd.core.support.ConfigJSON;
  */
 @ConfigJSON
 public class ${entityName} {
-	
-	private static final Map<${idType}, ${entityName}> datas = new HashMap<>();
-	private static final List<${entityName}> values = new ArrayList<>();
+    
+    private static final Map<${idType}, ${entityName}> datas = new HashMap<>();
+    private static final List<${entityName}> values = new ArrayList<>();
 
-	public static ${entityName} getDataBySN(${idType} SN) {
-		return datas.get(SN);
-	}
-	
-	public static List<${entityName}> getValues() {
-		return values;
-	}
-	
-	<#-- 字段 -->
-	<#list properties as prop>
-	public final ${prop.type} ${prop.name};				//${prop.note}
+    public static ${entityName} getDataBySN(${idType} SN) {
+        return datas.get(SN);
+    }
+    
+    public static List<${entityName}> getValues() {
+        return values;
+    }
+    
+    <#-- 字段 -->
+    <#list properties as prop>
+    public final ${prop.type} ${prop.name};                //${prop.note}
     </#list>
 
-	<#-- 构造方法 -->
-	public ${entityName}(${paramMethod}) {
-	<#list properties as prop>
-		this.${prop.name} = ${prop.name};			
+    <#-- 构造方法 -->
+    public ${entityName}(${paramMethod}) {
+    <#list properties as prop>
+        this.${prop.name} = ${prop.name};            
     </#list>
-	}
-	
-	<#-- 初始化 -->
-	public static void init() {
-		String confJson = ${entityName}.readConfFile();
-		
-		JSONArray confs = (JSONArray)JSONArray.parse(confJson);
-		for(int i = 0 ; i < confs.size() ; i++){
-			JSONObject conf = confs.getJSONObject(i);
-			${entityName} object = new ${entityName}(${paramInit});
-			values.add(object);
-			datas.put(conf.get${idType}("sn"), object);
-		}
-	}
-	
-	<#-- 读取游戏配置 -->
-	private static String readConfFile() {
-		String baseBath = ${entityName}.class.getResource("").getPath();
+    }
+    
+    <#-- 初始化 -->
+    public static void init() {
+        String confJson = ${entityName}.readConfFile();
+        
+        JSONArray confs = (JSONArray)JSONArray.parse(confJson);
+        for(int i = 0 ; i < confs.size() ; i++){
+            JSONObject conf = confs.getJSONObject(i);
+            ${entityName} object = new ${entityName}(${paramInit});
+            values.add(object);
+            datas.put(conf.get${idType}("sn"), object);
+        }
+    }
+    
+    <#-- 读取游戏配置 -->
+    private static String readConfFile() {
+        String baseBath = ${entityName}.class.getResource("").getPath();
         File file = new File(baseBath + "json/${entityName}.json");
        
         String result = "";
@@ -69,7 +69,7 @@ public class ${entityName} {
             String tempString = "";
             <#-- 一次读一行 -->
             while ((tempString = reader.readLine()) != null) {
-            	result += tempString;
+                result += tempString;
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -12,20 +12,20 @@ import org.gof.demo.battlesrv.stageObj.UnitObject;
  */
 public class AIBevConditionDie extends AIBevLeaf{
 
-	public AIBevConditionDie(AI ai, boolean logic) {
-		this.ai = ai;
-		nonLogic = logic;
-	}
-	public AIBevConditionDie(AI ai) {
-		this.ai = ai;
-	}
-	
+    public AIBevConditionDie(AI ai, boolean logic) {
+        this.ai = ai;
+        nonLogic = logic;
+    }
+    public AIBevConditionDie(AI ai) {
+        this.ai = ai;
+    }
+    
 
-	@Override
-	public boolean execute(Param param) {
-		
-		UnitObject monObj = ai.unitObj;
-		return monObj.isDie();
-		
-	}
+    @Override
+    public boolean execute(Param param) {
+        
+        UnitObject monObj = ai.unitObj;
+        return monObj.isDie();
+        
+    }
 }

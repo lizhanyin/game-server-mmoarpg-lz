@@ -11,16 +11,16 @@ import org.gof.demo.battlesrv.manager.StageBattleManager;
  * @author GaoZhangCheng
  */
 public class AIBevActGetRandPos extends AIBevLeaf {
-	private double radius = 0;
-	public AIBevActGetRandPos(AI ai, double radius) {
-		this.ai = ai;
-		this.radius = radius;
-	}
+    private double radius = 0;
+    public AIBevActGetRandPos(AI ai, double radius) {
+        this.ai = ai;
+        this.radius = radius;
+    }
 
-	@Override
-	public boolean execute(Param param) {
-		ai.tarMovePos = StageBattleManager.inst().randomPosInCircle(ai.unitObj.stageObj, ai.unitObj.posBegin, 0, radius);
-		return true;
-	}
+    @Override
+    public boolean execute(Param param) {
+        ai.tarMovePos = StageBattleManager.inst().randomPosInCircle(ai.unitObj.stageObj, ai.unitObj.posBegin, 0, radius);
+        return true;
+    }
 
 }

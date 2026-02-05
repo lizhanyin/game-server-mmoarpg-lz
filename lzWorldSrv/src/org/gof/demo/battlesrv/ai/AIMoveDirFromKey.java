@@ -6,7 +6,7 @@ package org.gof.demo.battlesrv.ai;
  * @author GaoZhangCheng
  */
 public enum AIMoveDirFromKey {
-	FromNon,
-	FromLeft,
-	FromRight,
+    FromNon,
+    FromLeft,
+    FromRight,
 }

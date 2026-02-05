@@ -9,5 +9,5 @@ package org.gof.demo.battlesrv.skill.logic;
  */
 public abstract class AbstractSkillLogicActive extends AbstractSkillLogic{
 
-	
+    
 }

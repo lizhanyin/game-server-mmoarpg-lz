@@ -14,43 +14,43 @@ import org.gof.demo.worldsrv.config.ConfSkillEffect;
  *
  */
 public class SkillLogic102 extends AbstractSkillLogicPassive{
-	public double bloodSuckPct;	//吸血百分比
-	
-	@Override
-	public void init(SkillCommon skillCommon, ConfSkillEffect conf) {
-		super.init(skillCommon, conf);
-		bloodSuckPct = Utils.doubleValue(conf.param1) / 10000D;
-	}
+    public double bloodSuckPct;    //吸血百分比
+    
+    @Override
+    public void init(SkillCommon skillCommon, ConfSkillEffect conf) {
+        super.init(skillCommon, conf);
+        bloodSuckPct = Utils.doubleValue(conf.param1) / 10000D;
+    }
 
-	@Override
-	public void doSkillEffectToTar(UnitObject unitObjDef) {
+    @Override
+    public void doSkillEffectToTar(UnitObject unitObjDef) {
 
-	}
+    }
 
-	@Override
-	public boolean canTrigger(SkillEventKey key, boolean isAtker) {
-		//必须是放技能结束前
-		if(key != SkillEventKey.EVENT_ON_SKILL_END) {
-			return false;
-		}
-		
-		//必须是攻击方检查
-		if(!isAtker) {
-			return false;
-		}
-		
-		
-		return true;
-	}
+    @Override
+    public boolean canTrigger(SkillEventKey key, boolean isAtker) {
+        //必须是放技能结束前
+        if(key != SkillEventKey.EVENT_ON_SKILL_END) {
+            return false;
+        }
+        
+        //必须是攻击方检查
+        if(!isAtker) {
+            return false;
+        }
+        
+        
+        return true;
+    }
 
-	@Override
-	public void trigger(SkillEventKey key, UnitObject tarUnit, SkillParam position, SkillParamVO skillParamVO) {
-		UnitObject uo = skill.unitObj;
-		if(uo == null || uo.isDie()) {
-			return;
-		}
-		skillParamVO.bloodSuckPct += bloodSuckPct;
-	}
+    @Override
+    public void trigger(SkillEventKey key, UnitObject tarUnit, SkillParam position, SkillParamVO skillParamVO) {
+        UnitObject uo = skill.unitObj;
+        if(uo == null || uo.isDie()) {
+            return;
+        }
+        skillParamVO.bloodSuckPct += bloodSuckPct;
+    }
 
 
 }
