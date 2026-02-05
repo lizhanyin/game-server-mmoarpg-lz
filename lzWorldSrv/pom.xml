@@ -18,6 +18,32 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
+
+        <!-- 依赖版本 -->
+        <gof.platform.version>1.0.0</gof.platform.version>
+        <log4j.version>2.24.3</log4j.version>
+        <slf4j.version>2.0.16</slf4j.version>
+        <commons-lang3.version>3.17.0</commons-lang3.version>
+        <commons-collections.version>3.2.1</commons-collections.version>
+        <commons-beanutils.version>1.8.3</commons-beanutils.version>
+        <commons-logging.version>1.2</commons-logging.version>
+        <netty.version>4.2.9.Final</netty.version>
+        <httpclient5.version>5.4</httpclient5.version>
+        <httpcore5.version>5.4</httpcore5.version>
+        <protobuf.version>4.29.3</protobuf.version>
+        <fastjson2.version>2.0.54</fastjson2.version>
+        <fastjson1.version>1.2.83</fastjson1.version>
+        <mysql.version>8.0.33</mysql.version>
+        <freemarker.version>2.3.34</freemarker.version>
+        <quartz.version>2.5.0</quartz.version>
+        <dom4j.version>2.1.4</dom4j.version>
+        <javassist.version>3.30.2-GA</javassist.version>
+        <jeromq.version>0.6.0</jeromq.version>
+
+        <!-- 插件版本 -->
+        <build-helper-maven-plugin.version>3.6.0</build-helper-maven-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
     </properties>
 
     <dependencies>
@@ -25,7 +51,7 @@
         <dependency>
             <groupId>org.gof</groupId>
             <artifactId>platform</artifactId>
-            <version>1.0.0</version>
+            <version>${gof.platform.version}</version>
         </dependency>
 
         <!-- ================ 日志框架 ================ -->
@@ -33,28 +59,28 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.16</version>
+            <version>${slf4j.version}</version>
         </dependency>
 
         <!-- Log4j SLF4J 绑定 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j2-impl</artifactId>
-            <version>2.24.3</version>
+            <version>${log4j.version}</version>
         </dependency>
 
         <!-- Log4j Core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.24.3</version>
+            <version>${log4j.version}</version>
         </dependency>
 
         <!-- Log4j API -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.24.3</version>
+            <version>${log4j.version}</version>
         </dependency>
 
         <!-- ================ Apache Commons ================ -->
@@ -62,28 +88,28 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.17.0</version>
+            <version>${commons-lang3.version}</version>
         </dependency>
 
         <!-- Commons Collections -->
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
-            <version>3.2.1</version>
+            <version>${commons-collections.version}</version>
         </dependency>
 
         <!-- Commons BeanUtils -->
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <version>1.8.3</version>
+            <version>${commons-beanutils.version}</version>
         </dependency>
 
         <!-- Commons Logging -->
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
+            <version>${commons-logging.version}</version>
         </dependency>
 
         <!-- ================ 网络与通信 ================ -->
@@ -91,21 +117,21 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.2.9.Final</version>
+            <version>${netty.version}</version>
         </dependency>
 
-        <!-- Apache HttpClient 5 -->
+        <!-- Apache HttpClient 5 (推荐使用) -->
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5</artifactId>
-            <version>5.4</version>
+            <version>${httpclient5.version}</version>
         </dependency>
 
-        <!-- Apache HttpCore 5 -->
+        <!-- Apache HttpCore 5 (推荐使用) -->
         <dependency>
             <groupId>org.apache.httpcomponents.core5</groupId>
             <artifactId>httpcore5</artifactId>
-            <version>5.4</version>
+            <version>${httpcore5.version}</version>
         </dependency>
 
         <!-- ================ 数据库 ================ -->
@@ -113,7 +139,7 @@
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
-            <version>8.0.33</version>
+            <version>${mysql.version}</version>
         </dependency>
 
         <!-- ================ 序列化与 JSON ================ -->
@@ -121,14 +147,21 @@
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>4.29.3</version>
+            <version>${protobuf.version}</version>
         </dependency>
 
-        <!-- FastJSON -->
+        <!-- FastJSON2 (推荐使用) -->
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
-            <version>2.0.54</version>
+            <version>${fastjson2.version}</version>
+        </dependency>
+
+        <!-- FastJSON 1.x (向后兼容) -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson1.version}</version>
         </dependency>
 
         <!-- ================ 模板引擎 ================ -->
@@ -136,7 +169,7 @@
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-            <version>2.3.34</version>
+            <version>${freemarker.version}</version>
         </dependency>
 
         <!-- ================ 调度任务 ================ -->
@@ -144,14 +177,14 @@
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>2.5.0</version>
+            <version>${quartz.version}</version>
         </dependency>
 
         <!-- Quartz Jobs -->
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz-jobs</artifactId>
-            <version>2.5.0</version>
+            <version>${quartz.version}</version>
         </dependency>
 
         <!-- ================ XML 解析 ================ -->
@@ -159,7 +192,7 @@
         <dependency>
             <groupId>org.dom4j</groupId>
             <artifactId>dom4j</artifactId>
-            <version>2.1.4</version>
+            <version>${dom4j.version}</version>
         </dependency>
 
         <!-- ================ 字节码操作 ================ -->
@@ -167,7 +200,7 @@
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.30.2-GA</version>
+            <version>${javassist.version}</version>
         </dependency>
 
         <!-- ================ 消息队列 ================ -->
@@ -175,7 +208,7 @@
         <dependency>
             <groupId>org.zeromq</groupId>
             <artifactId>jeromq</artifactId>
-            <version>0.6.0</version>
+            <version>${jeromq.version}</version>
         </dependency>
     </dependencies>
 
@@ -187,7 +220,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>${build-helper-maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>add-source</id>
@@ -209,7 +242,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
@@ -221,7 +254,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.2</version>
+                <version>${maven-jar-plugin.version}</version>
                 <configuration>
                     <archive>
                         <manifest>
