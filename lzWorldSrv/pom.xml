@@ -24,7 +24,7 @@
         <log4j.version>2.25.3</log4j.version>
         <slf4j.version>2.0.16</slf4j.version>
         <commons-lang3.version>3.18.0</commons-lang3.version>
-        <commons-collections.version>20040102.233541</commons-collections.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
         <commons-beanutils.version>1.11.0</commons-beanutils.version>
         <commons-logging.version>1.2</commons-logging.version>
         <netty.version>4.2.9.Final</netty.version>
@@ -32,7 +32,6 @@
         <httpcore5.version>5.4</httpcore5.version>
         <protobuf.version>4.29.3</protobuf.version>
         <fastjson2.version>2.0.54</fastjson2.version>
-        <fastjson1.version>1.2.83</fastjson1.version>
         <mysql.version>9.3.0</mysql.version>
         <freemarker.version>2.3.34</freemarker.version>
         <quartz.version>2.5.0</quartz.version>
@@ -157,12 +156,6 @@
             <version>${fastjson2.version}</version>
         </dependency>
 
-        <!-- FastJSON 1.x (向后兼容) -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson1.version}</version>
-        </dependency>
 
         <!-- ================ 模板引擎 ================ -->
         <!-- FreeMarker -->

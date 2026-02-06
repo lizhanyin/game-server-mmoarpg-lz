@@ -786,6 +786,12 @@ message CSStageMoveStop {
   optional DVector3 dir = 2;
 }
 
+// 副本移动2
+message CSStageMove2 {
+  optional DVector2 posBegin = 1;  // 移动开始坐标
+  optional DVector2 direction = 2;  // 目标路径坐标
+}
+
 // 场景触发器
 message CSSceneTrigger {
   option (msgid) = 1014;
@@ -1009,6 +1015,11 @@ message CSCommitQuestNormal {
 message CSCommitQuestDaily {
   option (msgid) = 1051;
   required int32 sn = 1;
+}
+
+// 提交副本日常任务
+message CSCommitQuestInstDaily {
+  optional int32 code = 1;  // 任务code
 }
 
 // 打开任务
