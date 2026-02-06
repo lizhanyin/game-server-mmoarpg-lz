@@ -55,12 +55,12 @@ public class QuestNormalManager extends ManagerBase {
      */
     public void initQuestNormal(HumanObject humanObj) {
         Human human = humanObj.getHuman();
-        List<ConfQuest> confList = new ArrayList<ConfQuest>();
+        List<ConfQuest> confList = new ArrayList<>();
         confList.addAll(ConfQuest.findAll());
         
         List<QuestVO> oldVoList = QuestVO.jsonToList(human.getQuestNormalJSON());
         
-        List<QuestVO> newVoList = new ArrayList<QuestVO>();
+        List<QuestVO> newVoList = new ArrayList<>();
 
         
         //循环构建新的QuestVO
@@ -133,45 +133,20 @@ public class QuestNormalManager extends ManagerBase {
      * @param human
      */
     public QuestVO initQuest(HumanObject humanObj, ConfQuest quest) {
-        QuestVO vo = null;
-        switch (quest.type) {
-        case QuestTypeKey.QUEST_TYPE_1:
-            vo = initQuest_Type1(humanObj, quest);
-            break;
-        case QuestTypeKey.QUEST_TYPE_2:
-            vo = initQuest_Type2(humanObj, quest);
-            break;
-        case QuestTypeKey.QUEST_TYPE_3:
-            vo = initQuest_Type3(humanObj, quest);
-            break;
-        case QuestTypeKey.QUEST_TYPE_4:
-            vo = initQuest_Type4(humanObj, quest);
-            break;
-        case QuestTypeKey.QUEST_TYPE_5:
-            vo = initQuest_Type5(humanObj, quest);
-            break;
-        case QuestTypeKey.QUEST_TYPE_6:
-            vo = initQuest_Type6(humanObj, quest);
-            break;
-        case QuestTypeKey.QUEST_TYPE_7:
-            vo = initQuest_Type7(humanObj, quest);
-            break;
-        case QuestTypeKey.QUEST_TYPE_8:
-            vo = initQuest_Type8(humanObj, quest);
-            break;
-        case QuestTypeKey.QUEST_TYPE_9:
-            vo = initQuest_Type9(humanObj, quest);
-            break;
-        case QuestTypeKey.QUEST_TYPE_10:
-            vo = initQuest_Type10(humanObj, quest);
-            break;
-        case QuestTypeKey.QUEST_TYPE_11:
-            vo = initQuest_Type11(humanObj, quest);
-            break;
-        default:
-            vo = new QuestVO();
-            break;
-        }
+        QuestVO vo = switch (quest.type) {
+            case QuestTypeKey.QUEST_TYPE_1  -> initQuest_Type1(humanObj, quest);
+            case QuestTypeKey.QUEST_TYPE_2  -> initQuest_Type2(humanObj, quest);
+            case QuestTypeKey.QUEST_TYPE_3  -> initQuest_Type3(humanObj, quest);
+            case QuestTypeKey.QUEST_TYPE_4  -> initQuest_Type4(humanObj, quest);
+            case QuestTypeKey.QUEST_TYPE_5  -> initQuest_Type5(humanObj, quest);
+            case QuestTypeKey.QUEST_TYPE_6  -> initQuest_Type6(humanObj, quest);
+            case QuestTypeKey.QUEST_TYPE_7  -> initQuest_Type7(humanObj, quest);
+            case QuestTypeKey.QUEST_TYPE_8  -> initQuest_Type8(humanObj, quest);
+            case QuestTypeKey.QUEST_TYPE_9  -> initQuest_Type9(humanObj, quest);
+            case QuestTypeKey.QUEST_TYPE_10 -> initQuest_Type10(humanObj, quest);
+            case QuestTypeKey.QUEST_TYPE_11 -> initQuest_Type11(humanObj, quest);
+            default -> new QuestVO();
+        };
         return vo;
     }
     
@@ -615,7 +590,7 @@ public class QuestNormalManager extends ManagerBase {
      */
     private boolean sendAward(HumanObject humanObj, int questId){
         ConfQuest confQuest = ConfQuest.get(questId);
-        List<ItemVO> itemVOs = new ArrayList<ItemVO>();
+        List<ItemVO> itemVOs = new ArrayList<>();
         int[] awards = confQuest.award;
         for (int i = 0; i < awards.length; i  +=2) {
             int itemId = awards[i];
@@ -659,7 +634,7 @@ public class QuestNormalManager extends ManagerBase {
      */
     public boolean addAward(int questId, HumanObject humanObj) {
         ConfQuest confQuest = ConfQuest.get(questId);
-        List<ItemVO> itemVOs = new ArrayList<ItemVO>();
+        List<ItemVO> itemVOs = new ArrayList<>();
         int[] awards = confQuest.award;
         for (int i = 0; i < awards.length; i  +=2) {
             int itemId = awards[i];
@@ -723,7 +698,7 @@ public class QuestNormalManager extends ManagerBase {
                 iter.remove();
                 Log.quest.info("{}删除任务励{}!",humanObj.name, vo.sn);
             }
-            if (conf.endTime != 0 && Utils.getHourOfTime(Port.getTime()) > conf.endTime) {
+            if (conf != null && conf.endTime != 0 && Utils.getHourOfTime(Port.getTime()) > conf.endTime) {
                 iter.remove();
             }
         }
@@ -747,7 +722,7 @@ public class QuestNormalManager extends ManagerBase {
         HumanObject humanObj = param.get("humanObj");
         Human human = humanObj.getHuman();
         
-        List<ConfQuest> confList = new ArrayList<ConfQuest>();
+        List<ConfQuest> confList = new ArrayList<>();
         confList.addAll(ConfQuest.findAll());
         
         List<QuestVO> voList = QuestVO.jsonToList(human.getQuestNormalJSON());

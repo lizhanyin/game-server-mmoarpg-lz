@@ -17,7 +17,7 @@ import org.gof.core.support.ManagerBase;
 import org.gof.core.support.Param;
 import org.gof.core.support.Utils;
 import org.gof.core.support.observer.Listener;
-import org.gof.demo.platform.LoginServiceProxy;
+import org.gof.demo.worldsrv.platform.LoginServiceProxy;
 import org.gof.demo.worldsrv.character.HumanObject;
 import org.gof.demo.worldsrv.character.HumanObjectServiceProxy;
 import org.gof.demo.worldsrv.entity.Human;

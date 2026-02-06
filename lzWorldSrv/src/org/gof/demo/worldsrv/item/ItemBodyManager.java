@@ -68,7 +68,7 @@ import org.gof.demo.worldsrv.support.observer.EventKey;
 
 
 import com.alibaba.fastjson2.JSONObject;
-import com.alibaba.fastjson2.util.TypeUtils;
+import com.alibaba.fastjson2.JSON;
 
 /**
  * 装备的物品玩法逻辑。
@@ -633,7 +633,7 @@ public class ItemBodyManager extends ManagerBase {
         String cxLvStr = part.getChongxingLv();
         JSONObject cxLv = Utils.toJSONObject(cxLvStr);
         cxLv.forEach((phase, starJson) -> {
-            Integer star = TypeUtils.castToInt(starJson);
+            Integer star = JSON.to(Integer.class, starJson);
             if (star != null && star > 0) {
                 ConfPartChongxingEffect confCx = ConfPartChongxingEffect.getBy(
                         ConfPartChongxingEffect.K.phase,
@@ -652,7 +652,7 @@ public class ItemBodyManager extends ManagerBase {
         String gems = part.getGemsIds();
         JSONObject gemIds = Utils.toJSONObject(gems);
         gemIds.forEach((pos, gemIdJson) -> {
-            Long gemId = TypeUtils.castToLong(gemIdJson);
+            Long gemId = JSON.to(Long.class, gemIdJson);
             if (gemId != null && gemId > 0) {
                 Item gem = pack.getFromBody(gemId);
                 ConfGemBase confGem = ConfGemBase.get(gem.getSn());
@@ -1229,10 +1229,10 @@ public class ItemBodyManager extends ManagerBase {
         String gems = part.getGemsIds();
         JSONObject gemIds = Utils.toJSONObject(gems);
         gemIds.forEach((slotKey, gemIdJson) -> {
-            Long gemId = TypeUtils.castToLong(gemIdJson);
+            Long gemId = JSON.to(Long.class, gemIdJson);
             if (gemId != null && gemId > 0) {
                 Item gemed = pack.getFromBody(gemId);
-                gemedList.put(TypeUtils.castToInt(slotKey), gemed);
+                gemedList.put(Integer.valueOf(slotKey), gemed);
 
                 itemVOs.add(new ItemVO(gemed.getSn(), gemed.getNum()));
             }

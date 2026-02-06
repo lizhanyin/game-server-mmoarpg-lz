@@ -232,7 +232,7 @@ public final class DBServiceProxy extends ProxyBase {
         localPort.call(remote, EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GET_STRING_LONG, new Object[] { tableName, id });
     }
 
-    public void get(String tableName, List<Integer> ids) {
+    public void get(String tableName, List<Long> ids) {
         localPort.call(remote, EnumCall.ORG_GOF_CORE_DBSRV_DBSERVICE_GET_STRING_LIST, new Object[] { tableName, ids });
     }
 

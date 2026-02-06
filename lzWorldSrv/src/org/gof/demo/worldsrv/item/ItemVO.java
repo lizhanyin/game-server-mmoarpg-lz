@@ -72,12 +72,12 @@ public class ItemVO implements ISerializable {
         bind = in.read();
     }
     
-    public JSON toJSON() {
+    public JSONArray toJSON() {
         JSONArray ja = new JSONArray();
         ja.add(sn);
         ja.add(num);
         ja.add(bind);
-        
+
         return ja;
     }
     
