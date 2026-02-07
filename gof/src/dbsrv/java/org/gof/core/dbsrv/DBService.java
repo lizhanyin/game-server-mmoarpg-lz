@@ -485,7 +485,7 @@ public class DBService extends Service {
      * @param context 上下文参数，包含rid字段
      */
     @SuppressWarnings("deprecation")
-	@DistrCallback
+    @DistrCallback
     public void _result_excute(Param results, Param context) {
         long rid = context.get("rid");
         Object success = results.get("success");
@@ -849,7 +849,7 @@ public class DBService extends Service {
      * @param context 上下文参数，包含tableName和callReturn字段
      */
     @SuppressWarnings("deprecation")
-	@DistrCallback
+    @DistrCallback
     public void _result_utilBase(Param results, Param context) {
         // 能来这个逻辑的 证明上面没做flush刷新缓存操作 需要做未入库数据修正
         Object result = results.get();
@@ -1264,7 +1264,7 @@ public class DBService extends Service {
      * @param context 上下文参数，包含version、tableName和id字段
      */
     @SuppressWarnings("deprecation")
-	@DistrCallback
+    @DistrCallback
     public void _result_syncRecordUpdate(Param results, Param context) {
         boolean success = results.get("success");
         long version = context.get("version");

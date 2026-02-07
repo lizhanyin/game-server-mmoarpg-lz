@@ -5,7 +5,8 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.ChannelPipeline;
-import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.MultiThreadIoEventLoopGroup;
+import io.netty.channel.nio.NioIoHandler;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
@@ -38,7 +39,7 @@ public class RobotStartup {
         
         RobotMsgHandler robot = new RobotMsgHandler();
         Bootstrap b = new Bootstrap();
-        b.group(new NioEventLoopGroup());
+        b.group(new MultiThreadIoEventLoopGroup(0, NioIoHandler.newFactory()));
         b.channel(NioSocketChannel.class);
         b.option(ChannelOption.SO_KEEPALIVE, true);
         b.handler(new ChannelInitializer<SocketChannel>() {
