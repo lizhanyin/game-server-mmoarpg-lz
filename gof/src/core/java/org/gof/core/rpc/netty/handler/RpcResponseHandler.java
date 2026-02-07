@@ -4,6 +4,8 @@ import java.util.concurrent.ExecutorService;
 
 import org.gof.core.rpc.listener.ITaskFinishListener;
 import org.gof.core.rpc.rpctask.AbstractRpcTask;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson2.JSONObject;
 
@@ -17,6 +19,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
  *
  */
 public class RpcResponseHandler extends SimpleChannelInboundHandler<String> {
+
+    private static final Logger logger = LoggerFactory.getLogger(RpcResponseHandler.class);
 
 	private ITaskFinishListener taskFinishListener;
 	private ExecutorService taskExecutors;
@@ -34,7 +38,7 @@ public class RpcResponseHandler extends SimpleChannelInboundHandler<String> {
 		// 直接移调rpcTask
 		AbstractRpcTask<?> rpcTask = taskFinishListener.getAndRemoveRpcTask(taskId);
 		if (rpcTask == null) {
-			System.out.println("没有找到RpcTask或者已经超时移除 taskId:" + taskId);
+			logger.warn("没有找到RpcTask或者已经超时移除: taskId={}", taskId);
 			return;
 		}
 		Class<?> clazz = rpcTask.getClazz();
@@ -46,6 +50,9 @@ public class RpcResponseHandler extends SimpleChannelInboundHandler<String> {
 
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+		logger.warn("RPC 连接断开，清理所有待处理任务");
+		// 连接断开时清理所有待处理任务
+		taskFinishListener.clear();
 	}
 
 	public ITaskFinishListener getTaskFinishListener() {

@@ -31,7 +31,7 @@
         <httpclient5.version>5.4.3</httpclient5.version>
         <httpcore5.version>5.4</httpcore5.version>
         <protobuf.version>4.29.3</protobuf.version>
-        <fastjson2.version>2.0.54</fastjson2.version>
+        <fastjson2.version>2.0.56</fastjson2.version>
         <mysql.version>9.3.0</mysql.version>
         <freemarker.version>2.3.34</freemarker.version>
         <quartz.version>2.5.0</quartz.version>

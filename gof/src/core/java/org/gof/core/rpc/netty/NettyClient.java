@@ -11,6 +11,8 @@ import org.gof.core.rpc.message.rpcReq.AbstractMessage;
 import org.gof.core.rpc.netty.handler.RpcResponseHandler;
 import org.gof.core.rpc.rpctask.AsyncRpcTask;
 import org.gof.core.rpc.rpctask.SyncRpcTask;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson2.JSON;
 
@@ -38,17 +40,20 @@ import io.netty.util.concurrent.GenericFutureListener;
  */
 public class NettyClient implements IRemoteImp {
 
+    private static final Logger logger = LoggerFactory.getLogger(NettyClient.class);
+
 	private Channel channel;
+	private EventLoopGroup workerGroup;
 
 	/**
 	 * 创建nettyClient
-	 * 
+	 *
 	 * @param name
 	 * @param host
 	 * @param port
 	 */
 	public NettyClient(String name, String host, int port, RpcResponseHandler rpcResponseHandler) {
-        EventLoopGroup workerGroup = new MultiThreadIoEventLoopGroup(0, NioIoHandler.newFactory());
+        this.workerGroup = new MultiThreadIoEventLoopGroup(0, NioIoHandler.newFactory());
 		Bootstrap b = new Bootstrap(); // (1)
 		b.group(workerGroup); // (2)
 		b.channel(NioSocketChannel.class); // (3)
@@ -65,8 +70,10 @@ public class NettyClient implements IRemoteImp {
 		try {
 			ChannelFuture f = b.connect(host, port).sync();
 			channel = f.channel();
+			logger.info("RPC 客户端连接成功: host={}, port={}", host, port);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			logger.error("RPC 客户端连接失败: host={}, port={}", host, port, e);
+			Thread.currentThread().interrupt();
 		}
 	}
 
@@ -88,10 +95,10 @@ public class NettyClient implements IRemoteImp {
 				getTaskFinishListener().addRpcTask(syncRpcTask);
 				return syncRpcTask.getFuture().get(time, timeUnit);
 			} else {
-				System.out.println("netty 发送消息失败,直接返回null");
+				logger.error("RPC 发送消息失败: msg={}", msg);
 			}
 		} catch (InterruptedException | ExecutionException | TimeoutException e1) {
-			e1.printStackTrace();
+			logger.error("RPC 调用异常: msg={}", msg, e1);
 			getTaskFinishListener().timeOut(msg);
 		}
 		return null;
@@ -109,9 +116,28 @@ public class NettyClient implements IRemoteImp {
 						getTaskFinishListener().timeOut(msg);
 					});
 				} else {
-					System.out.println("netty runAsync 发送消息失败");
+					logger.error("RPC 异步发送消息失败: msg={}", msg);
 				}
 			}
 		});
+	}
+
+	/**
+	 * 关闭客户端，释放资源
+	 */
+	public void shutdown() {
+		try {
+			if (channel != null && channel.isOpen()) {
+				channel.close().sync();
+			}
+		} catch (InterruptedException e) {
+			logger.error("关闭 channel 时被中断", e);
+			Thread.currentThread().interrupt();
+		} finally {
+			if (workerGroup != null) {
+				workerGroup.shutdownGracefully();
+				logger.info("RPC 客户端已关闭");
+			}
+		}
 	}
 }

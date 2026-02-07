@@ -1,9 +1,9 @@
 package org.gof.core.rpc;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Callable;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
@@ -16,17 +16,17 @@ import org.gof.core.rpc.rpctask.AsyncRpcTask;
 import org.gof.core.rpc.rpctask.SyncRpcTask;
 
 /**
- * 
+ *
  * @author WinkeyZhao
  * @note RpcClient封装
  *
  */
 public class RpcClient implements RpcTaskAction, IRpcConnectionRegister {
 
-    // rpc远程具体实现
-    private List<IRemoteImp> rpcConnectionList = new ArrayList<IRemoteImp>();
+    // rpc远程具体实现 - 使用线程安全的 CopyOnWriteArrayList
+    private final List<IRemoteImp> rpcConnectionList = new CopyOnWriteArrayList<>();
     // 随机id random
-    private Random random = new Random();
+    private final Random random = new Random();
 
     /**
      * rpc同步task
@@ -34,6 +34,10 @@ public class RpcClient implements RpcTaskAction, IRpcConnectionRegister {
     @SuppressWarnings("unchecked")
     @Override
     public <T> T get(AbstractMessage message, long time, TimeUnit timeUnit) {
+        // 检查连接池是否为空
+        if (rpcConnectionList.isEmpty()) {
+            throw new IllegalStateException("没有可用的 RPC 连接，请先注册连接");
+        }
         // 这里随机要一个,演示用
         IRemoteImp remoteImp = rpcConnectionList.get(random.nextInt(rpcConnectionList.size()));
         Class<T> clazz = (Class<T>) message.getClazz();
@@ -53,6 +57,10 @@ public class RpcClient implements RpcTaskAction, IRpcConnectionRegister {
     @Override
     public <T> void runAsync(AbstractMessage message, int backBindId, long backExcuteId, long time,
             TimeUnit timeUnit) {
+        // 检查连接池是否为空
+        if (rpcConnectionList.isEmpty()) {
+            throw new IllegalStateException("没有可用的 RPC 连接，请先注册连接");
+        }
         // 这里随机要一个,演示用
         IRemoteImp remoteImp = rpcConnectionList.get(random.nextInt(rpcConnectionList.size()));
         Class<T> clazz = (Class<T>) message.getClazz();

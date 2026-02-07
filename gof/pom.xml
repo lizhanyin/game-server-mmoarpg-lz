@@ -25,7 +25,7 @@
         <netty.version>4.2.9.Final</netty.version>
         <protobuf.version>4.29.3</protobuf.version>
         <jeromq.version>0.6.0</jeromq.version>
-        <fastjson2.version>2.0.54</fastjson2.version>
+        <fastjson2.version>2.0.60</fastjson2.version>
         <httpclient4.version>4.5.14</httpclient4.version>
         <httpclient5.version>5.4.3</httpclient5.version>
         <quartz.version>2.5.0</quartz.version>
