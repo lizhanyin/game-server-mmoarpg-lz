@@ -10,8 +10,6 @@ import java.util.Set;
 
 import javax.swing.JTextArea;
 
-import com.pwrd.excel.ExcelTo;
-
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
@@ -64,11 +62,11 @@ public class ExcelToServer extends ExcelTo
 
     super.checkFieldNameRepeat(this.entityInfos);
 
-    Configuration cfg = new Configuration();
+    Configuration cfg = new Configuration(Configuration.VERSION_2_3_32);
 
     cfg.setDirectoryForTemplateLoading(new File(this.pathFreemarkerTmpl));
 
-    cfg.setObjectWrapper(new DefaultObjectWrapper());
+    cfg.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_32));
     cfg.setEncoding(Locale.getDefault(), "UTF-8");
 
     Template temp = cfg.getTemplate("ExcelToJava.ftl");

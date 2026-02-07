@@ -1,7 +1,5 @@
 package org.gof.core.connsrv;
 
-import java.util.Iterator;
-
 import org.gof.core.Port;
 import org.gof.core.connsrv.netty.ServerHandler;
 

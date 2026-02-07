@@ -452,7 +452,7 @@ public abstract class ExcelTo extends Thread {
         } else if (dateType.equalsIgnoreCase("double")) {
             String valueStr = String.valueOf(value);
             map.put(fieldNameEN,
-                    Double.valueOf(new Double(valueStr).doubleValue()));
+                    Double.valueOf(Double.parseDouble(valueStr)));
         } else if ((dateType.equalsIgnoreCase("String"))
                 || (dateType.equalsIgnoreCase("double[]"))
                 || (dateType.equalsIgnoreCase("int[]"))

@@ -10,26 +10,26 @@ import org.gof.core.interfaces.ISerializable;
 import org.gof.demo.battlesrv.stageObj.UnitObject;
 
 public class SkillTempInfo implements ISerializable {
-    public Map<Integer, Long> globalCool = new HashMap<>();            //公共冷却
-    public Map<Integer, Long> cooldown = new HashMap<>();                //技能冷却时间
-    public SkillExcute skillToExcute = null;                             //前摇技能信息
-    public int lastSkillSn; // 上次释放的技能sn
+    public Map<Integer, Long> globalCool = new HashMap<>();              // 公共冷却
+    public Map<Integer, Long> cooldown = new HashMap<>();                // 技能冷却时间
+    public SkillExcute skillToExcute = null;                             // 前摇技能信息
+    public int lastSkillSn;                                              // 上次释放的技能sn
     public long lastSkillTime;
     
-    public boolean godMod = false;    //无敌
-    public boolean immuneMag = false;    //魔法免疫
-    public boolean immunePhy = false;    //魔法免疫
-    public boolean noDead = false;  //怎么都不死
-    public boolean immuneControl = false; //免疫所有负面buff
+    public boolean godMod = false;                                       // 无敌
+    public boolean immuneMag = false;                                    // 魔法免疫
+    public boolean immunePhy = false;                                    // 物理免疫
+    public boolean noDead = false;                                       // 怎么都不死
+    public boolean immuneControl = false;                                // 免疫所有负面buff
     
-    public int magShield = 0;//魔法盾
-    public int phyShield = 0;//物理盾
-    public int allShield = 0;//全伤害盾
+    public int magShield = 0;                                            // 魔法盾
+    public int phyShield = 0;                                            // 物理盾
+    public int allShield = 0;                                            // 全伤害盾
     
-    public int rageAttack = 0; //释放技能获得怒气增加
-    public int rageKill = 0;//杀人回复怒气增加
+    public int rageAttack = 0;                                           // 释放技能获得怒气增加
+    public int rageKill = 0;                                             // 杀人回复怒气增加
     
-    public int mutilMagic = 0; //多重施法次数
+    public int mutilMagic = 0;                                           // 多重施法次数
     
     @Override
     public void writeTo(OutputStream out) throws IOException {

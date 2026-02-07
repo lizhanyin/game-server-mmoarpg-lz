@@ -55,11 +55,11 @@ public class ExcelToClient extends ExcelTo
   private void genASFile(String entityName, String entityNameCN)
     throws Exception
   {
-    Configuration cfg = new Configuration();
+    Configuration cfg = new Configuration(Configuration.VERSION_2_3_32);
 
     cfg.setDirectoryForTemplateLoading(new File(this.pathFreemarkerTmpl));
 
-    cfg.setObjectWrapper(new DefaultObjectWrapper());
+    cfg.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_32));
     cfg.setEncoding(Locale.getDefault(), "UTF-8");
 
     Template temp = cfg.getTemplate("ExcelToAS.ftl");

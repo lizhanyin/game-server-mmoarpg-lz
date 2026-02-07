@@ -128,7 +128,7 @@ public class SkillManager extends ManagerBase {
             
             //初始化正常技能
             SkillCommon skill = new SkillCommon(unitObj, confSkill, level);
-            skills.put(new Integer(sn), skill);
+            skills.put(Integer.valueOf(sn), skill);
         }
         
         int skillGroupSn = unitObj.dataPers.unit.getSkillGroupSn();

@@ -162,7 +162,8 @@ public class FightManager extends ManagerBase {
         monsterObj.startup();
     }
     
-    /**战斗剧情删除武将
+    /**
+     * 战斗剧情删除武将
      * @param humanObj
      * @param id
      */

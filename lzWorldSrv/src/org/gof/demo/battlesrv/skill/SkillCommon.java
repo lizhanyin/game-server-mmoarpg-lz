@@ -34,18 +34,18 @@ import org.gof.demo.worldsrv.support.observer.EventKey;
 
 public class SkillCommon {
     
-    public SkillVO confSkill;                                        //技能配置
-    public UnitObject unitObj;                                        //释放者
-    public int skillLevel;                                            //技能等级
-    public List<AbstractSkillLogic> logics = new ArrayList<>();    //技能效果
-    public Map<String, Integer> temp = new HashMap<>();            //临时信息
-    public int comboCount;                                            //连击次数
-    public SCFightSkill.Builder scFightSkill = null;                //技能广播包
-    public SCFightHpChg.Builder hpChangeMsg = null;                //技能伤害血量包
-    public Vector2D dVec = null;                                //人物技能攻击向前追击
-    public double skillShakePct = 1;                            //放技能的时候前摇进行的百分比
-    public int mutilMagic = 0; //多重施法次数
-    public int rageSkillValue = 1000;                    //可以释放怒气技能的 怒气大小
+    public SkillVO confSkill;                                      // 技能配置
+    public UnitObject unitObj;                                     // 释放者
+    public int skillLevel;                                         // 技能等级
+    public List<AbstractSkillLogic> logics = new ArrayList<>();    // 技能效果
+    public Map<String, Integer> temp = new HashMap<>();            // 临时信息
+    public int comboCount;                                         // 连击次数
+    public SCFightSkill.Builder scFightSkill = null;               // 技能广播包
+    public SCFightHpChg.Builder hpChangeMsg = null;                // 技能伤害血量包
+    public Vector2D dVec = null;                                   // 人物技能攻击向前追击
+    public double skillShakePct = 1;                               // 放技能的时候前摇进行的百分比
+    public int mutilMagic = 0;                                     // 多重施法次数
+    public int rageSkillValue = 1000;                              // 可以释放怒气技能的 怒气大小
     
     
     public SkillCommon(UnitObject unitObj, ConfSkill confSkill, int skillLevel) {

@@ -9,7 +9,6 @@ import org.gof.demo.worldsrv.character.HumanObject;
 import org.gof.demo.worldsrv.msg.Msg.CSStageMove;
 import org.gof.demo.worldsrv.msg.Msg.CSStageMove2;
 import org.gof.demo.worldsrv.msg.Msg.CSStageMoveStop;
-import org.gof.demo.worldsrv.stage.StageManager;
 import org.gof.demo.worldsrv.support.Log;
 import org.gof.demo.worldsrv.support.observer.Event;
 import org.gof.demo.worldsrv.support.observer.EventKey;

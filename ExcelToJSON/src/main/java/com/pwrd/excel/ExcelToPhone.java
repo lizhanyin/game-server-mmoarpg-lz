@@ -57,11 +57,11 @@ public class ExcelToPhone extends ExcelTo
     if ((entityNameCN == null) || (entityNameCN.equals(""))) {
       throw new Exception("执行中断!非法Sheet名称  <" + entityName + ">");
     }
-    Configuration cfg = new Configuration();
+    Configuration cfg = new Configuration(Configuration.VERSION_2_3_32);
 
     cfg.setDirectoryForTemplateLoading(new File(this.pathFreemarkerTmpl));
 
-    cfg.setObjectWrapper(new DefaultObjectWrapper());
+    cfg.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_32));
     cfg.setEncoding(Locale.getDefault(), "UTF-8");
 
     Template tempCPP = cfg.getTemplate("ExcelToCPP.ftl");
@@ -158,11 +158,11 @@ public class ExcelToPhone extends ExcelTo
   private void genFinalFile(List<String> list, String type)
     throws Exception
   {
-    Configuration cfg = new Configuration();
+    Configuration cfg = new Configuration(Configuration.VERSION_2_3_32);
 
     cfg.setDirectoryForTemplateLoading(new File(this.pathFreemarkerTmpl));
 
-    cfg.setObjectWrapper(new DefaultObjectWrapper());
+    cfg.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_32));
     cfg.setEncoding(Locale.getDefault(), "UTF-8");
 
     Template temp = null;
