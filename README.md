@@ -6,10 +6,10 @@
 
 ``` xml
   gof
-   |--fastjson        # JSON处理
-   |--netty           # 网络通信框架
-   |--zmq             # 消息队列
-   |--protocal-buffer # 协议序列化
+   |--fastjson        # JSON处理 (fastjson2 2.0.60)
+   |--netty           # 网络通信框架 (4.2.9.Final)
+   |--jeromq          # ZeroMQ消息队列 (0.6.0) - 集群RPC通讯
+   |--protocal-buffer # 协议序列化 (4.29.3)
    |--java25          # Java 25特性
 ```
 
