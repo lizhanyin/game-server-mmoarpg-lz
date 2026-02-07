@@ -1,4 +1,4 @@
-package test;
+package org.gof.core.rpc;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -10,9 +10,9 @@ import java.util.concurrent.ExecutionException;
  *
  */
 public class Main2 {
-    
+
     public static void main(String[] args) {
-        
+
         CompletableFuture<Integer> future = new CompletableFuture<Integer>();
         new Thread(() -> {
             try {

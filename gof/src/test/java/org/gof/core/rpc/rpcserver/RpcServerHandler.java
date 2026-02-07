@@ -1,6 +1,6 @@
-package test.rpcserver;
+package org.gof.core.rpc.rpcserver;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import io.netty.channel.ChannelHandlerContext;
 
 /**
@@ -9,16 +9,15 @@ import io.netty.channel.ChannelHandlerContext;
  * @note
  *
  */
-public class RpcServerHandler implements RpcActon{
-    
-    
+public class RpcServerHandler implements RpcActon {
+
     @Override
-    public void action(ChannelHandlerContext channelHandlerContext,JSONObject jsonObject) {
+    public void action(ChannelHandlerContext channelHandlerContext, JSONObject jsonObject) {
         String taskId = jsonObject.getString("taskId");
         JSONObject message = jsonObject.getJSONObject("message");
         jsonObject.clear();
-        jsonObject.put("taskId",taskId);
-        jsonObject.put("result","this is serverResult_"+message.toJSONString());
+        jsonObject.put("taskId", taskId);
+        jsonObject.put("result", "this is serverResult_" + message.toJSONString());
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {

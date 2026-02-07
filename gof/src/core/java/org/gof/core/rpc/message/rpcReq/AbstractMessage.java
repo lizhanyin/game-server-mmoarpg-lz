@@ -2,8 +2,9 @@ package org.gof.core.rpc.message.rpcReq;
 
 import java.util.UUID;
 
-import lombok.Getter;
 import org.gof.core.rpc.message.IMessage;
+
+import lombok.Getter;
 
 @Getter
 public class AbstractMessage implements IMessage {

@@ -1,9 +1,10 @@
 package org.gof.core.rpc;
 
-import com.alibaba.fastjson2.JSON;
-import lombok.Getter;
-
 import org.gof.core.rpc.message.IMessage;
+
+import com.alibaba.fastjson2.JSON;
+
+import lombok.Getter;
 
 @Getter
 public class TaskMessageWrap {

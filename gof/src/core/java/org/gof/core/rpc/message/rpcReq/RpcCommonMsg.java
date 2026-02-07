@@ -14,6 +14,6 @@ import lombok.Setter;
 public class RpcCommonMsg extends AbstractMessage {
 
     public RpcCommonMsg(int bindId, Class<?> clazz) {
-        super(bindId, clazz);
+	super(bindId, clazz);
     }
 }

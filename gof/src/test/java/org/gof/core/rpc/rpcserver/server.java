@@ -1,6 +1,6 @@
-package test.rpcserver;
+package org.gof.core.rpc.rpcserver;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
@@ -25,16 +25,16 @@ import java.util.Map;
  *
  */
 public class server {
-    
+
     public static void main(String[] args) {
-    
+
         /**
          * 注册处理rpcClient的handler
          */
-        Map<Integer,RpcActon> rpcActonMap = new HashMap<>();
-        rpcActonMap.put(1001,new RpcServerHandler());
-        
-        //启动nettyserver
+        Map<Integer, RpcActon> rpcActonMap = new HashMap<>();
+        rpcActonMap.put(1001, new RpcServerHandler());
+
+        // 启动nettyserver
         Thread t = new Thread(() -> {
             EventLoopGroup bossGroup = new MultiThreadIoEventLoopGroup(1, NioIoHandler.newFactory()); // (1)
             EventLoopGroup workerGroup = new MultiThreadIoEventLoopGroup(0, NioIoHandler.newFactory());
@@ -55,14 +55,14 @@ public class server {
                                         JSONObject message = jsonObject.getJSONObject("message");
                                         int messageId = message.getInteger("messageId");
                                         RpcActon handler = rpcActonMap.get(messageId);
-                                        handler.action(channelHandlerContext,jsonObject);
+                                        handler.action(channelHandlerContext, jsonObject);
                                     }
                                 });
                             }
                         }).option(ChannelOption.SO_BACKLOG, 128)
                         .option(ChannelOption.SO_REUSEADDR, true)// (5)
                         .childOption(ChannelOption.SO_KEEPALIVE, true);
-                
+
                 try {
                     f = b.bind("127.0.0.1", 8088).sync();
                     f.channel().closeFuture().sync();
@@ -80,6 +80,6 @@ public class server {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
+
     }
 }

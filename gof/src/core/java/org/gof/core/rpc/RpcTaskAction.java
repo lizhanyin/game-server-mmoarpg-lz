@@ -11,7 +11,6 @@ import org.gof.core.rpc.message.rpcReq.AbstractMessage;
  *
  */
 public interface RpcTaskAction {
-    
     public <T> T get(AbstractMessage message, long time, TimeUnit timeUnit);
 
     public <T> void runAsync(AbstractMessage message, int backBindId, long backExcuteId, long time, TimeUnit timeUnit);

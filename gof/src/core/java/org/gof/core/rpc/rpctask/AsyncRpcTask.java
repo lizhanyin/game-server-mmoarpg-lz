@@ -1,9 +1,9 @@
 package org.gof.core.rpc.rpctask;
 
+import org.gof.core.rpc.listener.ITaskFinishListener;
+
 import lombok.Getter;
 import lombok.Setter;
-
-import org.gof.core.rpc.listener.ITaskFinishListener;
 
 /**
  * 异步rpcTask
@@ -15,7 +15,6 @@ import org.gof.core.rpc.listener.ITaskFinishListener;
 @Getter
 @Setter
 public class AsyncRpcTask<T> extends AbstractRpcTask<T> {
-
     // 异步rpcTask对消息回调处理handler绑定标识
     private int backBindId;
     // 异步rpcTask对消息回调处理发起者标识
