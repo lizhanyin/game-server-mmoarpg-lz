@@ -164,35 +164,36 @@ message SCStageObjectLevelUp {
 // 场景初始化
 message SCSceneInit {
   option (msgid) = 1251;
-  repeated DSceneTrigger triggers = 1;
-  repeated DSceneEvent events = 2;
+  repeated DScenePlot plots = 1;
 }
 
 // MsgID: 1252
 // 场景剧情变化
 message SCScenePlotChange {
   option (msgid) = 1252;
-  repeated DScenePlot plots = 1;
+  optional DScenePlot plot = 1;
 }
 
 // MsgID: 1253
 // 场景触发器
 message CSSceneTrigger {
   option (msgid) = 1253;
-  required int32 sn = 1;
+  required int64 poltId = 1;      // 剧本ID
+  required int64 triggerId = 2;   // 触发器ID
 }
 
 // MsgID: 1254
 // 场景事件
 message CSSceneEvent {
   option (msgid) = 1254;
-  required int32 sn = 1;
+  required int64 poltId = 1;      // 剧本ID
+  required int64 eventId = 2;     // 事件ID
 }
 
 // MsgID: 1255
 // 场景事件开始
 message SCSceneEventStart {
   option (msgid) = 1255;
-  required int32 poltId = 1;       // 剧本ID
-  required int32 eventId = 2;      // 事件ID
+  required int64 poltId = 1;       // 剧本ID
+  required int64 eventId = 2;      // 事件ID
 }

@@ -37,7 +37,7 @@ message CSSkillLevelup {
 // 技能升级结果
 message SCSkillLevelupResult {
   option (msgid) = 2914;
-  required int32 result = 1;
+  optional bool result = 1;
   optional DSkill skill = 2;
 }
 
@@ -52,7 +52,7 @@ message CSInbornLevelup {
 // 天赋升级结果
 message SCInbornLevelupResult {
   option (msgid) = 2916;
-  required int32 result = 1;
+  optional bool result = 1;
   optional DInborn inborn = 2;
 }
 
@@ -67,7 +67,8 @@ message CSChangeInborn {
 // 切换天赋结果
 message SCChangeInbornResult {
   option (msgid) = 2918;
-  required int32 result = 1;
+  optional bool result = 1;
+  optional DInborn inborn = 2;
 }
 
 // MsgID: 2923
@@ -81,7 +82,7 @@ message CSAddRelSkill {
 // 添加关联技能结果
 message SCAddRelSkillResult {
   option (msgid) = 2924;
-  required int32 result = 1;
+  optional DSkill relSkills = 1;  // 装备的羁绊技能
 }
 
 // MsgID: 2925
@@ -95,5 +96,5 @@ message CSDelRelSkill {
 // 删除关联技能结果
 message SCDelRelSkillResult {
   option (msgid) = 2926;
-  required int32 result = 1;
+  optional DSkill relSkills = 1;  // 装备的羁绊技能
 }

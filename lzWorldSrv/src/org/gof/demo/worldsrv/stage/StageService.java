@@ -1,11 +1,9 @@
 package org.gof.demo.worldsrv.stage;
 
-import org.gof.core.Chunk;
 import org.gof.core.Port;
 import org.gof.core.Service;
 import org.gof.core.gen.proxy.DistrClass;
 import org.gof.core.gen.proxy.DistrMethod;
-import org.gof.core.support.ConnectionStatus;
 import org.gof.core.support.Distr;
 import org.gof.demo.worldsrv.character.HumanObject;
 import org.gof.demo.worldsrv.competition.StageObjectCompetition;

@@ -11,16 +11,16 @@ import org.gof.demo.worldsrv.config.ConfSceneEvent;
  */
 public class SceneEvent {
     //常量
-    public static final int SCENE_EVENT_STATUS_NONE = 0;        //没完成
-    public static final int SCENE_EVENT_STATUS_FINISH = 1;        //完成
+    public static final int SCENE_EVENT_STATUS_NONE = 0;        // 没完成
+    public static final int SCENE_EVENT_STATUS_FINISH = 1;      // 完成
         
-    public long id;                    //唯一ID
-    public String sn;                //配置SN
-    public int type;                    //事件类型
-    public int status;                //状态
-    public ConfSceneEvent conf;    //配置
+    public long id;                    // 唯一ID
+    public String sn;                  // 配置SN
+    public int type;                   // 事件类型
+    public int status;                 // 状态
+    public ConfSceneEvent conf;        // 配置
     
-    public ScenePlot plot;        //场景剧情
+    public ScenePlot plot;             // 场景剧情
     
     /**
      * 构造方法

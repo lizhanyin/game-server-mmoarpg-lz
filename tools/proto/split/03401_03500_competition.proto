@@ -82,7 +82,9 @@ message CSOpenRank {
 // 排行榜结果
 message SCRankResult {
   option (msgid) = 3411;
-  repeated int32 ranks = 1;
+  repeated DHumanInfo info = 1;    // 排名纪录
+  optional int32 curPage = 2;      // 当前页
+  optional int32 totalPages = 3;   // 总页数
 }
 
 // MsgID: 3412
@@ -123,5 +125,7 @@ message CSGetSeflRankPage {
 // 获取自己的排行榜页面
 message SCGetSeflRankPage {
   option (msgid) = 3417;
-  required int32 rank = 1;
+  repeated DHumanInfo info = 1;     // 排名纪录
+  optional int32 curPage = 2;       // 当前页
+  optional int32 totalPages = 3;    // 总页数
 }

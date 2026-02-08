@@ -16,22 +16,21 @@ import "00000_00000_def.proto";
 // 打开商城
 message CSOpenMall {
   option (msgid) = 3001;
-  required int32 type = 1;
+  optional int32 mallSn = 1;       // 商城Sn
 }
 
 // MsgID: 3002
 // 商城结果
 message SCMallResult {
   option (msgid) = 3002;
-  repeated int32 itemList = 1;
+  repeated int32 itemList = 1;    // 返回商品列表
 }
 
 // MsgID: 3003
 // 购买商城商品
 message CSBuyMallGoods {
   option (msgid) = 3003;
-  required int32 sn = 1;
-  required int32 count = 2;
+  optional int32 mallSn = 1;       // 商城Sn
 }
 
 // MsgID: 3004
@@ -58,7 +57,7 @@ message SCResultShopTags {
 // 打开商店
 message CSOpenShop {
   option (msgid) = 3007;
-  required int32 sn = 1;
+  required int32 shopSn = 1;       // 商店SN
 }
 
 // MsgID: 3008
@@ -72,8 +71,8 @@ message SCShopResult {
 // 购买商店商品
 message CSBuyShopGoods {
   option (msgid) = 3009;
-  required int32 sn = 1;
-  required int32 count = 2;
+  required int32 shopSn = 1;       // 商店SN
+  required int32 index = 2;        // 商品索引
 }
 
 // MsgID: 3010
@@ -87,7 +86,7 @@ message SCBuyShopGoods {
 // 刷新商店
 message CSRefreshShop {
   option (msgid) = 3011;
-  required int32 sn = 1;
+  required int32 shopSn = 1;       // 商店SN
 }
 
 // MsgID: 3012
@@ -109,7 +108,7 @@ message SCOpenTempShop {
 // 购买商店
 message CSBuyShop {
   option (msgid) = 3014;
-  required int32 sn = 1;
+  required int32 shopSn = 1;       // 商店SN
 }
 
 // MsgID: 3015

@@ -24,8 +24,7 @@ message CSChangeName {
 message SCChangeNameResult {
   option (msgid) = 2302;
   required bool result = 1;
-  optional string name = 2;
-  optional string shield = 3;  // 屏蔽字
+  optional string shield = 2;  // 如果是false的话，这个字段就是非法字
 }
 
 // MsgID: 2303
