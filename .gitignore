@@ -7,3 +7,6 @@ target/
 .spec-workflow
 
 *.iml
+
+
+tools/gen/*

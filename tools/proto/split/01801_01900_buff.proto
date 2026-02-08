@@ -1,0 +1,44 @@
+// 01801_01900_buff.proto
+// Buff相关消息 msgid 范围 1801-1900
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// Buff相关消息
+// ============================================================
+
+// MsgID: 1802
+// Buff添加
+message SCBuffAdd {
+  option (msgid) = 1802;
+  required int64 id = 1;
+  required DBuff buff = 2;
+}
+
+// MsgID: 1803
+// Buff更新
+message SCBuffUpdate {
+  option (msgid) = 1803;
+  required int64 id = 1;
+  required DBuff buff = 2;
+}
+
+// MsgID: 1804
+// Buff驱散
+message SCBuffDispel {
+  option (msgid) = 1804;
+  required int64 id = 1;
+  repeated int32 buffSns = 2;
+}
+
+// MsgID: 1805
+// 驱散Buff
+message CSBuffDispelByHuman {
+  option (msgid) = 1805;
+  required int64 sn = 1;
+}

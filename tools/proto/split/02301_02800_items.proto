@@ -1,0 +1,350 @@
+// 02301_02800_items.proto
+// 物品装备相关消息 msgid 范围 2301-2800
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 物品装备相关消息
+// ============================================================
+
+// MsgID: 2301
+// 修改名字
+message CSChangeName {
+  option (msgid) = 2301;
+  required string name = 1;
+}
+
+// MsgID: 2302
+// 修改名字结果
+message SCChangeNameResult {
+  option (msgid) = 2302;
+  required int32 result = 1;
+  optional string name = 2;
+}
+
+// MsgID: 2303
+// 修改名字任务完成
+message SCChangeNameQuestFinish {
+  option (msgid) = 2303;
+  required int32 sn = 1;
+}
+
+// MsgID: 2304
+// 随机名字
+message CSChangeNameRandom {
+  option (msgid) = 2304;
+}
+
+// MsgID: 2305
+// 随机名字结果
+message SCChangeNameRandomResult {
+  option (msgid) = 2305;
+  required int32 result = 1;
+  optional string name = 2;
+}
+
+// MsgID: 2401
+// 添加邮件
+message SCAddMail {
+  option (msgid) = 2401;
+  required DMail mail = 1;
+}
+
+// MsgID: 2402
+// 邮件列表
+message CSMailList {
+  option (msgid) = 2402;
+}
+
+// MsgID: 2403
+// 邮件列表
+message SCMailList {
+  option (msgid) = 2403;
+  repeated DMail mails = 1;
+}
+
+// MsgID: 2404
+// 读取邮件
+message CSReadMail {
+  option (msgid) = 2404;
+  required int64 id = 1;
+}
+
+// MsgID: 2405
+// 领取邮件附件
+message CSPickupMail {
+  option (msgid) = 2405;
+  required int64 id = 1;
+}
+
+// MsgID: 2406
+// 领取邮件附件
+message SCPickupMail {
+  option (msgid) = 2406;
+  required int64 id = 1;
+  repeated DItem items = 2;
+}
+
+// MsgID: 2407
+// 领取所有邮件附件
+message CSPickupAllMail {
+  option (msgid) = 2407;
+}
+
+// MsgID: 2408
+// 领取所有邮件附件
+message SCPickupAllMail {
+  option (msgid) = 2408;
+  repeated DItem items = 1;
+}
+
+// MsgID: 2409
+// 删除邮件
+message CSClearMail {
+  option (msgid) = 2409;
+  repeated int64 ids = 1;
+}
+
+// MsgID: 2410
+// 删除邮件
+message SCDeleteMail {
+  option (msgid) = 2410;
+  repeated int64 ids = 1;
+}
+
+// MsgID: 2411
+// 检查邮件是否可删除
+message CSCheckMailRemoveable {
+  option (msgid) = 2411;
+  repeated int64 ids = 1;
+}
+
+// MsgID: 2412
+// 检查邮件是否可删除
+message SCCheckMailRemoveable {
+  option (msgid) = 2412;
+  repeated int64 ids = 1;
+}
+
+// MsgID: 2501
+// 领取活跃度奖励
+message CSRsvLivenessAwards {
+  option (msgid) = 2501;
+  repeated int32 sns = 1;
+}
+
+// MsgID: 2502
+// 领取活跃度奖励结果
+message SCRsvLivenessAwardsResult {
+  option (msgid) = 2502;
+  required int32 result = 1;
+}
+
+// MsgID: 2503
+// 打开活跃度界面
+message CSOpenLivenessUI {
+  option (msgid) = 2503;
+}
+
+// MsgID: 2504
+// 活跃度信息
+message SCLivenessInfo {
+  option (msgid) = 2504;
+  required int32 liveness = 1;
+  repeated DLiveness livenessList = 2;
+}
+
+// MsgID: 2601
+// 装备强化
+message CSEquipUp {
+  option (msgid) = 2601;
+  required int64 humanId = 1;
+  required int32 partSn = 2;
+}
+
+// MsgID: 2602
+// 装备强化
+message SCEquipUp {
+  option (msgid) = 2602;
+  required int32 result = 1;
+}
+
+// MsgID: 2603
+// 卸下装备
+message CSEquipDown {
+  option (msgid) = 2603;
+  required int64 humanId = 1;
+  required int32 partSn = 2;
+}
+
+// MsgID: 2604
+// 卸下装备
+message SCEquipDown {
+  option (msgid) = 2604;
+  required int32 result = 1;
+}
+
+// MsgID: 2605
+// 装备分解
+message CSEquipReclaim {
+  option (msgid) = 2605;
+  required int64 humanId = 1;
+  required int32 partSn = 2;
+}
+
+// MsgID: 2606
+// 装备分解
+message SCEquipReclaim {
+  option (msgid) = 2606;
+  required int32 result = 1;
+  repeated DItem items = 2;
+}
+
+// MsgID: 2608
+// 装备变化广播
+message SCEquipChangeBoardcast {
+  option (msgid) = 2608;
+  required int64 humanId = 1;
+  optional DHuman human = 2;
+}
+
+// MsgID: 2609
+// 部位强化
+message CSPartQianghua {
+  option (msgid) = 2609;
+  required int64 humanId = 1;
+  required int32 partSn = 2;
+}
+
+// MsgID: 2610
+// 部位强化
+message SCPartQianghua {
+  option (msgid) = 2610;
+  required int32 result = 1;
+}
+
+// MsgID: 2611
+// 部位重铸
+message CSPartChongxing {
+  option (msgid) = 2611;
+  required int64 humanId = 1;
+  required int32 partSn = 2;
+  repeated int32 materials = 3;
+}
+
+// MsgID: 2612
+// 部位重铸
+message SCPartChongxing {
+  option (msgid) = 2612;
+  required int32 result = 1;
+}
+
+// MsgID: 2701
+// 宝石升级
+message CSGemUp {
+  option (msgid) = 2701;
+  required int64 humanId = 1;
+  required int32 partSn = 2;
+  required int32 index = 3;
+}
+
+// MsgID: 2703
+// 全部宝石升级
+message CSGemUpAll {
+  option (msgid) = 2703;
+  required int64 humanId = 1;
+  required int32 partSn = 2;
+}
+
+// MsgID: 2704
+// 设置宝石
+message SCSetGem {
+  option (msgid) = 2704;
+  required int32 result = 1;
+}
+
+// MsgID: 2705
+// 卸下宝石
+message CSGemDown {
+  option (msgid) = 2705;
+  required int64 humanId = 1;
+  required int32 partSn = 2;
+  required int32 index = 3;
+}
+
+// MsgID: 2707
+// 全部卸下宝石
+message CSGemDownAll {
+  option (msgid) = 2707;
+  required int64 humanId = 1;
+  required int32 partSn = 2;
+}
+
+// MsgID: 2709
+// 宝石合成
+message CSGemComposite {
+  option (msgid) = 2709;
+  required int32 sn = 1;
+  required int32 count = 2;
+}
+
+// MsgID: 2710
+// 宝石合成
+message SCGemComposite {
+  option (msgid) = 2710;
+  required int32 result = 1;
+  optional int32 sn = 2;
+}
+
+// MsgID: 2711
+// 宝石合成至顶级
+message CSGemCompositeTop {
+  option (msgid) = 2711;
+  required int32 sn = 1;
+}
+
+// MsgID: 2712
+// 宝石合成至顶级
+message SCGemCompositeTop {
+  option (msgid) = 2712;
+  required int32 result = 1;
+}
+
+// MsgID: 2713
+// 全部宝石合成至顶级
+message CSGemCompositeAllTop {
+  option (msgid) = 2713;
+}
+
+// MsgID: 2714
+// 全部宝石合成至顶级
+message SCGemCompositeAllTop {
+  option (msgid) = 2714;
+  required int32 result = 1;
+}
+
+// MsgID: 2801
+// 抽卡
+message CSGatcha {
+  option (msgid) = 2801;
+  required int32 sn = 1;
+}
+
+// MsgID: 2802
+// 抽卡10次
+message CSGatcha10 {
+  option (msgid) = 2802;
+  required int32 sn = 1;
+}
+
+// MsgID: 2803
+// 抽卡结果
+message SCGatcha {
+  option (msgid) = 2803;
+  repeated DItem items = 1;
+}

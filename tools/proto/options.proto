@@ -9,5 +9,5 @@ import "google/protobuf/descriptor.proto";
 
 // 消息ID扩展
 extend .google.protobuf.MessageOptions {
-  int32 msgid = 54321;
+  optional int32 msgid = 54321;
 }

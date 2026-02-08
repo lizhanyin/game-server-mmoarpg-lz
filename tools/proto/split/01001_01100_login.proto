@@ -1,0 +1,75 @@
+// 01001_01100_login.proto
+// -----------------------------------------
+// 玩家登录
+// -----------------------------------------
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 登录相关
+// ============================================================
+
+// MsgID: 1003
+// 查询玩家角色列表
+message CSQueryCharacters {
+  option (msgid) = 1003;
+}
+
+// MsgID: 1004
+// 查询玩家角色列表结果
+message SCQueryCharactersResult {
+  option (msgid) = 1004;
+  repeated DCharacter characters = 1;	// 角色列表集合 支持多角色
+}
+
+// MsgID: 1005
+// 创建角色
+message CSCharacterCreate {
+  option (msgid) = 1005;
+  required string name = 1;		// 昵称
+  required int32 profession = 2;	// 职业
+  required int32 sex = 3;		// 性别
+  optional string genSn = 4;		// 武将SN
+}
+
+// MsgID: 1006
+// 创建角色结果
+message SCCharacterCreateResult {
+  option (msgid) = 1006;
+  required int32 resultCode = 1;		// 执行结果编码
+  optional int64 humanId = 2;			// 新创建角色ID
+  optional string resultReason = 3;		// 执行结果描述
+}
+
+// MsgID: 1007
+// 删除角色
+message CSCharacterDelete {
+  option (msgid) = 1007;
+  required int64 id = 1;		// 角色ID
+}
+
+// MsgID: 1008
+// 删除角色结果
+message SCCharacterDeleteResult {
+  option (msgid) = 1008;
+  required int32 resultCode = 1;		// 执行结果编码
+}
+
+// MsgID: 1009
+// 角色登录
+message CSCharacterLogin {
+  option (msgid) = 1009;
+  required int64 humanId = 1;	// 角色ID
+}
+
+// MsgID: 1010
+// 角色登录结果
+message SCCharacterLoginResult {
+  option (msgid) = 1010;
+  required int32 resultCode = 1;		// 执行结果编码
+}

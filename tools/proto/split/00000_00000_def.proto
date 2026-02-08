@@ -1,0 +1,693 @@
+// 00000_00000_def.proto
+// 包含所有枚举和没有 msgid 的数据结构定义
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+
+// ============================================================
+// 枚举定义
+// ============================================================
+
+// 地图单位类型
+enum EWorldObjectType {
+  HUMAN = 0;     // 玩家
+  MONSTER = 1;   // 怪物
+  DROP = 2;      // 掉落物
+  DOT = 3;       // 持续伤害
+  BULLET = 4;    // 子弹
+  NPC = 5;       // 游戏角色
+  PICK = 6;      // 可采集物
+  TRIGGER = 7;   // 机关
+  COMMON = 8;    // 除上面外的其他地图单元
+  GENERAL = 9;   // 武将信息
+  COMPETE = 10;  // 竞技场信息
+  SROLE = 11;    // 创角角色对象
+  HERO = 12;     // 玩家自己
+}
+
+// 地图事件区类型
+enum EAreaEventType {
+  NONE = 0;          // 没有任何事件
+  NORMAL_EVENT = 1;  // 一般事件
+  TRANSPORT = 2;     // 传送事件
+  SAFETY = 3;        // 安全区
+}
+
+// NPC类型
+enum ENpcType {
+  Npc_Normal = 0;  // 普通NPC
+  Npc_Area = 1;    // 区域NPC
+}
+
+// 副本通用类型
+enum EstageCommonType {
+  common = 1;      // 可选择，可点击
+}
+
+// 技能键位
+enum ESkillArmPos {
+  normal = 1;      // 普攻键位
+  skill1 = 2;      // 技能1 键位
+  skill2 = 3;      // 技能2 键位
+  skill3 = 4;      // 技能3 键位
+  skill4 = 5;      // 技能4 键位
+  fetter1 = 6;     // 羁绊技能1 键位
+  fetter2 = 7;     // 羁绊技能2 键位
+}
+
+// ============================================================
+// 数据结构定义
+// ============================================================
+
+// 二维向量
+message DVector2 {
+  optional float x = 1;
+  optional float y = 2;
+}
+
+// 三维向量
+message DVector3 {
+  optional float x = 1;
+  optional float y = 2;
+  optional float z = 3;
+}
+
+// 角色基础信息
+message DCharacter {
+  required int64 id = 1;
+  optional string sn = 2;
+  optional string name = 3;
+  optional int32 profession = 4;
+  optional int32 level = 5;
+  optional int32 sex = 6;
+}
+
+// 单位信息
+message DUnit {
+  optional int64 id = 1;
+  optional DProp prop = 2;
+  optional string name = 3;
+  optional int32 profession = 4;
+  optional int32 level = 5;
+  optional int32 sex = 6;
+  optional int32 hpCur = 7;
+  optional int32 mpCur = 8;
+  optional int32 hpMax = 9;
+  optional int32 mpMax = 10;
+  optional string modelSn = 11;
+  optional string sn = 12;
+  optional int64 expCur = 13;
+  optional int64 expUpgrade = 14;
+  optional int64 teamBundleID = 20;
+}
+
+// 玩家角色信息
+message DHuman {
+  optional int64 id = 1;
+  optional DProp prop = 2;
+  optional string name = 3;
+  optional int32 profession = 4;
+  optional int32 level = 5;
+  optional int32 sex = 6;
+  optional int32 hpCur = 7;
+  optional int32 mpCur = 8;
+  optional int32 hpMax = 9;
+  optional int32 mpMax = 10;
+  optional int64 actValue = 11;
+  optional int64 actValueMax = 12;
+  optional int64 gold = 13;
+  optional int64 coin = 14;
+  optional int32 combat = 15;
+  optional int64 expCur = 16;
+  optional string modelSn = 17;
+  optional string sn = 18;
+  optional string propJson = 19;
+  optional bool canMove = 20;
+  optional bool canCastSkill = 21;
+  optional bool canAttack = 22;
+  optional int64 teamBundleID = 23;
+  repeated int64 generalList = 24;
+  optional int32 vipLevel = 25;
+  optional int64 competMoney = 26;
+  repeated int64 virtual = 30;
+  optional int32 fightPower = 33;
+  optional int32 rebirthGold = 34;
+  repeated DParts parts = 35;
+  map<int32, int32> propShopLimitCounts = 36;
+  map<int32, int32> otherLimitCounts = 37;
+  optional int64 nextRefreshShopTime = 38;
+}
+
+// 属性数据
+message DProp {
+  optional int32 hpMax = 1;
+  optional int32 hpMaxPct = 2;
+  optional int32 mpMax = 3;
+  optional int32 mpMaxPct = 4;
+  optional int32 atkPhy = 5;
+  optional int32 atkPhyPct = 6;
+  optional int32 defPhy = 7;
+  optional int32 defPhyPct = 8;
+  optional int32 atkMag = 9;
+  optional int32 atkMagPct = 10;
+  optional int32 defMag = 11;
+  optional int32 defMagPct = 12;
+  optional int32 hit = 13;
+  optional int32 hitPct = 14;
+  optional int32 dodge = 15;
+  optional int32 dodgePct = 16;
+  optional int32 crit = 17;
+  optional int32 critPct = 18;
+  optional int32 critAdd = 19;
+  optional int32 critAddPct = 20;
+  optional int32 tough = 21;
+  optional int32 toughPct = 22;
+  optional int32 elem1Atk = 24;
+  optional int32 elem1AtkPct = 25;
+  optional int32 elem1Def = 26;
+  optional int32 elem1DefPct = 27;
+  optional int32 elem2Atk = 28;
+  optional int32 elem2AtkPct = 29;
+  optional int32 elem2Def = 30;
+  optional int32 elem2DefPct = 31;
+  optional int32 elem3Atk = 32;
+  optional int32 elem3AtkPct = 33;
+  optional int32 elem3Def = 34;
+  optional int32 elem3DefPct = 35;
+  optional int32 elem4Atk = 36;
+  optional int32 elem4AtkPct = 37;
+  optional int32 elem4Def = 38;
+  optional int32 elem4DefPct = 39;
+  optional int32 suck = 40;
+  optional int32 suckPct = 41;
+  optional int32 suckRatio = 42;
+  optional int32 suckRatioPct = 43;
+  optional int32 avoidAtk = 44;
+  optional int32 avoidAtkPct = 45;
+  optional int32 skillHealth = 46;
+  optional int32 skillHealthPct = 47;
+  optional int32 speed = 48;
+  optional int32 speedPct = 49;
+  optional int32 hpRecov = 50;
+  optional int32 hpRecovPct = 51;
+  optional int32 mpRecov = 52;
+  optional int32 mpRecovPct = 53;
+  optional int32 mpReduce = 54;
+  optional int32 mpReducePct = 55;
+  optional int32 aggro = 56;
+}
+
+// 生产信息
+message DProduce {
+  optional int32 sn = 1;
+  optional int32 num = 2;
+}
+
+// 虚拟物品数据
+message DVirtual {
+  optional int32 type = 1;
+  optional int64 num = 2;
+}
+
+// 奖励组
+message DAwardGroup {
+  repeated DVirtual virtuals = 1;
+  repeated DItem items = 2;
+}
+
+// 部位数据
+message DParts {
+  optional int32 sn = 1;
+  optional int32 qhLv = 2;
+  repeated int32 cxLvs = 3;
+  optional int32 equipSn = 4;
+  repeated int32 gemSns = 5;
+}
+
+// 背包格子数量变更
+message DBagCellNumChange {
+  optional int32 index = 1;
+  optional int32 num = 2;
+}
+
+// 背包格子移动
+message DBagCellMove {
+  optional int32 sIndex = 1;
+  optional int32 tIndex = 2;
+}
+
+// 背包格子添加
+message DBagCellAdd {
+  optional int32 index = 1;
+  optional DItem item = 2;
+}
+
+// 物品数据
+message DItem {
+  optional int32 code = 1;
+  optional int32 num = 2;
+  optional int32 bind = 3;
+  optional int64 etime = 4;
+  optional int32 pos = 5;
+  optional bool isNew = 6;
+}
+
+// 背包更新
+message DBagUpdate {
+  optional int32 pType = 1;
+  optional int32 type = 2;
+  repeated DBagCellNumChange numChanger = 3;
+  repeated DBagCellAdd adder = 4;
+  repeated DBagCellMove move = 5;
+}
+
+// 背包数据
+message DBag {
+  optional int32 capacity = 1;
+  repeated DItem items = 2;
+}
+
+// 商品数据
+message DGoods {
+  optional int32 sn = 1;
+  optional int32 status = 2;
+}
+
+// 商店数据
+message DShop {
+  optional int32 sn = 1;
+  optional int32 refreshCount = 2;
+  repeated DGoods shelfs = 4;
+}
+
+// 任务数据
+message DTask {
+  optional int32 code = 1;
+  optional int32 state = 2;
+  optional int32 value = 3;
+}
+
+// 任务数据
+message DQuest {
+  optional int32 sn = 1;
+  optional int32 targetProgress = 2;
+  optional int32 nowProgress = 3;
+  optional int32 status = 4;
+}
+
+// 邮件数据
+message DMail {
+  optional int64 sender = 1;
+  optional string title = 2;
+  optional string content = 3;
+  optional int64 sendTime = 4;
+  optional int64 spanTime = 5;
+  optional int32 read = 6;
+  repeated DVirtual virtuals = 7;
+  repeated DItem items = 8;
+  optional int64 id = 9;
+}
+
+// 属性数据
+message DAttr {
+  optional int32 type = 1;
+  optional int32 value = 2;
+  optional int32 addType = 3;
+}
+
+// 寻宝数据
+message DTreasure {
+  optional int32 type = 1;
+  optional int32 dailyFree = 2;
+  optional int32 bonusProc = 3;
+  optional int32 toHiden = 4;
+  optional int64 cd = 5;
+  repeated int32 hotItems = 6;
+  optional int32 batchCost = 7;
+  optional bool batchSale = 8;
+}
+
+// 黑市商品
+message DBlackGoods {
+  optional int32 code = 1;
+  optional bool canBuy = 2;
+}
+
+// 签到数据
+message DSignIn {
+  optional int32 month = 1;
+  optional int32 days = 2;
+  optional int32 state = 3;
+}
+
+// 限时活动数据
+message DLiveness {
+  optional int32 sn = 1;
+  optional int32 tp = 2;
+  optional int32 currNum = 3;
+  optional int32 status = 4;
+}
+
+// 队伍成员项
+message DTeamMemberItem {
+  optional int64 humanId = 1;
+  optional string headSn = 2;
+  optional string name = 3;
+  optional int32 job = 4;
+  optional int32 hpMax = 5;
+  optional int32 mpMax = 6;
+  optional int32 fightPower = 7;
+  optional int32 level = 8;
+}
+
+// 组队副本队伍信息
+message DTeamRepItem {
+  optional int64 teamId = 1;           // 队伍ID
+  repeated DTeamMemberItem members = 2; // 成员
+}
+
+// 公告项
+message DBulletinItem {
+  optional int32 sn = 1;
+  optional string title = 2;
+  optional string content = 3;
+}
+
+// 初始化副本数据
+message DInitDataStage {
+  optional int32 stageSn = 1;
+}
+
+// ============================================================
+// 地图对象数据结构
+// ============================================================
+
+// 地图玩家信息（被其他玩家看到）
+message DStageHuman {
+  repeated DVector3 posEnd = 1;        // 目标路径坐标
+  optional int32 level = 2;             // 等级
+  optional int32 sex = 3;               // 性别
+  optional int32 profession = 4;        // 职业
+  optional int32 hpCur = 5;             // 当前血量
+  optional int32 hpMax = 6;             // 最大血量
+  optional int32 mpCur = 7;             // 当前魔法
+  optional int32 mpMax = 8;             // 最大魔法
+  optional bool evil = 14;              // 是否邪恶
+  optional int32 speed = 15;            // 速度
+  optional int64 teamId = 16;           // 队伍ID
+  optional int64 unionId = 17;          // 公会ID
+  optional int64 countryId = 18;        // 国家ID
+  optional int32 equipWeaponSn = 19;    // 武器SN
+  optional int32 equipClothesSn = 20;   // 衣服SN
+  optional int32 equipWeaponStrthLevel = 21; // 武器强化等级
+  optional string pvpMode = 22;         // PVP模式
+  optional bool inFighting = 23;        // 是否在战斗中
+  optional int32 titleSn = 24;          // 称号SN
+  repeated DSkill skill = 25;           // 技能列表
+  optional string skillGroupSn = 26;    // 技能组SN
+  optional int32 rage = 27;             // 怒气
+  optional int32 combat = 31;           // 战斗力
+  optional int64 teamBundleID = 32;     // 队伍分组ID
+  optional bool canMove = 33;           // 是否可移动
+  optional bool canCastSkill = 34;      // 是否可施法
+  optional bool canAttack = 35;         // 是否可攻击
+  optional string propJson = 36;        // 属性JSON
+  optional string sn = 37;              // 配置SN
+}
+
+// 地图武将信息
+message DStageGeneral {
+  repeated DVector3 posEnd = 1;
+  optional int32 level = 2;
+  optional int32 sex = 3;
+  optional int32 profession = 4;
+  optional int32 hpCur = 5;
+  optional int32 hpMax = 6;
+  optional int32 mpCur = 7;
+  optional int32 mpMax = 8;
+  optional bool inFighting = 23;
+  optional string sn = 37;
+  optional int64 ownerId = 38;          // 所有者ID
+}
+
+// 地图怪物信息
+message DStageMonster {
+  repeated DVector3 posEnd = 1;
+  optional int32 level = 2;
+  optional int32 hpCur = 5;
+  optional int32 hpMax = 6;
+  optional int32 mpCur = 7;
+  optional int32 mpMax = 8;
+  optional string sn = 37;
+  optional int64 ownerId = 38;
+}
+
+// 持续伤害
+message DStageDot {
+  repeated DVector3 posEnd = 1;
+  optional int32 hpCur = 5;
+  optional int32 hpMax = 6;
+  optional string sn = 37;
+  optional int64 ownerId = 38;
+  optional int32 targetId = 39;         // 目标ID
+}
+
+// 子弹
+message DStageBullet {
+  repeated DVector3 posEnd = 1;
+  optional string sn = 37;
+  optional int32 targetId = 39;
+  optional int64 casterId = 40;         // 施法者ID
+}
+
+// 掉落物
+message DStageDrop {
+  repeated DVector3 posEnd = 1;
+  optional string sn = 37;
+  optional int32 itemId = 41;           // 物品ID
+}
+
+// 机关
+message DStageTrigger {
+  repeated DVector3 posEnd = 1;
+  optional string sn = 37;
+}
+
+// 可采集物
+message DStagePick {
+  repeated DVector3 posEnd = 1;
+  optional string sn = 37;
+  optional int32 progress = 42;         // 采集进度
+}
+
+// NPC
+message DStageNPC {
+  required int32 npcSn = 1;            // NPC SN
+  required DVector3 position = 2;     // 位置
+  optional DVector3 rotation = 3;      // 旋转
+  optional string characterModelSn = 4; // 角色模型SN
+  optional int32 areaSn = 5;           // 区域SN
+  optional ENpcType type = 6;         // NPC类型
+  optional EAreaEventType areaEventType = 7; // 区域事件类型
+}
+
+// 地图对象基类
+message DStageObject {
+  optional int64 id = 1;
+  optional int32 type = 2;              // 对象类型
+  optional DVector3 pos = 3;            // 位置
+  optional DVector3 dir = 4;            // 方向
+  optional int64 ownerId = 38;
+}
+
+// 场景触发器
+message DSceneTrigger {
+  optional int32 sn = 1;
+  optional string name = 2;
+  optional int32 type = 3;
+  repeated DVector3 areas = 4;         // 触发区域
+}
+
+// 场景事件
+message DSceneEvent {
+  optional int32 sn = 1;
+  optional string name = 2;
+  optional int32 type = 3;
+}
+
+// 场景剧情
+message DScenePlot {
+  optional int32 sn = 1;
+  optional string name = 2;
+  optional int32 type = 3;
+  repeated DSceneEvent events = 4;
+}
+
+// 一次伤害信息
+message DHpChgOnce {
+  optional int64 targetId = 1;         // 目标ID
+  optional int32 hpChg = 2;            // 血量变化
+  optional int32 hitType = 3;          // 命中类型
+  optional bool isCrit = 4;            // 是否暴击
+}
+
+// 战斗消息
+message DBattleMsg {
+  optional int64 casterId = 1;         // 施法者ID
+  optional int32 skillSn = 2;          // 技能SN
+  repeated DHpChgTar targets = 3;      // 目标列表
+}
+
+// 目标伤害
+message DHpChgTar {
+  optional int64 targetId = 1;
+  optional int32 hpChg = 2;
+  repeated DHpChgOnce hps = 3;
+}
+
+// 回退位置
+message DBackPos {
+  optional DVector3 pos = 1;
+  optional float time = 2;
+}
+
+// Buff信息
+message DBuff {
+  optional int32 sn = 1;               // Buff SN
+  optional int32 timeLeft = 2;         // 剩余时间
+  repeated DBuffProp buffProp = 3;     // Buff的具体内容
+}
+
+// Buff属性
+message DBuffProp {
+  optional int32 type = 1;
+  optional int32 value = 2;
+}
+
+// 武将装备
+message DGeneralEquipment {
+  optional int32 sn = 1;               // 部位SN
+  optional int32 qhLv = 2;             // 强化等级
+  repeated int32 cxLvs = 3;            // 重置等级
+  optional int32 equipSn = 4;          // 装备SN
+  repeated int32 gemSns = 5;           // 宝石SN
+}
+
+// 武将信息
+message DGeneralInfo {
+  optional int64 id = 1;
+  optional string sn = 2;
+  optional int32 level = 3;
+  optional int32 star = 4;             // 星级
+  optional int32 quality = 5;          // 品质
+  optional int32 exp = 6;              // 经验
+  optional int32 status = 7;           // 状态
+  repeated DGeneralEquipment equipments = 8; // 装备列表
+}
+
+// 碎片信息
+message DFragInfo {
+  optional int32 sn = 1;
+  optional int32 num = 2;
+}
+
+// 武将任务战斗次数
+message DGenTaskFightTimes {
+  optional int64 generalId = 1;
+  optional int32 times = 2;
+}
+
+// 武将任务奖励
+message DGeneralTaskReward {
+  optional int64 generalId = 1;
+  repeated DItem items = 2;
+}
+
+// 副本实例
+message DInstance {
+  optional int32 sn = 1;
+  optional int32 star = 2;             // 星级
+  optional int32 fightCount = 3;       // 战斗次数
+  optional int32 state = 4;            // 状态
+}
+
+// 章节信息
+message DChapterInfo {
+  optional int32 sn = 1;
+  optional int32 state = 2;
+  repeated int32 instanceSns = 3;      // 副本SN列表
+}
+
+// 副本排名
+message DInstanceRank {
+  optional int32 rank = 1;
+  optional string name = 2;
+  optional int32 value = 3;
+}
+
+// 等级排名
+message DLevelRank {
+  optional int32 rank = 1;
+  optional string name = 2;
+  optional int32 level = 3;
+  optional int32 fightPower = 4;
+}
+
+// 战斗力排名
+message DCombatRank {
+  optional int32 rank = 1;
+  optional string name = 2;
+  optional int32 combat = 3;
+}
+
+// 层级信息（爬塔）
+message DLayerInfo {
+  optional int32 layer = 1;            // 层数
+  optional int32 state = 2;            // 状态
+  repeated int32 buffSns = 3;          // Buff SN列表
+}
+
+// 玩家详细信息
+message DHumanInfo {
+  optional int64 id = 1;
+  optional string name = 2;
+  optional int32 level = 3;
+  optional int32 profession = 4;
+  optional int32 fightPower = 5;
+  optional string guildName = 6;       // 公会名称
+}
+
+// 战斗日志
+message DBattleLog {
+  optional int64 id = 1;
+  optional string attacker = 2;        // 攻击者
+  optional string defender = 3;        // 防守者
+  optional bool isWin = 4;             // 是否胜利
+  optional int64 time = 5;             // 时间
+}
+
+// 好友信息
+message DFriendInfo {
+  optional int64 id = 1;
+  optional string name = 2;
+  optional int32 level = 3;
+  optional int32 profession = 4;
+  optional int32 fightPower = 5;
+  optional bool isOnline = 6;          // 是否在线
+}
+
+// 技能信息
+message DSkill {
+  optional int32 sn = 1;
+  optional int32 level = 2;
+  optional int32 cd = 3;               // 冷却时间
+}
+
+// 天赋信息
+message DInborn {
+  optional int32 sn = 1;
+  optional int32 level = 2;
+}

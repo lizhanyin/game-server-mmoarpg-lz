@@ -1,0 +1,194 @@
+// 03301_03400_team.proto
+// 组队相关消息 msgid 范围 3301-3400
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 组队相关消息
+// ============================================================
+
+// MsgID: 3301
+// 请求打开组队UI
+message CSTeamReqOpenUI {
+  option (msgid) = 3301;
+}
+
+// MsgID: 3302
+// 组队请求打开UI结果
+message SCTeamReqOpenUIResult {
+  option (msgid) = 3302;
+  repeated DTeamRepItem teams = 1;
+}
+
+// MsgID: 3303
+// 请求加入队伍
+message CSTeamReqJoin {
+  option (msgid) = 3303;
+  required int64 teamId = 1;
+}
+
+// MsgID: 3304
+// 返回自己队伍的信息
+message SCTeamReqSelfResult {
+  option (msgid) = 3304;
+  optional DTeamRepItem rep = 1;     // 队伍信息
+  optional int32 result = 2;         // 结果 1：成功，0：失败
+  optional string info = 3;          // 结果信息
+}
+
+// MsgID: 3305
+// 发起组队
+message CSTeamReqLaunch {
+  option (msgid) = 3305;
+  required int32 stageSn = 1;
+}
+
+// MsgID: 3307
+// 创建副本队伍
+message CSTeamRepCreate {
+  option (msgid) = 3307;
+  required int32 stageSn = 1;
+}
+
+// MsgID: 3309
+// 离开队伍
+message CSTeamRepLeave {
+  option (msgid) = 3309;
+}
+
+// MsgID: 3310
+// 队伍离开
+message SCTeamRepLeave {
+  option (msgid) = 3310;
+}
+
+// MsgID: 3311
+// 踢出队友
+message CSTeamRepKick {
+  option (msgid) = 3311;
+  required int64 humanId = 1;
+}
+
+// MsgID: 3312
+// 队伍剩余次数
+message SCTeamReqLeftNum {
+  option (msgid) = 3312;
+  required int32 stageSn = 1;
+}
+
+// MsgID: 3314
+// 队伍踢出
+message SCTeamRepKick {
+  option (msgid) = 3314;
+}
+
+// MsgID: 3315
+// 请求关闭组队UI
+message CSTeamReqCloseUI {
+  option (msgid) = 3315;
+}
+
+// MsgID: 3316
+// 请求更新实时组队信息
+message CSTeamReqUpdateRealTime {
+  option (msgid) = 3316;
+}
+
+// MsgID: 3316
+// 组队请求更新实时
+message SCTeamReqUpdateRealTime {
+  option (msgid) = 3316;
+  repeated DTeamRepItem teams = 1;
+}
+
+// MsgID: 3317
+// 离开队伍队列
+message CSTeamRepLeaveQueue {
+  option (msgid) = 3317;
+}
+
+// MsgID: 3318
+// 队伍离开队列
+message SCTeamRepLeaveQueue {
+  option (msgid) = 3318;
+}
+
+// MsgID: 3321
+// 呼叫队友
+message CSTeamRepCall {
+  option (msgid) = 3321;
+}
+
+// MsgID: 3331
+// 邀请好友
+message CSTeamInvite {
+  option (msgid) = 3331;
+  required int64 humanId = 1;
+}
+
+// MsgID: 3332
+// 队伍邀请
+message SCTeamInvite {
+  option (msgid) = 3332;
+  required int64 fromId = 1;
+  optional string fromName = 2;
+}
+
+// MsgID: 3333
+// 确认邀请
+message CSTeamInviteConfirm {
+  option (msgid) = 3333;
+  required bool accept = 1;
+  optional int64 teamId = 2;
+}
+
+// MsgID: 3335
+// 申请入队
+message CSTeamApply {
+  option (msgid) = 3335;
+  required int64 teamId = 1;
+}
+
+// MsgID: 3336
+// 队伍申请
+message SCTeamApply {
+  option (msgid) = 3336;
+  repeated int64 humanIds = 1;
+}
+
+// MsgID: 3337
+// 确认申请
+message CSTeamApplyConfirm {
+  option (msgid) = 3337;
+  repeated int64 humanIds = 1;
+}
+
+// MsgID: 3338
+// 我的队伍信息
+message CSTeamMine {
+  option (msgid) = 3338;
+}
+
+// MsgID: 3338
+// 我的队伍
+message SCTeamMine {
+  option (msgid) = 3338;
+  optional DTeamRepItem team = 1;
+}
+
+// MsgID: 3339
+// 离开队伍
+message CSTeamLeave {
+  option (msgid) = 3339;
+}
+
+// MsgID: 3340
+// 队伍离开
+message SCTeamLeave {
+  option (msgid) = 3340;
+}

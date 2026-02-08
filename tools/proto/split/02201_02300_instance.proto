@@ -1,0 +1,98 @@
+// 02201_02300_instance.proto
+// 副本相关消息 msgid 范围 2201-2300
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 副本相关消息
+// ============================================================
+
+// MsgID: 2201
+// 进入副本
+message CSInstanceEnter {
+  option (msgid) = 2201;
+  required int32 sn = 1;
+}
+
+// MsgID: 2202
+// 离开副本
+message CSInstanceLeave {
+  option (msgid) = 2202;
+}
+
+// MsgID: 2203
+// 结束副本
+message CSInstanceEnd {
+  option (msgid) = 2203;
+}
+
+// MsgID: 2204
+// 副本结束
+message SCInstanceEnd {
+  option (msgid) = 2204;
+  required bool win = 1;
+  optional int32 star = 2;
+  repeated DItem rewards = 3;
+}
+
+// MsgID: 2207
+// 章节更新
+message SCUpdateChapter {
+  option (msgid) = 2207;
+  required DChapterInfo chapter = 1;
+}
+
+// MsgID: 2208
+// 所有章节
+message SCAllChapter {
+  option (msgid) = 2208;
+  repeated DChapterInfo chapters = 1;
+}
+
+// MsgID: 2209
+// 副本自动战斗
+message CSInstanceAuto {
+  option (msgid) = 2209;
+  required bool auto = 1;
+}
+
+// MsgID: 2210
+// 副本自动战斗
+message SCInstanceAuto {
+  option (msgid) = 2210;
+  required bool auto = 1;
+}
+
+// MsgID: 2212
+// 领取宝箱奖励
+message CSBoxAward {
+  option (msgid) = 2212;
+  required int32 sn = 1;
+}
+
+// MsgID: 2213
+// 宝箱奖励
+message SCBoxAward {
+  option (msgid) = 2213;
+  required int32 result = 1;
+  repeated DItem items = 2;
+}
+
+// MsgID: 2214
+// 副本抽奖
+message CSInstanceLottery {
+  option (msgid) = 2214;
+  required int32 sn = 1;
+}
+
+// MsgID: 2215
+// 副本抽奖
+message SCInstanceLottery {
+  option (msgid) = 2215;
+  repeated DItem items = 1;
+}

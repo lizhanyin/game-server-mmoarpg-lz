@@ -1,0 +1,79 @@
+// 03201_03300_tower.proto
+// 爬塔相关消息 msgid 范围 3201-3300
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 爬塔相关消息
+// ============================================================
+
+// MsgID: 3201
+// 所有层信息
+message SCAllLayer {
+  option (msgid) = 3201;
+  repeated DLayerInfo layers = 1;
+}
+
+// MsgID: 3202
+// 进入爬塔层
+message CSLayerEnter {
+  option (msgid) = 3202;
+}
+
+// MsgID: 3203
+// 结束爬塔层
+message CSLayerEnd {
+  option (msgid) = 3203;
+}
+
+// MsgID: 3204
+// 层结束
+message SCLayerEnd {
+  option (msgid) = 3204;
+  required bool win = 1;
+  repeated DItem rewards = 2;
+}
+
+// MsgID: 3205
+// 离开爬塔层
+message CSLayerLeave {
+  option (msgid) = 3205;
+}
+
+// MsgID: 3206
+// 领取爬塔层奖励
+message CSLayerAward {
+  option (msgid) = 3206;
+}
+
+// MsgID: 3207
+// 层奖励
+message SCLayerAward {
+  option (msgid) = 3207;
+  required int32 result = 1;
+  repeated DItem items = 2;
+}
+
+// MsgID: 3208
+// 刷新爬塔层Buff
+message CSLayerRefreshBuff {
+  option (msgid) = 3208;
+}
+
+// MsgID: 3209
+// 层刷新Buff
+message SCLayerRefreshBuff {
+  option (msgid) = 3209;
+  repeated int32 buffSns = 1;
+}
+
+// MsgID: 3210
+// 刷新爬塔
+message CSRefreshTower {
+  option (msgid) = 3210;
+}

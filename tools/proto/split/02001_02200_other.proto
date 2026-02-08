@@ -1,0 +1,95 @@
+// 02001_02200_other.proto
+// 其他功能消息 msgid 范围 2001-2200
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 其他功能消息
+// ============================================================
+
+// MsgID: 2000
+// 签到
+message CSSignIn {
+  option (msgid) = 2000;
+  required int32 type = 1;
+}
+
+// MsgID: 2001
+// 签到结果
+message SCSignIn {
+  option (msgid) = 2001;
+  required int32 result = 1;
+  repeated DSignIn signIns = 2;
+}
+
+// MsgID: 2101
+// 提交普通任务
+message CSCommitQuestNormal {
+  option (msgid) = 2101;
+  required int32 sn = 1;
+}
+
+// MsgID: 2102
+// 提交日常任务
+message CSCommitQuestDaily {
+  option (msgid) = 2102;
+  required int32 sn = 1;
+}
+
+// MsgID: 2103
+// 打开任务
+message CSOpenQuest {
+  option (msgid) = 2103;
+}
+
+// MsgID: 2104
+// 打开日常任务
+message CSOpenQuestDaily {
+  option (msgid) = 2104;
+}
+
+// MsgID: 2105
+// 任务信息
+message SCQuestInfo {
+  option (msgid) = 2105;
+  repeated DQuest quests = 1;
+}
+
+// MsgID: 2106
+// 打开副本日常任务
+message CSOpenQuestInstDaily {
+  option (msgid) = 2106;
+}
+
+// MsgID: 2107
+// 副本日常次数
+message SCQuestInstDailyCount {
+  option (msgid) = 2107;
+  repeated int32 counts = 1;
+}
+
+// MsgID: 2108
+// 提交副本日常任务
+message CSCommitQuestInstDaily {
+  option (msgid) = 2108;
+  optional int32 code = 1;
+}
+
+// MsgID: 2109
+// 副本日常信息
+message SCQuestInstDailyInfo {
+  option (msgid) = 2109;
+  repeated DInstance instances = 1;
+}
+
+// MsgID: 2121
+// 提交普通任务结果
+message SCCommitQuestNormalResult {
+  option (msgid) = 2121;
+  required int32 result = 1;
+}

@@ -1,0 +1,97 @@
+// 03601_99999_other.proto
+// 其他功能消息 msgid 范围 3601-99999
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+
+// ============================================================
+// 测试消息
+// ============================================================
+
+// MsgID: 9901
+// 测试消息
+message CSTest {
+  option (msgid) = 9901;
+  required string msg = 1;
+}
+
+// MsgID: 9902
+// 测试添加金钱
+message CSTestAddMoney {
+  option (msgid) = 9902;
+  required int64 count = 1;
+}
+
+// MsgID: 9903
+// 测试添加物品
+message CSTestAddItem {
+  option (msgid) = 9903;
+  required int32 sn = 1;
+  required int32 num = 2;
+}
+
+// MsgID: 9908
+// 测试赠送武将
+message CSTestGiveGeneral {
+  option (msgid) = 9908;
+  required int32 sn = 1;
+}
+
+// MsgID: 9909
+// 测试谁是爸爸
+message CSTestWhoIsMyDad {
+  option (msgid) = 9909;
+}
+
+// MsgID: 9917
+// 测试进入副本
+message CSTestEnterRep {
+  option (msgid) = 9917;
+  required int32 sn = 1;
+}
+
+// MsgID: 9919
+// 测试赠送所有武将
+message CSTestGiveAllGeneral {
+  option (msgid) = 9919;
+}
+
+// MsgID: 9920
+// 测试发送系统邮件
+message CSTestSendSysMail {
+  option (msgid) = 9920;
+}
+
+// MsgID: 9921
+// 测试VIP
+message CSTestVIP {
+  option (msgid) = 9921;
+  required int32 level = 1;
+}
+
+// MsgID: 9922
+// 测试副本星级
+message CSTestInstanceStar {
+  option (msgid) = 9922;
+  required int32 sn = 1;
+  required int32 star = 2;
+}
+
+// MsgID: 9923
+// 测试更新时间
+message CSTestUpdateTime {
+  option (msgid) = 9923;
+  required int64 time = 1;
+}
+
+// MsgID: 9924
+// 全服公告
+message CSInformToAll {
+  option (msgid) = 9924;
+  required string content = 1;
+}

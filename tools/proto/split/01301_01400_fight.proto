@@ -1,0 +1,176 @@
+// 01301_01400_fight.proto
+// 战斗相关消息 msgid 范围 1301-1400
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 战斗相关消息
+// ============================================================
+
+// MsgID: 1301
+// 战斗攻击
+message CSFightAtk {
+  option (msgid) = 1301;
+  required int64 targetId = 1;
+  optional int32 skillSn = 2;
+}
+
+// MsgID: 1302
+// 战斗攻击结果
+message SCFightAtkResult {
+  option (msgid) = 1302;
+  required int32 result = 1;
+}
+
+// MsgID: 1303
+// 战斗技能
+message SCFightSkill {
+  option (msgid) = 1303;
+  required int64 casterId = 1;
+  required int32 skillSn = 2;
+  repeated int64 targetIds = 3;
+  optional DVector3 pos = 4;
+}
+
+// MsgID: 1304
+// 战斗血量变化
+message SCFightHpChg {
+  option (msgid) = 1304;
+  repeated DHpChgTar hps = 1;
+}
+
+// MsgID: 1310
+// 战斗复活
+message CSFightRevive {
+  option (msgid) = 1310;
+  optional int32 type = 1;
+}
+
+// MsgID: 1311
+// 战斗场景变化
+message SCFightStageChange {
+  option (msgid) = 1311;
+  required int32 stageSn = 1;
+}
+
+// MsgID: 1312
+// 持续伤害血量变化
+message SCFightDotHpChg {
+  option (msgid) = 1312;
+  repeated DHpChgTar hps = 1;
+}
+
+// MsgID: 1313
+// 怒气增加
+message DRageAdd {
+  option (msgid) = 1313;
+  optional int32 value = 1;
+  optional int32 max = 2;
+}
+
+// MsgID: 1316
+// 子弹血量变化
+message SCFightBulletHpChg {
+  option (msgid) = 1316;
+  repeated DHpChgTar hps = 1;
+}
+
+// MsgID: 1317
+// 子弹移动
+message SCFightBulletMove {
+  option (msgid) = 1317;
+  required int64 bulletId = 1;
+  required DVector3 pos = 2;
+}
+
+// MsgID: 1318
+// 技能打断
+message CSSkillInterrupt {
+  option (msgid) = 1318;
+}
+
+// MsgID: 1319
+// 技能打断结果
+message SCSkillInterrupt {
+  option (msgid) = 1319;
+  required bool success = 1;
+}
+
+// MsgID: 1320
+// 添加武将（出阵）
+message CSSkillAddGeneral {
+  option (msgid) = 1320;
+  required int64 generalId = 1;
+}
+
+// MsgID: 1321
+// 移除武将（下阵）
+message CSSkillRemoveGeneral {
+  option (msgid) = 1321;
+  required int64 generalId = 1;
+}
+
+// MsgID: 1322
+// 添加武将到联携
+message CSSkillAddGeneralToUnion {
+  option (msgid) = 1322;
+  required int64 generalId = 1;
+}
+
+// MsgID: 1323
+// 联携战斗开始
+message CSUnionFightStart {
+  option (msgid) = 1323;
+}
+
+// MsgID: 1324
+// 联携战斗AI暂停
+message CSUnionFightAIPause {
+  option (msgid) = 1324;
+}
+
+// MsgID: 1325
+// 联携战斗AI恢复
+message CSUnionFightAIUnpause {
+  option (msgid) = 1325;
+}
+
+// MsgID: 1326
+// 联携战斗特殊技能
+message CSUnionFightSpecial {
+  option (msgid) = 1326;
+}
+
+// MsgID: 1327
+// 联携战斗自动
+message CSUnionFightAuto {
+  option (msgid) = 1327;
+  required bool auto = 1;
+}
+
+// MsgID: 1328
+// 技能取消
+message SCFightSkillTeamCancel {
+  option (msgid) = 1328;
+}
+
+// MsgID: 1350
+// 死亡复活
+message SCFightRevive {
+  option (msgid) = 1350;
+  optional int64 humanId = 1;        // ID
+  optional int32 hpCur = 2;          // 血量
+  optional DVector2 pos = 3;         // 复活坐标
+}
+
+// MsgID: 1400
+// 背包更新
+message SCBagUpdate {
+  option (msgid) = 1400;
+  required DBagUpdate bag = 1;
+}

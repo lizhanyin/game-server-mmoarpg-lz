@@ -1,0 +1,315 @@
+// 01401_01800_general.proto
+// 武将相关消息 msgid 范围 1401-1800
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 武将相关消息
+// ============================================================
+
+// MsgID: 1401
+// 使用物品
+message CSUseItem {
+  option (msgid) = 1401;
+  required int32 pos = 1;
+  required int32 num = 2;
+}
+
+// MsgID: 1403
+// 整理背包
+message CSArrangeBag {
+  option (msgid) = 1403;
+  required int32 type = 1;
+}
+
+// MsgID: 1405
+// 批量出售
+message CSItemBachSell {
+  option (msgid) = 1405;
+  repeated int32 poses = 1;
+}
+
+// MsgID: 1407
+// 扩展背包
+message CSBagExpand {
+  option (msgid) = 1407;
+  required int32 type = 1;
+}
+
+// MsgID: 1408
+// 背包扩展结果
+message SCBagExpand {
+  option (msgid) = 1408;
+  required int32 result = 1;
+  required int32 capacity = 2;
+}
+
+// MsgID: 1501
+// 发送聊天
+message CSInformChat {
+  option (msgid) = 1501;
+  required string content = 1;
+  required int32 channel = 2;
+}
+
+// MsgID: 1502
+// 消息通知
+message SCInformMsg {
+  option (msgid) = 1502;
+  required int32 type = 1;
+  required string content = 2;
+}
+
+// MsgID: 1504
+// 全服消息通知
+message SCInformMsgAll {
+  option (msgid) = 1504;
+  required int32 type = 1;
+  required string content = 2;
+}
+
+// MsgID: 1901
+// 获取武将列表
+message CSGeneralList {
+  option (msgid) = 1901;
+}
+
+// MsgID: 1902
+// 武将列表
+message SCGeneralList {
+  option (msgid) = 1902;
+  repeated DGeneralInfo generals = 1;
+}
+
+// MsgID: 1903
+// 获取武将信息
+message CSGeneralInfo {
+  option (msgid) = 1903;
+  required int64 id = 1;
+}
+
+// MsgID: 1904
+// 武将信息
+message SCGeneralInfo {
+  option (msgid) = 1904;
+  required DGeneralInfo general = 1;
+}
+
+// MsgID: 1905
+// 招募武将
+message CSGeneralRecruit {
+  option (msgid) = 1905;
+  required int32 sn = 1;
+}
+
+// MsgID: 1906
+// 武将招募结果
+message SCGeneralRecruitResult {
+  option (msgid) = 1906;
+  required int32 result = 1;
+  optional DGeneralInfo general = 2;
+}
+
+// MsgID: 1907
+// 武将添加经验
+message CSGeneralExpAdd {
+  option (msgid) = 1907;
+  repeated int64 generalIds = 1;
+  repeated int32 counts = 2;
+}
+
+// MsgID: 1908
+// 武将添加经验结果
+message SCGeneralExpAdd {
+  option (msgid) = 1908;
+  repeated DGeneralInfo generals = 1;
+}
+
+// MsgID: 1909
+// 武将升星
+message CSGeneralStarUp {
+  option (msgid) = 1909;
+  required int64 id = 1;
+}
+
+// MsgID: 1910
+// 武将升星结果
+message SCGeneralStarUp {
+  option (msgid) = 1910;
+  required int32 result = 1;
+  optional DGeneralInfo general = 2;
+}
+
+// MsgID: 1911
+// 武将升品
+message CSGeneralQualityUp {
+  option (msgid) = 1911;
+  required int64 id = 1;
+}
+
+// MsgID: 1912
+// 武将升品结果
+message SCGeneralQualityUp {
+  option (msgid) = 1912;
+  required int32 result = 1;
+  optional DGeneralInfo general = 2;
+}
+
+// MsgID: 1913
+// 武将装备强化
+message CSGeneralEquipUp {
+  option (msgid) = 1913;
+  required int64 id = 1;
+  required int32 partSn = 2;
+}
+
+// MsgID: 1914
+// 武将装备强化结果
+message SCGeneralEquipUp {
+  option (msgid) = 1914;
+  required int32 result = 1;
+  optional DGeneralInfo general = 2;
+}
+
+// MsgID: 1915
+// 获取碎片信息
+message CSFragInfo {
+  option (msgid) = 1915;
+}
+
+// MsgID: 1916
+// 碎片信息
+message SCFragInfo {
+  option (msgid) = 1916;
+  repeated DFragInfo frags = 1;
+}
+
+// MsgID: 1917
+// 获取单个碎片信息
+message CSOneFragInfo {
+  option (msgid) = 1917;
+  required int32 sn = 1;
+}
+
+// MsgID: 1918
+// 单个碎片信息
+message SCOneFragInfo {
+  option (msgid) = 1918;
+  required DFragInfo frag = 1;
+}
+
+// MsgID: 1919
+// 出售碎片
+message CSSellFrag {
+  option (msgid) = 1919;
+  required int32 sn = 1;
+  required int32 num = 2;
+}
+
+// MsgID: 1920
+// 出售碎片结果
+message SCSellFrag {
+  option (msgid) = 1920;
+  required int32 result = 1;
+}
+
+// MsgID: 1921
+// 武将任务战斗次数
+message CSGenTaskFightTimes {
+  option (msgid) = 1921;
+}
+
+// MsgID: 1922
+// 武将任务战斗次数
+message SCGenTaskFightTimes {
+  option (msgid) = 1922;
+  repeated DGenTaskFightTimes times = 1;
+}
+
+// MsgID: 1923
+// 进入武将任务
+message CSEnterGeneralTask {
+  option (msgid) = 1923;
+  required int64 generalId = 1;
+}
+
+// MsgID: 1924
+// 进入武将任务
+message SCEnterGeneralTask {
+  option (msgid) = 1924;
+  required int32 stageSn = 1;
+}
+
+// MsgID: 1925
+// 武将任务战斗结果
+message SCGeneralTaskFightResult {
+  option (msgid) = 1925;
+  required bool win = 1;
+}
+
+// MsgID: 1926
+// 武将任务奖励
+message SCGeneralTaskReward {
+  option (msgid) = 1926;
+  repeated DGeneralTaskReward rewards = 1;
+}
+
+// MsgID: 1927
+// 武将上阵
+message CSGeneralToAttIng {
+  option (msgid) = 1927;
+  required int64 generalId = 1;
+}
+
+// MsgID: 1928
+// 武将上阵结果
+message SCGeneralToAttIng {
+  option (msgid) = 1928;
+  required bool success = 1;
+}
+
+// MsgID: 1929
+// 上阵武将信息
+message CSGeneralInfoAttIng {
+  option (msgid) = 1929;
+}
+
+// MsgID: 1930
+// 上阵武将信息
+message SCGeneralInfoAttIng {
+  option (msgid) = 1930;
+  repeated DGeneralInfo generals = 1;
+}
+
+// MsgID: 1931
+// 移除武将
+message CSGeneralRemove {
+  option (msgid) = 1931;
+  required int64 id = 1;
+}
+
+// MsgID: 1931
+// 武将移除
+message SCGeneralRemove {
+  option (msgid) = 1931;
+  required int64 id = 1;
+}
+
+// MsgID: 1932
+// 选择首选武将
+message CSGeneralChooseFirst {
+  option (msgid) = 1932;
+  required int64 generalId = 1;
+}
+
+// MsgID: 1933
+// 选择首选武将结果
+message SCGeneralChooseFirstResult {
+  option (msgid) = 1933;
+  required bool success = 1;
+}

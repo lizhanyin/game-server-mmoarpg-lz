@@ -1,0 +1,73 @@
+// 00101_01000_account.proto
+// -----------------------------------------
+// 账号验证
+// -----------------------------------------
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 账号验证
+// ============================================================
+
+// MsgID: 101
+// 填充消息
+message SCMsgFill {
+  option (msgid) = 101;
+}
+
+// MsgID: 111
+message CSLogin {
+  option (msgid) = 111;
+  required string account = 1;          //用户名
+  optional string password = 2;         //密码
+  optional string token = 3;            //token
+}
+
+// MsgID: 112
+message SCLoginResult {
+  option (msgid) = 112;
+  optional int32 resultCode = 1;        //错误编号
+  optional string resultReason = 2;     //错误原因
+}
+
+// MsgID: 121
+message CSAccountReconnect {
+  option (msgid) = 121;
+  required string name = 1;             //平台账号
+  required int64 sessionKey = 2;        //连接关键字
+}
+
+// MsgID: 122
+message SCAccountReconnectResult {
+  option (msgid) = 122;
+  optional int32 resultCode = 1;        //错误编号
+}
+
+// MsgID: 141
+message CSChangeModel {
+  option (msgid) = 141;
+  required string model = 1;            //要改的形象
+}
+
+// MsgID: 142
+message SCChangeModel {
+  option (msgid) = 142;
+  optional int64 humId = 1;             //武将编号
+  required string model = 2;            //改变完的形象
+}
+
+// MsgID: 151
+message CSAccountRandomName {
+  option (msgid) = 151;
+}
+
+// MsgID: 152
+message SCAccountRandomName {
+  option (msgid) = 152;
+  optional string name = 1;
+}

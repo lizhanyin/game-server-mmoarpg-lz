@@ -1,0 +1,120 @@
+// 03001_03099_shop.proto
+// 商城相关消息 msgid 范围 3001-3099
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 商城相关消息
+// ============================================================
+
+// MsgID: 3001
+// 打开商城
+message CSOpenMall {
+  option (msgid) = 3001;
+  required int32 type = 1;
+}
+
+// MsgID: 3002
+// 商城结果
+message SCMallResult {
+  option (msgid) = 3002;
+  repeated DVirtual virtuals = 1;
+}
+
+// MsgID: 3003
+// 购买商城商品
+message CSBuyMallGoods {
+  option (msgid) = 3003;
+  required int32 sn = 1;
+  required int32 count = 2;
+}
+
+// MsgID: 3004
+// 购买商城商品
+message SCBuyMallGoods {
+  option (msgid) = 3004;
+  required int32 result = 1;
+}
+
+// MsgID: 3005
+// 请求商店标签
+message CSRequestShopTags {
+  option (msgid) = 3005;
+}
+
+// MsgID: 3006
+// 商店标签结果
+message SCResultShopTags {
+  option (msgid) = 3006;
+  repeated string tags = 1;
+}
+
+// MsgID: 3007
+// 打开商店
+message CSOpenShop {
+  option (msgid) = 3007;
+  required int32 sn = 1;
+}
+
+// MsgID: 3008
+// 商店结果
+message SCShopResult {
+  option (msgid) = 3008;
+  required DShop shop = 1;
+}
+
+// MsgID: 3009
+// 购买商店商品
+message CSBuyShopGoods {
+  option (msgid) = 3009;
+  required int32 sn = 1;
+  required int32 count = 2;
+}
+
+// MsgID: 3010
+// 购买商店商品
+message SCBuyShopGoods {
+  option (msgid) = 3010;
+  required int32 result = 1;
+}
+
+// MsgID: 3011
+// 刷新商店
+message CSRefreshShop {
+  option (msgid) = 3011;
+  required int32 sn = 1;
+}
+
+// MsgID: 3012
+// 刷新商店结果
+message SCRefreshShopResult {
+  option (msgid) = 3012;
+  required int32 result = 1;
+  required DShop shop = 2;
+}
+
+// MsgID: 3013
+// 打开临时商店
+message SCOpenTempShop {
+  option (msgid) = 3013;
+  required DShop shop = 1;
+}
+
+// MsgID: 3014
+// 购买商店
+message CSBuyShop {
+  option (msgid) = 3014;
+  required int32 sn = 1;
+}
+
+// MsgID: 3015
+// 购买商店结果
+message SCBuyShopResult {
+  option (msgid) = 3015;
+  required int32 result = 1;
+}

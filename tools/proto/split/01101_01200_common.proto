@@ -1,0 +1,77 @@
+// 01101_01200_common.proto
+// 通用功能消息 msgid 范围 1101-1200
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 通用功能消息
+// ============================================================
+
+// MsgID: 1101
+// 初始化数据
+message SCInitData {
+  option (msgid) = 1101;
+  optional DHuman human = 1;
+  optional DInitDataStage stage = 2;
+  repeated DSkill skill = 3;
+  repeated DBag dBag = 4;
+  optional DBag altar = 5;
+  repeated DTask tasks = 6;
+  optional int32 excuteTaskCode = 7;
+  repeated DMail mails = 8;
+  repeated DTreasure treasures = 9;
+  repeated DBlackGoods blackGoods = 10;
+  optional DSignIn signIn = 11;
+}
+
+// MsgID: 1108
+// 角色信息变更
+message SCHumanInfoChange {
+  option (msgid) = 1108;
+  optional DHuman human = 1;
+}
+
+// MsgID: 1109
+// 副本对象信息变更
+message SCStageObjectInfoChange {
+  option (msgid) = 1109;
+}
+
+// MsgID: 1110
+// 获取角色信息
+message CSHumanInfo {
+  option (msgid) = 1110;
+}
+
+// MsgID: 1111
+// 角色信息
+message SCHumanInfo {
+  option (msgid) = 1111;
+  optional DHuman human = 1;
+}
+
+// MsgID: 1113
+// 副本死亡
+message SCDieStage {
+  option (msgid) = 1113;
+}
+
+// MsgID: 1119
+// 操作结果
+message SCResult {
+  option (msgid) = 1119;
+  required int32 result = 1;
+  optional string errorMsg = 2;
+}
+
+// MsgID: 1200
+// 踢出
+message SCHumanKick {
+  option (msgid) = 1200;
+  optional string reason = 1;
+}

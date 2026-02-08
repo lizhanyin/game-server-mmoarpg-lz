@@ -1,0 +1,53 @@
+// 03100_03199_rank.proto
+// 排行榜相关消息 msgid 范围 3100-3199
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 排行榜相关消息
+// ============================================================
+
+// MsgID: 3101
+// 请求副本排行榜
+message CSInstanceRank {
+  option (msgid) = 3101;
+  required int32 sn = 1;
+}
+
+// MsgID: 3102
+// 副本排行榜
+message SCInstanceRank {
+  option (msgid) = 3102;
+  repeated DInstanceRank ranks = 1;
+}
+
+// MsgID: 3103
+// 请求等级排行榜
+message CSLevelRank {
+  option (msgid) = 3103;
+}
+
+// MsgID: 3104
+// 等级排行榜
+message SCLevelRank {
+  option (msgid) = 3104;
+  repeated DLevelRank ranks = 1;
+}
+
+// MsgID: 3105
+// 请求战力排行榜
+message CSCombatRank {
+  option (msgid) = 3105;
+}
+
+// MsgID: 3106
+// 战斗力排行榜
+message SCCombatRank {
+  option (msgid) = 3106;
+  repeated DCombatRank ranks = 1;
+}

@@ -30,7 +30,7 @@
         <netty.version>4.2.9.Final</netty.version>
         <httpclient5.version>5.4.3</httpclient5.version>
         <httpcore5.version>5.4</httpcore5.version>
-        <protobuf.version>4.29.3</protobuf.version>
+        <protobuf.version>4.33.5</protobuf.version>
         <fastjson2.version>2.0.56</fastjson2.version>
         <mysql.version>9.3.0</mysql.version>
         <freemarker.version>2.3.34</freemarker.version>

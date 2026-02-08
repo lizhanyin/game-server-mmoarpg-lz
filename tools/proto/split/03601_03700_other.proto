@@ -1,0 +1,26 @@
+// 03601_99999_other.proto
+// 其他功能消息 msgid 范围 3601-99999
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 其他功能消息
+// ============================================================
+
+// MsgID: 3601
+// 打开公告UI
+message CSBulletinOpenUI {
+  option (msgid) = 3601;
+}
+
+// MsgID: 3602
+// 打开公告UI
+message SCBulletinOpenUI {
+  option (msgid) = 3602;
+  repeated DBulletinItem bulletins = 1;
+}

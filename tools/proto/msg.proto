@@ -1,11 +1,16 @@
 // msg.proto
-// 从 Msg.java 生成的 descriptor 数据反推
-// 注意：根据生成的 Java 代码分析，应该使用 proto2 语法
+// Merged proto file
 syntax = "proto2";
 
 package org.gof.demo.worldsrv.msg;
 
+import "google/protobuf/descriptor.proto";
 import "options.proto";
+
+// ===== 00000_00000_def.proto =====
+// 包含所有枚举和没有 msgid 的数据结构定义
+
+
 
 // ============================================================
 // 枚举定义
@@ -554,12 +559,6 @@ message DBackPos {
   optional float time = 2;
 }
 
-// 怒气增加
-message DRageAdd {
-  optional int32 value = 1;            // 增加值
-  optional int32 max = 2;              // 最大值
-}
-
 // Buff信息
 message DBuff {
   optional int32 sn = 1;               // Buff SN
@@ -698,154 +697,208 @@ message DInborn {
   optional int32 level = 2;
 }
 
+
+// ===== 00101_01000_account.proto =====
+// -----------------------------------------
+// 账号验证
+// -----------------------------------------
+
+
+
 // ============================================================
-// 消息定义（按 msgid 排序）
+// 账号验证
 // ============================================================
 
-// 消息填充
+// MsgID: 101
+// 填充消息
 message SCMsgFill {
   option (msgid) = 101;
 }
 
-// 登录消息
+// MsgID: 111
 message CSLogin {
   option (msgid) = 111;
-  required string account = 1;
-  optional string password = 2;
-  optional string token = 3;
+  required string account = 1;          //用户名
+  optional string password = 2;         //密码
+  optional string token = 3;            //token
 }
 
-// 登录结果
+// MsgID: 112
 message SCLoginResult {
   option (msgid) = 112;
-  required int32 result = 1;
-  optional string token = 2;
+  optional int32 resultCode = 1;        //错误编号
+  optional string resultReason = 2;     //错误原因
 }
 
-// 账号重连
+// MsgID: 121
 message CSAccountReconnect {
   option (msgid) = 121;
-  required string token = 1;
+  required string name = 1;             //平台账号
+  required int64 sessionKey = 2;        //连接关键字
 }
 
-// 重连结果
+// MsgID: 122
 message SCAccountReconnectResult {
   option (msgid) = 122;
-  required int32 result = 1;
+  optional int32 resultCode = 1;        //错误编号
 }
 
-// 修改模型
+// MsgID: 141
 message CSChangeModel {
   option (msgid) = 141;
-  required int32 modelSn = 1;
+  required string model = 1;            //要改的形象
 }
 
-// 模型变更结果
+// MsgID: 142
 message SCChangeModel {
   option (msgid) = 142;
-  required int32 modelSn = 1;
+  optional int64 humId = 1;             //武将编号
+  required string model = 2;            //改变完的形象
 }
 
-// 随机名字
+// MsgID: 151
 message CSAccountRandomName {
   option (msgid) = 151;
-  optional int32 sex = 1;
 }
 
-// 随机名字结果
+// MsgID: 152
 message SCAccountRandomName {
   option (msgid) = 152;
-  required string name = 1;
+  optional string name = 1;
 }
 
-// 查询角色列表
+
+// ===== 01001_01100_login.proto =====
+// -----------------------------------------
+// 玩家登录
+// -----------------------------------------
+
+
+
+// ============================================================
+// 登录相关
+// ============================================================
+
+// MsgID: 1003
+// 查询玩家角色列表
 message CSQueryCharacters {
   option (msgid) = 1003;
 }
 
-// 查询角色列表结果
+// MsgID: 1004
+// 查询玩家角色列表结果
 message SCQueryCharactersResult {
   option (msgid) = 1004;
-  repeated DHuman humans = 1;
+  repeated DCharacter characters = 1;	// 角色列表集合 支持多角色
 }
 
+// MsgID: 1005
 // 创建角色
 message CSCharacterCreate {
   option (msgid) = 1005;
-  required string name = 1;
-  required int32 profession = 2;
-  required int32 sex = 3;
+  required string name = 1;		// 昵称
+  required int32 profession = 2;	// 职业
+  required int32 sex = 3;		// 性别
+  optional string genSn = 4;		// 武将SN
 }
 
+// MsgID: 1006
 // 创建角色结果
 message SCCharacterCreateResult {
   option (msgid) = 1006;
-  required int32 result = 1;
-  optional DHuman human = 2;
+  required int32 resultCode = 1;		// 执行结果编码
+  optional int64 humanId = 2;			// 新创建角色ID
+  optional string resultReason = 3;		// 执行结果描述
 }
 
+// MsgID: 1007
 // 删除角色
 message CSCharacterDelete {
   option (msgid) = 1007;
-  required int64 sn = 1;
+  required int64 id = 1;		// 角色ID
 }
 
+// MsgID: 1008
 // 删除角色结果
 message SCCharacterDeleteResult {
   option (msgid) = 1008;
-  required int32 result = 1;
-  required int64 sn = 2;
+  required int32 resultCode = 1;		// 执行结果编码
 }
 
+// MsgID: 1009
 // 角色登录
 message CSCharacterLogin {
   option (msgid) = 1009;
-  required int64 sn = 1;
+  required int64 humanId = 1;	// 角色ID
 }
 
+// MsgID: 1010
 // 角色登录结果
 message SCCharacterLoginResult {
   option (msgid) = 1010;
-  required int32 result = 1;
-  optional DHuman human = 2;
+  required int32 resultCode = 1;		// 执行结果编码
 }
 
+
+// ===== 01101_01200_common.proto =====
+// 通用功能消息 msgid 范围 1101-1200
+
+
+
+// ============================================================
+// 通用功能消息
+// ============================================================
+
+// MsgID: 1101
 // 初始化数据
 message SCInitData {
   option (msgid) = 1101;
   optional DHuman human = 1;
-  optional DBag bag = 2;
-  repeated DTask tasks = 3;
-  repeated DQuest quests = 4;
+  optional DInitDataStage stage = 2;
+  repeated DSkill skill = 3;
+  repeated DBag dBag = 4;
+  optional DBag altar = 5;
+  repeated DTask tasks = 6;
+  optional int32 excuteTaskCode = 7;
+  repeated DMail mails = 8;
+  repeated DTreasure treasures = 9;
+  repeated DBlackGoods blackGoods = 10;
+  optional DSignIn signIn = 11;
 }
 
+// MsgID: 1108
 // 角色信息变更
 message SCHumanInfoChange {
   option (msgid) = 1108;
   optional DHuman human = 1;
 }
 
+// MsgID: 1109
 // 副本对象信息变更
 message SCStageObjectInfoChange {
   option (msgid) = 1109;
 }
 
+// MsgID: 1110
 // 获取角色信息
 message CSHumanInfo {
   option (msgid) = 1110;
 }
 
+// MsgID: 1111
 // 角色信息
 message SCHumanInfo {
   option (msgid) = 1111;
   optional DHuman human = 1;
 }
 
+// MsgID: 1113
 // 副本死亡
 message SCDieStage {
   option (msgid) = 1113;
 }
 
+// MsgID: 1119
 // 操作结果
 message SCResult {
   option (msgid) = 1119;
@@ -853,17 +906,31 @@ message SCResult {
   optional string errorMsg = 2;
 }
 
+// MsgID: 1200
 // 踢出
 message SCHumanKick {
   option (msgid) = 1200;
+  optional string reason = 1;
 }
 
+
+// ===== 01201_01300_stage.proto =====
+// 副本相关消息 msgid 范围 1201-1300
+
+
+
+// ============================================================
+// 副本相关消息
+// ============================================================
+
+// MsgID: 1201
 // 进入副本
 message CSStageEnter {
   option (msgid) = 1201;
   required int32 stageSn = 1;
 }
 
+// MsgID: 1202
 // 进入副本结果
 message SCStageEnterResult {
   option (msgid) = 1202;
@@ -871,18 +938,21 @@ message SCStageEnterResult {
   optional int32 stageSn = 2;
 }
 
+// MsgID: 1203
 // 切换副本
 message CSStageSwitch {
   option (msgid) = 1203;
   required int32 stageSn = 1;
 }
 
+// MsgID: 1204
 // 切换副本
 message SCStageSwitch {
   option (msgid) = 1204;
   required int32 stageSn = 1;
 }
 
+// MsgID: 1211
 // 副本移动
 message CSStageMove {
   option (msgid) = 1211;
@@ -890,6 +960,7 @@ message CSStageMove {
   optional DVector3 dir = 2;
 }
 
+// MsgID: 1212
 // 副本移动
 message SCStageMove {
   option (msgid) = 1212;
@@ -899,6 +970,7 @@ message SCStageMove {
   optional float speed = 4;
 }
 
+// MsgID: 1213
 // 设置位置
 message SCStageSetPos {
   option (msgid) = 1213;
@@ -906,6 +978,7 @@ message SCStageSetPos {
   required DVector3 pos = 2;
 }
 
+// MsgID: 1214
 // 停止移动
 message CSStageMoveStop {
   option (msgid) = 1214;
@@ -913,6 +986,7 @@ message CSStageMoveStop {
   optional DVector3 dir = 2;
 }
 
+// MsgID: 1215
 // 停止移动
 message SCStageMoveStop {
   option (msgid) = 1215;
@@ -921,6 +995,7 @@ message SCStageMoveStop {
   optional DVector3 dir = 3;
 }
 
+// MsgID: 1216
 // 对象出现
 message SCStageObjectAppear {
   option (msgid) = 1216;
@@ -930,23 +1005,27 @@ message SCStageObjectAppear {
   optional DStageObject obj = 4;
 }
 
+// MsgID: 1217
 // 对象消失
 message SCStageObjectDisappear {
   option (msgid) = 1217;
   repeated int64 ids = 1;
 }
 
+// MsgID: 1218
 // 进入副本结束
 message SCStageEnterEnd {
   option (msgid) = 1218;
 }
 
+// MsgID: 1220
 // 传送
 message SCStageMoveTeleport {
   option (msgid) = 1220;
   required DVector3 pos = 1;
 }
 
+// MsgID: 1222
 // 副本移动2
 message CSStageMove2 {
   option (msgid) = 1222;
@@ -954,6 +1033,7 @@ message CSStageMove2 {
   optional DVector2 direction = 2;
 }
 
+// MsgID: 1223
 // 移动2
 message SCStageMove2 {
   option (msgid) = 1223;
@@ -961,12 +1041,14 @@ message SCStageMove2 {
   required DVector3 pos = 2;
 }
 
+// MsgID: 1226
 // 拉取到指定位置
 message SCStagePullTo {
   option (msgid) = 1226;
   required DVector3 pos = 1;
 }
 
+// MsgID: 1227
 // 单位状态变化
 message SCUnitobjStatusChange {
   option (msgid) = 1227;
@@ -974,6 +1056,7 @@ message SCUnitobjStatusChange {
   optional int32 status = 2;
 }
 
+// MsgID: 1228
 // 对象升级
 message SCStageObjectLevelUp {
   option (msgid) = 1228;
@@ -981,6 +1064,7 @@ message SCStageObjectLevelUp {
   optional int32 level = 2;
 }
 
+// MsgID: 1251
 // 场景初始化
 message SCSceneInit {
   option (msgid) = 1251;
@@ -988,30 +1072,45 @@ message SCSceneInit {
   repeated DSceneEvent events = 2;
 }
 
+// MsgID: 1252
 // 场景剧情变化
 message SCScenePlotChange {
   option (msgid) = 1252;
   repeated DScenePlot plots = 1;
 }
 
+// MsgID: 1253
 // 场景触发器
 message CSSceneTrigger {
   option (msgid) = 1253;
   required int32 sn = 1;
 }
 
+// MsgID: 1254
 // 场景事件
 message CSSceneEvent {
   option (msgid) = 1254;
   required int32 sn = 1;
 }
 
+// MsgID: 1255
 // 场景事件开始
 message SCSceneEventStart {
   option (msgid) = 1255;
   required int32 sn = 1;
 }
 
+
+// ===== 01301_01400_fight.proto =====
+// 战斗相关消息 msgid 范围 1301-1400
+
+
+
+// ============================================================
+// 战斗相关消息
+// ============================================================
+
+// MsgID: 1301
 // 战斗攻击
 message CSFightAtk {
   option (msgid) = 1301;
@@ -1019,12 +1118,14 @@ message CSFightAtk {
   optional int32 skillSn = 2;
 }
 
+// MsgID: 1302
 // 战斗攻击结果
 message SCFightAtkResult {
   option (msgid) = 1302;
   required int32 result = 1;
 }
 
+// MsgID: 1303
 // 战斗技能
 message SCFightSkill {
   option (msgid) = 1303;
@@ -1034,30 +1135,35 @@ message SCFightSkill {
   optional DVector3 pos = 4;
 }
 
+// MsgID: 1304
 // 战斗血量变化
 message SCFightHpChg {
   option (msgid) = 1304;
   repeated DHpChgTar hps = 1;
 }
 
+// MsgID: 1310
 // 战斗复活
 message CSFightRevive {
   option (msgid) = 1310;
   optional int32 type = 1;
 }
 
+// MsgID: 1311
 // 战斗场景变化
 message SCFightStageChange {
   option (msgid) = 1311;
   required int32 stageSn = 1;
 }
 
+// MsgID: 1312
 // 持续伤害血量变化
 message SCFightDotHpChg {
   option (msgid) = 1312;
   repeated DHpChgTar hps = 1;
 }
 
+// MsgID: 1313
 // 怒气增加
 message DRageAdd {
   option (msgid) = 1313;
@@ -1065,12 +1171,14 @@ message DRageAdd {
   optional int32 max = 2;
 }
 
+// MsgID: 1316
 // 子弹血量变化
 message SCFightBulletHpChg {
   option (msgid) = 1316;
   repeated DHpChgTar hps = 1;
 }
 
+// MsgID: 1317
 // 子弹移动
 message SCFightBulletMove {
   option (msgid) = 1317;
@@ -1078,72 +1186,104 @@ message SCFightBulletMove {
   required DVector3 pos = 2;
 }
 
+// MsgID: 1318
 // 技能打断
 message CSSkillInterrupt {
   option (msgid) = 1318;
 }
 
+// MsgID: 1319
 // 技能打断结果
 message SCSkillInterrupt {
   option (msgid) = 1319;
   required bool success = 1;
 }
 
+// MsgID: 1320
 // 添加武将（出阵）
 message CSSkillAddGeneral {
   option (msgid) = 1320;
   required int64 generalId = 1;
 }
 
+// MsgID: 1321
 // 移除武将（下阵）
 message CSSkillRemoveGeneral {
   option (msgid) = 1321;
   required int64 generalId = 1;
 }
 
+// MsgID: 1322
 // 添加武将到联携
 message CSSkillAddGeneralToUnion {
   option (msgid) = 1322;
   required int64 generalId = 1;
 }
 
+// MsgID: 1323
 // 联携战斗开始
 message CSUnionFightStart {
   option (msgid) = 1323;
 }
 
+// MsgID: 1324
 // 联携战斗AI暂停
 message CSUnionFightAIPause {
   option (msgid) = 1324;
 }
 
+// MsgID: 1325
 // 联携战斗AI恢复
 message CSUnionFightAIUnpause {
   option (msgid) = 1325;
 }
 
+// MsgID: 1326
 // 联携战斗特殊技能
 message CSUnionFightSpecial {
   option (msgid) = 1326;
 }
 
+// MsgID: 1327
 // 联携战斗自动
 message CSUnionFightAuto {
   option (msgid) = 1327;
   required bool auto = 1;
 }
 
+// MsgID: 1328
 // 技能取消
 message SCFightSkillTeamCancel {
   option (msgid) = 1328;
 }
 
+// MsgID: 1350
+// 死亡复活
+message SCFightRevive {
+  option (msgid) = 1350;
+  optional int64 humanId = 1;        // ID
+  optional int32 hpCur = 2;          // 血量
+  optional DVector2 pos = 3;         // 复活坐标
+}
+
+// MsgID: 1400
 // 背包更新
 message SCBagUpdate {
   option (msgid) = 1400;
   required DBagUpdate bag = 1;
 }
 
+
+// ===== 01401_01800_general.proto =====
+// 武将相关消息 msgid 范围 1401-1800
+
+
+
+// ============================================================
+// 武将相关消息
+// ============================================================
+
+// MsgID: 1401
 // 使用物品
 message CSUseItem {
   option (msgid) = 1401;
@@ -1151,24 +1291,28 @@ message CSUseItem {
   required int32 num = 2;
 }
 
+// MsgID: 1403
 // 整理背包
 message CSArrangeBag {
   option (msgid) = 1403;
   required int32 type = 1;
 }
 
+// MsgID: 1405
 // 批量出售
 message CSItemBachSell {
   option (msgid) = 1405;
   repeated int32 poses = 1;
 }
 
+// MsgID: 1407
 // 扩展背包
 message CSBagExpand {
   option (msgid) = 1407;
   required int32 type = 1;
 }
 
+// MsgID: 1408
 // 背包扩展结果
 message SCBagExpand {
   option (msgid) = 1408;
@@ -1176,6 +1320,7 @@ message SCBagExpand {
   required int32 capacity = 2;
 }
 
+// MsgID: 1501
 // 发送聊天
 message CSInformChat {
   option (msgid) = 1501;
@@ -1183,6 +1328,7 @@ message CSInformChat {
   required int32 channel = 2;
 }
 
+// MsgID: 1502
 // 消息通知
 message SCInformMsg {
   option (msgid) = 1502;
@@ -1190,6 +1336,7 @@ message SCInformMsg {
   required string content = 2;
 }
 
+// MsgID: 1504
 // 全服消息通知
 message SCInformMsgAll {
   option (msgid) = 1504;
@@ -1197,62 +1344,41 @@ message SCInformMsgAll {
   required string content = 2;
 }
 
-// Buff添加
-message SCBuffAdd {
-  option (msgid) = 1802;
-  required int64 id = 1;
-  required DBuff buff = 2;
-}
-
-// Buff更新
-message SCBuffUpdate {
-  option (msgid) = 1803;
-  required int64 id = 1;
-  required DBuff buff = 2;
-}
-
-// Buff驱散
-message SCBuffDispel {
-  option (msgid) = 1804;
-  required int64 id = 1;
-  repeated int32 buffSns = 2;
-}
-
-// 驱散Buff
-message CSBuffDispelByHuman {
-  option (msgid) = 1805;
-  required int64 sn = 1;
-}
-
+// MsgID: 1901
 // 获取武将列表
 message CSGeneralList {
   option (msgid) = 1901;
 }
 
+// MsgID: 1902
 // 武将列表
 message SCGeneralList {
   option (msgid) = 1902;
   repeated DGeneralInfo generals = 1;
 }
 
+// MsgID: 1903
 // 获取武将信息
 message CSGeneralInfo {
   option (msgid) = 1903;
   required int64 id = 1;
 }
 
+// MsgID: 1904
 // 武将信息
 message SCGeneralInfo {
   option (msgid) = 1904;
   required DGeneralInfo general = 1;
 }
 
+// MsgID: 1905
 // 招募武将
 message CSGeneralRecruit {
   option (msgid) = 1905;
   required int32 sn = 1;
 }
 
+// MsgID: 1906
 // 武将招募结果
 message SCGeneralRecruitResult {
   option (msgid) = 1906;
@@ -1260,6 +1386,7 @@ message SCGeneralRecruitResult {
   optional DGeneralInfo general = 2;
 }
 
+// MsgID: 1907
 // 武将添加经验
 message CSGeneralExpAdd {
   option (msgid) = 1907;
@@ -1267,18 +1394,21 @@ message CSGeneralExpAdd {
   repeated int32 counts = 2;
 }
 
+// MsgID: 1908
 // 武将添加经验结果
 message SCGeneralExpAdd {
   option (msgid) = 1908;
   repeated DGeneralInfo generals = 1;
 }
 
+// MsgID: 1909
 // 武将升星
 message CSGeneralStarUp {
   option (msgid) = 1909;
   required int64 id = 1;
 }
 
+// MsgID: 1910
 // 武将升星结果
 message SCGeneralStarUp {
   option (msgid) = 1910;
@@ -1286,12 +1416,14 @@ message SCGeneralStarUp {
   optional DGeneralInfo general = 2;
 }
 
+// MsgID: 1911
 // 武将升品
 message CSGeneralQualityUp {
   option (msgid) = 1911;
   required int64 id = 1;
 }
 
+// MsgID: 1912
 // 武将升品结果
 message SCGeneralQualityUp {
   option (msgid) = 1912;
@@ -1299,6 +1431,7 @@ message SCGeneralQualityUp {
   optional DGeneralInfo general = 2;
 }
 
+// MsgID: 1913
 // 武将装备强化
 message CSGeneralEquipUp {
   option (msgid) = 1913;
@@ -1306,6 +1439,7 @@ message CSGeneralEquipUp {
   required int32 partSn = 2;
 }
 
+// MsgID: 1914
 // 武将装备强化结果
 message SCGeneralEquipUp {
   option (msgid) = 1914;
@@ -1313,29 +1447,34 @@ message SCGeneralEquipUp {
   optional DGeneralInfo general = 2;
 }
 
+// MsgID: 1915
 // 获取碎片信息
 message CSFragInfo {
   option (msgid) = 1915;
 }
 
+// MsgID: 1916
 // 碎片信息
 message SCFragInfo {
   option (msgid) = 1916;
   repeated DFragInfo frags = 1;
 }
 
+// MsgID: 1917
 // 获取单个碎片信息
 message CSOneFragInfo {
   option (msgid) = 1917;
   required int32 sn = 1;
 }
 
+// MsgID: 1918
 // 单个碎片信息
 message SCOneFragInfo {
   option (msgid) = 1918;
   required DFragInfo frag = 1;
 }
 
+// MsgID: 1919
 // 出售碎片
 message CSSellFrag {
   option (msgid) = 1919;
@@ -1343,100 +1482,168 @@ message CSSellFrag {
   required int32 num = 2;
 }
 
+// MsgID: 1920
 // 出售碎片结果
 message SCSellFrag {
   option (msgid) = 1920;
   required int32 result = 1;
 }
 
+// MsgID: 1921
 // 武将任务战斗次数
 message CSGenTaskFightTimes {
   option (msgid) = 1921;
 }
 
+// MsgID: 1922
 // 武将任务战斗次数
 message SCGenTaskFightTimes {
   option (msgid) = 1922;
   repeated DGenTaskFightTimes times = 1;
 }
 
+// MsgID: 1923
 // 进入武将任务
 message CSEnterGeneralTask {
   option (msgid) = 1923;
   required int64 generalId = 1;
 }
 
+// MsgID: 1924
 // 进入武将任务
 message SCEnterGeneralTask {
   option (msgid) = 1924;
   required int32 stageSn = 1;
 }
 
+// MsgID: 1925
 // 武将任务战斗结果
 message SCGeneralTaskFightResult {
   option (msgid) = 1925;
   required bool win = 1;
 }
 
+// MsgID: 1926
 // 武将任务奖励
 message SCGeneralTaskReward {
   option (msgid) = 1926;
   repeated DGeneralTaskReward rewards = 1;
 }
 
+// MsgID: 1927
 // 武将上阵
 message CSGeneralToAttIng {
   option (msgid) = 1927;
   required int64 generalId = 1;
 }
 
+// MsgID: 1928
 // 武将上阵结果
 message SCGeneralToAttIng {
   option (msgid) = 1928;
   required bool success = 1;
 }
 
+// MsgID: 1929
 // 上阵武将信息
 message CSGeneralInfoAttIng {
   option (msgid) = 1929;
 }
 
+// MsgID: 1930
 // 上阵武将信息
 message SCGeneralInfoAttIng {
   option (msgid) = 1930;
   repeated DGeneralInfo generals = 1;
 }
 
+// MsgID: 1931
 // 移除武将
 message CSGeneralRemove {
   option (msgid) = 1931;
   required int64 id = 1;
 }
 
+// MsgID: 1931
 // 武将移除
 message SCGeneralRemove {
   option (msgid) = 1931;
   required int64 id = 1;
 }
 
+// MsgID: 1932
 // 选择首选武将
 message CSGeneralChooseFirst {
   option (msgid) = 1932;
   required int64 generalId = 1;
 }
 
+// MsgID: 1933
 // 选择首选武将结果
 message SCGeneralChooseFirstResult {
   option (msgid) = 1933;
   required bool success = 1;
 }
 
+
+// ===== 01801_01900_buff.proto =====
+// Buff相关消息 msgid 范围 1801-1900
+
+
+
+// ============================================================
+// Buff相关消息
+// ============================================================
+
+// MsgID: 1802
+// Buff添加
+message SCBuffAdd {
+  option (msgid) = 1802;
+  required int64 id = 1;
+  required DBuff buff = 2;
+}
+
+// MsgID: 1803
+// Buff更新
+message SCBuffUpdate {
+  option (msgid) = 1803;
+  required int64 id = 1;
+  required DBuff buff = 2;
+}
+
+// MsgID: 1804
+// Buff驱散
+message SCBuffDispel {
+  option (msgid) = 1804;
+  required int64 id = 1;
+  repeated int32 buffSns = 2;
+}
+
+// MsgID: 1805
+// 驱散Buff
+message CSBuffDispelByHuman {
+  option (msgid) = 1805;
+  required int64 sn = 1;
+}
+
+
+// ===== 02001_02200_other.proto =====
+// 其他功能消息 msgid 范围 2001-2200
+
+
+
+// ============================================================
+// 其他功能消息
+// ============================================================
+
+// MsgID: 2000
 // 签到
 message CSSignIn {
   option (msgid) = 2000;
   required int32 type = 1;
 }
 
+// MsgID: 2001
 // 签到结果
 message SCSignIn {
   option (msgid) = 2001;
@@ -1444,79 +1651,103 @@ message SCSignIn {
   repeated DSignIn signIns = 2;
 }
 
+// MsgID: 2101
 // 提交普通任务
 message CSCommitQuestNormal {
   option (msgid) = 2101;
   required int32 sn = 1;
 }
 
+// MsgID: 2102
 // 提交日常任务
 message CSCommitQuestDaily {
   option (msgid) = 2102;
   required int32 sn = 1;
 }
 
+// MsgID: 2103
 // 打开任务
 message CSOpenQuest {
   option (msgid) = 2103;
 }
 
+// MsgID: 2104
 // 打开日常任务
 message CSOpenQuestDaily {
   option (msgid) = 2104;
 }
 
+// MsgID: 2105
 // 任务信息
 message SCQuestInfo {
   option (msgid) = 2105;
   repeated DQuest quests = 1;
 }
 
+// MsgID: 2106
 // 打开副本日常任务
 message CSOpenQuestInstDaily {
   option (msgid) = 2106;
 }
 
+// MsgID: 2107
 // 副本日常次数
 message SCQuestInstDailyCount {
   option (msgid) = 2107;
   repeated int32 counts = 1;
 }
 
+// MsgID: 2108
 // 提交副本日常任务
 message CSCommitQuestInstDaily {
   option (msgid) = 2108;
   optional int32 code = 1;
 }
 
+// MsgID: 2109
 // 副本日常信息
 message SCQuestInstDailyInfo {
   option (msgid) = 2109;
   repeated DInstance instances = 1;
 }
 
+// MsgID: 2121
 // 提交普通任务结果
 message SCCommitQuestNormalResult {
   option (msgid) = 2121;
   required int32 result = 1;
 }
 
+
+// ===== 02201_02300_instance.proto =====
+// 副本相关消息 msgid 范围 2201-2300
+
+
+
+// ============================================================
+// 副本相关消息
+// ============================================================
+
+// MsgID: 2201
 // 进入副本
 message CSInstanceEnter {
   option (msgid) = 2201;
   required int32 sn = 1;
 }
 
+// MsgID: 2202
 // 离开副本
 message CSInstanceLeave {
   option (msgid) = 2202;
 }
 
+// MsgID: 2203
 // 结束副本
 message CSInstanceEnd {
   option (msgid) = 2203;
 }
 
+// MsgID: 2204
 // 副本结束
 message SCInstanceEnd {
   option (msgid) = 2204;
@@ -1525,36 +1756,42 @@ message SCInstanceEnd {
   repeated DItem rewards = 3;
 }
 
+// MsgID: 2207
 // 章节更新
 message SCUpdateChapter {
   option (msgid) = 2207;
   required DChapterInfo chapter = 1;
 }
 
+// MsgID: 2208
 // 所有章节
 message SCAllChapter {
   option (msgid) = 2208;
   repeated DChapterInfo chapters = 1;
 }
 
+// MsgID: 2209
 // 副本自动战斗
 message CSInstanceAuto {
   option (msgid) = 2209;
   required bool auto = 1;
 }
 
+// MsgID: 2210
 // 副本自动战斗
 message SCInstanceAuto {
   option (msgid) = 2210;
   required bool auto = 1;
 }
 
+// MsgID: 2212
 // 领取宝箱奖励
 message CSBoxAward {
   option (msgid) = 2212;
   required int32 sn = 1;
 }
 
+// MsgID: 2213
 // 宝箱奖励
 message SCBoxAward {
   option (msgid) = 2213;
@@ -1562,24 +1799,38 @@ message SCBoxAward {
   repeated DItem items = 2;
 }
 
+// MsgID: 2214
 // 副本抽奖
 message CSInstanceLottery {
   option (msgid) = 2214;
   required int32 sn = 1;
 }
 
+// MsgID: 2215
 // 副本抽奖
 message SCInstanceLottery {
   option (msgid) = 2215;
   repeated DItem items = 1;
 }
 
+
+// ===== 02301_02800_items.proto =====
+// 物品装备相关消息 msgid 范围 2301-2800
+
+
+
+// ============================================================
+// 物品装备相关消息
+// ============================================================
+
+// MsgID: 2301
 // 修改名字
 message CSChangeName {
   option (msgid) = 2301;
   required string name = 1;
 }
 
+// MsgID: 2302
 // 修改名字结果
 message SCChangeNameResult {
   option (msgid) = 2302;
@@ -1587,17 +1838,20 @@ message SCChangeNameResult {
   optional string name = 2;
 }
 
+// MsgID: 2303
 // 修改名字任务完成
 message SCChangeNameQuestFinish {
   option (msgid) = 2303;
   required int32 sn = 1;
 }
 
+// MsgID: 2304
 // 随机名字
 message CSChangeNameRandom {
   option (msgid) = 2304;
 }
 
+// MsgID: 2305
 // 随机名字结果
 message SCChangeNameRandomResult {
   option (msgid) = 2305;
@@ -1605,35 +1859,41 @@ message SCChangeNameRandomResult {
   optional string name = 2;
 }
 
+// MsgID: 2401
 // 添加邮件
 message SCAddMail {
   option (msgid) = 2401;
   required DMail mail = 1;
 }
 
+// MsgID: 2402
 // 邮件列表
 message CSMailList {
   option (msgid) = 2402;
 }
 
+// MsgID: 2403
 // 邮件列表
 message SCMailList {
   option (msgid) = 2403;
   repeated DMail mails = 1;
 }
 
+// MsgID: 2404
 // 读取邮件
 message CSReadMail {
   option (msgid) = 2404;
   required int64 id = 1;
 }
 
+// MsgID: 2405
 // 领取邮件附件
 message CSPickupMail {
   option (msgid) = 2405;
   required int64 id = 1;
 }
 
+// MsgID: 2406
 // 领取邮件附件
 message SCPickupMail {
   option (msgid) = 2406;
@@ -1641,58 +1901,68 @@ message SCPickupMail {
   repeated DItem items = 2;
 }
 
+// MsgID: 2407
 // 领取所有邮件附件
 message CSPickupAllMail {
   option (msgid) = 2407;
 }
 
+// MsgID: 2408
 // 领取所有邮件附件
 message SCPickupAllMail {
   option (msgid) = 2408;
   repeated DItem items = 1;
 }
 
+// MsgID: 2409
 // 删除邮件
 message CSClearMail {
   option (msgid) = 2409;
   repeated int64 ids = 1;
 }
 
+// MsgID: 2410
 // 删除邮件
 message SCDeleteMail {
   option (msgid) = 2410;
   repeated int64 ids = 1;
 }
 
+// MsgID: 2411
 // 检查邮件是否可删除
 message CSCheckMailRemoveable {
   option (msgid) = 2411;
   repeated int64 ids = 1;
 }
 
+// MsgID: 2412
 // 检查邮件是否可删除
 message SCCheckMailRemoveable {
   option (msgid) = 2412;
   repeated int64 ids = 1;
 }
 
+// MsgID: 2501
 // 领取活跃度奖励
 message CSRsvLivenessAwards {
   option (msgid) = 2501;
   repeated int32 sns = 1;
 }
 
+// MsgID: 2502
 // 领取活跃度奖励结果
 message SCRsvLivenessAwardsResult {
   option (msgid) = 2502;
   required int32 result = 1;
 }
 
+// MsgID: 2503
 // 打开活跃度界面
 message CSOpenLivenessUI {
   option (msgid) = 2503;
 }
 
+// MsgID: 2504
 // 活跃度信息
 message SCLivenessInfo {
   option (msgid) = 2504;
@@ -1700,6 +1970,7 @@ message SCLivenessInfo {
   repeated DLiveness livenessList = 2;
 }
 
+// MsgID: 2601
 // 装备强化
 message CSEquipUp {
   option (msgid) = 2601;
@@ -1707,12 +1978,14 @@ message CSEquipUp {
   required int32 partSn = 2;
 }
 
+// MsgID: 2602
 // 装备强化
 message SCEquipUp {
   option (msgid) = 2602;
   required int32 result = 1;
 }
 
+// MsgID: 2603
 // 卸下装备
 message CSEquipDown {
   option (msgid) = 2603;
@@ -1720,12 +1993,14 @@ message CSEquipDown {
   required int32 partSn = 2;
 }
 
+// MsgID: 2604
 // 卸下装备
 message SCEquipDown {
   option (msgid) = 2604;
   required int32 result = 1;
 }
 
+// MsgID: 2605
 // 装备分解
 message CSEquipReclaim {
   option (msgid) = 2605;
@@ -1733,6 +2008,7 @@ message CSEquipReclaim {
   required int32 partSn = 2;
 }
 
+// MsgID: 2606
 // 装备分解
 message SCEquipReclaim {
   option (msgid) = 2606;
@@ -1740,6 +2016,7 @@ message SCEquipReclaim {
   repeated DItem items = 2;
 }
 
+// MsgID: 2608
 // 装备变化广播
 message SCEquipChangeBoardcast {
   option (msgid) = 2608;
@@ -1747,6 +2024,7 @@ message SCEquipChangeBoardcast {
   optional DHuman human = 2;
 }
 
+// MsgID: 2609
 // 部位强化
 message CSPartQianghua {
   option (msgid) = 2609;
@@ -1754,12 +2032,14 @@ message CSPartQianghua {
   required int32 partSn = 2;
 }
 
+// MsgID: 2610
 // 部位强化
 message SCPartQianghua {
   option (msgid) = 2610;
   required int32 result = 1;
 }
 
+// MsgID: 2611
 // 部位重铸
 message CSPartChongxing {
   option (msgid) = 2611;
@@ -1768,12 +2048,14 @@ message CSPartChongxing {
   repeated int32 materials = 3;
 }
 
+// MsgID: 2612
 // 部位重铸
 message SCPartChongxing {
   option (msgid) = 2612;
   required int32 result = 1;
 }
 
+// MsgID: 2701
 // 宝石升级
 message CSGemUp {
   option (msgid) = 2701;
@@ -1782,6 +2064,7 @@ message CSGemUp {
   required int32 index = 3;
 }
 
+// MsgID: 2703
 // 全部宝石升级
 message CSGemUpAll {
   option (msgid) = 2703;
@@ -1789,12 +2072,14 @@ message CSGemUpAll {
   required int32 partSn = 2;
 }
 
+// MsgID: 2704
 // 设置宝石
 message SCSetGem {
   option (msgid) = 2704;
   required int32 result = 1;
 }
 
+// MsgID: 2705
 // 卸下宝石
 message CSGemDown {
   option (msgid) = 2705;
@@ -1803,6 +2088,7 @@ message CSGemDown {
   required int32 index = 3;
 }
 
+// MsgID: 2707
 // 全部卸下宝石
 message CSGemDownAll {
   option (msgid) = 2707;
@@ -1810,6 +2096,7 @@ message CSGemDownAll {
   required int32 partSn = 2;
 }
 
+// MsgID: 2709
 // 宝石合成
 message CSGemComposite {
   option (msgid) = 2709;
@@ -1817,6 +2104,7 @@ message CSGemComposite {
   required int32 count = 2;
 }
 
+// MsgID: 2710
 // 宝石合成
 message SCGemComposite {
   option (msgid) = 2710;
@@ -1824,52 +2112,71 @@ message SCGemComposite {
   optional int32 sn = 2;
 }
 
+// MsgID: 2711
 // 宝石合成至顶级
 message CSGemCompositeTop {
   option (msgid) = 2711;
   required int32 sn = 1;
 }
 
+// MsgID: 2712
 // 宝石合成至顶级
 message SCGemCompositeTop {
   option (msgid) = 2712;
   required int32 result = 1;
 }
 
+// MsgID: 2713
 // 全部宝石合成至顶级
 message CSGemCompositeAllTop {
   option (msgid) = 2713;
 }
 
+// MsgID: 2714
 // 全部宝石合成至顶级
 message SCGemCompositeAllTop {
   option (msgid) = 2714;
   required int32 result = 1;
 }
 
+// MsgID: 2801
 // 抽卡
 message CSGatcha {
   option (msgid) = 2801;
   required int32 sn = 1;
 }
 
+// MsgID: 2802
 // 抽卡10次
 message CSGatcha10 {
   option (msgid) = 2802;
   required int32 sn = 1;
 }
 
+// MsgID: 2803
 // 抽卡结果
 message SCGatcha {
   option (msgid) = 2803;
   repeated DItem items = 1;
 }
 
+
+// ===== 02901_03000_skill.proto =====
+// 技能相关消息 msgid 范围 2901-3000
+
+
+
+// ============================================================
+// 技能相关消息
+// ============================================================
+
+// MsgID: 2911
 // 技能初始化
 message CSSkillInit {
   option (msgid) = 2911;
 }
 
+// MsgID: 2912
 // 技能初始化结果
 message SCSkillInitResult {
   option (msgid) = 2912;
@@ -1877,12 +2184,14 @@ message SCSkillInitResult {
   repeated DInborn inborns = 2;
 }
 
+// MsgID: 2913
 // 技能升级
 message CSSkillLevelup {
   option (msgid) = 2913;
   required int32 sn = 1;
 }
 
+// MsgID: 2914
 // 技能升级结果
 message SCSkillLevelupResult {
   option (msgid) = 2914;
@@ -1890,12 +2199,14 @@ message SCSkillLevelupResult {
   optional DSkill skill = 2;
 }
 
+// MsgID: 2915
 // 天赋升级
 message CSInbornLevelup {
   option (msgid) = 2915;
   required int32 sn = 1;
 }
 
+// MsgID: 2916
 // 天赋升级结果
 message SCInbornLevelupResult {
   option (msgid) = 2916;
@@ -1903,54 +2214,73 @@ message SCInbornLevelupResult {
   optional DInborn inborn = 2;
 }
 
+// MsgID: 2917
 // 切换天赋
 message CSChangeInborn {
   option (msgid) = 2917;
   required int32 sn = 1;
 }
 
+// MsgID: 2918
 // 切换天赋结果
 message SCChangeInbornResult {
   option (msgid) = 2918;
   required int32 result = 1;
 }
 
+// MsgID: 2923
 // 添加关联技能
 message CSAddRelSkill {
   option (msgid) = 2923;
   required int32 sn = 1;
 }
 
+// MsgID: 2924
 // 添加关联技能结果
 message SCAddRelSkillResult {
   option (msgid) = 2924;
   required int32 result = 1;
 }
 
+// MsgID: 2925
 // 删除关联技能
 message CSDelRelSkill {
   option (msgid) = 2925;
   required int32 sn = 1;
 }
 
+// MsgID: 2926
 // 删除关联技能结果
 message SCDelRelSkillResult {
   option (msgid) = 2926;
   required int32 result = 1;
 }
 
+
+// ===== 03001_03199_shop.proto =====
+// 商城相关消息 msgid 范围 3001-3099
+
+
+
+// ============================================================
+// 商城相关消息
+// ============================================================
+
+// MsgID: 3001
 // 打开商城
 message CSOpenMall {
   option (msgid) = 3001;
   required int32 type = 1;
 }
 
+// MsgID: 3002
 // 商城结果
 message SCMallResult {
   option (msgid) = 3002;
   repeated DVirtual virtuals = 1;
 }
 
+// MsgID: 3003
 // 购买商城商品
 message CSBuyMallGoods {
   option (msgid) = 3003;
@@ -1958,35 +2288,41 @@ message CSBuyMallGoods {
   required int32 count = 2;
 }
 
+// MsgID: 3004
 // 购买商城商品
 message SCBuyMallGoods {
   option (msgid) = 3004;
   required int32 result = 1;
 }
 
+// MsgID: 3005
 // 请求商店标签
 message CSRequestShopTags {
   option (msgid) = 3005;
 }
 
+// MsgID: 3006
 // 商店标签结果
 message SCResultShopTags {
   option (msgid) = 3006;
   repeated string tags = 1;
 }
 
+// MsgID: 3007
 // 打开商店
 message CSOpenShop {
   option (msgid) = 3007;
   required int32 sn = 1;
 }
 
+// MsgID: 3008
 // 商店结果
 message SCShopResult {
   option (msgid) = 3008;
   required DShop shop = 1;
 }
 
+// MsgID: 3009
 // 购买商店商品
 message CSBuyShopGoods {
   option (msgid) = 3009;
@@ -1994,18 +2330,21 @@ message CSBuyShopGoods {
   required int32 count = 2;
 }
 
+// MsgID: 3010
 // 购买商店商品
 message SCBuyShopGoods {
   option (msgid) = 3010;
   required int32 result = 1;
 }
 
+// MsgID: 3011
 // 刷新商店
 message CSRefreshShop {
   option (msgid) = 3011;
   required int32 sn = 1;
 }
 
+// MsgID: 3012
 // 刷新商店结果
 message SCRefreshShopResult {
   option (msgid) = 3012;
@@ -2013,74 +2352,107 @@ message SCRefreshShopResult {
   required DShop shop = 2;
 }
 
+// MsgID: 3013
 // 打开临时商店
 message SCOpenTempShop {
   option (msgid) = 3013;
   required DShop shop = 1;
 }
 
+// MsgID: 3014
 // 购买商店
 message CSBuyShop {
   option (msgid) = 3014;
   required int32 sn = 1;
 }
 
+// MsgID: 3015
 // 购买商店结果
 message SCBuyShopResult {
   option (msgid) = 3015;
   required int32 result = 1;
 }
 
+
+// ===== 03100_03199_rank.proto =====
+// 排行榜相关消息 msgid 范围 3100-3199
+
+
+
+// ============================================================
+// 排行榜相关消息
+// ============================================================
+
+// MsgID: 3101
 // 请求副本排行榜
 message CSInstanceRank {
   option (msgid) = 3101;
   required int32 sn = 1;
 }
 
+// MsgID: 3102
 // 副本排行榜
 message SCInstanceRank {
   option (msgid) = 3102;
   repeated DInstanceRank ranks = 1;
 }
 
+// MsgID: 3103
 // 请求等级排行榜
 message CSLevelRank {
   option (msgid) = 3103;
 }
 
+// MsgID: 3104
 // 等级排行榜
 message SCLevelRank {
   option (msgid) = 3104;
   repeated DLevelRank ranks = 1;
 }
 
+// MsgID: 3105
 // 请求战力排行榜
 message CSCombatRank {
   option (msgid) = 3105;
 }
 
+// MsgID: 3106
 // 战斗力排行榜
 message SCCombatRank {
   option (msgid) = 3106;
   repeated DCombatRank ranks = 1;
 }
 
+
+// ===== 03201_03300_tower.proto =====
+// 爬塔相关消息 msgid 范围 3201-3300
+
+
+
+// ============================================================
+// 爬塔相关消息
+// ============================================================
+
+// MsgID: 3201
 // 所有层信息
 message SCAllLayer {
   option (msgid) = 3201;
   repeated DLayerInfo layers = 1;
 }
 
+// MsgID: 3202
 // 进入爬塔层
 message CSLayerEnter {
   option (msgid) = 3202;
 }
 
+// MsgID: 3203
 // 结束爬塔层
 message CSLayerEnd {
   option (msgid) = 3203;
 }
 
+// MsgID: 3204
 // 层结束
 message SCLayerEnd {
   option (msgid) = 3204;
@@ -2088,16 +2460,19 @@ message SCLayerEnd {
   repeated DItem rewards = 2;
 }
 
+// MsgID: 3205
 // 离开爬塔层
 message CSLayerLeave {
   option (msgid) = 3205;
 }
 
+// MsgID: 3206
 // 领取爬塔层奖励
 message CSLayerAward {
   option (msgid) = 3206;
 }
 
+// MsgID: 3207
 // 层奖励
 message SCLayerAward {
   option (msgid) = 3207;
@@ -2105,120 +2480,155 @@ message SCLayerAward {
   repeated DItem items = 2;
 }
 
+// MsgID: 3208
 // 刷新爬塔层Buff
 message CSLayerRefreshBuff {
   option (msgid) = 3208;
 }
 
+// MsgID: 3209
 // 层刷新Buff
 message SCLayerRefreshBuff {
   option (msgid) = 3209;
   repeated int32 buffSns = 1;
 }
 
+// MsgID: 3210
 // 刷新爬塔
 message CSRefreshTower {
   option (msgid) = 3210;
 }
 
+
+// ===== 03301_03400_team.proto =====
+// 组队相关消息 msgid 范围 3301-3400
+
+
+
+// ============================================================
+// 组队相关消息
+// ============================================================
+
+// MsgID: 3301
 // 请求打开组队UI
 message CSTeamReqOpenUI {
   option (msgid) = 3301;
 }
 
+// MsgID: 3302
 // 组队请求打开UI结果
 message SCTeamReqOpenUIResult {
   option (msgid) = 3302;
   repeated DTeamRepItem teams = 1;
 }
 
+// MsgID: 3303
 // 请求加入队伍
 message CSTeamReqJoin {
   option (msgid) = 3303;
   required int64 teamId = 1;
 }
 
-// 请求自己的队伍信息
-message CSTeamReqSelfResult {
+// MsgID: 3304
+// 返回自己队伍的信息
+message SCTeamReqSelfResult {
   option (msgid) = 3304;
+  optional DTeamRepItem rep = 1;     // 队伍信息
+  optional int32 result = 2;         // 结果 1：成功，0：失败
+  optional string info = 3;          // 结果信息
 }
 
+// MsgID: 3305
 // 发起组队
 message CSTeamReqLaunch {
   option (msgid) = 3305;
   required int32 stageSn = 1;
 }
 
+// MsgID: 3307
 // 创建副本队伍
 message CSTeamRepCreate {
   option (msgid) = 3307;
   required int32 stageSn = 1;
 }
 
+// MsgID: 3309
 // 离开队伍
 message CSTeamRepLeave {
   option (msgid) = 3309;
 }
 
+// MsgID: 3310
 // 队伍离开
 message SCTeamRepLeave {
   option (msgid) = 3310;
 }
 
+// MsgID: 3311
 // 踢出队友
 message CSTeamRepKick {
   option (msgid) = 3311;
   required int64 humanId = 1;
 }
 
+// MsgID: 3312
 // 队伍剩余次数
 message SCTeamReqLeftNum {
   option (msgid) = 3312;
   required int32 stageSn = 1;
 }
 
+// MsgID: 3314
 // 队伍踢出
 message SCTeamRepKick {
   option (msgid) = 3314;
 }
 
+// MsgID: 3315
 // 请求关闭组队UI
 message CSTeamReqCloseUI {
   option (msgid) = 3315;
 }
 
+// MsgID: 3316
 // 请求更新实时组队信息
 message CSTeamReqUpdateRealTime {
   option (msgid) = 3316;
 }
 
+// MsgID: 3316
 // 组队请求更新实时
 message SCTeamReqUpdateRealTime {
   option (msgid) = 3316;
   repeated DTeamRepItem teams = 1;
 }
 
+// MsgID: 3317
 // 离开队伍队列
 message CSTeamRepLeaveQueue {
   option (msgid) = 3317;
 }
 
+// MsgID: 3318
 // 队伍离开队列
 message SCTeamRepLeaveQueue {
   option (msgid) = 3318;
 }
 
+// MsgID: 3321
 // 呼叫队友
 message CSTeamRepCall {
   option (msgid) = 3321;
 }
 
+// MsgID: 3331
 // 邀请好友
 message CSTeamInvite {
   option (msgid) = 3331;
   required int64 humanId = 1;
 }
 
+// MsgID: 3332
 // 队伍邀请
 message SCTeamInvite {
   option (msgid) = 3332;
@@ -2226,6 +2636,7 @@ message SCTeamInvite {
   optional string fromName = 2;
 }
 
+// MsgID: 3333
 // 确认邀请
 message CSTeamInviteConfirm {
   option (msgid) = 3333;
@@ -2233,152 +2644,199 @@ message CSTeamInviteConfirm {
   optional int64 teamId = 2;
 }
 
+// MsgID: 3335
 // 申请入队
 message CSTeamApply {
   option (msgid) = 3335;
   required int64 teamId = 1;
 }
 
+// MsgID: 3336
 // 队伍申请
 message SCTeamApply {
   option (msgid) = 3336;
   repeated int64 humanIds = 1;
 }
 
+// MsgID: 3337
 // 确认申请
 message CSTeamApplyConfirm {
   option (msgid) = 3337;
   repeated int64 humanIds = 1;
 }
 
+// MsgID: 3338
 // 我的队伍信息
 message CSTeamMine {
   option (msgid) = 3338;
 }
 
+// MsgID: 3338
 // 我的队伍
 message SCTeamMine {
   option (msgid) = 3338;
   optional DTeamRepItem team = 1;
 }
 
+// MsgID: 3339
 // 离开队伍
 message CSTeamLeave {
   option (msgid) = 3339;
 }
 
+// MsgID: 3340
 // 队伍离开
 message SCTeamLeave {
   option (msgid) = 3340;
 }
 
+
+// ===== 03401_03500_competition.proto =====
+// 竞技场相关消息 msgid 范围 3401-3500
+
+
+
+// ============================================================
+// 竞技场相关消息
+// ============================================================
+
+// MsgID: 3401
 // 进入竞技场
 message CSCompetitionEnter {
   option (msgid) = 3401;
 }
 
+// MsgID: 3402
 // 结束竞技场
 message CSCompetitionEnd {
   option (msgid) = 3402;
 }
 
+// MsgID: 3403
 // 竞技场结束
 message SCCompetitionEnd {
   option (msgid) = 3403;
   required bool win = 1;
 }
 
+// MsgID: 3404
 // 离开竞技场
 message CSCompetitionLeave {
   option (msgid) = 3404;
 }
 
+// MsgID: 3405
 // 刷新敌人
 message CSRefreshEnemy {
   option (msgid) = 3405;
 }
 
+// MsgID: 3407
 // 竞技场信息
 message SCCompetitionInfo {
   option (msgid) = 3407;
   optional DHumanInfo enemy = 1;
 }
 
+// MsgID: 3408
 // 重置CD
 message CSResetCDTime {
   option (msgid) = 3408;
 }
 
+// MsgID: 3409
 // 重置CD结果
 message SCResetCDTime {
   option (msgid) = 3409;
   required bool success = 1;
 }
 
+// MsgID: 3410
 // 打开排行榜
 message CSOpenRank {
   option (msgid) = 3410;
   required int32 type = 1;
 }
 
+// MsgID: 3411
 // 排行榜结果
 message SCRankResult {
   option (msgid) = 3411;
   repeated int32 ranks = 1;
 }
 
+// MsgID: 3412
 // 竞技场战斗日志
 message CSCompetitionBattleLog {
   option (msgid) = 3412;
 }
 
+// MsgID: 3413
 // 竞技场战斗日志
 message SCCompetitionBattleLog {
   option (msgid) = 3413;
   repeated DBattleLog logs = 1;
 }
 
+// MsgID: 3414
 // 刷新次数
 message CSRefreshCount {
   option (msgid) = 3414;
   required int32 sn = 1;
 }
 
+// MsgID: 3415
 // 刷新次数
 message SCRefreshCount {
   option (msgid) = 3415;
   required int32 count = 1;
 }
 
+// MsgID: 3416
 // 获取自己的排行榜页面
 message CSGetSeflRankPage {
   option (msgid) = 3416;
   required int32 type = 1;
 }
 
+// MsgID: 3417
 // 获取自己的排行榜页面
 message SCGetSeflRankPage {
   option (msgid) = 3417;
   required int32 rank = 1;
 }
 
+
+// ===== 03501_03600_friend.proto =====
+// 好友相关消息 msgid 范围 3501-3600
+
+
+
+// ============================================================
+// 好友相关消息
+// ============================================================
+
+// MsgID: 3501
 // 好友列表
 message CSFriendList {
   option (msgid) = 3501;
 }
 
+// MsgID: 3502
 // 好友列表
 message SCFriendList {
   option (msgid) = 3502;
   repeated DFriendInfo friends = 1;
 }
 
+// MsgID: 3503
 // 请求添加好友
 message CSRequestFriend {
   option (msgid) = 3503;
   required int64 humanId = 1;
 }
 
+// MsgID: 3504
 // 请求添加好友
 message SCRequestFriend {
   option (msgid) = 3504;
@@ -2386,111 +2844,150 @@ message SCRequestFriend {
   optional string fromName = 2;
 }
 
+// MsgID: 3505
 // 接受好友请求
 message CSAcceptFriend {
   option (msgid) = 3505;
   required int64 humanId = 1;
 }
 
+// MsgID: 3506
 // 接受好友请求
 message SCAcceptFriend {
   option (msgid) = 3506;
   required bool success = 1;
 }
 
+// MsgID: 3507
 // 拒绝好友请求
 message CSRefuseFriend {
   option (msgid) = 3507;
   required int64 humanId = 1;
 }
 
+// MsgID: 3508
 // 拒绝好友请求
 message SCRefuseFriend {
   option (msgid) = 3508;
 }
 
+// MsgID: 3509
 // 推荐好友
 message CSRecommendFriend {
   option (msgid) = 3509;
 }
 
+// MsgID: 3510
 // 推荐好友
 message SCRecommendFriend {
   option (msgid) = 3510;
   repeated DFriendInfo friends = 1;
 }
 
+// MsgID: 3511
 // 搜索好友
 message CSSearchFriend {
   option (msgid) = 3511;
   required string name = 1;
 }
 
+// MsgID: 3512
 // 搜索好友
 message SCSearchFriend {
   option (msgid) = 3512;
   repeated DFriendInfo friends = 1;
 }
 
+// MsgID: 3513
 // 删除好友
 message CSRemoveFriend {
   option (msgid) = 3513;
   required int64 humanId = 1;
 }
 
+// MsgID: 3514
 // 删除好友
 message SCRemoveFriend {
   option (msgid) = 3514;
   required bool success = 1;
 }
 
+// MsgID: 3517
 // 添加到黑名单
 message CSToBlackList {
   option (msgid) = 3517;
   required int64 humanId = 1;
 }
 
+// MsgID: 3518
 // 添加到黑名单
 message SCToBlackList {
   option (msgid) = 3518;
   required bool success = 1;
 }
 
+// MsgID: 3519
 // 移除黑名单
 message CSRemoveBlackList {
   option (msgid) = 3519;
   required int64 humanId = 1;
 }
 
+// MsgID: 3520
 // 移除黑名单
 message SCRemoveBlackList {
   option (msgid) = 3520;
   required bool success = 1;
 }
 
+
+// ===== 03601_03700_other.proto =====
+// 其他功能消息 msgid 范围 3601-99999
+
+
+
+// ============================================================
+// 其他功能消息
+// ============================================================
+
+// MsgID: 3601
 // 打开公告UI
 message CSBulletinOpenUI {
   option (msgid) = 3601;
 }
 
+// MsgID: 3602
 // 打开公告UI
 message SCBulletinOpenUI {
   option (msgid) = 3602;
   repeated DBulletinItem bulletins = 1;
 }
 
+// ===== 09901_09999_test.proto =====
+// 其他功能消息 msgid 范围 3601-99999
+
+
+
+
+// ============================================================
+// 测试消息
+// ============================================================
+
+// MsgID: 9901
 // 测试消息
 message CSTest {
   option (msgid) = 9901;
   required string msg = 1;
 }
 
+// MsgID: 9902
 // 测试添加金钱
 message CSTestAddMoney {
   option (msgid) = 9902;
   required int64 count = 1;
 }
 
+// MsgID: 9903
 // 测试添加物品
 message CSTestAddItem {
   option (msgid) = 9903;
@@ -2498,39 +2995,46 @@ message CSTestAddItem {
   required int32 num = 2;
 }
 
+// MsgID: 9908
 // 测试赠送武将
 message CSTestGiveGeneral {
   option (msgid) = 9908;
   required int32 sn = 1;
 }
 
+// MsgID: 9909
 // 测试谁是爸爸
 message CSTestWhoIsMyDad {
   option (msgid) = 9909;
 }
 
+// MsgID: 9917
 // 测试进入副本
 message CSTestEnterRep {
   option (msgid) = 9917;
   required int32 sn = 1;
 }
 
+// MsgID: 9919
 // 测试赠送所有武将
 message CSTestGiveAllGeneral {
   option (msgid) = 9919;
 }
 
+// MsgID: 9920
 // 测试发送系统邮件
 message CSTestSendSysMail {
   option (msgid) = 9920;
 }
 
+// MsgID: 9921
 // 测试VIP
 message CSTestVIP {
   option (msgid) = 9921;
   required int32 level = 1;
 }
 
+// MsgID: 9922
 // 测试副本星级
 message CSTestInstanceStar {
   option (msgid) = 9922;
@@ -2538,14 +3042,17 @@ message CSTestInstanceStar {
   required int32 star = 2;
 }
 
+// MsgID: 9923
 // 测试更新时间
 message CSTestUpdateTime {
   option (msgid) = 9923;
   required int64 time = 1;
 }
 
+// MsgID: 9924
 // 全服公告
 message CSInformToAll {
   option (msgid) = 9924;
   required string content = 1;
 }
+

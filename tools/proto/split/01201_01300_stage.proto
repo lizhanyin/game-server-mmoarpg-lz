@@ -1,0 +1,190 @@
+// 01201_01300_stage.proto
+// 副本相关消息 msgid 范围 1201-1300
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 副本相关消息
+// ============================================================
+
+// MsgID: 1201
+// 进入副本
+message CSStageEnter {
+  option (msgid) = 1201;
+  required int32 stageSn = 1;
+}
+
+// MsgID: 1202
+// 进入副本结果
+message SCStageEnterResult {
+  option (msgid) = 1202;
+  required int32 result = 1;
+  optional int32 stageSn = 2;
+}
+
+// MsgID: 1203
+// 切换副本
+message CSStageSwitch {
+  option (msgid) = 1203;
+  required int32 stageSn = 1;
+}
+
+// MsgID: 1204
+// 切换副本
+message SCStageSwitch {
+  option (msgid) = 1204;
+  required int32 stageSn = 1;
+}
+
+// MsgID: 1211
+// 副本移动
+message CSStageMove {
+  option (msgid) = 1211;
+  required DVector3 pos = 1;
+  optional DVector3 dir = 2;
+}
+
+// MsgID: 1212
+// 副本移动
+message SCStageMove {
+  option (msgid) = 1212;
+  required int64 id = 1;
+  repeated DVector3 posEnd = 2;
+  optional DVector3 dir = 3;
+  optional float speed = 4;
+}
+
+// MsgID: 1213
+// 设置位置
+message SCStageSetPos {
+  option (msgid) = 1213;
+  required int64 id = 1;
+  required DVector3 pos = 2;
+}
+
+// MsgID: 1214
+// 停止移动
+message CSStageMoveStop {
+  option (msgid) = 1214;
+  required DVector3 pos = 1;
+  optional DVector3 dir = 2;
+}
+
+// MsgID: 1215
+// 停止移动
+message SCStageMoveStop {
+  option (msgid) = 1215;
+  required int64 id = 1;
+  required DVector3 pos = 2;
+  optional DVector3 dir = 3;
+}
+
+// MsgID: 1216
+// 对象出现
+message SCStageObjectAppear {
+  option (msgid) = 1216;
+  required int64 id = 1;
+  required int32 type = 2;
+  required DVector3 pos = 3;
+  optional DStageObject obj = 4;
+}
+
+// MsgID: 1217
+// 对象消失
+message SCStageObjectDisappear {
+  option (msgid) = 1217;
+  repeated int64 ids = 1;
+}
+
+// MsgID: 1218
+// 进入副本结束
+message SCStageEnterEnd {
+  option (msgid) = 1218;
+}
+
+// MsgID: 1220
+// 传送
+message SCStageMoveTeleport {
+  option (msgid) = 1220;
+  required DVector3 pos = 1;
+}
+
+// MsgID: 1222
+// 副本移动2
+message CSStageMove2 {
+  option (msgid) = 1222;
+  optional DVector2 posBegin = 1;
+  optional DVector2 direction = 2;
+}
+
+// MsgID: 1223
+// 移动2
+message SCStageMove2 {
+  option (msgid) = 1223;
+  required int64 id = 1;
+  required DVector3 pos = 2;
+}
+
+// MsgID: 1226
+// 拉取到指定位置
+message SCStagePullTo {
+  option (msgid) = 1226;
+  required DVector3 pos = 1;
+}
+
+// MsgID: 1227
+// 单位状态变化
+message SCUnitobjStatusChange {
+  option (msgid) = 1227;
+  required int64 id = 1;
+  optional int32 status = 2;
+}
+
+// MsgID: 1228
+// 对象升级
+message SCStageObjectLevelUp {
+  option (msgid) = 1228;
+  required int64 id = 1;
+  optional int32 level = 2;
+}
+
+// MsgID: 1251
+// 场景初始化
+message SCSceneInit {
+  option (msgid) = 1251;
+  repeated DSceneTrigger triggers = 1;
+  repeated DSceneEvent events = 2;
+}
+
+// MsgID: 1252
+// 场景剧情变化
+message SCScenePlotChange {
+  option (msgid) = 1252;
+  repeated DScenePlot plots = 1;
+}
+
+// MsgID: 1253
+// 场景触发器
+message CSSceneTrigger {
+  option (msgid) = 1253;
+  required int32 sn = 1;
+}
+
+// MsgID: 1254
+// 场景事件
+message CSSceneEvent {
+  option (msgid) = 1254;
+  required int32 sn = 1;
+}
+
+// MsgID: 1255
+// 场景事件开始
+message SCSceneEventStart {
+  option (msgid) = 1255;
+  required int32 sn = 1;
+}

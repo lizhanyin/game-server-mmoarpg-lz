@@ -1,0 +1,137 @@
+// 03501_03600_friend.proto
+// 好友相关消息 msgid 范围 3501-3600
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 好友相关消息
+// ============================================================
+
+// MsgID: 3501
+// 好友列表
+message CSFriendList {
+  option (msgid) = 3501;
+}
+
+// MsgID: 3502
+// 好友列表
+message SCFriendList {
+  option (msgid) = 3502;
+  repeated DFriendInfo friends = 1;
+}
+
+// MsgID: 3503
+// 请求添加好友
+message CSRequestFriend {
+  option (msgid) = 3503;
+  required int64 humanId = 1;
+}
+
+// MsgID: 3504
+// 请求添加好友
+message SCRequestFriend {
+  option (msgid) = 3504;
+  required int64 fromId = 1;
+  optional string fromName = 2;
+}
+
+// MsgID: 3505
+// 接受好友请求
+message CSAcceptFriend {
+  option (msgid) = 3505;
+  required int64 humanId = 1;
+}
+
+// MsgID: 3506
+// 接受好友请求
+message SCAcceptFriend {
+  option (msgid) = 3506;
+  required bool success = 1;
+}
+
+// MsgID: 3507
+// 拒绝好友请求
+message CSRefuseFriend {
+  option (msgid) = 3507;
+  required int64 humanId = 1;
+}
+
+// MsgID: 3508
+// 拒绝好友请求
+message SCRefuseFriend {
+  option (msgid) = 3508;
+}
+
+// MsgID: 3509
+// 推荐好友
+message CSRecommendFriend {
+  option (msgid) = 3509;
+}
+
+// MsgID: 3510
+// 推荐好友
+message SCRecommendFriend {
+  option (msgid) = 3510;
+  repeated DFriendInfo friends = 1;
+}
+
+// MsgID: 3511
+// 搜索好友
+message CSSearchFriend {
+  option (msgid) = 3511;
+  required string name = 1;
+}
+
+// MsgID: 3512
+// 搜索好友
+message SCSearchFriend {
+  option (msgid) = 3512;
+  repeated DFriendInfo friends = 1;
+}
+
+// MsgID: 3513
+// 删除好友
+message CSRemoveFriend {
+  option (msgid) = 3513;
+  required int64 humanId = 1;
+}
+
+// MsgID: 3514
+// 删除好友
+message SCRemoveFriend {
+  option (msgid) = 3514;
+  required bool success = 1;
+}
+
+// MsgID: 3517
+// 添加到黑名单
+message CSToBlackList {
+  option (msgid) = 3517;
+  required int64 humanId = 1;
+}
+
+// MsgID: 3518
+// 添加到黑名单
+message SCToBlackList {
+  option (msgid) = 3518;
+  required bool success = 1;
+}
+
+// MsgID: 3519
+// 移除黑名单
+message CSRemoveBlackList {
+  option (msgid) = 3519;
+  required int64 humanId = 1;
+}
+
+// MsgID: 3520
+// 移除黑名单
+message SCRemoveBlackList {
+  option (msgid) = 3520;
+  required bool success = 1;
+}

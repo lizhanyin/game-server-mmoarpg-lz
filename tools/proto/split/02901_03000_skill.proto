@@ -1,0 +1,99 @@
+// 02901_03000_skill.proto
+// 技能相关消息 msgid 范围 2901-3000
+syntax = "proto2";
+
+package org.gof.demo.worldsrv.msg;
+
+import "google/protobuf/descriptor.proto";
+import "options.proto";
+import "00000_00000_def.proto";
+
+// ============================================================
+// 技能相关消息
+// ============================================================
+
+// MsgID: 2911
+// 技能初始化
+message CSSkillInit {
+  option (msgid) = 2911;
+}
+
+// MsgID: 2912
+// 技能初始化结果
+message SCSkillInitResult {
+  option (msgid) = 2912;
+  repeated DSkill skills = 1;
+  repeated DInborn inborns = 2;
+}
+
+// MsgID: 2913
+// 技能升级
+message CSSkillLevelup {
+  option (msgid) = 2913;
+  required int32 sn = 1;
+}
+
+// MsgID: 2914
+// 技能升级结果
+message SCSkillLevelupResult {
+  option (msgid) = 2914;
+  required int32 result = 1;
+  optional DSkill skill = 2;
+}
+
+// MsgID: 2915
+// 天赋升级
+message CSInbornLevelup {
+  option (msgid) = 2915;
+  required int32 sn = 1;
+}
+
+// MsgID: 2916
+// 天赋升级结果
+message SCInbornLevelupResult {
+  option (msgid) = 2916;
+  required int32 result = 1;
+  optional DInborn inborn = 2;
+}
+
+// MsgID: 2917
+// 切换天赋
+message CSChangeInborn {
+  option (msgid) = 2917;
+  required int32 sn = 1;
+}
+
+// MsgID: 2918
+// 切换天赋结果
+message SCChangeInbornResult {
+  option (msgid) = 2918;
+  required int32 result = 1;
+}
+
+// MsgID: 2923
+// 添加关联技能
+message CSAddRelSkill {
+  option (msgid) = 2923;
+  required int32 sn = 1;
+}
+
+// MsgID: 2924
+// 添加关联技能结果
+message SCAddRelSkillResult {
+  option (msgid) = 2924;
+  required int32 result = 1;
+}
+
+// MsgID: 2925
+// 删除关联技能
+message CSDelRelSkill {
+  option (msgid) = 2925;
+  required int32 sn = 1;
+}
+
+// MsgID: 2926
+// 删除关联技能结果
+message SCDelRelSkillResult {
+  option (msgid) = 2926;
+  required int32 result = 1;
+}
