@@ -12,7 +12,6 @@ import org.gof.demo.battlesrv.support.Vector2D;
 import org.gof.demo.battlesrv.support.Vector3D;
 import org.gof.demo.worldsrv.config.ConfMap;
 import org.gof.demo.worldsrv.support.D;
-import org.gof.demo.worldsrv.support.Log;
 
 /**
  * 寻路核心类

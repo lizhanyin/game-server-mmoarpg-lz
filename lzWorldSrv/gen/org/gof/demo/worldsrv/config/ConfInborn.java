@@ -33,21 +33,21 @@ import org.gof.core.support.Utils;
  */
 @ConfigJSON
 public class ConfInborn {
-    public final int sn;            //SN
-    public final String name;            //名称
-    public final String desc;            //描述
-    public final int type;            //类型
-    public final int skillSn;            //技能sn
-    public final int effectSn;            //技能中某技能效果sn
-    public final String[] param;            //参数
-    public final float[] baseValue;            //基础值
-    public final float[] growValue;            //每级递增值
-    public final int baseCost;            //基础花费
-    public final int growCost;            //每级花费递增
-    public final int levelCut;            //和主角的级别差
-    public final int levelLimit;            //等级限制
-    public final String[] param1;            //参数1
-    public final String[] value1;            //参数值
+    public final int sn;                 // SN
+    public final String name;            // 名称
+    public final String desc;            // 描述
+    public final int type;               // 类型
+    public final int skillSn;            // 技能sn
+    public final int effectSn;           // 技能中某技能效果sn
+    public final String[] param;         // 参数
+    public final float[] baseValue;      // 基础值
+    public final float[] growValue;      // 每级递增值
+    public final int baseCost;           // 基础花费
+    public final int growCost;           // 每级花费递增
+    public final int levelCut;           // 和主角的级别差
+    public final int levelLimit;         // 等级限制
+    public final String[] param1;        // 参数1
+    public final String[] value1;        // 参数值
 
     public ConfInborn(int sn, String name, String desc, int type, int skillSn, int effectSn, String[] param, float[] baseValue, float[] growValue, int baseCost, int growCost, int levelCut, int levelLimit, String[] param1, String[] value1) {
             this.sn = sn;        

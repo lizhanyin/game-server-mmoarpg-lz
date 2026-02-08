@@ -22,7 +22,6 @@ import org.gof.demo.worldsrv.config.ConfMap;
 import org.gof.demo.worldsrv.entity.Human;
 import org.gof.demo.worldsrv.human.HumanGlobalServiceProxy;
 import org.gof.demo.worldsrv.human.HumanManager;
-import org.gof.demo.worldsrv.item.ItemPack;
 import org.gof.demo.worldsrv.msg.Msg.SCStageSwitch;
 import org.gof.demo.worldsrv.msg.MsgIds;
 import org.gof.demo.worldsrv.support.D;

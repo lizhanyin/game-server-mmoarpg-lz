@@ -25,7 +25,6 @@ import org.gof.demo.worldsrv.human.HumanManager;
 import org.gof.demo.worldsrv.inform.Inform;
 import org.gof.demo.worldsrv.instance.InstanceManager;
 import org.gof.demo.worldsrv.item.ItemBagManager;
-import org.gof.demo.worldsrv.item.ItemPack;
 import org.gof.demo.worldsrv.mail.MailManager;
 import org.gof.demo.worldsrv.msg.Msg.CSInformToAll;
 import org.gof.demo.worldsrv.msg.Msg.CSTestAddItem;
@@ -67,15 +66,15 @@ public class TestMsgHandler {
     public void onCSTestAddItem(MsgParam param) {
         HumanObject humanObj = param.getHumanObject();
         CSTestAddItem msg = param.getMsg();
-//        if (msg.getSn() == -1) {
-//            ItemBagManager.inst().add(humanObj, 900001, 99, 0);
-//            ItemBagManager.inst().add(humanObj, 330102, 99, 0);
-//            for (int i=339001; i<=339020;i++) {
-//                ItemBagManager.inst().add(humanObj, i, 99, 0);
-//            }
-//            return;
-//        }
-        ItemPack bag = humanObj.dataPers.items;
+    //    if (msg.getSn() == -1) {
+    //        ItemBagManager.inst().add(humanObj, 900001, 99, 0);
+    //        ItemBagManager.inst().add(humanObj, 330102, 99, 0);
+    //        for (int i=339001; i<=339020;i++) {
+    //            ItemBagManager.inst().add(humanObj, i, 99, 0);
+    //        }
+    //        return;
+    //    }
+        // ItemPack bag = humanObj.dataPers.items;
         ItemBagManager.inst().add(humanObj, msg.getSn(), msg.getNum(), ConfItemData.get(msg.getSn()).bind);
     }
 

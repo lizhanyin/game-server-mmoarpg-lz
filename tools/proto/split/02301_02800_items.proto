@@ -337,19 +337,20 @@ message SCGemCompositeAllTop {
 // 抽卡
 message CSGatcha {
   option (msgid) = 2801;
-  required int32 sn = 1;
+  optional int32 tType = 1;           // 抽奖类型：1初级2中级3高级
 }
 
 // MsgID: 2802
 // 抽卡10次
 message CSGatcha10 {
   option (msgid) = 2802;
-  required int32 sn = 1;
+  optional int32 tType = 1;           // 抽奖类型：1初级2中级
 }
 
 // MsgID: 2803
 // 抽卡结果
 message SCGatcha {
   option (msgid) = 2803;
-  repeated DItem items = 1;
+  repeated int32 itemAndNum = 1;          // 物品和数量
+  optional DTreasure treasure = 2;        // 最新的宝藏信息
 }

@@ -327,7 +327,7 @@ message DTreasure {
   optional int64 cd = 5;
   repeated int32 hotItems = 6;
   optional int32 batchCost = 7;
-  optional bool batchSale = 8;
+  optional float batchSale = 8;            // 折扣
 }
 
 // 黑市商品
@@ -353,14 +353,15 @@ message DLiveness {
 
 // 队伍成员项
 message DTeamMemberItem {
-  optional int64 humanId = 1;
-  optional string headSn = 2;
-  optional string name = 3;
-  optional int32 job = 4;
-  optional int32 hpMax = 5;
-  optional int32 mpMax = 6;
-  optional int32 fightPower = 7;
-  optional int32 level = 8;
+  optional int64 humanId = 1;      // 队员ID(包含队长)
+  optional string headSn = 2;      // 队员头像
+  optional string name = 3;        // 队员名字
+  optional int32 level = 4;        // 等级
+  optional int32 status = 5;       // -1:离线 0：正常
+  optional int32 hpCur = 6;         // 当前血量
+  optional int32 hpMax = 7;        // 最大血量
+  optional int32 mpCur = 8;         // 当前蓝量
+  optional int32 mpMax = 9;        // 最大蓝量
 }
 
 // 组队副本队伍信息
@@ -709,9 +710,18 @@ message DCombatRank {
 
 // 层级信息（爬塔）
 message DLayerInfo {
-  optional int32 layer = 1;                  // 层数
-  optional int32 state = 2;                  // 状态
-  repeated int32 buffSns = 3;                // Buff SN列表
+  optional string humanSn = 1;               // 角色sn
+  optional string name = 2;                  // 对手姓名
+  optional int32 combat = 3;                 // 对手战斗力
+  repeated DGeneralInfo general = 4;         // 伙伴信息
+  optional int32 layerState = 5;             // 是否完成 0：未完成 1：已完成
+  optional int32 boxState = 6;               // 是否领取 0：未领取 1：已领取
+  optional int32 layerSn = 7;                // 关卡sn
+  repeated DProduce produce = 8;             // 获得神秘奖励
+  optional int32 level = 9;                  // 等级
+  optional int32 curHp = 10;                 // 当前血量
+  optional int32 maxHp = 11;                 // 最大血量
+  optional string guildName = 12;            // 所属公会名称
 }
 
 // 玩家详细信息
@@ -754,6 +764,7 @@ message DSkill {
 
 // 天赋信息
 message DInborn {
-  optional int32 sn = 1;
-  optional int32 level = 2;
+  optional int32 pos = 1;         // 天赋的位置
+  optional int32 inbornSn = 2;    // 天赋sn
+  optional int32 inbronLevel = 3; // 天赋等级
 }

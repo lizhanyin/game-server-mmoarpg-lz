@@ -2,16 +2,12 @@ package org.gof.demo.worldsrv.team;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.gof.core.support.ManagerBase;
 import org.gof.core.support.Param;
 import org.gof.core.support.observer.Listener;
-import org.gof.demo.battlesrv.stageObj.UnitObject;
 import org.gof.demo.worldsrv.character.HumanObject;
 import org.gof.demo.worldsrv.config.ConfTeamRep;
 import org.gof.demo.worldsrv.human.HumanGlobalInfo;
@@ -214,30 +210,7 @@ public class TeamManager extends ManagerBase {
         //发送消息
         humanObj.sendMsg(msg);
     }
-    /**
-     * 不在用globalInfo的信息，不再使用此方法
-     */
-    @Deprecated
-    private DTeamRepItem getDTeamReqTeam(List<HumanGlobalInfo> infos, long teamId) {
-        if(infos == null || infos.isEmpty()){
-            return null;
-        }
-        DTeamRepItem.Builder reqItem = DTeamRepItem.newBuilder();
-        reqItem.setTeamId(teamId);
-        for(HumanGlobalInfo h : infos){
-            DTeamMemberItem.Builder mmb = DTeamMemberItem.newBuilder();
-            mmb.setHumanId(h.id);
-            mmb.setName(h.name);
-            mmb.setLevel(h.level);
-//            mmb.setHpCur(value)
-//            mmb.setStatus(value)
-            if(h.sn != null && !"".equals(h.sn))
-                mmb.setHeadSn(h.sn);
-            reqItem.addMembers(mmb.build());
-        }
-        return reqItem.build();
-    
-    }
+
     /**
      * @param infos
      * @param teamId 队伍ID
@@ -570,17 +543,17 @@ public class TeamManager extends ManagerBase {
         prx.inviteConfirm(humanObj.id, leaderId);
     }
     
-    private void _result_createTeam_getInfo_invite(Param results, Param context){
-        HumanGlobalInfo mInfo = context.get("mInfo");
-        HumanGlobalInfo leaderInfo = context.get("leaderInfo");//leader
-        Team t = results.get();
-        if(t== null){
-            Inform.user(leaderInfo.id, Inform.提示操作, leaderInfo.name + "邀请对方组队失败");
-            Inform.user(mInfo.id, Inform.提示操作, mInfo.name + "接受对方对方组队邀请失败");
-            return;
-        }
-        updateTeamMine(t.getMemberIds(), t, CREATE_DEFAULT);
-    }
+    // private void _result_createTeam_getInfo_invite(Param results, Param context){
+    //     HumanGlobalInfo mInfo = context.get("mInfo");
+    //     HumanGlobalInfo leaderInfo = context.get("leaderInfo");//leader
+    //     Team t = results.get();
+    //     if(t== null){
+    //         Inform.user(leaderInfo.id, Inform.提示操作, leaderInfo.name + "邀请对方组队失败");
+    //         Inform.user(mInfo.id, Inform.提示操作, mInfo.name + "接受对方对方组队邀请失败");
+    //         return;
+    //     }
+    //     updateTeamMine(t.getMemberIds(), t, CREATE_DEFAULT);
+    // }
     
     /**
      * 普通组队·申请加入到对方的队伍
@@ -622,7 +595,7 @@ public class TeamManager extends ManagerBase {
     private void _result_getTeam_getInfo_apply(Param results, Param context){
         Team team = results.get();
         TeamMemberObject mInfo = context.get("mInfo");//申请者“我”
-        TeamMemberObject pInfo = context.get("pInfo");
+        // TeamMemberObject pInfo = context.get("pInfo");
         if(team == null || team.isFull()){
             Inform.user(mInfo.humanId, Inform.提示操作, I18n.get("team.manager.join.applyEnough"));
             return;

@@ -146,7 +146,7 @@ public class SkillInbornManager extends ManagerBase {
         Human human = humanObj.getHuman();
         
         //获取天赋配置
-//        ConfInborn conf = ConfInborn.get(inbornSn);
+        // ConfInborn conf = ConfInborn.get(inbornSn);
         ConfInborn conf = null;
         if(conf == null) {
             Inform.user(humanObj.id, Inform.提示操作, Utils.createStr("天赋配置错误，天赋不存在{}", inbornSn));

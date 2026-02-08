@@ -1,5 +1,0 @@
-=== SCSellFrag ===
-字段1: bool result = 1 [required]
-
-=== SCFragInfo ===
-# 需要查找 SCFragInfo 的定义

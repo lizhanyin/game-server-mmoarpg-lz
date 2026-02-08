@@ -332,7 +332,7 @@ message DTreasure {
   optional int64 cd = 5;
   repeated int32 hotItems = 6;
   optional int32 batchCost = 7;
-  optional bool batchSale = 8;
+  optional float batchSale = 8;            // 折扣
 }
 
 // 黑市商品
@@ -358,14 +358,15 @@ message DLiveness {
 
 // 队伍成员项
 message DTeamMemberItem {
-  optional int64 humanId = 1;
-  optional string headSn = 2;
-  optional string name = 3;
-  optional int32 job = 4;
-  optional int32 hpMax = 5;
-  optional int32 mpMax = 6;
-  optional int32 fightPower = 7;
-  optional int32 level = 8;
+  optional int64 humanId = 1;      // 队员ID(包含队长)
+  optional string headSn = 2;      // 队员头像
+  optional string name = 3;        // 队员名字
+  optional int32 level = 4;        // 等级
+  optional int32 status = 5;       // -1:离线 0：正常
+  optional int32 hpCur = 6;         // 当前血量
+  optional int32 hpMax = 7;        // 最大血量
+  optional int32 mpCur = 8;         // 当前蓝量
+  optional int32 mpMax = 9;        // 最大蓝量
 }
 
 // 组队副本队伍信息
@@ -714,9 +715,18 @@ message DCombatRank {
 
 // 层级信息（爬塔）
 message DLayerInfo {
-  optional int32 layer = 1;                  // 层数
-  optional int32 state = 2;                  // 状态
-  repeated int32 buffSns = 3;                // Buff SN列表
+  optional string humanSn = 1;               // 角色sn
+  optional string name = 2;                  // 对手姓名
+  optional int32 combat = 3;                 // 对手战斗力
+  repeated DGeneralInfo general = 4;         // 伙伴信息
+  optional int32 layerState = 5;             // 是否完成 0：未完成 1：已完成
+  optional int32 boxState = 6;               // 是否领取 0：未领取 1：已领取
+  optional int32 layerSn = 7;                // 关卡sn
+  repeated DProduce produce = 8;             // 获得神秘奖励
+  optional int32 level = 9;                  // 等级
+  optional int32 curHp = 10;                 // 当前血量
+  optional int32 maxHp = 11;                 // 最大血量
+  optional string guildName = 12;            // 所属公会名称
 }
 
 // 玩家详细信息
@@ -759,8 +769,9 @@ message DSkill {
 
 // 天赋信息
 message DInborn {
-  optional int32 sn = 1;
-  optional int32 level = 2;
+  optional int32 pos = 1;         // 天赋的位置
+  optional int32 inbornSn = 2;    // 天赋sn
+  optional int32 inbronLevel = 3; // 天赋等级
 }
 
 
@@ -1004,22 +1015,26 @@ message CSStageEnter {
 // 进入副本结果
 message SCStageEnterResult {
   option (msgid) = 1202;
-  required int32 result = 1;
-  optional int32 stageSn = 2;
+  repeated DStageObject obj = 1;   // 对象列表
 }
 
 // MsgID: 1203
 // 切换副本
 message CSStageSwitch {
   option (msgid) = 1203;
-  required int32 stageSn = 1;
+  optional int32 type = 1;         // 1或者没有 是一般地图
+  optional int32 mapSn = 2;        // 地图SN
 }
 
 // MsgID: 1204
 // 切换副本
 message SCStageSwitch {
   option (msgid) = 1204;
-  required int32 stageSn = 1;
+  optional int64 stageId = 1;      // 地图实际ID
+  optional int32 stageSn = 2;      // 地图配置SN
+  optional int32 repSn = 3;        // 副本的配置SN
+  optional DVector2 pos = 4;       // 地图坐标
+  optional int32 lineNum = 5;       // 分线号 默认为1
 }
 
 // MsgID: 1211
@@ -1089,6 +1104,8 @@ message SCStageObjectDisappear {
 // 进入副本结束
 message SCStageEnterEnd {
   option (msgid) = 1218;
+  repeated int32 seek = 1;        // 随机种子
+  repeated DProduce produces = 2; // 产出
 }
 
 // MsgID: 1220
@@ -1118,7 +1135,7 @@ message SCStageMove2 {
 // 拉取到指定位置
 message SCStagePullTo {
   option (msgid) = 1226;
-  required DVector3 pos = 1;
+  optional DVector2 pos = 1;      // 地图坐标
 }
 
 // MsgID: 1227
@@ -2274,21 +2291,22 @@ message SCGemCompositeAllTop {
 // 抽卡
 message CSGatcha {
   option (msgid) = 2801;
-  required int32 sn = 1;
+  optional int32 tType = 1;           // 抽奖类型：1初级2中级3高级
 }
 
 // MsgID: 2802
 // 抽卡10次
 message CSGatcha10 {
   option (msgid) = 2802;
-  required int32 sn = 1;
+  optional int32 tType = 1;           // 抽奖类型：1初级2中级
 }
 
 // MsgID: 2803
 // 抽卡结果
 message SCGatcha {
   option (msgid) = 2803;
-  repeated DItem items = 1;
+  repeated int32 itemAndNum = 1;          // 物品和数量
+  optional DTreasure treasure = 2;        // 最新的宝藏信息
 }
 
 
@@ -2311,15 +2329,17 @@ message CSSkillInit {
 // 技能初始化结果
 message SCSkillInitResult {
   option (msgid) = 2912;
-  repeated DSkill skills = 1;
-  repeated DInborn inborns = 2;
+  repeated DSkill skills = 1;          // 已经习得的技能
+  repeated DInborn inborns = 2;        // 已经装备的天赋
+  repeated DSkill activeRelSkills = 3; // 已经激活的羁绊
+  repeated DSkill relSkills = 4;       // 装备的羁绊技能
 }
 
 // MsgID: 2913
 // 技能升级
 message CSSkillLevelup {
   option (msgid) = 2913;
-  required int32 sn = 1;
+  required int32 skillSn = 1;      // 要升级的技能SN
 }
 
 // MsgID: 2914
@@ -2334,7 +2354,7 @@ message SCSkillLevelupResult {
 // 天赋升级
 message CSInbornLevelup {
   option (msgid) = 2915;
-  required int32 sn = 1;
+  required int32 inbornSn = 1;     // 要升级的天赋
 }
 
 // MsgID: 2916
@@ -2349,7 +2369,8 @@ message SCInbornLevelupResult {
 // 切换天赋
 message CSChangeInborn {
   option (msgid) = 2917;
-  required int32 sn = 1;
+  required int32 pos = 1;          // 天赋的位置
+  required int32 inbornSn = 2;     // 要升级的天赋
 }
 
 // MsgID: 2918
@@ -2364,21 +2385,23 @@ message SCChangeInbornResult {
 // 添加关联技能
 message CSAddRelSkill {
   option (msgid) = 2923;
-  required int32 sn = 1;
+  required int32 relSkillSn = 1;   // 装备某个羁绊技能
+  required int32 pos = 2;          // 技能的位置
 }
 
 // MsgID: 2924
 // 添加关联技能结果
 message SCAddRelSkillResult {
   option (msgid) = 2924;
-  optional DSkill relSkills = 1;  // 装备的羁绊技能
+  optional DSkill relSkills = 1;   // 装备的羁绊技能
 }
 
 // MsgID: 2925
 // 删除关联技能
 message CSDelRelSkill {
   option (msgid) = 2925;
-  required int32 sn = 1;
+  required int32 relSkillSn = 1;   // 卸下某个羁绊技能
+  required int32 pos = 2;          // 技能的位置
 }
 
 // MsgID: 2926
@@ -2573,7 +2596,11 @@ message SCCombatRank {
 // 所有层信息
 message SCAllLayer {
   option (msgid) = 3201;
-  repeated DLayerInfo layers = 1;
+  repeated DLayerInfo infos = 1;       // 层信息列表
+  optional int32 curLayer = 2;         // 当前进行的关卡
+  optional int32 refreshCount = 3;     // 剩余刷新次数
+  optional int32 buffSn = 4;           // 当前获得的buff
+  optional int32 resetBuffCount = 5;   // 更换buff次数
 }
 
 // MsgID: 3202
@@ -2592,8 +2619,7 @@ message CSLayerEnd {
 // 层结束
 message SCLayerEnd {
   option (msgid) = 3204;
-  required bool win = 1;
-  repeated DItem rewards = 2;
+  optional int32 layerSn = 1;      // 当前关卡sn
 }
 
 // MsgID: 3205
@@ -2606,14 +2632,15 @@ message CSLayerLeave {
 // 领取爬塔层奖励
 message CSLayerAward {
   option (msgid) = 3206;
+  optional int32 layerSn = 1;
 }
 
 // MsgID: 3207
 // 层奖励
 message SCLayerAward {
   option (msgid) = 3207;
-  required int32 result = 1;
-  repeated DItem items = 2;
+  optional int32 code = 1;       // 成功
+  optional int32 layerSn = 2;    // 关卡sn
 }
 
 // MsgID: 3208
@@ -2626,7 +2653,8 @@ message CSLayerRefreshBuff {
 // 层刷新Buff
 message SCLayerRefreshBuff {
   option (msgid) = 3209;
-  repeated int32 buffSns = 1;
+  optional int32 buffSn = 1;            // 当前获得的buff
+  optional int32 resetBuffCount = 2;    // 更换buff次数
 }
 
 // MsgID: 3210
@@ -2649,20 +2677,24 @@ message CSRefreshTower {
 // 请求打开组队UI
 message CSTeamReqOpenUI {
   option (msgid) = 3301;
+  optional int32 reqId = 1;                  // 副本ID
 }
 
 // MsgID: 3302
 // 组队请求打开UI结果
 message SCTeamReqOpenUIResult {
   option (msgid) = 3302;
-  repeated DTeamRepItem teams = 1;
+  repeated DTeamRepItem reps = 1;            // 队伍列表
+  optional int64 teamId = 2;                 // 自己所在的队伍ID
+  optional int32 teamCreateType = 3;         // 自己的队伍创建时候的创建类型，1:副本创建 0：默认创建
 }
 
 // MsgID: 3303
 // 请求加入队伍
 message CSTeamReqJoin {
   option (msgid) = 3303;
-  required int64 teamId = 1;
+  optional int32 reqId = 1;
+  optional int64 teamId = 2;
 }
 
 // MsgID: 3304
@@ -2678,14 +2710,14 @@ message SCTeamReqSelfResult {
 // 发起组队
 message CSTeamReqLaunch {
   option (msgid) = 3305;
-  required int32 stageSn = 1;
+  optional int32 reqId = 1;          // 副本ID
 }
 
 // MsgID: 3307
 // 创建副本队伍
 message CSTeamRepCreate {
   option (msgid) = 3307;
-  required int32 stageSn = 1;
+  optional int32 reqId = 1;          // 副本ID
 }
 
 // MsgID: 3309
@@ -2698,13 +2730,15 @@ message CSTeamRepLeave {
 // 队伍离开
 message SCTeamRepLeave {
   option (msgid) = 3310;
+  optional int32 result = 1;       // 结果 1：成功，0：失败
+  optional string info = 2;        // 结果信息
 }
 
 // MsgID: 3311
 // 踢出队友
 message CSTeamRepKick {
   option (msgid) = 3311;
-  required int64 humanId = 1;
+  optional int64 memberId = 1;
 }
 
 // MsgID: 3312
@@ -2718,31 +2752,34 @@ message SCTeamReqLeftNum {
 // 队伍踢出
 message SCTeamRepKick {
   option (msgid) = 3314;
+  optional int32 result = 1;       // 结果 1：成功，0：失败
+  optional string info = 2;        // 结果信息
 }
 
 // MsgID: 3315
 // 请求关闭组队UI
 message CSTeamReqCloseUI {
   option (msgid) = 3315;
+  optional int32 reqId = 1;        // 副本ID
 }
 
 // MsgID: 3316
 // 请求更新实时组队信息
 message CSTeamReqUpdateRealTime {
-  option (msgid) = 3316;
 }
 
 // MsgID: 3316
 // 组队请求更新实时
 message SCTeamReqUpdateRealTime {
   option (msgid) = 3316;
-  repeated DTeamRepItem teams = 1;
+  optional DTeamRepItem rep = 1;    // 队伍信息
 }
 
 // MsgID: 3317
 // 离开队伍队列
 message CSTeamRepLeaveQueue {
   option (msgid) = 3317;
+  optional int32 reqId = 1;       // 副本ID
 }
 
 // MsgID: 3318
@@ -2755,63 +2792,68 @@ message SCTeamRepLeaveQueue {
 // 呼叫队友
 message CSTeamRepCall {
   option (msgid) = 3321;
+  optional int32 reqId = 1;       // 副本ID
 }
 
 // MsgID: 3331
 // 邀请好友
 message CSTeamInvite {
   option (msgid) = 3331;
-  required int64 humanId = 1;
+  optional int64 memberId = 1;
 }
 
 // MsgID: 3332
 // 队伍邀请
 message SCTeamInvite {
   option (msgid) = 3332;
-  required int64 fromId = 1;
-  optional string fromName = 2;
+  optional int64 memberId = 1;     // 邀请者
+  optional string name = 2;        // 申请者名字
 }
 
 // MsgID: 3333
 // 确认邀请
 message CSTeamInviteConfirm {
   option (msgid) = 3333;
-  required bool accept = 1;
-  optional int64 teamId = 2;
+  optional int32 result = 1;
+  optional int64 memberId = 2;
 }
 
 // MsgID: 3335
 // 申请入队
 message CSTeamApply {
   option (msgid) = 3335;
-  required int64 teamId = 1;
+  optional int64 memberId = 1;
 }
 
 // MsgID: 3336
 // 队伍申请
 message SCTeamApply {
   option (msgid) = 3336;
-  repeated int64 humanIds = 1;
+  optional int64 memberId = 1;     // 申请者
+  optional string name = 2;        // 申请者名字
 }
 
 // MsgID: 3337
 // 确认申请
 message CSTeamApplyConfirm {
   option (msgid) = 3337;
-  repeated int64 humanIds = 1;
-}
-
-// MsgID: 3338
-// 我的队伍信息
-message CSTeamMine {
-  option (msgid) = 3338;
+  optional int32 result = 1;
+  optional int64 memberId = 2;
 }
 
 // MsgID: 3338
 // 我的队伍
 message SCTeamMine {
   option (msgid) = 3338;
-  optional DTeamRepItem team = 1;
+  optional int64 teamId = 1;         // 队伍ID
+  optional int64 leaderId = 2;       // 队长ID
+  repeated DTeamMemberItem members = 3;  // 成员
+}
+
+// MsgID: 3341
+// 我的队伍信息
+message CSTeamMine {
+  option (msgid) = 3341;
 }
 
 // MsgID: 3339
@@ -3140,7 +3182,8 @@ message CSTest {
 // 测试添加金钱
 message CSTestAddMoney {
   option (msgid) = 9902;
-  required int64 count = 1;
+  required int32 sn = 1;       // sn
+  optional int32 num = 2;      // 数量
 }
 
 // MsgID: 9903
@@ -3155,7 +3198,7 @@ message CSTestAddItem {
 // 测试赠送武将
 message CSTestGiveGeneral {
   option (msgid) = 9908;
-  required int32 sn = 1;
+  required string sn = 1;       // 武将sn
 }
 
 // MsgID: 9909
@@ -3181,21 +3224,23 @@ message CSTestGiveAllGeneral {
 // 测试发送系统邮件
 message CSTestSendSysMail {
   option (msgid) = 9920;
+  optional int32 mailSn = 1 [default = 1];
 }
 
 // MsgID: 9921
 // 测试VIP
 message CSTestVIP {
   option (msgid) = 9921;
-  required int32 level = 1;
+  optional int32 vip = 1;       // vip等级
 }
 
 // MsgID: 9922
 // 测试副本星级
 message CSTestInstanceStar {
   option (msgid) = 9922;
-  required int32 sn = 1;
-  required int32 star = 2;
+  optional int32 chapterID = 1;
+  optional int32 instID = 2;
+  optional int32 stars = 3;
 }
 
 // MsgID: 9923

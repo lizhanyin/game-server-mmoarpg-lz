@@ -24,7 +24,8 @@ message CSTest {
 // 测试添加金钱
 message CSTestAddMoney {
   option (msgid) = 9902;
-  required int64 count = 1;
+  required int32 sn = 1;       // sn
+  optional int32 num = 2;      // 数量
 }
 
 // MsgID: 9903
@@ -39,7 +40,7 @@ message CSTestAddItem {
 // 测试赠送武将
 message CSTestGiveGeneral {
   option (msgid) = 9908;
-  required int32 sn = 1;
+  required string sn = 1;       // 武将sn
 }
 
 // MsgID: 9909
@@ -65,21 +66,23 @@ message CSTestGiveAllGeneral {
 // 测试发送系统邮件
 message CSTestSendSysMail {
   option (msgid) = 9920;
+  optional int32 mailSn = 1 [default = 1];
 }
 
 // MsgID: 9921
 // 测试VIP
 message CSTestVIP {
   option (msgid) = 9921;
-  required int32 level = 1;
+  optional int32 vip = 1;       // vip等级
 }
 
 // MsgID: 9922
 // 测试副本星级
 message CSTestInstanceStar {
   option (msgid) = 9922;
-  required int32 sn = 1;
-  required int32 star = 2;
+  optional int32 chapterID = 1;
+  optional int32 instID = 2;
+  optional int32 stars = 3;
 }
 
 // MsgID: 9923

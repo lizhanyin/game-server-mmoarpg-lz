@@ -16,7 +16,11 @@ import "00000_00000_def.proto";
 // 所有层信息
 message SCAllLayer {
   option (msgid) = 3201;
-  repeated DLayerInfo layers = 1;
+  repeated DLayerInfo infos = 1;       // 层信息列表
+  optional int32 curLayer = 2;         // 当前进行的关卡
+  optional int32 refreshCount = 3;     // 剩余刷新次数
+  optional int32 buffSn = 4;           // 当前获得的buff
+  optional int32 resetBuffCount = 5;   // 更换buff次数
 }
 
 // MsgID: 3202
@@ -35,8 +39,7 @@ message CSLayerEnd {
 // 层结束
 message SCLayerEnd {
   option (msgid) = 3204;
-  required bool win = 1;
-  repeated DItem rewards = 2;
+  optional int32 layerSn = 1;      // 当前关卡sn
 }
 
 // MsgID: 3205
@@ -49,14 +52,15 @@ message CSLayerLeave {
 // 领取爬塔层奖励
 message CSLayerAward {
   option (msgid) = 3206;
+  optional int32 layerSn = 1;
 }
 
 // MsgID: 3207
 // 层奖励
 message SCLayerAward {
   option (msgid) = 3207;
-  required int32 result = 1;
-  repeated DItem items = 2;
+  optional int32 code = 1;       // 成功
+  optional int32 layerSn = 2;    // 关卡sn
 }
 
 // MsgID: 3208
@@ -69,7 +73,8 @@ message CSLayerRefreshBuff {
 // 层刷新Buff
 message SCLayerRefreshBuff {
   option (msgid) = 3209;
-  repeated int32 buffSns = 1;
+  optional int32 buffSn = 1;            // 当前获得的buff
+  optional int32 resetBuffCount = 2;    // 更换buff次数
 }
 
 // MsgID: 3210
