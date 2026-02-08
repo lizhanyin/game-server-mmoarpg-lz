@@ -104,10 +104,9 @@ message SCPickupAllMail {
 }
 
 // MsgID: 2409
-// 删除邮件
+// 请求清理邮件（有删除的进行删除）
 message CSClearMail {
   option (msgid) = 2409;
-  repeated int64 ids = 1;
 }
 
 // MsgID: 2410
@@ -142,7 +141,7 @@ message CSRsvLivenessAwards {
 // 领取活跃度奖励结果
 message SCRsvLivenessAwardsResult {
   option (msgid) = 2502;
-  required int32 result = 1;
+  optional int32 code = 1;       // 每日活动活跃度ID
 }
 
 // MsgID: 2503
@@ -155,8 +154,8 @@ message CSOpenLivenessUI {
 // 活跃度信息
 message SCLivenessInfo {
   option (msgid) = 2504;
-  required int32 liveness = 1;
-  repeated DLiveness livenessList = 2;
+  repeated DLiveness liveness = 1;
+  repeated int32 awardsRsvd = 2;       // 已经领取多少活跃度的奖品
 }
 
 // MsgID: 2601
@@ -245,12 +244,11 @@ message SCPartChongxing {
 }
 
 // MsgID: 2701
-// 宝石升级
+// 穿宝石
 message CSGemUp {
   option (msgid) = 2701;
-  required int64 humanId = 1;
-  required int32 partSn = 2;
-  required int32 index = 3;
+  optional int32 part = 1;          // 装备位
+  optional int32 bagIndex = 2;      // 背包中的位置
 }
 
 // MsgID: 2703

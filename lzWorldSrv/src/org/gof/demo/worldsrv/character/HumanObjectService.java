@@ -1,32 +1,21 @@
 package org.gof.demo.worldsrv.character;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.gof.core.CallPoint;
 import org.gof.core.Port;
-import org.gof.core.RecordTransient;
 import org.gof.core.Service;
 import org.gof.core.connsrv.ConnectionProxy;
-import org.gof.core.dbsrv.DBServiceProxy;
 import org.gof.core.gen.proxy.DistrClass;
 import org.gof.core.gen.proxy.DistrMethod;
 import org.gof.core.support.MsgHandler;
-import org.gof.core.support.Param;
-import org.gof.core.support.Utils;
 import org.gof.demo.seam.msg.HumanExtendMsgHandler;
 import org.gof.demo.worldsrv.entity.Friend;
-import org.gof.demo.worldsrv.entity.Human;
 import org.gof.demo.worldsrv.entity.Mail;
 import org.gof.demo.worldsrv.friend.FriendManager;
 import org.gof.demo.worldsrv.friend.FriendObject;
-import org.gof.demo.worldsrv.friend.FriendServiceProxy;
 import org.gof.demo.worldsrv.general.GeneralManager;
 import org.gof.demo.worldsrv.human.HumanManager;
 import org.gof.demo.worldsrv.mail.MailManager;
 import org.gof.demo.worldsrv.stage.StagePort;
-
-import com.alibaba.fastjson2.JSONArray;
 
 @DistrClass(
     importClass = {Mail.class, Friend.class, FriendObject.class}

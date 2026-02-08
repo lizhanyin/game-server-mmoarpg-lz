@@ -13,35 +13,56 @@ import "00000_00000_def.proto";
 // ============================================================
 
 // MsgID: 1301
-// 战斗攻击
+// 请求施放技能
 message CSFightAtk {
   option (msgid) = 1301;
-  required int64 targetId = 1;
-  optional int32 skillSn = 2;
+  required int64 casterId = 1;        // 施法者ID
+  required int32 skillId = 2;         // 技能id
+  optional int64 tarId = 3;           // 目标id
+  optional DVector2 pos = 4;          // 目标位置
+  optional int32 atkerType = 5;       // 1是主角，2是魂将
+  optional bool final = 6;            // 请求连点或者连击技能最后次伤害
 }
 
 // MsgID: 1302
-// 战斗攻击结果
+// 返回请求技能是否成功
 message SCFightAtkResult {
   option (msgid) = 1302;
-  required int32 result = 1;
+  required int32 resultCode = 1;      // 执行结果编码
+  required int64 sendId = 2;          // 谁放的技能
 }
 
 // MsgID: 1303
 // 战斗技能
 message SCFightSkill {
   option (msgid) = 1303;
-  required int64 casterId = 1;
-  required int32 skillSn = 2;
-  repeated int64 targetIds = 3;
-  optional DVector3 pos = 4;
+  optional int64 castId = 1;          // 攻击者id
+  optional int32 skillId = 2;         // 技能id
+  optional int64 tarId = 3;           // 技能攻击的目标id
+  optional DVector2 pos = 4;          // 技能攻击的目标位置
+  optional int32 atkerType = 5;       // 1是主角，2是魂将
+  repeated int64 defId = 6;           // 受攻击目标集合
+  optional SCFightHpChg hpChg = 7;    // 技能造成的血量变化集合
+  optional int32 period = 8;          // 战斗阶段
+  optional bool final = 9;            // 是否是连点最后一击
+  repeated DBackPos backPos = 10;     // 被攻击以后的位置
+  optional DVector2 attPos = 11;      // 玩家是否有攻击位移
+  optional int32 rage = 12;           // 怒气值
+  repeated DRageAdd rageAdd = 13;     // 被攻击方增加怒气
+  optional double skillShakePct = 14; // 这个技能前摇的百分比
+  repeated int64 skillTeamGenId = 15; // 正在释放连携技武将
+  optional int32 rageHuman = 16;      // 天剑怒气。挂在主角怒气上
+  optional int32 mutilMagic = 17;     // 多重施法
+  optional int32 comboCount = 18;     // 连击数量
+  repeated int64 missId = 19;         // miss队列
 }
 
 // MsgID: 1304
 // 战斗血量变化
 message SCFightHpChg {
   option (msgid) = 1304;
-  repeated DHpChgTar hps = 1;
+  repeated DHpChgTar dhpChgTar = 1;   // 血量掉血list
+  optional int32 skillSn = 2;         // 技能id
 }
 
 // MsgID: 1310
@@ -59,10 +80,12 @@ message SCFightStageChange {
 }
 
 // MsgID: 1312
-// 持续伤害血量变化
+// dot耗血信息
 message SCFightDotHpChg {
   option (msgid) = 1312;
-  repeated DHpChgTar hps = 1;
+  optional int32 dotSn = 1;           // dot的SN
+  optional SCFightHpChg hpChg = 2;    // 血量变化信息
+  optional int64 castId = 3;          // 激发者ID
 }
 
 // MsgID: 1313
@@ -74,45 +97,53 @@ message DRageAdd {
 }
 
 // MsgID: 1316
-// 子弹血量变化
+// bullet耗血信息
 message SCFightBulletHpChg {
   option (msgid) = 1316;
-  repeated DHpChgTar hps = 1;
+  optional int64 bulletID = 1;        // 子弹的ID
+  optional SCFightHpChg hpChg = 2;    // 血量变化信息
+  optional int64 castId = 3;          // 激发者ID
 }
 
 // MsgID: 1317
-// 子弹移动
+// bullet 切换
 message SCFightBulletMove {
   option (msgid) = 1317;
-  required int64 bulletId = 1;
-  required DVector3 pos = 2;
+  optional int64 bulletID = 1;        // id
+  optional int32 bulletSN = 2;        // sn
+  optional int64 unitOriginId = 3;    // 启动目标
+  optional int64 unitTarId = 4;       // 发射目标
 }
 
 // MsgID: 1318
 // 技能打断
 message CSSkillInterrupt {
   option (msgid) = 1318;
+  optional int64 unitObjID = 1;       // 打断unitObj 的id
+  optional int32 skillSn = 2;         // 打断unitObj 的具体技能
 }
 
 // MsgID: 1319
 // 技能打断结果
 message SCSkillInterrupt {
   option (msgid) = 1319;
-  required bool success = 1;
+  optional int64 unitObjID = 1;       // 打断unitObj 的id
+  optional int32 skillSn = 2;         // 打断unitObj 的具体技能
 }
 
 // MsgID: 1320
 // 添加武将（出阵）
 message CSSkillAddGeneral {
   option (msgid) = 1320;
-  required int64 generalId = 1;
+  optional string generalSn = 1;      // 添加的generalSn
+  optional DVector2 pos = 2;          // 地图坐标
 }
 
 // MsgID: 1321
 // 移除武将（下阵）
 message CSSkillRemoveGeneral {
   option (msgid) = 1321;
-  required int64 generalId = 1;
+  optional int64 unitObjID = 1;       // 消失unitObj 的id
 }
 
 // MsgID: 1322
@@ -163,9 +194,9 @@ message SCFightSkillTeamCancel {
 // 死亡复活
 message SCFightRevive {
   option (msgid) = 1350;
-  optional int64 humanId = 1;        // ID
-  optional int32 hpCur = 2;          // 血量
-  optional DVector2 pos = 3;         // 复活坐标
+  optional int64 humanId = 1;         // ID
+  optional int32 hpCur = 2;           // 血量
+  optional DVector2 pos = 3;          // 复活坐标
 }
 
 // MsgID: 1400

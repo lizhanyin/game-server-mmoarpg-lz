@@ -22,5 +22,5 @@ message CSBulletinOpenUI {
 // 打开公告UI
 message SCBulletinOpenUI {
   option (msgid) = 3602;
-  repeated DBulletinItem bulletins = 1;
+  repeated DBulletinItem items = 1;       // 公告项列表
 }

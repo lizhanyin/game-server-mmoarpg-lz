@@ -45,18 +45,20 @@ message SCStageSwitch {
 // 副本移动
 message CSStageMove {
   option (msgid) = 1211;
-  required DVector3 pos = 1;
-  optional DVector3 dir = 2;
+  optional int64 objId = 1;        // WorldObjectID
+  optional DVector3 posBegin = 2;  // 移动开始坐标
+  repeated DVector3 posEnd = 3;    // 目标路径坐标
+  optional DVector3 dir = 4;       // 移动完的最终方向
 }
 
 // MsgID: 1212
-// 副本移动
+// 副本移动（广播）
 message SCStageMove {
   option (msgid) = 1212;
-  required int64 id = 1;
-  repeated DVector3 posEnd = 2;
-  optional DVector3 dir = 3;
-  optional float speed = 4;
+  optional int64 objId = 1;        // WorldObjectID
+  optional DVector3 posBegin = 2;  // 移动开始坐标
+  repeated DVector3 posEnd = 3;    // 目标路径坐标
+  optional DVector3 dir = 4;       // 移动完的最终方向
 }
 
 // MsgID: 1213
@@ -71,34 +73,35 @@ message SCStageSetPos {
 // 停止移动
 message CSStageMoveStop {
   option (msgid) = 1214;
-  required DVector3 pos = 1;
-  optional DVector3 dir = 2;
+  optional int64 sendId = 1;       // 谁停止
+  optional DVector2 posEnd = 2;    // 停止坐标
 }
 
 // MsgID: 1215
-// 停止移动
+// 停止移动（广播）
 message SCStageMoveStop {
   option (msgid) = 1215;
-  required int64 id = 1;
-  required DVector3 pos = 2;
-  optional DVector3 dir = 3;
+  optional int64 objId = 1;       // WorldObjectID
+  optional DVector2 posEnd = 2;   // 停止点坐标
 }
 
 // MsgID: 1216
 // 对象出现
 message SCStageObjectAppear {
   option (msgid) = 1216;
-  required int64 id = 1;
-  required int32 type = 2;
-  required DVector3 pos = 3;
-  optional DStageObject obj = 4;
+  optional DStageObject objAppear = 1;   // obj信息
+  optional int32 type = 2;                // 出现类型,1正常出现，(对怪物：2是出生)
 }
 
 // MsgID: 1217
 // 对象消失
 message SCStageObjectDisappear {
   option (msgid) = 1217;
-  repeated int64 ids = 1;
+  optional int64 objId = 1;                  // WorldObjectID
+  optional int32 type = 2;                   // 消失类型，1正常消失，（对怪物：2死亡），（对掉落物：2是收集消失）
+  optional string killerName = 3;            // 击杀者姓名
+  optional int64 killerId = 4;               // 击杀者id
+  optional int32 skillSn = 5;                // 击杀技能sn，没有则不传
 }
 
 // MsgID: 1218
@@ -141,8 +144,12 @@ message SCStagePullTo {
 // 单位状态变化
 message SCUnitobjStatusChange {
   option (msgid) = 1227;
-  required int64 id = 1;
-  optional int32 status = 2;
+  optional int64 type = 1;            // 现在的状态
+  optional int64 id = 2;              // unitobj id
+  optional int64 teamBundleID = 3;    // 老大和小弟一起群体标号
+  optional bool canMove = 4;         // 是否可以移动
+  optional bool canCastSkill = 5;     // 是否可以施法
+  optional bool canAttack = 6;       // 是否可以有各种动作
 }
 
 // MsgID: 1228

@@ -40,6 +40,7 @@ message SCHumanInfoChange {
 // 副本对象信息变更
 message SCStageObjectInfoChange {
   option (msgid) = 1109;
+  optional DStageObject obj = 1;       // 地图单元属性变化（发送给其他玩家）
 }
 
 // MsgID: 1110

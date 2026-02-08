@@ -16,6 +16,7 @@ import "00000_00000_def.proto";
 // 进入竞技场
 message CSCompetitionEnter {
   option (msgid) = 3401;
+  optional int64 humanId = 1;          // 防守者ID
 }
 
 // MsgID: 3402
@@ -28,7 +29,12 @@ message CSCompetitionEnd {
 // 竞技场结束
 message SCCompetitionEnd {
   option (msgid) = 3403;
-  required bool win = 1;
+  optional bool isWin = 1;             // 是否战胜
+  optional int32 newRank = 2;          // 新排名
+  optional int32 oldRank = 3;          // 上次排名
+  optional int64 coin = 4;             // 金币
+  optional int64 exp = 5;              // 经验
+  optional int64 competMoney = 6;      // 演武币
 }
 
 // MsgID: 3404
@@ -47,7 +53,9 @@ message CSRefreshEnemy {
 // 竞技场信息
 message SCCompetitionInfo {
   option (msgid) = 3407;
-  optional DHumanInfo enemy = 1;
+  repeated DHumanInfo infos = 1;      // 敌人信息
+  optional int32 count = 2;           // 可挑战次数
+  optional int32 timeCool = 3;         // 冷却时间（毫秒）
 }
 
 // MsgID: 3408
@@ -60,14 +68,14 @@ message CSResetCDTime {
 // 重置CD结果
 message SCResetCDTime {
   option (msgid) = 3409;
-  required bool success = 1;
+  optional int32 resultCode = 1;       // 大于0成功
 }
 
 // MsgID: 3410
 // 打开排行榜
 message CSOpenRank {
   option (msgid) = 3410;
-  required int32 type = 1;
+  optional int32 page = 1;       // 页数
 }
 
 // MsgID: 3411
@@ -101,7 +109,7 @@ message CSRefreshCount {
 // 刷新次数
 message SCRefreshCount {
   option (msgid) = 3415;
-  required int32 count = 1;
+  optional int32 resultCode = 1;       // 大于0成功
 }
 
 // MsgID: 3416

@@ -13,11 +13,12 @@ import "00000_00000_def.proto";
 // ============================================================
 
 // MsgID: 1401
-// 使用物品
+// 物品使用
 message CSUseItem {
   option (msgid) = 1401;
-  required int32 pos = 1;
-  required int32 num = 2;
+  optional int32 type = 1;          // 背包类型号
+  optional int32 index = 2;         // 背包格位置
+  optional int32 num = 3;           // 使用数量
 }
 
 // MsgID: 1403
@@ -28,10 +29,11 @@ message CSArrangeBag {
 }
 
 // MsgID: 1405
-// 批量出售
+// 物品批量出售
 message CSItemBachSell {
   option (msgid) = 1405;
-  repeated int32 poses = 1;
+  optional int32 type = 1;          // 背包类型号
+  repeated int32 polist = 2;        // 背包格位置集合
 }
 
 // MsgID: 1407
@@ -287,14 +289,7 @@ message SCGeneralInfoAttIng {
 }
 
 // MsgID: 1931
-// 移除武将
-message CSGeneralRemove {
-  option (msgid) = 1931;
-  required int64 id = 1;
-}
-
-// MsgID: 1931
-// 武将移除
+// 武将移除（服务器响应）
 message SCGeneralRemove {
   option (msgid) = 1931;
   required int64 id = 1;

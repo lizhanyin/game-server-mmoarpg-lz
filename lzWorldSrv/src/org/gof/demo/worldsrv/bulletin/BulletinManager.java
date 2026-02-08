@@ -10,7 +10,6 @@ import org.gof.core.support.ManagerBase;
 import org.gof.core.support.Param;
 import org.gof.core.support.observer.Listener;
 import org.gof.demo.battlesrv.stageObj.CharacterObject;
-import org.gof.demo.worldsrv.character.GeneralObject;
 import org.gof.demo.worldsrv.character.HumanObject;
 import org.gof.demo.worldsrv.config.ConfBulletin;
 import org.gof.demo.worldsrv.config.ConfBulletinRoll;

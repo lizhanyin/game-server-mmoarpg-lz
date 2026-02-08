@@ -22,7 +22,7 @@ message CSFriendList {
 // 好友列表
 message SCFriendList {
   option (msgid) = 3502;
-  repeated DFriendInfo friends = 1;
+  repeated DFriendInfo friendList = 1;       // 好友信息
 }
 
 // MsgID: 3503
@@ -36,8 +36,7 @@ message CSRequestFriend {
 // 请求添加好友
 message SCRequestFriend {
   option (msgid) = 3504;
-  required int64 fromId = 1;
-  optional string fromName = 2;
+  optional bool result = 1;       // 是否成功
 }
 
 // MsgID: 3505
@@ -51,7 +50,7 @@ message CSAcceptFriend {
 // 接受好友请求
 message SCAcceptFriend {
   option (msgid) = 3506;
-  required bool success = 1;
+  optional bool result = 1;       // 是否成功
 }
 
 // MsgID: 3507
@@ -65,6 +64,7 @@ message CSRefuseFriend {
 // 拒绝好友请求
 message SCRefuseFriend {
   option (msgid) = 3508;
+  optional bool result = 1;       // 是否成功
 }
 
 // MsgID: 3509

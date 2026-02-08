@@ -23,8 +23,7 @@ message CSSignIn {
 // 签到结果
 message SCSignIn {
   option (msgid) = 2001;
-  required int32 result = 1;
-  repeated DSignIn signIns = 2;
+  optional int32 state = 1;            // 领取状态0-未领取,1-领取基础,2-领取了vip
 }
 
 // MsgID: 2101

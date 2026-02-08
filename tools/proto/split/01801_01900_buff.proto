@@ -16,24 +16,24 @@ import "00000_00000_def.proto";
 // Buff添加
 message SCBuffAdd {
   option (msgid) = 1802;
-  required int64 id = 1;
-  required DBuff buff = 2;
+  optional int64 objId = 1;      // 单元Id
+  optional DBuff buff = 2;       // Buff信息
 }
 
 // MsgID: 1803
-// Buff更新
+// Buff更新（群发）
 message SCBuffUpdate {
   option (msgid) = 1803;
-  required int64 id = 1;
-  required DBuff buff = 2;
+  optional int64 objId = 1;      // 单元Id
+  optional DBuff buff = 2;       // Buff信息
 }
 
 // MsgID: 1804
-// Buff驱散
+// Buff消失（群发）
 message SCBuffDispel {
   option (msgid) = 1804;
-  required int64 id = 1;
-  repeated int32 buffSns = 2;
+  optional int64 objId = 1;        // 单元Id
+  optional int32 sn = 2;           // 需要移出的buffSn
 }
 
 // MsgID: 1805

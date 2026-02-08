@@ -1,0 +1,150 @@
+# Proto 消息与 Java 接口对比分析报告
+
+## 移动相关消息对比分析
+
+### 1. SCStageMove (MsgID: 1212)
+
+#### Java 接口定义:
+- objId (int64): WorldObjectID
+- posBegin (DVector3): 移动开始坐标
+- posEnd (repeated DVector3): 目标路径坐标
+- dir (DVector3): 移动完的最终方向
+
+#### Proto 定义:
+- id (int64): [字段名不同]
+- posEnd (repeated DVector3): [字段名相同]
+- dir (DVector3): [字段名相同]
+- speed (float): [Java中没有此字段]
+
+#### 不匹配详情:
+- **objId vs id**: Java 中的 objId 字段在 proto 中为 id，字段名不匹配
+- **posBegin vs posEnd**: Java 中的 posBegin 字段在 proto 中不存在，proto 只有 posEnd
+- **speed 字段**: proto 中新增了 speed 字段，Java 中没有
+
+### 2. CSStageMoveStop (MsgID: 1214)
+
+#### Java 接口定义:
+- sendId (int64): [根据 proto 定义推断]
+- posEnd (DVector2): 停止坐标
+
+#### Proto 定义:
+- pos (DVector3): [字段名不同，类型不同]
+- dir (DVector3): [Java 中没有此字段]
+
+#### 不匹配详情:
+- **sendId/sendId vs pos**: Java 中的 sendId 字段在 proto 中不存在，proto 中的 pos 字段与 Java 不匹配
+- **posEnd vs pos**: 字段名不同，且类型不同（DVector2 vs DVector3）
+- **dir 字段**: proto 中新增了 dir 字段，Java 中没有
+
+### 3. SCStageMoveStop (MsgID: 1215)
+
+#### Java 接口定义:
+- objId (int64): WorldObjectID
+- posEnd (DVector2): 停止点坐标
+
+#### Proto 定义:
+- id (int64): [字段名不同]
+- pos (DVector3): [字段名不同，类型不同]
+- dir (DVector3): [Java 中没有此字段]
+
+#### 不匹配详情:
+- **objId vs id**: Java 中的 objId 字段在 proto 中为 id，字段名不匹配
+- **posEnd vs pos**: 字段名不同，且类型不同（DVector2 vs DVector3）
+- **dir 字段**: proto 中新增了 dir 字段，Java 中没有
+
+
+### 4. CSStageMove2 (MsgID: 1222)
+
+#### Proto 定义:
+- posBegin (DVector2): 移动开始坐标
+- direction (DVector2): 移动方向
+
+#### 不匹配详情:
+- **暂无 Java 接口定义信息**
+- 使用的是 2D 坐标系（DVector2），与 SCStageMove 使用的 3D 坐标系不同
+
+### 5. SCStageMove2 (MsgID: 1223)
+
+#### Proto 定义:
+- id (int64): WorldObjectID
+- pos (DVector3): 目标位置
+
+#### 不匹配详情:
+- **暂无 Java 接口定义信息**
+- 与 CSStageMove2 不同，SCStageMove2 是 3D 坐标系
+
+
+## 战斗相关消息对比分析
+
+### 1. CSFightAtk (MsgID: 1301)
+
+#### Java 接口定义:
+- casterId (int64): [字段名与proto不匹配]
+- skillId (int32): [字段名与proto不匹配]
+- tarId (int64): [字段名与proto不匹配]
+
+#### Proto 定义:
+- targetId (int64): 目标ID
+- skillSn (int32): 技能编号
+
+#### 不匹配详情:
+- **casterId vs targetId**: Java 中的 casterId 字段在 proto 中为 targetId，角色颠倒
+- **skillId vs skillSn**: Java 中的 skillId 字段在 proto 中为 skillSn，后缀不同
+- **tarId 字段**: Java 中的 tarId 字段在 proto 中不存在，proto 的 targetId 对应 Java 的 casterId
+
+## 聊天消息对比分析
+
+### 1. CSInformChat (MsgID: 1501)
+
+#### Proto 定义:
+- content (string): 聊天内容
+- channel (int32): 频道类型
+
+#### 不匹配详情:
+- **暂无 Java 接口定义信息**
+
+## 物品消息对比分析
+
+### 1. CSUseItem (MsgID: 1401)
+
+#### Proto 定义:
+- pos (int32): 位置
+- num (int32): 数量
+
+#### 不匹配详情:
+- **暂无 Java 接口定义信息**
+
+## 总体问题汇总
+
+### 主要问题类型:
+
+#### 1. 字段名不匹配
+- SCStageMove: objId vs id
+- CSStageMoveStop: sendId/sendId vs pos
+- SCStageMoveStop: objId vs id, posEnd vs pos
+- CSFightAtk: casterId vs targetId, skillId vs skillSn
+
+#### 2. 字段类型不匹配
+- CSStageMoveStop: DVector2 vs DVector3
+- SCStageMoveStop: DVector2 vs DVector3
+
+#### 3. 字段数量不匹配
+- SCStageMove: Java有4个字段，Proto有4个字段，但内容不同
+- CSStageMoveStop: Java有2个字段，Proto有2个字段，但内容完全不同
+- SCStageMoveStop: Java有2个字段，Proto有3个字段，多了dir字段
+
+### 修复建议
+
+1. 统一字段命名规范
+   - 将所有 objId 统一为 id
+   - 将所有 skillId 统一为 skillSn
+   - 明确区分 casterId 和 targetId 的用途
+
+2. 统一坐标系统
+   - 明确约定使用 2D 还是 3D 坐标
+   - 避免在同一功能中使用不同维度的坐标
+
+3. 建立完整的消息定义文档
+   - 记录所有消息的详细字段定义
+   - 定期校验 proto 文件和 Java 接口的一致性
+
