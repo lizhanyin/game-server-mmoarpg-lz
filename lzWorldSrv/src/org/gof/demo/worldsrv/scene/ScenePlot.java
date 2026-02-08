@@ -14,19 +14,19 @@ import org.gof.demo.worldsrv.stage.StageObject;
  */
 public class ScenePlot {
     //常量
-    public static final int  SCENT_PLOT_STATUS_NONE= 0;            //未开始
-    public static final int  SCENT_PLOT_STATUS_DOING= 1;        //进行中
-    public static final int  SCENT_PLOT_STATUS_FINISH= 2;        //完成
+    public static final int  SCENT_PLOT_STATUS_NONE= 0;           // 未开始
+    public static final int  SCENT_PLOT_STATUS_DOING= 1;          // 进行中
+    public static final int  SCENT_PLOT_STATUS_FINISH= 2;         // 完成
     
-    public long id;                                    //唯一ID
-    public String sn;                                    //配置SN
-    public int status;                                    //状态
-    public ConfScenePlot conf;                    //配置
-    public StageObject stageObject;            //所属的StageObject
+    public long id;                           // 唯一ID
+    public String sn;                         // 配置SN
+    public int status;                        // 状态
+    public ConfScenePlot conf;                // 配置
+    public StageObject stageObject;           // 所属的StageObject
     
-    public Map<Long, ScenePlot> prePlots = new HashMap<>();        //前置剧情
-    public Map<Long, SceneTrigger> triggers = new HashMap<>();        //触发器列表
-    public Map<Long, SceneEvent> events = new HashMap<>();            //事件列表
+    public Map<Long, ScenePlot> prePlots = new HashMap<>();       // 前置剧情
+    public Map<Long, SceneTrigger> triggers = new HashMap<>();    // 触发器列表
+    public Map<Long, SceneEvent> events = new HashMap<>();        // 事件列表
     
     /**
      * 构造方法

@@ -2417,6 +2417,8 @@ message SCMallResult {
 message CSBuyMallGoods {
   option (msgid) = 3003;
   optional int32 mallSn = 1;       // 商城Sn
+  optional int32 index = 2;        // 商品位置
+  optional int32 num = 3;          // 商品数量
 }
 
 // MsgID: 3004
@@ -2501,7 +2503,8 @@ message CSBuyShop {
 // 购买商店结果
 message SCBuyShopResult {
   option (msgid) = 3015;
-  required int32 code = 1;         // 结果码
+  optional int32 code = 1;         // 0: 购买成功    1: 货币不足
+  optional int32 shopSn = 2;       // 购买的商店ID
 }
 
 

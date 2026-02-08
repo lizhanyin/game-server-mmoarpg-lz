@@ -9,7 +9,6 @@ import org.gof.core.InputStream;
 import org.gof.core.OutputStream;
 import org.gof.core.interfaces.ISerializable;
 import org.gof.demo.worldsrv.msg.Msg.DGoods;
-import org.gof.demo.worldsrv.msg.Msg.DShop;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;

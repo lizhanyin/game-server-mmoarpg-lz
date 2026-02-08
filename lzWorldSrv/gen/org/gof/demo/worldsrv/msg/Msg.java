@@ -226568,6 +226568,44 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
      * @return The mallSn.
      */
     int getMallSn();
+
+    /**
+     * <pre>
+     * 商品位置
+     * </pre>
+     *
+     * <code>optional int32 index = 2;</code>
+     * @return Whether the index field is set.
+     */
+    boolean hasIndex();
+    /**
+     * <pre>
+     * 商品位置
+     * </pre>
+     *
+     * <code>optional int32 index = 2;</code>
+     * @return The index.
+     */
+    int getIndex();
+
+    /**
+     * <pre>
+     * 商品数量
+     * </pre>
+     *
+     * <code>optional int32 num = 3;</code>
+     * @return Whether the num field is set.
+     */
+    boolean hasNum();
+    /**
+     * <pre>
+     * 商品数量
+     * </pre>
+     *
+     * <code>optional int32 num = 3;</code>
+     * @return The num.
+     */
+    int getNum();
   }
   /**
    * <pre>
@@ -226639,6 +226677,60 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return mallSn_;
     }
 
+    public static final int INDEX_FIELD_NUMBER = 2;
+    private int index_ = 0;
+    /**
+     * <pre>
+     * 商品位置
+     * </pre>
+     *
+     * <code>optional int32 index = 2;</code>
+     * @return Whether the index field is set.
+     */
+    @java.lang.Override
+    public boolean hasIndex() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * 商品位置
+     * </pre>
+     *
+     * <code>optional int32 index = 2;</code>
+     * @return The index.
+     */
+    @java.lang.Override
+    public int getIndex() {
+      return index_;
+    }
+
+    public static final int NUM_FIELD_NUMBER = 3;
+    private int num_ = 0;
+    /**
+     * <pre>
+     * 商品数量
+     * </pre>
+     *
+     * <code>optional int32 num = 3;</code>
+     * @return Whether the num field is set.
+     */
+    @java.lang.Override
+    public boolean hasNum() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * 商品数量
+     * </pre>
+     *
+     * <code>optional int32 num = 3;</code>
+     * @return The num.
+     */
+    @java.lang.Override
+    public int getNum() {
+      return num_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -226656,6 +226748,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(1, mallSn_);
       }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt32(2, index_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt32(3, num_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -226668,6 +226766,14 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, mallSn_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, index_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, num_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -226689,6 +226795,16 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (getMallSn()
             != other.getMallSn()) return false;
       }
+      if (hasIndex() != other.hasIndex()) return false;
+      if (hasIndex()) {
+        if (getIndex()
+            != other.getIndex()) return false;
+      }
+      if (hasNum() != other.hasNum()) return false;
+      if (hasNum()) {
+        if (getNum()
+            != other.getNum()) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -226703,6 +226819,14 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (hasMallSn()) {
         hash = (37 * hash) + MALLSN_FIELD_NUMBER;
         hash = (53 * hash) + getMallSn();
+      }
+      if (hasIndex()) {
+        hash = (37 * hash) + INDEX_FIELD_NUMBER;
+        hash = (53 * hash) + getIndex();
+      }
+      if (hasNum()) {
+        hash = (37 * hash) + NUM_FIELD_NUMBER;
+        hash = (53 * hash) + getNum();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -226841,6 +226965,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         super.clear();
         bitField0_ = 0;
         mallSn_ = 0;
+        index_ = 0;
+        num_ = 0;
         return this;
       }
 
@@ -226879,6 +227005,14 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
           result.mallSn_ = mallSn_;
           to_bitField0_ |= 0x00000001;
         }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.index_ = index_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.num_ = num_;
+          to_bitField0_ |= 0x00000004;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -226896,6 +227030,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (other == org.gof.demo.worldsrv.msg.Msg.CSBuyMallGoods.getDefaultInstance()) return this;
         if (other.hasMallSn()) {
           setMallSn(other.getMallSn());
+        }
+        if (other.hasIndex()) {
+          setIndex(other.getIndex());
+        }
+        if (other.hasNum()) {
+          setNum(other.getNum());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -226928,6 +227068,16 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                index_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                num_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -226997,6 +227147,118 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clearMallSn() {
         bitField0_ = (bitField0_ & ~0x00000001);
         mallSn_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int index_ ;
+      /**
+       * <pre>
+       * 商品位置
+       * </pre>
+       *
+       * <code>optional int32 index = 2;</code>
+       * @return Whether the index field is set.
+       */
+      @java.lang.Override
+      public boolean hasIndex() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * 商品位置
+       * </pre>
+       *
+       * <code>optional int32 index = 2;</code>
+       * @return The index.
+       */
+      @java.lang.Override
+      public int getIndex() {
+        return index_;
+      }
+      /**
+       * <pre>
+       * 商品位置
+       * </pre>
+       *
+       * <code>optional int32 index = 2;</code>
+       * @param value The index to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIndex(int value) {
+
+        index_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 商品位置
+       * </pre>
+       *
+       * <code>optional int32 index = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIndex() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        index_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int num_ ;
+      /**
+       * <pre>
+       * 商品数量
+       * </pre>
+       *
+       * <code>optional int32 num = 3;</code>
+       * @return Whether the num field is set.
+       */
+      @java.lang.Override
+      public boolean hasNum() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <pre>
+       * 商品数量
+       * </pre>
+       *
+       * <code>optional int32 num = 3;</code>
+       * @return The num.
+       */
+      @java.lang.Override
+      public int getNum() {
+        return num_;
+      }
+      /**
+       * <pre>
+       * 商品数量
+       * </pre>
+       *
+       * <code>optional int32 num = 3;</code>
+       * @param value The num to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNum(int value) {
+
+        num_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 商品数量
+       * </pre>
+       *
+       * <code>optional int32 num = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNum() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        num_ = 0;
         onChanged();
         return this;
       }
@@ -233129,22 +233391,41 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
     /**
      * <pre>
-     * 结果码
+     * 0: 购买成功    1: 货币不足
      * </pre>
      *
-     * <code>required int32 code = 1;</code>
+     * <code>optional int32 code = 1;</code>
      * @return Whether the code field is set.
      */
     boolean hasCode();
     /**
      * <pre>
-     * 结果码
+     * 0: 购买成功    1: 货币不足
      * </pre>
      *
-     * <code>required int32 code = 1;</code>
+     * <code>optional int32 code = 1;</code>
      * @return The code.
      */
     int getCode();
+
+    /**
+     * <pre>
+     * 购买的商店ID
+     * </pre>
+     *
+     * <code>optional int32 shopSn = 2;</code>
+     * @return Whether the shopSn field is set.
+     */
+    boolean hasShopSn();
+    /**
+     * <pre>
+     * 购买的商店ID
+     * </pre>
+     *
+     * <code>optional int32 shopSn = 2;</code>
+     * @return The shopSn.
+     */
+    int getShopSn();
   }
   /**
    * <pre>
@@ -233193,10 +233474,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     private int code_ = 0;
     /**
      * <pre>
-     * 结果码
+     * 0: 购买成功    1: 货币不足
      * </pre>
      *
-     * <code>required int32 code = 1;</code>
+     * <code>optional int32 code = 1;</code>
      * @return Whether the code field is set.
      */
     @java.lang.Override
@@ -233205,15 +233486,42 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
     /**
      * <pre>
-     * 结果码
+     * 0: 购买成功    1: 货币不足
      * </pre>
      *
-     * <code>required int32 code = 1;</code>
+     * <code>optional int32 code = 1;</code>
      * @return The code.
      */
     @java.lang.Override
     public int getCode() {
       return code_;
+    }
+
+    public static final int SHOPSN_FIELD_NUMBER = 2;
+    private int shopSn_ = 0;
+    /**
+     * <pre>
+     * 购买的商店ID
+     * </pre>
+     *
+     * <code>optional int32 shopSn = 2;</code>
+     * @return Whether the shopSn field is set.
+     */
+    @java.lang.Override
+    public boolean hasShopSn() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * 购买的商店ID
+     * </pre>
+     *
+     * <code>optional int32 shopSn = 2;</code>
+     * @return The shopSn.
+     */
+    @java.lang.Override
+    public int getShopSn() {
+      return shopSn_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -233223,10 +233531,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasCode()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -233236,6 +233540,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(1, code_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt32(2, shopSn_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -233249,6 +233556,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, code_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, shopSn_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -233270,6 +233581,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (getCode()
             != other.getCode()) return false;
       }
+      if (hasShopSn() != other.hasShopSn()) return false;
+      if (hasShopSn()) {
+        if (getShopSn()
+            != other.getShopSn()) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -233284,6 +233600,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (hasCode()) {
         hash = (37 * hash) + CODE_FIELD_NUMBER;
         hash = (53 * hash) + getCode();
+      }
+      if (hasShopSn()) {
+        hash = (37 * hash) + SHOPSN_FIELD_NUMBER;
+        hash = (53 * hash) + getShopSn();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -233422,6 +233742,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         super.clear();
         bitField0_ = 0;
         code_ = 0;
+        shopSn_ = 0;
         return this;
       }
 
@@ -233460,6 +233781,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
           result.code_ = code_;
           to_bitField0_ |= 0x00000001;
         }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.shopSn_ = shopSn_;
+          to_bitField0_ |= 0x00000002;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -233478,6 +233803,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (other.hasCode()) {
           setCode(other.getCode());
         }
+        if (other.hasShopSn()) {
+          setShopSn(other.getShopSn());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -233485,9 +233813,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasCode()) {
-          return false;
-        }
         return true;
       }
 
@@ -233512,6 +233837,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                shopSn_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -233532,10 +233862,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       private int code_ ;
       /**
        * <pre>
-       * 结果码
+       * 0: 购买成功    1: 货币不足
        * </pre>
        *
-       * <code>required int32 code = 1;</code>
+       * <code>optional int32 code = 1;</code>
        * @return Whether the code field is set.
        */
       @java.lang.Override
@@ -233544,10 +233874,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       /**
        * <pre>
-       * 结果码
+       * 0: 购买成功    1: 货币不足
        * </pre>
        *
-       * <code>required int32 code = 1;</code>
+       * <code>optional int32 code = 1;</code>
        * @return The code.
        */
       @java.lang.Override
@@ -233556,10 +233886,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       /**
        * <pre>
-       * 结果码
+       * 0: 购买成功    1: 货币不足
        * </pre>
        *
-       * <code>required int32 code = 1;</code>
+       * <code>optional int32 code = 1;</code>
        * @param value The code to set.
        * @return This builder for chaining.
        */
@@ -233572,15 +233902,71 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       /**
        * <pre>
-       * 结果码
+       * 0: 购买成功    1: 货币不足
        * </pre>
        *
-       * <code>required int32 code = 1;</code>
+       * <code>optional int32 code = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearCode() {
         bitField0_ = (bitField0_ & ~0x00000001);
         code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int shopSn_ ;
+      /**
+       * <pre>
+       * 购买的商店ID
+       * </pre>
+       *
+       * <code>optional int32 shopSn = 2;</code>
+       * @return Whether the shopSn field is set.
+       */
+      @java.lang.Override
+      public boolean hasShopSn() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * 购买的商店ID
+       * </pre>
+       *
+       * <code>optional int32 shopSn = 2;</code>
+       * @return The shopSn.
+       */
+      @java.lang.Override
+      public int getShopSn() {
+        return shopSn_;
+      }
+      /**
+       * <pre>
+       * 购买的商店ID
+       * </pre>
+       *
+       * <code>optional int32 shopSn = 2;</code>
+       * @param value The shopSn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setShopSn(int value) {
+
+        shopSn_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 购买的商店ID
+       * </pre>
+       *
+       * <code>optional int32 shopSn = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearShopSn() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        shopSn_ = 0;
         onChanged();
         return this;
       }
@@ -287016,146 +287402,147 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       "SkillResult\0224\n\trelSkills\030\001 \001(\0132!.org.gof" +
       ".demo.worldsrv.msg.DSkill:\005\210\303\032\356\026\"#\n\nCSOp" +
       "enMall\022\016\n\006mallSn\030\001 \001(\005:\005\210\303\032\271\027\"\'\n\014SCMallR" +
-      "esult\022\020\n\010itemList\030\001 \003(\005:\005\210\303\032\272\027\"\'\n\016CSBuyM" +
-      "allGoods\022\016\n\006mallSn\030\001 \001(\005:\005\210\303\032\273\027\"%\n\016SCBuy" +
-      "MallGoods\022\014\n\004code\030\001 \002(\005:\005\210\303\032\274\027\"\032\n\021CSRequ" +
-      "estShopTags:\005\210\303\032\275\027\"\'\n\020SCResultShopTags\022\014" +
-      "\n\004tags\030\001 \003(\005:\005\210\303\032\276\027\"#\n\nCSOpenShop\022\016\n\006sho" +
-      "pSn\030\001 \002(\005:\005\210\303\032\277\027\"E\n\014SCShopResult\022.\n\004shop" +
-      "\030\001 \002(\0132 .org.gof.demo.worldsrv.msg.DShop" +
-      ":\005\210\303\032\300\027\"6\n\016CSBuyShopGoods\022\016\n\006shopSn\030\001 \002(" +
-      "\005\022\r\n\005index\030\002 \002(\005:\005\210\303\032\301\027\"%\n\016SCBuyShopGood" +
-      "s\022\014\n\004code\030\001 \002(\005:\005\210\303\032\302\027\"&\n\rCSRefreshShop\022" +
-      "\016\n\006shopSn\030\001 \002(\005:\005\210\303\032\303\027\"Z\n\023SCRefreshShopR" +
-      "esult\022\014\n\004code\030\001 \002(\005\022.\n\004shop\030\002 \002(\0132 .org." +
-      "gof.demo.worldsrv.msg.DShop:\005\210\303\032\304\027\"\'\n\016SC" +
-      "OpenTempShop\022\016\n\006shopSn\030\001 \002(\005:\005\210\303\032\305\027\"\"\n\tC" +
-      "SBuyShop\022\016\n\006shopSn\030\001 \002(\005:\005\210\303\032\306\027\"&\n\017SCBuy" +
-      "ShopResult\022\014\n\004code\030\001 \002(\005:\005\210\303\032\307\027\"#\n\016CSIns" +
-      "tanceRank\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\235\030\"a\n\016SCInstan" +
-      "ceRank\0226\n\004rank\030\001 \003(\0132(.org.gof.demo.worl" +
-      "dsrv.msg.DInstanceRank\022\020\n\010selfRank\030\002 \001(\005" +
-      ":\005\210\303\032\236\030\"\024\n\013CSLevelRank:\005\210\303\032\237\030\"[\n\013SCLevel" +
-      "Rank\0223\n\004rank\030\001 \003(\0132%.org.gof.demo.worlds" +
-      "rv.msg.DLevelRank\022\020\n\010selfRank\030\002 \001(\005:\005\210\303\032" +
-      "\240\030\"\025\n\014CSCombatRank:\005\210\303\032\241\030\"L\n\014SCCombatRan" +
-      "k\0225\n\005ranks\030\001 \003(\0132&.org.gof.demo.worldsrv" +
-      ".msg.DCombatRank:\005\210\303\032\242\030\"J\n\nSCAllLayer\0225\n" +
-      "\006layers\030\001 \003(\0132%.org.gof.demo.worldsrv.ms" +
-      "g.DLayerInfo:\005\210\303\032\201\031\"\025\n\014CSLayerEnter:\005\210\303\032" +
-      "\202\031\"\023\n\nCSLayerEnd:\005\210\303\032\203\031\"S\n\nSCLayerEnd\022\013\n" +
-      "\003win\030\001 \002(\010\0221\n\007rewards\030\002 \003(\0132 .org.gof.de" +
-      "mo.worldsrv.msg.DItem:\005\210\303\032\204\031\"\025\n\014CSLayerL" +
-      "eave:\005\210\303\032\205\031\"\025\n\014CSLayerAward:\005\210\303\032\206\031\"V\n\014SC" +
-      "LayerAward\022\016\n\006result\030\001 \002(\005\022/\n\005items\030\002 \003(" +
-      "\0132 .org.gof.demo.worldsrv.msg.DItem:\005\210\303\032" +
-      "\207\031\"\033\n\022CSLayerRefreshBuff:\005\210\303\032\210\031\",\n\022SCLay" +
-      "erRefreshBuff\022\017\n\007buffSns\030\001 \003(\005:\005\210\303\032\211\031\"\027\n" +
-      "\016CSRefreshTower:\005\210\303\032\212\031\"\030\n\017CSTeamReqOpenU" +
-      "I:\005\210\303\032\345\031\"V\n\025SCTeamReqOpenUIResult\0226\n\005tea" +
-      "ms\030\001 \003(\0132\'.org.gof.demo.worldsrv.msg.DTe" +
-      "amRepItem:\005\210\303\032\346\031\"&\n\rCSTeamReqJoin\022\016\n\006tea" +
-      "mId\030\001 \002(\003:\005\210\303\032\347\031\"p\n\023SCTeamReqSelfResult\022" +
-      "4\n\003rep\030\001 \001(\0132\'.org.gof.demo.worldsrv.msg" +
-      ".DTeamRepItem\022\016\n\006result\030\002 \001(\005\022\014\n\004info\030\003 " +
-      "\001(\t:\005\210\303\032\350\031\")\n\017CSTeamReqLaunch\022\017\n\007stageSn" +
-      "\030\001 \002(\005:\005\210\303\032\351\031\")\n\017CSTeamRepCreate\022\017\n\007stag" +
-      "eSn\030\001 \002(\005:\005\210\303\032\353\031\"\027\n\016CSTeamRepLeave:\005\210\303\032\355" +
-      "\031\"\027\n\016SCTeamRepLeave:\005\210\303\032\356\031\"\'\n\rCSTeamRepK" +
-      "ick\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\357\031\"*\n\020SCTeamReq" +
-      "LeftNum\022\017\n\007stageSn\030\001 \002(\005:\005\210\303\032\360\031\"\026\n\rSCTea" +
-      "mRepKick:\005\210\303\032\362\031\"\031\n\020CSTeamReqCloseUI:\005\210\303\032" +
-      "\363\031\" \n\027CSTeamReqUpdateRealTime:\005\210\303\032\364\031\"X\n\027" +
-      "SCTeamReqUpdateRealTime\0226\n\005teams\030\001 \003(\0132\'" +
-      ".org.gof.demo.worldsrv.msg.DTeamRepItem:" +
-      "\005\210\303\032\364\031\"\034\n\023CSTeamRepLeaveQueue:\005\210\303\032\365\031\"\034\n\023" +
-      "SCTeamRepLeaveQueue:\005\210\303\032\366\031\"\026\n\rCSTeamRepC" +
-      "all:\005\210\303\032\371\031\"&\n\014CSTeamInvite\022\017\n\007humanId\030\001 " +
-      "\002(\003:\005\210\303\032\203\032\"7\n\014SCTeamInvite\022\016\n\006fromId\030\001 \002" +
-      "(\003\022\020\n\010fromName\030\002 \001(\t:\005\210\303\032\204\032\"<\n\023CSTeamInv" +
-      "iteConfirm\022\016\n\006accept\030\001 \002(\010\022\016\n\006teamId\030\002 \001" +
-      "(\003:\005\210\303\032\205\032\"$\n\013CSTeamApply\022\016\n\006teamId\030\001 \002(\003" +
-      ":\005\210\303\032\207\032\"&\n\013SCTeamApply\022\020\n\010humanIds\030\001 \003(\003" +
-      ":\005\210\303\032\210\032\"-\n\022CSTeamApplyConfirm\022\020\n\010humanId" +
-      "s\030\001 \003(\003:\005\210\303\032\211\032\"\023\n\nCSTeamMine:\005\210\303\032\212\032\"J\n\nS" +
-      "CTeamMine\0225\n\004team\030\001 \001(\0132\'.org.gof.demo.w" +
-      "orldsrv.msg.DTeamRepItem:\005\210\303\032\212\032\"\024\n\013CSTea" +
-      "mLeave:\005\210\303\032\213\032\"\024\n\013SCTeamLeave:\005\210\303\032\214\032\",\n\022C" +
-      "SCompetitionEnter\022\017\n\007humanId\030\001 \001(\003:\005\210\303\032\311" +
-      "\032\"\031\n\020CSCompetitionEnd:\005\210\303\032\312\032\"z\n\020SCCompet" +
-      "itionEnd\022\r\n\005isWin\030\001 \001(\010\022\017\n\007newRank\030\002 \001(\005" +
-      "\022\017\n\007oldRank\030\003 \001(\005\022\014\n\004coin\030\004 \001(\003\022\013\n\003exp\030\005" +
-      " \001(\003\022\023\n\013competMoney\030\006 \001(\003:\005\210\303\032\313\032\"\033\n\022CSCo" +
-      "mpetitionLeave:\005\210\303\032\314\032\"\027\n\016CSRefreshEnemy:" +
-      "\005\210\303\032\315\032\"q\n\021SCCompetitionInfo\0224\n\005infos\030\001 \003" +
-      "(\0132%.org.gof.demo.worldsrv.msg.DHumanInf" +
-      "o\022\r\n\005count\030\002 \001(\005\022\020\n\010timeCool\030\003 \001(\005:\005\210\303\032\317" +
-      "\032\"\026\n\rCSResetCDTime:\005\210\303\032\320\032\"*\n\rSCResetCDTi" +
-      "me\022\022\n\nresultCode\030\001 \001(\005:\005\210\303\032\321\032\"!\n\nCSOpenR" +
-      "ank\022\014\n\004page\030\001 \001(\005:\005\210\303\032\322\032\"o\n\014SCRankResult" +
-      "\0223\n\004info\030\001 \003(\0132%.org.gof.demo.worldsrv.m" +
-      "sg.DHumanInfo\022\017\n\007curPage\030\002 \001(\005\022\022\n\ntotalP" +
-      "ages\030\003 \001(\005:\005\210\303\032\323\032\"\037\n\026CSCompetitionBattle" +
-      "Log:\005\210\303\032\324\032\"T\n\026SCCompetitionBattleLog\0223\n\004" +
-      "logs\030\001 \003(\0132%.org.gof.demo.worldsrv.msg.D" +
-      "BattleLog:\005\210\303\032\325\032\"#\n\016CSRefreshCount\022\n\n\002sn" +
-      "\030\001 \002(\005:\005\210\303\032\326\032\"+\n\016SCRefreshCount\022\022\n\nresul" +
-      "tCode\030\001 \001(\005:\005\210\303\032\327\032\"(\n\021CSGetSeflRankPage\022" +
-      "\014\n\004type\030\001 \002(\005:\005\210\303\032\330\032\"t\n\021SCGetSeflRankPag" +
-      "e\0223\n\004info\030\001 \003(\0132%.org.gof.demo.worldsrv." +
-      "msg.DHumanInfo\022\017\n\007curPage\030\002 \001(\005\022\022\n\ntotal" +
-      "Pages\030\003 \001(\005:\005\210\303\032\331\032\"\025\n\014CSFriendList:\005\210\303\032\255" +
-      "\033\"\307\001\n\014SCFriendList\022:\n\nfriendList\030\001 \003(\0132&" +
-      ".org.gof.demo.worldsrv.msg.DFriendInfo\0229" +
-      "\n\tapplyList\030\002 \003(\0132&.org.gof.demo.worldsr" +
-      "v.msg.DFriendInfo\0229\n\tblackList\030\003 \003(\0132&.o" +
-      "rg.gof.demo.worldsrv.msg.DFriendInfo:\005\210\303" +
-      "\032\256\033\")\n\017CSRequestFriend\022\017\n\007humanId\030\001 \002(\003:" +
-      "\005\210\303\032\257\033\"9\n\017SCRequestFriend\022\016\n\006result\030\001 \001(" +
-      "\010\022\017\n\007humanId\030\002 \001(\003:\005\210\303\032\260\033\")\n\016CSAcceptFri" +
-      "end\022\020\n\010humanIds\030\001 \003(\003:\005\210\303\032\261\033\"9\n\016SCAccept" +
-      "Friend\022\016\n\006result\030\001 \001(\010\022\020\n\010humanIds\030\002 \003(\003" +
-      ":\005\210\303\032\262\033\"(\n\016CSRefuseFriend\022\017\n\007humanId\030\001 \002" +
-      "(\003:\005\210\303\032\263\033\"8\n\016SCRefuseFriend\022\016\n\006result\030\001 " +
-      "\001(\010\022\017\n\007humanId\030\002 \001(\003:\005\210\303\032\264\033\"\032\n\021CSRecomme" +
-      "ndFriend:\005\210\303\032\265\033\"Q\n\021SCRecommendFriend\0225\n\005" +
-      "infos\030\001 \003(\0132&.org.gof.demo.worldsrv.msg." +
-      "DFriendInfo:\005\210\303\032\266\033\"(\n\016CSSearchFriend\022\017\n\007" +
-      "humanId\030\001 \001(\003:\005\210\303\032\267\033\"N\n\016SCSearchFriend\0225" +
-      "\n\005infos\030\001 \003(\0132&.org.gof.demo.worldsrv.ms" +
-      "g.DFriendInfo:\005\210\303\032\270\033\"(\n\016CSRemoveFriend\022\017" +
-      "\n\007humanId\030\001 \002(\003:\005\210\303\032\271\033\"8\n\016SCRemoveFriend" +
-      "\022\016\n\006result\030\001 \001(\010\022\017\n\007humanId\030\002 \001(\003:\005\210\303\032\272\033" +
-      "\"\'\n\rCSToBlackList\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\275" +
-      "\033\"7\n\rSCToBlackList\022\016\n\006result\030\001 \001(\010\022\017\n\007hu" +
-      "manId\030\002 \001(\003:\005\210\303\032\276\033\"+\n\021CSRemoveBlackList\022" +
-      "\017\n\007humanId\030\001 \002(\003:\005\210\303\032\277\033\";\n\021SCRemoveBlack" +
-      "List\022\016\n\006result\030\001 \001(\010\022\017\n\007humanId\030\002 \001(\003:\005\210" +
-      "\303\032\300\033\"\031\n\020CSBulletinOpenUI:\005\210\303\032\221\034\"R\n\020SCBul" +
-      "letinOpenUI\0227\n\005items\030\001 \003(\0132(.org.gof.dem" +
-      "o.worldsrv.msg.DBulletinItem:\005\210\303\032\222\034\"\034\n\006C" +
-      "STest\022\013\n\003msg\030\001 \002(\t:\005\210\303\032\255M\"&\n\016CSTestAddMo" +
-      "ney\022\r\n\005count\030\001 \002(\003:\005\210\303\032\256M\"/\n\rCSTestAddIt" +
-      "em\022\n\n\002sn\030\001 \002(\005\022\013\n\003num\030\002 \002(\005:\005\210\303\032\257M\"&\n\021CS" +
-      "TestGiveGeneral\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\264M\"\031\n\020CS" +
-      "TestWhoIsMyDad:\005\210\303\032\265M\"#\n\016CSTestEnterRep\022" +
-      "\n\n\002sn\030\001 \002(\005:\005\210\303\032\275M\"\035\n\024CSTestGiveAllGener" +
-      "al:\005\210\303\032\277M\"\032\n\021CSTestSendSysMail:\005\210\303\032\300M\"!\n" +
-      "\tCSTestVIP\022\r\n\005level\030\001 \002(\005:\005\210\303\032\301M\"5\n\022CSTe" +
-      "stInstanceStar\022\n\n\002sn\030\001 \002(\005\022\014\n\004star\030\002 \002(\005" +
-      ":\005\210\303\032\302M\"\'\n\020CSTestUpdateTime\022\014\n\004time\030\001 \002(" +
-      "\003:\005\210\303\032\303M\"\'\n\rCSInformToAll\022\017\n\007content\030\001 \002" +
-      "(\t:\005\210\303\032\304M*\244\001\n\020EWorldObjectType\022\t\n\005HUMAN\020" +
-      "\000\022\013\n\007MONSTER\020\001\022\010\n\004DROP\020\002\022\007\n\003DOT\020\003\022\n\n\006BUL" +
-      "LET\020\004\022\007\n\003NPC\020\005\022\010\n\004PICK\020\006\022\013\n\007TRIGGER\020\007\022\n\n" +
-      "\006COMMON\020\010\022\013\n\007GENERAL\020\t\022\013\n\007COMPETE\020\n\022\t\n\005S" +
-      "ROLE\020\013\022\010\n\004HERO\020\014*G\n\016EAreaEventType\022\010\n\004NO" +
-      "NE\020\000\022\020\n\014NORMAL_EVENT\020\001\022\r\n\tTRANSPORT\020\002\022\n\n" +
-      "\006SAFETY\020\003*(\n\010ENpcType\022\016\n\nNpc_Normal\020\000\022\014\n" +
-      "\010Npc_Area\020\001*\036\n\020EstageCommonType\022\n\n\006commo" +
-      "n\020\001*d\n\014ESkillArmPos\022\n\n\006normal\020\001\022\n\n\006skill" +
-      "1\020\002\022\n\n\006skill2\020\003\022\n\n\006skill3\020\004\022\n\n\006skill4\020\005\022" +
-      "\013\n\007fetter1\020\006\022\013\n\007fetter2\020\007"
+      "esult\022\020\n\010itemList\030\001 \003(\005:\005\210\303\032\272\027\"C\n\016CSBuyM" +
+      "allGoods\022\016\n\006mallSn\030\001 \001(\005\022\r\n\005index\030\002 \001(\005\022" +
+      "\013\n\003num\030\003 \001(\005:\005\210\303\032\273\027\"%\n\016SCBuyMallGoods\022\014\n" +
+      "\004code\030\001 \002(\005:\005\210\303\032\274\027\"\032\n\021CSRequestShopTags:" +
+      "\005\210\303\032\275\027\"\'\n\020SCResultShopTags\022\014\n\004tags\030\001 \003(\005" +
+      ":\005\210\303\032\276\027\"#\n\nCSOpenShop\022\016\n\006shopSn\030\001 \002(\005:\005\210" +
+      "\303\032\277\027\"E\n\014SCShopResult\022.\n\004shop\030\001 \002(\0132 .org" +
+      ".gof.demo.worldsrv.msg.DShop:\005\210\303\032\300\027\"6\n\016C" +
+      "SBuyShopGoods\022\016\n\006shopSn\030\001 \002(\005\022\r\n\005index\030\002" +
+      " \002(\005:\005\210\303\032\301\027\"%\n\016SCBuyShopGoods\022\014\n\004code\030\001 " +
+      "\002(\005:\005\210\303\032\302\027\"&\n\rCSRefreshShop\022\016\n\006shopSn\030\001 " +
+      "\002(\005:\005\210\303\032\303\027\"Z\n\023SCRefreshShopResult\022\014\n\004cod" +
+      "e\030\001 \002(\005\022.\n\004shop\030\002 \002(\0132 .org.gof.demo.wor" +
+      "ldsrv.msg.DShop:\005\210\303\032\304\027\"\'\n\016SCOpenTempShop" +
+      "\022\016\n\006shopSn\030\001 \002(\005:\005\210\303\032\305\027\"\"\n\tCSBuyShop\022\016\n\006" +
+      "shopSn\030\001 \002(\005:\005\210\303\032\306\027\"6\n\017SCBuyShopResult\022\014" +
+      "\n\004code\030\001 \001(\005\022\016\n\006shopSn\030\002 \001(\005:\005\210\303\032\307\027\"#\n\016C" +
+      "SInstanceRank\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\235\030\"a\n\016SCIn" +
+      "stanceRank\0226\n\004rank\030\001 \003(\0132(.org.gof.demo." +
+      "worldsrv.msg.DInstanceRank\022\020\n\010selfRank\030\002" +
+      " \001(\005:\005\210\303\032\236\030\"\024\n\013CSLevelRank:\005\210\303\032\237\030\"[\n\013SCL" +
+      "evelRank\0223\n\004rank\030\001 \003(\0132%.org.gof.demo.wo" +
+      "rldsrv.msg.DLevelRank\022\020\n\010selfRank\030\002 \001(\005:" +
+      "\005\210\303\032\240\030\"\025\n\014CSCombatRank:\005\210\303\032\241\030\"L\n\014SCComba" +
+      "tRank\0225\n\005ranks\030\001 \003(\0132&.org.gof.demo.worl" +
+      "dsrv.msg.DCombatRank:\005\210\303\032\242\030\"J\n\nSCAllLaye" +
+      "r\0225\n\006layers\030\001 \003(\0132%.org.gof.demo.worldsr" +
+      "v.msg.DLayerInfo:\005\210\303\032\201\031\"\025\n\014CSLayerEnter:" +
+      "\005\210\303\032\202\031\"\023\n\nCSLayerEnd:\005\210\303\032\203\031\"S\n\nSCLayerEn" +
+      "d\022\013\n\003win\030\001 \002(\010\0221\n\007rewards\030\002 \003(\0132 .org.go" +
+      "f.demo.worldsrv.msg.DItem:\005\210\303\032\204\031\"\025\n\014CSLa" +
+      "yerLeave:\005\210\303\032\205\031\"\025\n\014CSLayerAward:\005\210\303\032\206\031\"V" +
+      "\n\014SCLayerAward\022\016\n\006result\030\001 \002(\005\022/\n\005items\030" +
+      "\002 \003(\0132 .org.gof.demo.worldsrv.msg.DItem:" +
+      "\005\210\303\032\207\031\"\033\n\022CSLayerRefreshBuff:\005\210\303\032\210\031\",\n\022S" +
+      "CLayerRefreshBuff\022\017\n\007buffSns\030\001 \003(\005:\005\210\303\032\211" +
+      "\031\"\027\n\016CSRefreshTower:\005\210\303\032\212\031\"\030\n\017CSTeamReqO" +
+      "penUI:\005\210\303\032\345\031\"V\n\025SCTeamReqOpenUIResult\0226\n" +
+      "\005teams\030\001 \003(\0132\'.org.gof.demo.worldsrv.msg" +
+      ".DTeamRepItem:\005\210\303\032\346\031\"&\n\rCSTeamReqJoin\022\016\n" +
+      "\006teamId\030\001 \002(\003:\005\210\303\032\347\031\"p\n\023SCTeamReqSelfRes" +
+      "ult\0224\n\003rep\030\001 \001(\0132\'.org.gof.demo.worldsrv" +
+      ".msg.DTeamRepItem\022\016\n\006result\030\002 \001(\005\022\014\n\004inf" +
+      "o\030\003 \001(\t:\005\210\303\032\350\031\")\n\017CSTeamReqLaunch\022\017\n\007sta" +
+      "geSn\030\001 \002(\005:\005\210\303\032\351\031\")\n\017CSTeamRepCreate\022\017\n\007" +
+      "stageSn\030\001 \002(\005:\005\210\303\032\353\031\"\027\n\016CSTeamRepLeave:\005" +
+      "\210\303\032\355\031\"\027\n\016SCTeamRepLeave:\005\210\303\032\356\031\"\'\n\rCSTeam" +
+      "RepKick\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\357\031\"*\n\020SCTea" +
+      "mReqLeftNum\022\017\n\007stageSn\030\001 \002(\005:\005\210\303\032\360\031\"\026\n\rS" +
+      "CTeamRepKick:\005\210\303\032\362\031\"\031\n\020CSTeamReqCloseUI:" +
+      "\005\210\303\032\363\031\" \n\027CSTeamReqUpdateRealTime:\005\210\303\032\364\031" +
+      "\"X\n\027SCTeamReqUpdateRealTime\0226\n\005teams\030\001 \003" +
+      "(\0132\'.org.gof.demo.worldsrv.msg.DTeamRepI" +
+      "tem:\005\210\303\032\364\031\"\034\n\023CSTeamRepLeaveQueue:\005\210\303\032\365\031" +
+      "\"\034\n\023SCTeamRepLeaveQueue:\005\210\303\032\366\031\"\026\n\rCSTeam" +
+      "RepCall:\005\210\303\032\371\031\"&\n\014CSTeamInvite\022\017\n\007humanI" +
+      "d\030\001 \002(\003:\005\210\303\032\203\032\"7\n\014SCTeamInvite\022\016\n\006fromId" +
+      "\030\001 \002(\003\022\020\n\010fromName\030\002 \001(\t:\005\210\303\032\204\032\"<\n\023CSTea" +
+      "mInviteConfirm\022\016\n\006accept\030\001 \002(\010\022\016\n\006teamId" +
+      "\030\002 \001(\003:\005\210\303\032\205\032\"$\n\013CSTeamApply\022\016\n\006teamId\030\001" +
+      " \002(\003:\005\210\303\032\207\032\"&\n\013SCTeamApply\022\020\n\010humanIds\030\001" +
+      " \003(\003:\005\210\303\032\210\032\"-\n\022CSTeamApplyConfirm\022\020\n\010hum" +
+      "anIds\030\001 \003(\003:\005\210\303\032\211\032\"\023\n\nCSTeamMine:\005\210\303\032\212\032\"" +
+      "J\n\nSCTeamMine\0225\n\004team\030\001 \001(\0132\'.org.gof.de" +
+      "mo.worldsrv.msg.DTeamRepItem:\005\210\303\032\212\032\"\024\n\013C" +
+      "STeamLeave:\005\210\303\032\213\032\"\024\n\013SCTeamLeave:\005\210\303\032\214\032\"" +
+      ",\n\022CSCompetitionEnter\022\017\n\007humanId\030\001 \001(\003:\005" +
+      "\210\303\032\311\032\"\031\n\020CSCompetitionEnd:\005\210\303\032\312\032\"z\n\020SCCo" +
+      "mpetitionEnd\022\r\n\005isWin\030\001 \001(\010\022\017\n\007newRank\030\002" +
+      " \001(\005\022\017\n\007oldRank\030\003 \001(\005\022\014\n\004coin\030\004 \001(\003\022\013\n\003e" +
+      "xp\030\005 \001(\003\022\023\n\013competMoney\030\006 \001(\003:\005\210\303\032\313\032\"\033\n\022" +
+      "CSCompetitionLeave:\005\210\303\032\314\032\"\027\n\016CSRefreshEn" +
+      "emy:\005\210\303\032\315\032\"q\n\021SCCompetitionInfo\0224\n\005infos" +
+      "\030\001 \003(\0132%.org.gof.demo.worldsrv.msg.DHuma" +
+      "nInfo\022\r\n\005count\030\002 \001(\005\022\020\n\010timeCool\030\003 \001(\005:\005" +
+      "\210\303\032\317\032\"\026\n\rCSResetCDTime:\005\210\303\032\320\032\"*\n\rSCReset" +
+      "CDTime\022\022\n\nresultCode\030\001 \001(\005:\005\210\303\032\321\032\"!\n\nCSO" +
+      "penRank\022\014\n\004page\030\001 \001(\005:\005\210\303\032\322\032\"o\n\014SCRankRe" +
+      "sult\0223\n\004info\030\001 \003(\0132%.org.gof.demo.worlds" +
+      "rv.msg.DHumanInfo\022\017\n\007curPage\030\002 \001(\005\022\022\n\nto" +
+      "talPages\030\003 \001(\005:\005\210\303\032\323\032\"\037\n\026CSCompetitionBa" +
+      "ttleLog:\005\210\303\032\324\032\"T\n\026SCCompetitionBattleLog" +
+      "\0223\n\004logs\030\001 \003(\0132%.org.gof.demo.worldsrv.m" +
+      "sg.DBattleLog:\005\210\303\032\325\032\"#\n\016CSRefreshCount\022\n" +
+      "\n\002sn\030\001 \002(\005:\005\210\303\032\326\032\"+\n\016SCRefreshCount\022\022\n\nr" +
+      "esultCode\030\001 \001(\005:\005\210\303\032\327\032\"(\n\021CSGetSeflRankP" +
+      "age\022\014\n\004type\030\001 \002(\005:\005\210\303\032\330\032\"t\n\021SCGetSeflRan" +
+      "kPage\0223\n\004info\030\001 \003(\0132%.org.gof.demo.world" +
+      "srv.msg.DHumanInfo\022\017\n\007curPage\030\002 \001(\005\022\022\n\nt" +
+      "otalPages\030\003 \001(\005:\005\210\303\032\331\032\"\025\n\014CSFriendList:\005" +
+      "\210\303\032\255\033\"\307\001\n\014SCFriendList\022:\n\nfriendList\030\001 \003" +
+      "(\0132&.org.gof.demo.worldsrv.msg.DFriendIn" +
+      "fo\0229\n\tapplyList\030\002 \003(\0132&.org.gof.demo.wor" +
+      "ldsrv.msg.DFriendInfo\0229\n\tblackList\030\003 \003(\013" +
+      "2&.org.gof.demo.worldsrv.msg.DFriendInfo" +
+      ":\005\210\303\032\256\033\")\n\017CSRequestFriend\022\017\n\007humanId\030\001 " +
+      "\002(\003:\005\210\303\032\257\033\"9\n\017SCRequestFriend\022\016\n\006result\030" +
+      "\001 \001(\010\022\017\n\007humanId\030\002 \001(\003:\005\210\303\032\260\033\")\n\016CSAccep" +
+      "tFriend\022\020\n\010humanIds\030\001 \003(\003:\005\210\303\032\261\033\"9\n\016SCAc" +
+      "ceptFriend\022\016\n\006result\030\001 \001(\010\022\020\n\010humanIds\030\002" +
+      " \003(\003:\005\210\303\032\262\033\"(\n\016CSRefuseFriend\022\017\n\007humanId" +
+      "\030\001 \002(\003:\005\210\303\032\263\033\"8\n\016SCRefuseFriend\022\016\n\006resul" +
+      "t\030\001 \001(\010\022\017\n\007humanId\030\002 \001(\003:\005\210\303\032\264\033\"\032\n\021CSRec" +
+      "ommendFriend:\005\210\303\032\265\033\"Q\n\021SCRecommendFriend" +
+      "\0225\n\005infos\030\001 \003(\0132&.org.gof.demo.worldsrv." +
+      "msg.DFriendInfo:\005\210\303\032\266\033\"(\n\016CSSearchFriend" +
+      "\022\017\n\007humanId\030\001 \001(\003:\005\210\303\032\267\033\"N\n\016SCSearchFrie" +
+      "nd\0225\n\005infos\030\001 \003(\0132&.org.gof.demo.worldsr" +
+      "v.msg.DFriendInfo:\005\210\303\032\270\033\"(\n\016CSRemoveFrie" +
+      "nd\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\271\033\"8\n\016SCRemoveFr" +
+      "iend\022\016\n\006result\030\001 \001(\010\022\017\n\007humanId\030\002 \001(\003:\005\210" +
+      "\303\032\272\033\"\'\n\rCSToBlackList\022\017\n\007humanId\030\001 \002(\003:\005" +
+      "\210\303\032\275\033\"7\n\rSCToBlackList\022\016\n\006result\030\001 \001(\010\022\017" +
+      "\n\007humanId\030\002 \001(\003:\005\210\303\032\276\033\"+\n\021CSRemoveBlackL" +
+      "ist\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\277\033\";\n\021SCRemoveB" +
+      "lackList\022\016\n\006result\030\001 \001(\010\022\017\n\007humanId\030\002 \001(" +
+      "\003:\005\210\303\032\300\033\"\031\n\020CSBulletinOpenUI:\005\210\303\032\221\034\"R\n\020S" +
+      "CBulletinOpenUI\0227\n\005items\030\001 \003(\0132(.org.gof" +
+      ".demo.worldsrv.msg.DBulletinItem:\005\210\303\032\222\034\"" +
+      "\034\n\006CSTest\022\013\n\003msg\030\001 \002(\t:\005\210\303\032\255M\"&\n\016CSTestA" +
+      "ddMoney\022\r\n\005count\030\001 \002(\003:\005\210\303\032\256M\"/\n\rCSTestA" +
+      "ddItem\022\n\n\002sn\030\001 \002(\005\022\013\n\003num\030\002 \002(\005:\005\210\303\032\257M\"&" +
+      "\n\021CSTestGiveGeneral\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\264M\"\031" +
+      "\n\020CSTestWhoIsMyDad:\005\210\303\032\265M\"#\n\016CSTestEnter" +
+      "Rep\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\275M\"\035\n\024CSTestGiveAllG" +
+      "eneral:\005\210\303\032\277M\"\032\n\021CSTestSendSysMail:\005\210\303\032\300" +
+      "M\"!\n\tCSTestVIP\022\r\n\005level\030\001 \002(\005:\005\210\303\032\301M\"5\n\022" +
+      "CSTestInstanceStar\022\n\n\002sn\030\001 \002(\005\022\014\n\004star\030\002" +
+      " \002(\005:\005\210\303\032\302M\"\'\n\020CSTestUpdateTime\022\014\n\004time\030" +
+      "\001 \002(\003:\005\210\303\032\303M\"\'\n\rCSInformToAll\022\017\n\007content" +
+      "\030\001 \002(\t:\005\210\303\032\304M*\244\001\n\020EWorldObjectType\022\t\n\005HU" +
+      "MAN\020\000\022\013\n\007MONSTER\020\001\022\010\n\004DROP\020\002\022\007\n\003DOT\020\003\022\n\n" +
+      "\006BULLET\020\004\022\007\n\003NPC\020\005\022\010\n\004PICK\020\006\022\013\n\007TRIGGER\020" +
+      "\007\022\n\n\006COMMON\020\010\022\013\n\007GENERAL\020\t\022\013\n\007COMPETE\020\n\022" +
+      "\t\n\005SROLE\020\013\022\010\n\004HERO\020\014*G\n\016EAreaEventType\022\010" +
+      "\n\004NONE\020\000\022\020\n\014NORMAL_EVENT\020\001\022\r\n\tTRANSPORT\020" +
+      "\002\022\n\n\006SAFETY\020\003*(\n\010ENpcType\022\016\n\nNpc_Normal\020" +
+      "\000\022\014\n\010Npc_Area\020\001*\036\n\020EstageCommonType\022\n\n\006c" +
+      "ommon\020\001*d\n\014ESkillArmPos\022\n\n\006normal\020\001\022\n\n\006s" +
+      "kill1\020\002\022\n\n\006skill2\020\003\022\n\n\006skill3\020\004\022\n\n\006skill" +
+      "4\020\005\022\013\n\007fetter1\020\006\022\013\n\007fetter2\020\007"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -288770,7 +289157,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_CSBuyMallGoods_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_CSBuyMallGoods_descriptor,
-        new java.lang.String[] { "MallSn", });
+        new java.lang.String[] { "MallSn", "Index", "Num", });
     internal_static_org_gof_demo_worldsrv_msg_SCBuyMallGoods_descriptor =
       getDescriptor().getMessageType(266);
     internal_static_org_gof_demo_worldsrv_msg_SCBuyMallGoods_fieldAccessorTable = new
@@ -288842,7 +289229,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_SCBuyShopResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCBuyShopResult_descriptor,
-        new java.lang.String[] { "Code", });
+        new java.lang.String[] { "Code", "ShopSn", });
     internal_static_org_gof_demo_worldsrv_msg_CSInstanceRank_descriptor =
       getDescriptor().getMessageType(278);
     internal_static_org_gof_demo_worldsrv_msg_CSInstanceRank_fieldAccessorTable = new
