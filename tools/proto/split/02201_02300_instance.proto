@@ -16,7 +16,7 @@ import "00000_00000_def.proto";
 // 进入副本
 message CSInstanceEnter {
   option (msgid) = 2201;
-  required int32 sn = 1;
+  optional int32 instSn = 1;         // 副本sn，用于判断副本类型
 }
 
 // MsgID: 2202
@@ -58,7 +58,8 @@ message SCAllChapter {
 // 副本自动战斗
 message CSInstanceAuto {
   option (msgid) = 2209;
-  required bool auto = 1;
+  optional int32 instSn = 1;         // 副本sn
+  optional int32 num = 2;            // 次数
 }
 
 // MsgID: 2210
@@ -72,7 +73,8 @@ message SCInstanceAuto {
 // 领取宝箱奖励
 message CSBoxAward {
   option (msgid) = 2212;
-  required int32 sn = 1;
+  optional int32 chapterId = 1;      // 章节ID
+  optional int32 index = 2;          // 索引
 }
 
 // MsgID: 2213
@@ -87,7 +89,6 @@ message SCBoxAward {
 // 副本抽奖
 message CSInstanceLottery {
   option (msgid) = 2214;
-  required int32 sn = 1;
 }
 
 // MsgID: 2215

@@ -3,7 +3,6 @@ package org.gof.demo.worldsrv.instance;
 import org.gof.core.support.observer.MsgReceiver;
 import org.gof.demo.seam.msg.MsgParam;
 import org.gof.demo.worldsrv.character.HumanObject;
-import org.gof.demo.worldsrv.competition.CompetitionManager;
 import org.gof.demo.worldsrv.config.ConfRep;
 import org.gof.demo.worldsrv.inform.Inform;
 import org.gof.demo.worldsrv.msg.Msg.CSBoxAward;
@@ -12,9 +11,7 @@ import org.gof.demo.worldsrv.msg.Msg.CSInstanceEnd;
 import org.gof.demo.worldsrv.msg.Msg.CSInstanceEnter;
 import org.gof.demo.worldsrv.msg.Msg.CSInstanceLeave;
 import org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery;
-import org.gof.demo.worldsrv.support.I18n;
 import org.gof.demo.worldsrv.support.Log;
-import org.gof.demo.worldsrv.tower.TowerManager;
 
 public class InstanceMsgHandler {
     

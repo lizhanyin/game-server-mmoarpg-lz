@@ -734,12 +734,12 @@ message DBattleLog {
 
 // 好友信息
 message DFriendInfo {
-  optional int64 id = 1;
-  optional string name = 2;
-  optional int32 level = 3;
-  optional int32 profession = 4;
-  optional int32 fightPower = 5;
-  optional bool isOnline = 6;          // 是否在线
+  optional string humanSn = 1;         // 角色sn
+  optional string name = 2;            // 对手姓名
+  optional int32 level = 3;            // 等级
+  optional int32 combat = 4;           // 战斗力
+  optional int64 humanId = 5;          // 玩家ID
+  optional bool online = 6;            // 是否在线
 }
 
 // 技能信息

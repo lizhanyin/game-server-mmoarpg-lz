@@ -739,12 +739,12 @@ message DBattleLog {
 
 // 好友信息
 message DFriendInfo {
-  optional int64 id = 1;
-  optional string name = 2;
-  optional int32 level = 3;
-  optional int32 profession = 4;
-  optional int32 fightPower = 5;
-  optional bool isOnline = 6;          // 是否在线
+  optional string humanSn = 1;         // 角色sn
+  optional string name = 2;            // 对手姓名
+  optional int32 level = 3;            // 等级
+  optional int32 combat = 4;           // 战斗力
+  optional int64 humanId = 5;          // 玩家ID
+  optional bool online = 6;            // 是否在线
 }
 
 // 技能信息
@@ -960,6 +960,7 @@ message SCHumanInfo {
 // 副本死亡
 message SCDieStage {
   option (msgid) = 1113;
+  optional string stageType = 1;       // 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
 }
 
 // MsgID: 1119
@@ -1436,8 +1437,12 @@ message CSInformChat {
 // 消息通知
 message SCInformMsg {
   option (msgid) = 1502;
-  required int32 type = 1;
-  required string content = 2;
+  optional int32 channel = 1;          // 频道
+  optional string content = 2;         // 内容
+  optional int64 sendHumanId = 3;      // 玩家ID
+  optional string sendHumanName = 4;   // 玩家昵称
+  optional int64 campId = 5;           // 阵营ID
+  optional bool isSys = 6;             // 是否是系统
 }
 
 // MsgID: 1504
@@ -1479,7 +1484,7 @@ message SCGeneralInfo {
 // 招募武将
 message CSGeneralRecruit {
   option (msgid) = 1905;
-  required int32 sn = 1;
+  required string sn = 1;
 }
 
 // MsgID: 1906
@@ -1828,7 +1833,7 @@ message SCCommitQuestNormalResult {
 // 进入副本
 message CSInstanceEnter {
   option (msgid) = 2201;
-  required int32 sn = 1;
+  optional int32 instSn = 1;         // 副本sn，用于判断副本类型
 }
 
 // MsgID: 2202
@@ -1870,7 +1875,8 @@ message SCAllChapter {
 // 副本自动战斗
 message CSInstanceAuto {
   option (msgid) = 2209;
-  required bool auto = 1;
+  optional int32 instSn = 1;         // 副本sn
+  optional int32 num = 2;            // 次数
 }
 
 // MsgID: 2210
@@ -1884,7 +1890,8 @@ message SCInstanceAuto {
 // 领取宝箱奖励
 message CSBoxAward {
   option (msgid) = 2212;
-  required int32 sn = 1;
+  optional int32 chapterId = 1;      // 章节ID
+  optional int32 index = 2;          // 索引
 }
 
 // MsgID: 2213
@@ -1899,7 +1906,6 @@ message SCBoxAward {
 // 副本抽奖
 message CSInstanceLottery {
   option (msgid) = 2214;
-  required int32 sn = 1;
 }
 
 // MsgID: 2215
@@ -2041,7 +2047,7 @@ message SCCheckMailRemoveable {
 // 领取活跃度奖励
 message CSRsvLivenessAwards {
   option (msgid) = 2501;
-  repeated int32 sns = 1;
+  optional int32 code = 1;       // 每日活动活跃度ID
 }
 
 // MsgID: 2502
@@ -2929,6 +2935,8 @@ message CSFriendList {
 message SCFriendList {
   option (msgid) = 3502;
   repeated DFriendInfo friendList = 1;       // 好友信息
+  repeated DFriendInfo applyList = 2;        // 申请人列表
+  repeated DFriendInfo blackList = 3;        // 黑名单
 }
 
 // MsgID: 3503
@@ -2943,13 +2951,14 @@ message CSRequestFriend {
 message SCRequestFriend {
   option (msgid) = 3504;
   optional bool result = 1;       // 是否成功
+  optional int64 humanId = 2;     // 玩家ID
 }
 
 // MsgID: 3505
 // 接受好友请求
 message CSAcceptFriend {
   option (msgid) = 3505;
-  required int64 humanId = 1;
+  repeated int64 humanIds = 1;       // 申请人ID
 }
 
 // MsgID: 3506
@@ -2957,6 +2966,7 @@ message CSAcceptFriend {
 message SCAcceptFriend {
   option (msgid) = 3506;
   optional bool result = 1;       // 是否成功
+  repeated int64 humanIds = 2;    // 玩家ID
 }
 
 // MsgID: 3507
@@ -2971,6 +2981,7 @@ message CSRefuseFriend {
 message SCRefuseFriend {
   option (msgid) = 3508;
   optional bool result = 1;       // 是否成功
+  optional int64 humanId = 2;     // 玩家ID
 }
 
 // MsgID: 3509
@@ -2983,21 +2994,21 @@ message CSRecommendFriend {
 // 推荐好友
 message SCRecommendFriend {
   option (msgid) = 3510;
-  repeated DFriendInfo friends = 1;
+  repeated DFriendInfo infos = 1;      // 好友信息
 }
 
 // MsgID: 3511
 // 搜索好友
 message CSSearchFriend {
   option (msgid) = 3511;
-  required string name = 1;
+  optional int64 humanId = 1;        // 玩家ID
 }
 
 // MsgID: 3512
 // 搜索好友
 message SCSearchFriend {
   option (msgid) = 3512;
-  repeated DFriendInfo friends = 1;
+  repeated DFriendInfo infos = 1;      // 好友信息
 }
 
 // MsgID: 3513
@@ -3011,7 +3022,8 @@ message CSRemoveFriend {
 // 删除好友
 message SCRemoveFriend {
   option (msgid) = 3514;
-  required bool success = 1;
+  optional bool result = 1;       // 是否成功
+  optional int64 humanId = 2;     // 玩家ID
 }
 
 // MsgID: 3517
@@ -3025,7 +3037,8 @@ message CSToBlackList {
 // 添加到黑名单
 message SCToBlackList {
   option (msgid) = 3518;
-  required bool success = 1;
+  optional bool result = 1;           // 是否成功
+  optional int64 humanId = 2;          // 玩家ID
 }
 
 // MsgID: 3519
@@ -3039,7 +3052,8 @@ message CSRemoveBlackList {
 // 移除黑名单
 message SCRemoveBlackList {
   option (msgid) = 3520;
-  required bool success = 1;
+  optional bool result = 1;           // 是否成功
+  optional int64 humanId = 2;          // 玩家ID
 }
 
 

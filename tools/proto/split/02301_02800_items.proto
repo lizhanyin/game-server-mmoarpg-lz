@@ -134,7 +134,7 @@ message SCCheckMailRemoveable {
 // 领取活跃度奖励
 message CSRsvLivenessAwards {
   option (msgid) = 2501;
-  repeated int32 sns = 1;
+  optional int32 code = 1;       // 每日活动活跃度ID
 }
 
 // MsgID: 2502

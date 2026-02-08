@@ -23,6 +23,8 @@ message CSFriendList {
 message SCFriendList {
   option (msgid) = 3502;
   repeated DFriendInfo friendList = 1;       // 好友信息
+  repeated DFriendInfo applyList = 2;        // 申请人列表
+  repeated DFriendInfo blackList = 3;        // 黑名单
 }
 
 // MsgID: 3503
@@ -37,13 +39,14 @@ message CSRequestFriend {
 message SCRequestFriend {
   option (msgid) = 3504;
   optional bool result = 1;       // 是否成功
+  optional int64 humanId = 2;     // 玩家ID
 }
 
 // MsgID: 3505
 // 接受好友请求
 message CSAcceptFriend {
   option (msgid) = 3505;
-  required int64 humanId = 1;
+  repeated int64 humanIds = 1;       // 申请人ID
 }
 
 // MsgID: 3506
@@ -51,6 +54,7 @@ message CSAcceptFriend {
 message SCAcceptFriend {
   option (msgid) = 3506;
   optional bool result = 1;       // 是否成功
+  repeated int64 humanIds = 2;    // 玩家ID
 }
 
 // MsgID: 3507
@@ -65,6 +69,7 @@ message CSRefuseFriend {
 message SCRefuseFriend {
   option (msgid) = 3508;
   optional bool result = 1;       // 是否成功
+  optional int64 humanId = 2;     // 玩家ID
 }
 
 // MsgID: 3509
@@ -77,21 +82,21 @@ message CSRecommendFriend {
 // 推荐好友
 message SCRecommendFriend {
   option (msgid) = 3510;
-  repeated DFriendInfo friends = 1;
+  repeated DFriendInfo infos = 1;      // 好友信息
 }
 
 // MsgID: 3511
 // 搜索好友
 message CSSearchFriend {
   option (msgid) = 3511;
-  required string name = 1;
+  optional int64 humanId = 1;        // 玩家ID
 }
 
 // MsgID: 3512
 // 搜索好友
 message SCSearchFriend {
   option (msgid) = 3512;
-  repeated DFriendInfo friends = 1;
+  repeated DFriendInfo infos = 1;      // 好友信息
 }
 
 // MsgID: 3513
@@ -105,7 +110,8 @@ message CSRemoveFriend {
 // 删除好友
 message SCRemoveFriend {
   option (msgid) = 3514;
-  required bool success = 1;
+  optional bool result = 1;       // 是否成功
+  optional int64 humanId = 2;     // 玩家ID
 }
 
 // MsgID: 3517
@@ -119,7 +125,8 @@ message CSToBlackList {
 // 添加到黑名单
 message SCToBlackList {
   option (msgid) = 3518;
-  required bool success = 1;
+  optional bool result = 1;           // 是否成功
+  optional int64 humanId = 2;          // 玩家ID
 }
 
 // MsgID: 3519
@@ -133,5 +140,6 @@ message CSRemoveBlackList {
 // 移除黑名单
 message SCRemoveBlackList {
   option (msgid) = 3520;
-  required bool success = 1;
+  optional bool result = 1;           // 是否成功
+  optional int64 humanId = 2;          // 玩家ID
 }

@@ -60,6 +60,7 @@ message SCHumanInfo {
 // 副本死亡
 message SCDieStage {
   option (msgid) = 1113;
+  optional string stageType = 1;       // 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
 }
 
 // MsgID: 1119

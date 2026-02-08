@@ -42,7 +42,6 @@ import org.gof.demo.worldsrv.support.enumKey.MoneyReduceLogKey;
 import org.gof.demo.worldsrv.support.enumKey.ProduceMoneyKey;
 import org.gof.demo.worldsrv.support.enumKey.StageMapTypeKey;
 import org.gof.demo.worldsrv.support.observer.EventKey;
-import org.gof.demo.worldsrv.team.TeamGlobalServiceProxy;
 
 public class CompetitionManager extends ManagerBase {
     public static final int comptitionMapSn = 110029;

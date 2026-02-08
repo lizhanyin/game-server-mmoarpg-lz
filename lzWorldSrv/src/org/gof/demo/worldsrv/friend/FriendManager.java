@@ -345,6 +345,7 @@ public class FriendManager extends ManagerBase {
      * 通知离线的人 添加好友申请
      * @param param
      */
+    @SuppressWarnings("unchecked")
     @Listener(value = EventKey.POCKET_LINE_HANDLE_ONE, 
             subStr = PocketLineEventSubKey.HUMAN_POCKET_LINE_HANDLE_ADD_FRIEND_APPLY)
     public void onAcceptApply(Param param) {
@@ -539,6 +540,7 @@ public class FriendManager extends ManagerBase {
      * 通知离线的人 添加好友
      * @param param
      */
+    @SuppressWarnings("unchecked")
     @Listener(value = EventKey.POCKET_LINE_HANDLE_ONE, 
             subStr = PocketLineEventSubKey.HUMAN_POCKET_LINE_HANDLE_ADD_FRIEND)
     public void onAddFriend(Param param) {
@@ -660,6 +662,7 @@ public class FriendManager extends ManagerBase {
      * 通知离线的人 删除好友
      * @param param
      */
+    @SuppressWarnings("unchecked")
     @Listener(value = EventKey.POCKET_LINE_HANDLE_ONE, 
             subStr = PocketLineEventSubKey.HUMAN_POCKET_LINE_HANDLE_REMOVE_FRIEND)
     public void onRemoveFriend(Param param) {

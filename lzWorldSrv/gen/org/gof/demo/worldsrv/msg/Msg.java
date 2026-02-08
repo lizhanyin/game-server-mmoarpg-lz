@@ -88089,27 +88089,57 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int64 id = 1;</code>
-     * @return Whether the id field is set.
+     * <pre>
+     * 角色sn
+     * </pre>
+     *
+     * <code>optional string humanSn = 1;</code>
+     * @return Whether the humanSn field is set.
      */
-    boolean hasId();
+    boolean hasHumanSn();
     /**
-     * <code>optional int64 id = 1;</code>
-     * @return The id.
+     * <pre>
+     * 角色sn
+     * </pre>
+     *
+     * <code>optional string humanSn = 1;</code>
+     * @return The humanSn.
      */
-    long getId();
+    java.lang.String getHumanSn();
+    /**
+     * <pre>
+     * 角色sn
+     * </pre>
+     *
+     * <code>optional string humanSn = 1;</code>
+     * @return The bytes for humanSn.
+     */
+    com.google.protobuf.ByteString
+        getHumanSnBytes();
 
     /**
+     * <pre>
+     * 对手姓名
+     * </pre>
+     *
      * <code>optional string name = 2;</code>
      * @return Whether the name field is set.
      */
     boolean hasName();
     /**
+     * <pre>
+     * 对手姓名
+     * </pre>
+     *
      * <code>optional string name = 2;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
+     * <pre>
+     * 对手姓名
+     * </pre>
+     *
      * <code>optional string name = 2;</code>
      * @return The bytes for name.
      */
@@ -88117,56 +88147,80 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         getNameBytes();
 
     /**
+     * <pre>
+     * 等级
+     * </pre>
+     *
      * <code>optional int32 level = 3;</code>
      * @return Whether the level field is set.
      */
     boolean hasLevel();
     /**
+     * <pre>
+     * 等级
+     * </pre>
+     *
      * <code>optional int32 level = 3;</code>
      * @return The level.
      */
     int getLevel();
 
     /**
-     * <code>optional int32 profession = 4;</code>
-     * @return Whether the profession field is set.
+     * <pre>
+     * 战斗力
+     * </pre>
+     *
+     * <code>optional int32 combat = 4;</code>
+     * @return Whether the combat field is set.
      */
-    boolean hasProfession();
+    boolean hasCombat();
     /**
-     * <code>optional int32 profession = 4;</code>
-     * @return The profession.
+     * <pre>
+     * 战斗力
+     * </pre>
+     *
+     * <code>optional int32 combat = 4;</code>
+     * @return The combat.
      */
-    int getProfession();
+    int getCombat();
 
     /**
-     * <code>optional int32 fightPower = 5;</code>
-     * @return Whether the fightPower field is set.
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 5;</code>
+     * @return Whether the humanId field is set.
      */
-    boolean hasFightPower();
+    boolean hasHumanId();
     /**
-     * <code>optional int32 fightPower = 5;</code>
-     * @return The fightPower.
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 5;</code>
+     * @return The humanId.
      */
-    int getFightPower();
+    long getHumanId();
 
     /**
      * <pre>
      * 是否在线
      * </pre>
      *
-     * <code>optional bool isOnline = 6;</code>
-     * @return Whether the isOnline field is set.
+     * <code>optional bool online = 6;</code>
+     * @return Whether the online field is set.
      */
-    boolean hasIsOnline();
+    boolean hasOnline();
     /**
      * <pre>
      * 是否在线
      * </pre>
      *
-     * <code>optional bool isOnline = 6;</code>
-     * @return The isOnline.
+     * <code>optional bool online = 6;</code>
+     * @return The online.
      */
-    boolean getIsOnline();
+    boolean getOnline();
   }
   /**
    * <pre>
@@ -88194,6 +88248,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       super(builder);
     }
     private DFriendInfo() {
+      humanSn_ = "";
       name_ = "";
     }
 
@@ -88211,29 +88266,75 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
 
     private int bitField0_;
-    public static final int ID_FIELD_NUMBER = 1;
-    private long id_ = 0L;
+    public static final int HUMANSN_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object humanSn_ = "";
     /**
-     * <code>optional int64 id = 1;</code>
-     * @return Whether the id field is set.
+     * <pre>
+     * 角色sn
+     * </pre>
+     *
+     * <code>optional string humanSn = 1;</code>
+     * @return Whether the humanSn field is set.
      */
     @java.lang.Override
-    public boolean hasId() {
+    public boolean hasHumanSn() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional int64 id = 1;</code>
-     * @return The id.
+     * <pre>
+     * 角色sn
+     * </pre>
+     *
+     * <code>optional string humanSn = 1;</code>
+     * @return The humanSn.
      */
     @java.lang.Override
-    public long getId() {
-      return id_;
+    public java.lang.String getHumanSn() {
+      java.lang.Object ref = humanSn_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          humanSn_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 角色sn
+     * </pre>
+     *
+     * <code>optional string humanSn = 1;</code>
+     * @return The bytes for humanSn.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getHumanSnBytes() {
+      java.lang.Object ref = humanSn_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        humanSn_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int NAME_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
     private volatile java.lang.Object name_ = "";
     /**
+     * <pre>
+     * 对手姓名
+     * </pre>
+     *
      * <code>optional string name = 2;</code>
      * @return Whether the name field is set.
      */
@@ -88242,6 +88343,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
+     * <pre>
+     * 对手姓名
+     * </pre>
+     *
      * <code>optional string name = 2;</code>
      * @return The name.
      */
@@ -88261,6 +88366,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
     }
     /**
+     * <pre>
+     * 对手姓名
+     * </pre>
+     *
      * <code>optional string name = 2;</code>
      * @return The bytes for name.
      */
@@ -88282,6 +88391,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public static final int LEVEL_FIELD_NUMBER = 3;
     private int level_ = 0;
     /**
+     * <pre>
+     * 等级
+     * </pre>
+     *
      * <code>optional int32 level = 3;</code>
      * @return Whether the level field is set.
      */
@@ -88290,6 +88403,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
+     * <pre>
+     * 等级
+     * </pre>
+     *
      * <code>optional int32 level = 3;</code>
      * @return The level.
      */
@@ -88298,56 +88415,72 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return level_;
     }
 
-    public static final int PROFESSION_FIELD_NUMBER = 4;
-    private int profession_ = 0;
+    public static final int COMBAT_FIELD_NUMBER = 4;
+    private int combat_ = 0;
     /**
-     * <code>optional int32 profession = 4;</code>
-     * @return Whether the profession field is set.
+     * <pre>
+     * 战斗力
+     * </pre>
+     *
+     * <code>optional int32 combat = 4;</code>
+     * @return Whether the combat field is set.
      */
     @java.lang.Override
-    public boolean hasProfession() {
+    public boolean hasCombat() {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>optional int32 profession = 4;</code>
-     * @return The profession.
+     * <pre>
+     * 战斗力
+     * </pre>
+     *
+     * <code>optional int32 combat = 4;</code>
+     * @return The combat.
      */
     @java.lang.Override
-    public int getProfession() {
-      return profession_;
+    public int getCombat() {
+      return combat_;
     }
 
-    public static final int FIGHTPOWER_FIELD_NUMBER = 5;
-    private int fightPower_ = 0;
+    public static final int HUMANID_FIELD_NUMBER = 5;
+    private long humanId_ = 0L;
     /**
-     * <code>optional int32 fightPower = 5;</code>
-     * @return Whether the fightPower field is set.
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 5;</code>
+     * @return Whether the humanId field is set.
      */
     @java.lang.Override
-    public boolean hasFightPower() {
+    public boolean hasHumanId() {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>optional int32 fightPower = 5;</code>
-     * @return The fightPower.
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 5;</code>
+     * @return The humanId.
      */
     @java.lang.Override
-    public int getFightPower() {
-      return fightPower_;
+    public long getHumanId() {
+      return humanId_;
     }
 
-    public static final int ISONLINE_FIELD_NUMBER = 6;
-    private boolean isOnline_ = false;
+    public static final int ONLINE_FIELD_NUMBER = 6;
+    private boolean online_ = false;
     /**
      * <pre>
      * 是否在线
      * </pre>
      *
-     * <code>optional bool isOnline = 6;</code>
-     * @return Whether the isOnline field is set.
+     * <code>optional bool online = 6;</code>
+     * @return Whether the online field is set.
      */
     @java.lang.Override
-    public boolean hasIsOnline() {
+    public boolean hasOnline() {
       return ((bitField0_ & 0x00000020) != 0);
     }
     /**
@@ -88355,12 +88488,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
      * 是否在线
      * </pre>
      *
-     * <code>optional bool isOnline = 6;</code>
-     * @return The isOnline.
+     * <code>optional bool online = 6;</code>
+     * @return The online.
      */
     @java.lang.Override
-    public boolean getIsOnline() {
-      return isOnline_;
+    public boolean getOnline() {
+      return online_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -88378,7 +88511,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt64(1, id_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, humanSn_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessage.writeString(output, 2, name_);
@@ -88387,13 +88520,13 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         output.writeInt32(3, level_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeInt32(4, profession_);
+        output.writeInt32(4, combat_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeInt32(5, fightPower_);
+        output.writeInt64(5, humanId_);
       }
       if (((bitField0_ & 0x00000020) != 0)) {
-        output.writeBool(6, isOnline_);
+        output.writeBool(6, online_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -88405,8 +88538,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, id_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, humanSn_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(2, name_);
@@ -88417,15 +88549,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, profession_);
+          .computeInt32Size(4, combat_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, fightPower_);
+          .computeInt64Size(5, humanId_);
       }
       if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(6, isOnline_);
+          .computeBoolSize(6, online_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -88442,10 +88574,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.DFriendInfo other = (org.gof.demo.worldsrv.msg.Msg.DFriendInfo) obj;
 
-      if (hasId() != other.hasId()) return false;
-      if (hasId()) {
-        if (getId()
-            != other.getId()) return false;
+      if (hasHumanSn() != other.hasHumanSn()) return false;
+      if (hasHumanSn()) {
+        if (!getHumanSn()
+            .equals(other.getHumanSn())) return false;
       }
       if (hasName() != other.hasName()) return false;
       if (hasName()) {
@@ -88457,20 +88589,20 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (getLevel()
             != other.getLevel()) return false;
       }
-      if (hasProfession() != other.hasProfession()) return false;
-      if (hasProfession()) {
-        if (getProfession()
-            != other.getProfession()) return false;
+      if (hasCombat() != other.hasCombat()) return false;
+      if (hasCombat()) {
+        if (getCombat()
+            != other.getCombat()) return false;
       }
-      if (hasFightPower() != other.hasFightPower()) return false;
-      if (hasFightPower()) {
-        if (getFightPower()
-            != other.getFightPower()) return false;
+      if (hasHumanId() != other.hasHumanId()) return false;
+      if (hasHumanId()) {
+        if (getHumanId()
+            != other.getHumanId()) return false;
       }
-      if (hasIsOnline() != other.hasIsOnline()) return false;
-      if (hasIsOnline()) {
-        if (getIsOnline()
-            != other.getIsOnline()) return false;
+      if (hasOnline() != other.hasOnline()) return false;
+      if (hasOnline()) {
+        if (getOnline()
+            != other.getOnline()) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -88483,10 +88615,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasId()) {
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getId());
+      if (hasHumanSn()) {
+        hash = (37 * hash) + HUMANSN_FIELD_NUMBER;
+        hash = (53 * hash) + getHumanSn().hashCode();
       }
       if (hasName()) {
         hash = (37 * hash) + NAME_FIELD_NUMBER;
@@ -88496,18 +88627,19 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         hash = (37 * hash) + LEVEL_FIELD_NUMBER;
         hash = (53 * hash) + getLevel();
       }
-      if (hasProfession()) {
-        hash = (37 * hash) + PROFESSION_FIELD_NUMBER;
-        hash = (53 * hash) + getProfession();
+      if (hasCombat()) {
+        hash = (37 * hash) + COMBAT_FIELD_NUMBER;
+        hash = (53 * hash) + getCombat();
       }
-      if (hasFightPower()) {
-        hash = (37 * hash) + FIGHTPOWER_FIELD_NUMBER;
-        hash = (53 * hash) + getFightPower();
+      if (hasHumanId()) {
+        hash = (37 * hash) + HUMANID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getHumanId());
       }
-      if (hasIsOnline()) {
-        hash = (37 * hash) + ISONLINE_FIELD_NUMBER;
+      if (hasOnline()) {
+        hash = (37 * hash) + ONLINE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getIsOnline());
+            getOnline());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -88644,12 +88776,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        id_ = 0L;
+        humanSn_ = "";
         name_ = "";
         level_ = 0;
-        profession_ = 0;
-        fightPower_ = 0;
-        isOnline_ = false;
+        combat_ = 0;
+        humanId_ = 0L;
+        online_ = false;
         return this;
       }
 
@@ -88685,7 +88817,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.id_ = id_;
+          result.humanSn_ = humanSn_;
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
@@ -88697,15 +88829,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000004;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.profession_ = profession_;
+          result.combat_ = combat_;
           to_bitField0_ |= 0x00000008;
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.fightPower_ = fightPower_;
+          result.humanId_ = humanId_;
           to_bitField0_ |= 0x00000010;
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.isOnline_ = isOnline_;
+          result.online_ = online_;
           to_bitField0_ |= 0x00000020;
         }
         result.bitField0_ |= to_bitField0_;
@@ -88723,8 +88855,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.DFriendInfo other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.DFriendInfo.getDefaultInstance()) return this;
-        if (other.hasId()) {
-          setId(other.getId());
+        if (other.hasHumanSn()) {
+          humanSn_ = other.humanSn_;
+          bitField0_ |= 0x00000001;
+          onChanged();
         }
         if (other.hasName()) {
           name_ = other.name_;
@@ -88734,14 +88868,14 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (other.hasLevel()) {
           setLevel(other.getLevel());
         }
-        if (other.hasProfession()) {
-          setProfession(other.getProfession());
+        if (other.hasCombat()) {
+          setCombat(other.getCombat());
         }
-        if (other.hasFightPower()) {
-          setFightPower(other.getFightPower());
+        if (other.hasHumanId()) {
+          setHumanId(other.getHumanId());
         }
-        if (other.hasIsOnline()) {
-          setIsOnline(other.getIsOnline());
+        if (other.hasOnline()) {
+          setOnline(other.getOnline());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -88769,11 +88903,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                id_ = input.readInt64();
+              case 10: {
+                humanSn_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               case 18: {
                 name_ = input.readBytes();
                 bitField0_ |= 0x00000002;
@@ -88785,17 +88919,17 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 break;
               } // case 24
               case 32: {
-                profession_ = input.readInt32();
+                combat_ = input.readInt32();
                 bitField0_ |= 0x00000008;
                 break;
               } // case 32
               case 40: {
-                fightPower_ = input.readInt32();
+                humanId_ = input.readInt64();
                 bitField0_ |= 0x00000010;
                 break;
               } // case 40
               case 48: {
-                isOnline_ = input.readBool();
+                online_ = input.readBool();
                 bitField0_ |= 0x00000020;
                 break;
               } // case 48
@@ -88816,48 +88950,116 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private long id_ ;
+      private java.lang.Object humanSn_ = "";
       /**
-       * <code>optional int64 id = 1;</code>
-       * @return Whether the id field is set.
+       * <pre>
+       * 角色sn
+       * </pre>
+       *
+       * <code>optional string humanSn = 1;</code>
+       * @return Whether the humanSn field is set.
        */
-      @java.lang.Override
-      public boolean hasId() {
+      public boolean hasHumanSn() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional int64 id = 1;</code>
-       * @return The id.
+       * <pre>
+       * 角色sn
+       * </pre>
+       *
+       * <code>optional string humanSn = 1;</code>
+       * @return The humanSn.
        */
-      @java.lang.Override
-      public long getId() {
-        return id_;
+      public java.lang.String getHumanSn() {
+        java.lang.Object ref = humanSn_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            humanSn_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional int64 id = 1;</code>
-       * @param value The id to set.
+       * <pre>
+       * 角色sn
+       * </pre>
+       *
+       * <code>optional string humanSn = 1;</code>
+       * @return The bytes for humanSn.
+       */
+      public com.google.protobuf.ByteString
+          getHumanSnBytes() {
+        java.lang.Object ref = humanSn_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          humanSn_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 角色sn
+       * </pre>
+       *
+       * <code>optional string humanSn = 1;</code>
+       * @param value The humanSn to set.
        * @return This builder for chaining.
        */
-      public Builder setId(long value) {
-
-        id_ = value;
+      public Builder setHumanSn(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        humanSn_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 id = 1;</code>
+       * <pre>
+       * 角色sn
+       * </pre>
+       *
+       * <code>optional string humanSn = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearId() {
+      public Builder clearHumanSn() {
+        humanSn_ = getDefaultInstance().getHumanSn();
         bitField0_ = (bitField0_ & ~0x00000001);
-        id_ = 0L;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 角色sn
+       * </pre>
+       *
+       * <code>optional string humanSn = 1;</code>
+       * @param value The bytes for humanSn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHumanSnBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        humanSn_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
 
       private java.lang.Object name_ = "";
       /**
+       * <pre>
+       * 对手姓名
+       * </pre>
+       *
        * <code>optional string name = 2;</code>
        * @return Whether the name field is set.
        */
@@ -88865,6 +89067,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
+       * <pre>
+       * 对手姓名
+       * </pre>
+       *
        * <code>optional string name = 2;</code>
        * @return The name.
        */
@@ -88883,6 +89089,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         }
       }
       /**
+       * <pre>
+       * 对手姓名
+       * </pre>
+       *
        * <code>optional string name = 2;</code>
        * @return The bytes for name.
        */
@@ -88900,6 +89110,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         }
       }
       /**
+       * <pre>
+       * 对手姓名
+       * </pre>
+       *
        * <code>optional string name = 2;</code>
        * @param value The name to set.
        * @return This builder for chaining.
@@ -88913,6 +89127,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         return this;
       }
       /**
+       * <pre>
+       * 对手姓名
+       * </pre>
+       *
        * <code>optional string name = 2;</code>
        * @return This builder for chaining.
        */
@@ -88923,6 +89141,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         return this;
       }
       /**
+       * <pre>
+       * 对手姓名
+       * </pre>
+       *
        * <code>optional string name = 2;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
@@ -88938,6 +89160,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       private int level_ ;
       /**
+       * <pre>
+       * 等级
+       * </pre>
+       *
        * <code>optional int32 level = 3;</code>
        * @return Whether the level field is set.
        */
@@ -88946,6 +89172,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
+       * <pre>
+       * 等级
+       * </pre>
+       *
        * <code>optional int32 level = 3;</code>
        * @return The level.
        */
@@ -88954,6 +89184,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         return level_;
       }
       /**
+       * <pre>
+       * 等级
+       * </pre>
+       *
        * <code>optional int32 level = 3;</code>
        * @param value The level to set.
        * @return This builder for chaining.
@@ -88966,6 +89200,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         return this;
       }
       /**
+       * <pre>
+       * 等级
+       * </pre>
+       *
        * <code>optional int32 level = 3;</code>
        * @return This builder for chaining.
        */
@@ -88976,97 +89214,129 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int profession_ ;
+      private int combat_ ;
       /**
-       * <code>optional int32 profession = 4;</code>
-       * @return Whether the profession field is set.
+       * <pre>
+       * 战斗力
+       * </pre>
+       *
+       * <code>optional int32 combat = 4;</code>
+       * @return Whether the combat field is set.
        */
       @java.lang.Override
-      public boolean hasProfession() {
+      public boolean hasCombat() {
         return ((bitField0_ & 0x00000008) != 0);
       }
       /**
-       * <code>optional int32 profession = 4;</code>
-       * @return The profession.
+       * <pre>
+       * 战斗力
+       * </pre>
+       *
+       * <code>optional int32 combat = 4;</code>
+       * @return The combat.
        */
       @java.lang.Override
-      public int getProfession() {
-        return profession_;
+      public int getCombat() {
+        return combat_;
       }
       /**
-       * <code>optional int32 profession = 4;</code>
-       * @param value The profession to set.
+       * <pre>
+       * 战斗力
+       * </pre>
+       *
+       * <code>optional int32 combat = 4;</code>
+       * @param value The combat to set.
        * @return This builder for chaining.
        */
-      public Builder setProfession(int value) {
+      public Builder setCombat(int value) {
 
-        profession_ = value;
+        combat_ = value;
         bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 profession = 4;</code>
+       * <pre>
+       * 战斗力
+       * </pre>
+       *
+       * <code>optional int32 combat = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearProfession() {
+      public Builder clearCombat() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        profession_ = 0;
+        combat_ = 0;
         onChanged();
         return this;
       }
 
-      private int fightPower_ ;
+      private long humanId_ ;
       /**
-       * <code>optional int32 fightPower = 5;</code>
-       * @return Whether the fightPower field is set.
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 5;</code>
+       * @return Whether the humanId field is set.
        */
       @java.lang.Override
-      public boolean hasFightPower() {
+      public boolean hasHumanId() {
         return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>optional int32 fightPower = 5;</code>
-       * @return The fightPower.
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 5;</code>
+       * @return The humanId.
        */
       @java.lang.Override
-      public int getFightPower() {
-        return fightPower_;
+      public long getHumanId() {
+        return humanId_;
       }
       /**
-       * <code>optional int32 fightPower = 5;</code>
-       * @param value The fightPower to set.
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 5;</code>
+       * @param value The humanId to set.
        * @return This builder for chaining.
        */
-      public Builder setFightPower(int value) {
+      public Builder setHumanId(long value) {
 
-        fightPower_ = value;
+        humanId_ = value;
         bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 fightPower = 5;</code>
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 5;</code>
        * @return This builder for chaining.
        */
-      public Builder clearFightPower() {
+      public Builder clearHumanId() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        fightPower_ = 0;
+        humanId_ = 0L;
         onChanged();
         return this;
       }
 
-      private boolean isOnline_ ;
+      private boolean online_ ;
       /**
        * <pre>
        * 是否在线
        * </pre>
        *
-       * <code>optional bool isOnline = 6;</code>
-       * @return Whether the isOnline field is set.
+       * <code>optional bool online = 6;</code>
+       * @return Whether the online field is set.
        */
       @java.lang.Override
-      public boolean hasIsOnline() {
+      public boolean hasOnline() {
         return ((bitField0_ & 0x00000020) != 0);
       }
       /**
@@ -89074,25 +89344,25 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
        * 是否在线
        * </pre>
        *
-       * <code>optional bool isOnline = 6;</code>
-       * @return The isOnline.
+       * <code>optional bool online = 6;</code>
+       * @return The online.
        */
       @java.lang.Override
-      public boolean getIsOnline() {
-        return isOnline_;
+      public boolean getOnline() {
+        return online_;
       }
       /**
        * <pre>
        * 是否在线
        * </pre>
        *
-       * <code>optional bool isOnline = 6;</code>
-       * @param value The isOnline to set.
+       * <code>optional bool online = 6;</code>
+       * @param value The online to set.
        * @return This builder for chaining.
        */
-      public Builder setIsOnline(boolean value) {
+      public Builder setOnline(boolean value) {
 
-        isOnline_ = value;
+        online_ = value;
         bitField0_ |= 0x00000020;
         onChanged();
         return this;
@@ -89102,12 +89372,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
        * 是否在线
        * </pre>
        *
-       * <code>optional bool isOnline = 6;</code>
+       * <code>optional bool online = 6;</code>
        * @return This builder for chaining.
        */
-      public Builder clearIsOnline() {
+      public Builder clearOnline() {
         bitField0_ = (bitField0_ & ~0x00000020);
-        isOnline_ = false;
+        online_ = false;
         onChanged();
         return this;
       }
@@ -107134,6 +107404,35 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
   public interface SCDieStageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:org.gof.demo.worldsrv.msg.SCDieStage)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+     * </pre>
+     *
+     * <code>optional string stageType = 1;</code>
+     * @return Whether the stageType field is set.
+     */
+    boolean hasStageType();
+    /**
+     * <pre>
+     * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+     * </pre>
+     *
+     * <code>optional string stageType = 1;</code>
+     * @return The stageType.
+     */
+    java.lang.String getStageType();
+    /**
+     * <pre>
+     * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+     * </pre>
+     *
+     * <code>optional string stageType = 1;</code>
+     * @return The bytes for stageType.
+     */
+    com.google.protobuf.ByteString
+        getStageTypeBytes();
   }
   /**
    * <pre>
@@ -107162,6 +107461,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       super(builder);
     }
     private SCDieStage() {
+      stageType_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -107175,6 +107475,68 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return org.gof.demo.worldsrv.msg.Msg.internal_static_org_gof_demo_worldsrv_msg_SCDieStage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.gof.demo.worldsrv.msg.Msg.SCDieStage.class, org.gof.demo.worldsrv.msg.Msg.SCDieStage.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int STAGETYPE_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object stageType_ = "";
+    /**
+     * <pre>
+     * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+     * </pre>
+     *
+     * <code>optional string stageType = 1;</code>
+     * @return Whether the stageType field is set.
+     */
+    @java.lang.Override
+    public boolean hasStageType() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+     * </pre>
+     *
+     * <code>optional string stageType = 1;</code>
+     * @return The stageType.
+     */
+    @java.lang.Override
+    public java.lang.String getStageType() {
+      java.lang.Object ref = stageType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          stageType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+     * </pre>
+     *
+     * <code>optional string stageType = 1;</code>
+     * @return The bytes for stageType.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStageTypeBytes() {
+      java.lang.Object ref = stageType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stageType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -107191,6 +107553,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, stageType_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -107200,6 +107565,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (size != -1) return size;
 
       size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, stageType_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -107215,6 +107583,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.SCDieStage other = (org.gof.demo.worldsrv.msg.Msg.SCDieStage) obj;
 
+      if (hasStageType() != other.hasStageType()) return false;
+      if (hasStageType()) {
+        if (!getStageType()
+            .equals(other.getStageType())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -107226,6 +107599,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasStageType()) {
+        hash = (37 * hash) + STAGETYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getStageType().hashCode();
+      }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -107361,6 +107738,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        stageType_ = "";
         return this;
       }
 
@@ -107387,8 +107766,19 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public org.gof.demo.worldsrv.msg.Msg.SCDieStage buildPartial() {
         org.gof.demo.worldsrv.msg.Msg.SCDieStage result = new org.gof.demo.worldsrv.msg.Msg.SCDieStage(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(org.gof.demo.worldsrv.msg.Msg.SCDieStage result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.stageType_ = stageType_;
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -107403,6 +107793,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.SCDieStage other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.SCDieStage.getDefaultInstance()) return this;
+        if (other.hasStageType()) {
+          stageType_ = other.stageType_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -107429,6 +107824,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
               case 0:
                 done = true;
                 break;
+              case 10: {
+                stageType_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -107442,6 +107842,111 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         } finally {
           onChanged();
         } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object stageType_ = "";
+      /**
+       * <pre>
+       * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+       * </pre>
+       *
+       * <code>optional string stageType = 1;</code>
+       * @return Whether the stageType field is set.
+       */
+      public boolean hasStageType() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+       * </pre>
+       *
+       * <code>optional string stageType = 1;</code>
+       * @return The stageType.
+       */
+      public java.lang.String getStageType() {
+        java.lang.Object ref = stageType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            stageType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+       * </pre>
+       *
+       * <code>optional string stageType = 1;</code>
+       * @return The bytes for stageType.
+       */
+      public com.google.protobuf.ByteString
+          getStageTypeBytes() {
+        java.lang.Object ref = stageType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stageType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+       * </pre>
+       *
+       * <code>optional string stageType = 1;</code>
+       * @param value The stageType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStageType(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        stageType_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+       * </pre>
+       *
+       * <code>optional string stageType = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStageType() {
+        stageType_ = getDefaultInstance().getStageType();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 场景类型 1.common 2.rep 3.tower 4.offlineCompet 5. onlineCompet 6.teamRep 7.field 8.boss
+       * </pre>
+       *
+       * <code>optional string stageType = 1;</code>
+       * @param value The bytes for stageType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStageTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        stageType_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
 
@@ -148132,32 +148637,138 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 type = 1;</code>
-     * @return Whether the type field is set.
+     * <pre>
+     * 频道
+     * </pre>
+     *
+     * <code>optional int32 channel = 1;</code>
+     * @return Whether the channel field is set.
      */
-    boolean hasType();
+    boolean hasChannel();
     /**
-     * <code>required int32 type = 1;</code>
-     * @return The type.
+     * <pre>
+     * 频道
+     * </pre>
+     *
+     * <code>optional int32 channel = 1;</code>
+     * @return The channel.
      */
-    int getType();
+    int getChannel();
 
     /**
-     * <code>required string content = 2;</code>
+     * <pre>
+     * 内容
+     * </pre>
+     *
+     * <code>optional string content = 2;</code>
      * @return Whether the content field is set.
      */
     boolean hasContent();
     /**
-     * <code>required string content = 2;</code>
+     * <pre>
+     * 内容
+     * </pre>
+     *
+     * <code>optional string content = 2;</code>
      * @return The content.
      */
     java.lang.String getContent();
     /**
-     * <code>required string content = 2;</code>
+     * <pre>
+     * 内容
+     * </pre>
+     *
+     * <code>optional string content = 2;</code>
      * @return The bytes for content.
      */
     com.google.protobuf.ByteString
         getContentBytes();
+
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 sendHumanId = 3;</code>
+     * @return Whether the sendHumanId field is set.
+     */
+    boolean hasSendHumanId();
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 sendHumanId = 3;</code>
+     * @return The sendHumanId.
+     */
+    long getSendHumanId();
+
+    /**
+     * <pre>
+     * 玩家昵称
+     * </pre>
+     *
+     * <code>optional string sendHumanName = 4;</code>
+     * @return Whether the sendHumanName field is set.
+     */
+    boolean hasSendHumanName();
+    /**
+     * <pre>
+     * 玩家昵称
+     * </pre>
+     *
+     * <code>optional string sendHumanName = 4;</code>
+     * @return The sendHumanName.
+     */
+    java.lang.String getSendHumanName();
+    /**
+     * <pre>
+     * 玩家昵称
+     * </pre>
+     *
+     * <code>optional string sendHumanName = 4;</code>
+     * @return The bytes for sendHumanName.
+     */
+    com.google.protobuf.ByteString
+        getSendHumanNameBytes();
+
+    /**
+     * <pre>
+     * 阵营ID
+     * </pre>
+     *
+     * <code>optional int64 campId = 5;</code>
+     * @return Whether the campId field is set.
+     */
+    boolean hasCampId();
+    /**
+     * <pre>
+     * 阵营ID
+     * </pre>
+     *
+     * <code>optional int64 campId = 5;</code>
+     * @return The campId.
+     */
+    long getCampId();
+
+    /**
+     * <pre>
+     * 是否是系统
+     * </pre>
+     *
+     * <code>optional bool isSys = 6;</code>
+     * @return Whether the isSys field is set.
+     */
+    boolean hasIsSys();
+    /**
+     * <pre>
+     * 是否是系统
+     * </pre>
+     *
+     * <code>optional bool isSys = 6;</code>
+     * @return The isSys.
+     */
+    boolean getIsSys();
   }
   /**
    * <pre>
@@ -148187,6 +148798,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
     private SCInformMsg() {
       content_ = "";
+      sendHumanName_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -148203,30 +148815,42 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
 
     private int bitField0_;
-    public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_ = 0;
+    public static final int CHANNEL_FIELD_NUMBER = 1;
+    private int channel_ = 0;
     /**
-     * <code>required int32 type = 1;</code>
-     * @return Whether the type field is set.
+     * <pre>
+     * 频道
+     * </pre>
+     *
+     * <code>optional int32 channel = 1;</code>
+     * @return Whether the channel field is set.
      */
     @java.lang.Override
-    public boolean hasType() {
+    public boolean hasChannel() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required int32 type = 1;</code>
-     * @return The type.
+     * <pre>
+     * 频道
+     * </pre>
+     *
+     * <code>optional int32 channel = 1;</code>
+     * @return The channel.
      */
     @java.lang.Override
-    public int getType() {
-      return type_;
+    public int getChannel() {
+      return channel_;
     }
 
     public static final int CONTENT_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
     private volatile java.lang.Object content_ = "";
     /**
-     * <code>required string content = 2;</code>
+     * <pre>
+     * 内容
+     * </pre>
+     *
+     * <code>optional string content = 2;</code>
      * @return Whether the content field is set.
      */
     @java.lang.Override
@@ -148234,7 +148858,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required string content = 2;</code>
+     * <pre>
+     * 内容
+     * </pre>
+     *
+     * <code>optional string content = 2;</code>
      * @return The content.
      */
     @java.lang.Override
@@ -148253,7 +148881,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
     }
     /**
-     * <code>required string content = 2;</code>
+     * <pre>
+     * 内容
+     * </pre>
+     *
+     * <code>optional string content = 2;</code>
      * @return The bytes for content.
      */
     @java.lang.Override
@@ -148271,6 +148903,148 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
     }
 
+    public static final int SENDHUMANID_FIELD_NUMBER = 3;
+    private long sendHumanId_ = 0L;
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 sendHumanId = 3;</code>
+     * @return Whether the sendHumanId field is set.
+     */
+    @java.lang.Override
+    public boolean hasSendHumanId() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 sendHumanId = 3;</code>
+     * @return The sendHumanId.
+     */
+    @java.lang.Override
+    public long getSendHumanId() {
+      return sendHumanId_;
+    }
+
+    public static final int SENDHUMANNAME_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sendHumanName_ = "";
+    /**
+     * <pre>
+     * 玩家昵称
+     * </pre>
+     *
+     * <code>optional string sendHumanName = 4;</code>
+     * @return Whether the sendHumanName field is set.
+     */
+    @java.lang.Override
+    public boolean hasSendHumanName() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * 玩家昵称
+     * </pre>
+     *
+     * <code>optional string sendHumanName = 4;</code>
+     * @return The sendHumanName.
+     */
+    @java.lang.Override
+    public java.lang.String getSendHumanName() {
+      java.lang.Object ref = sendHumanName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          sendHumanName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 玩家昵称
+     * </pre>
+     *
+     * <code>optional string sendHumanName = 4;</code>
+     * @return The bytes for sendHumanName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSendHumanNameBytes() {
+      java.lang.Object ref = sendHumanName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sendHumanName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CAMPID_FIELD_NUMBER = 5;
+    private long campId_ = 0L;
+    /**
+     * <pre>
+     * 阵营ID
+     * </pre>
+     *
+     * <code>optional int64 campId = 5;</code>
+     * @return Whether the campId field is set.
+     */
+    @java.lang.Override
+    public boolean hasCampId() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * 阵营ID
+     * </pre>
+     *
+     * <code>optional int64 campId = 5;</code>
+     * @return The campId.
+     */
+    @java.lang.Override
+    public long getCampId() {
+      return campId_;
+    }
+
+    public static final int ISSYS_FIELD_NUMBER = 6;
+    private boolean isSys_ = false;
+    /**
+     * <pre>
+     * 是否是系统
+     * </pre>
+     *
+     * <code>optional bool isSys = 6;</code>
+     * @return Whether the isSys field is set.
+     */
+    @java.lang.Override
+    public boolean hasIsSys() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * 是否是系统
+     * </pre>
+     *
+     * <code>optional bool isSys = 6;</code>
+     * @return The isSys.
+     */
+    @java.lang.Override
+    public boolean getIsSys() {
+      return isSys_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -148278,14 +149052,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasType()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasContent()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -148294,10 +149060,22 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt32(1, type_);
+        output.writeInt32(1, channel_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessage.writeString(output, 2, content_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt64(3, sendHumanId_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, sendHumanName_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeInt64(5, campId_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeBool(6, isSys_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -148310,10 +149088,25 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, type_);
+          .computeInt32Size(1, channel_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(2, content_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, sendHumanId_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(4, sendHumanName_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(5, campId_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, isSys_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -148330,15 +149123,35 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.SCInformMsg other = (org.gof.demo.worldsrv.msg.Msg.SCInformMsg) obj;
 
-      if (hasType() != other.hasType()) return false;
-      if (hasType()) {
-        if (getType()
-            != other.getType()) return false;
+      if (hasChannel() != other.hasChannel()) return false;
+      if (hasChannel()) {
+        if (getChannel()
+            != other.getChannel()) return false;
       }
       if (hasContent() != other.hasContent()) return false;
       if (hasContent()) {
         if (!getContent()
             .equals(other.getContent())) return false;
+      }
+      if (hasSendHumanId() != other.hasSendHumanId()) return false;
+      if (hasSendHumanId()) {
+        if (getSendHumanId()
+            != other.getSendHumanId()) return false;
+      }
+      if (hasSendHumanName() != other.hasSendHumanName()) return false;
+      if (hasSendHumanName()) {
+        if (!getSendHumanName()
+            .equals(other.getSendHumanName())) return false;
+      }
+      if (hasCampId() != other.hasCampId()) return false;
+      if (hasCampId()) {
+        if (getCampId()
+            != other.getCampId()) return false;
+      }
+      if (hasIsSys() != other.hasIsSys()) return false;
+      if (hasIsSys()) {
+        if (getIsSys()
+            != other.getIsSys()) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -148351,13 +149164,32 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasType()) {
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getType();
+      if (hasChannel()) {
+        hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+        hash = (53 * hash) + getChannel();
       }
       if (hasContent()) {
         hash = (37 * hash) + CONTENT_FIELD_NUMBER;
         hash = (53 * hash) + getContent().hashCode();
+      }
+      if (hasSendHumanId()) {
+        hash = (37 * hash) + SENDHUMANID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getSendHumanId());
+      }
+      if (hasSendHumanName()) {
+        hash = (37 * hash) + SENDHUMANNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getSendHumanName().hashCode();
+      }
+      if (hasCampId()) {
+        hash = (37 * hash) + CAMPID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCampId());
+      }
+      if (hasIsSys()) {
+        hash = (37 * hash) + ISSYS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getIsSys());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -148495,8 +149327,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        type_ = 0;
+        channel_ = 0;
         content_ = "";
+        sendHumanId_ = 0L;
+        sendHumanName_ = "";
+        campId_ = 0L;
+        isSys_ = false;
         return this;
       }
 
@@ -148532,12 +149368,28 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.type_ = type_;
+          result.channel_ = channel_;
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.content_ = content_;
           to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.sendHumanId_ = sendHumanId_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.sendHumanName_ = sendHumanName_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.campId_ = campId_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.isSys_ = isSys_;
+          to_bitField0_ |= 0x00000020;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -148554,13 +149406,27 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.SCInformMsg other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.SCInformMsg.getDefaultInstance()) return this;
-        if (other.hasType()) {
-          setType(other.getType());
+        if (other.hasChannel()) {
+          setChannel(other.getChannel());
         }
         if (other.hasContent()) {
           content_ = other.content_;
           bitField0_ |= 0x00000002;
           onChanged();
+        }
+        if (other.hasSendHumanId()) {
+          setSendHumanId(other.getSendHumanId());
+        }
+        if (other.hasSendHumanName()) {
+          sendHumanName_ = other.sendHumanName_;
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        if (other.hasCampId()) {
+          setCampId(other.getCampId());
+        }
+        if (other.hasIsSys()) {
+          setIsSys(other.getIsSys());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -148569,12 +149435,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasType()) {
-          return false;
-        }
-        if (!hasContent()) {
-          return false;
-        }
         return true;
       }
 
@@ -148595,7 +149455,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 done = true;
                 break;
               case 8: {
-                type_ = input.readInt32();
+                channel_ = input.readInt32();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
@@ -148604,6 +149464,26 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 bitField0_ |= 0x00000002;
                 break;
               } // case 18
+              case 24: {
+                sendHumanId_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                sendHumanName_ = input.readBytes();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                campId_ = input.readInt64();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                isSys_ = input.readBool();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -148621,56 +149501,80 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int type_ ;
+      private int channel_ ;
       /**
-       * <code>required int32 type = 1;</code>
-       * @return Whether the type field is set.
+       * <pre>
+       * 频道
+       * </pre>
+       *
+       * <code>optional int32 channel = 1;</code>
+       * @return Whether the channel field is set.
        */
       @java.lang.Override
-      public boolean hasType() {
+      public boolean hasChannel() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required int32 type = 1;</code>
-       * @return The type.
+       * <pre>
+       * 频道
+       * </pre>
+       *
+       * <code>optional int32 channel = 1;</code>
+       * @return The channel.
        */
       @java.lang.Override
-      public int getType() {
-        return type_;
+      public int getChannel() {
+        return channel_;
       }
       /**
-       * <code>required int32 type = 1;</code>
-       * @param value The type to set.
+       * <pre>
+       * 频道
+       * </pre>
+       *
+       * <code>optional int32 channel = 1;</code>
+       * @param value The channel to set.
        * @return This builder for chaining.
        */
-      public Builder setType(int value) {
+      public Builder setChannel(int value) {
 
-        type_ = value;
+        channel_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 type = 1;</code>
+       * <pre>
+       * 频道
+       * </pre>
+       *
+       * <code>optional int32 channel = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearType() {
+      public Builder clearChannel() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        type_ = 0;
+        channel_ = 0;
         onChanged();
         return this;
       }
 
       private java.lang.Object content_ = "";
       /**
-       * <code>required string content = 2;</code>
+       * <pre>
+       * 内容
+       * </pre>
+       *
+       * <code>optional string content = 2;</code>
        * @return Whether the content field is set.
        */
       public boolean hasContent() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required string content = 2;</code>
+       * <pre>
+       * 内容
+       * </pre>
+       *
+       * <code>optional string content = 2;</code>
        * @return The content.
        */
       public java.lang.String getContent() {
@@ -148688,7 +149592,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         }
       }
       /**
-       * <code>required string content = 2;</code>
+       * <pre>
+       * 内容
+       * </pre>
+       *
+       * <code>optional string content = 2;</code>
        * @return The bytes for content.
        */
       public com.google.protobuf.ByteString
@@ -148705,7 +149613,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         }
       }
       /**
-       * <code>required string content = 2;</code>
+       * <pre>
+       * 内容
+       * </pre>
+       *
+       * <code>optional string content = 2;</code>
        * @param value The content to set.
        * @return This builder for chaining.
        */
@@ -148718,7 +149630,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         return this;
       }
       /**
-       * <code>required string content = 2;</code>
+       * <pre>
+       * 内容
+       * </pre>
+       *
+       * <code>optional string content = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearContent() {
@@ -148728,7 +149644,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         return this;
       }
       /**
-       * <code>required string content = 2;</code>
+       * <pre>
+       * 内容
+       * </pre>
+       *
+       * <code>optional string content = 2;</code>
        * @param value The bytes for content to set.
        * @return This builder for chaining.
        */
@@ -148737,6 +149657,278 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (value == null) { throw new NullPointerException(); }
         content_ = value;
         bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private long sendHumanId_ ;
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 sendHumanId = 3;</code>
+       * @return Whether the sendHumanId field is set.
+       */
+      @java.lang.Override
+      public boolean hasSendHumanId() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 sendHumanId = 3;</code>
+       * @return The sendHumanId.
+       */
+      @java.lang.Override
+      public long getSendHumanId() {
+        return sendHumanId_;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 sendHumanId = 3;</code>
+       * @param value The sendHumanId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSendHumanId(long value) {
+
+        sendHumanId_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 sendHumanId = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSendHumanId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        sendHumanId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object sendHumanName_ = "";
+      /**
+       * <pre>
+       * 玩家昵称
+       * </pre>
+       *
+       * <code>optional string sendHumanName = 4;</code>
+       * @return Whether the sendHumanName field is set.
+       */
+      public boolean hasSendHumanName() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <pre>
+       * 玩家昵称
+       * </pre>
+       *
+       * <code>optional string sendHumanName = 4;</code>
+       * @return The sendHumanName.
+       */
+      public java.lang.String getSendHumanName() {
+        java.lang.Object ref = sendHumanName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            sendHumanName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 玩家昵称
+       * </pre>
+       *
+       * <code>optional string sendHumanName = 4;</code>
+       * @return The bytes for sendHumanName.
+       */
+      public com.google.protobuf.ByteString
+          getSendHumanNameBytes() {
+        java.lang.Object ref = sendHumanName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sendHumanName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 玩家昵称
+       * </pre>
+       *
+       * <code>optional string sendHumanName = 4;</code>
+       * @param value The sendHumanName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSendHumanName(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        sendHumanName_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家昵称
+       * </pre>
+       *
+       * <code>optional string sendHumanName = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSendHumanName() {
+        sendHumanName_ = getDefaultInstance().getSendHumanName();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家昵称
+       * </pre>
+       *
+       * <code>optional string sendHumanName = 4;</code>
+       * @param value The bytes for sendHumanName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSendHumanNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        sendHumanName_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      private long campId_ ;
+      /**
+       * <pre>
+       * 阵营ID
+       * </pre>
+       *
+       * <code>optional int64 campId = 5;</code>
+       * @return Whether the campId field is set.
+       */
+      @java.lang.Override
+      public boolean hasCampId() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <pre>
+       * 阵营ID
+       * </pre>
+       *
+       * <code>optional int64 campId = 5;</code>
+       * @return The campId.
+       */
+      @java.lang.Override
+      public long getCampId() {
+        return campId_;
+      }
+      /**
+       * <pre>
+       * 阵营ID
+       * </pre>
+       *
+       * <code>optional int64 campId = 5;</code>
+       * @param value The campId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCampId(long value) {
+
+        campId_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 阵营ID
+       * </pre>
+       *
+       * <code>optional int64 campId = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCampId() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        campId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean isSys_ ;
+      /**
+       * <pre>
+       * 是否是系统
+       * </pre>
+       *
+       * <code>optional bool isSys = 6;</code>
+       * @return Whether the isSys field is set.
+       */
+      @java.lang.Override
+      public boolean hasIsSys() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <pre>
+       * 是否是系统
+       * </pre>
+       *
+       * <code>optional bool isSys = 6;</code>
+       * @return The isSys.
+       */
+      @java.lang.Override
+      public boolean getIsSys() {
+        return isSys_;
+      }
+      /**
+       * <pre>
+       * 是否是系统
+       * </pre>
+       *
+       * <code>optional bool isSys = 6;</code>
+       * @param value The isSys to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsSys(boolean value) {
+
+        isSys_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 是否是系统
+       * </pre>
+       *
+       * <code>optional bool isSys = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsSys() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        isSys_ = false;
         onChanged();
         return this;
       }
@@ -151646,15 +152838,21 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 sn = 1;</code>
+     * <code>required string sn = 1;</code>
      * @return Whether the sn field is set.
      */
     boolean hasSn();
     /**
-     * <code>required int32 sn = 1;</code>
+     * <code>required string sn = 1;</code>
      * @return The sn.
      */
-    int getSn();
+    java.lang.String getSn();
+    /**
+     * <code>required string sn = 1;</code>
+     * @return The bytes for sn.
+     */
+    com.google.protobuf.ByteString
+        getSnBytes();
   }
   /**
    * <pre>
@@ -151683,6 +152881,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       super(builder);
     }
     private CSGeneralRecruit() {
+      sn_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -151700,9 +152899,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
     private int bitField0_;
     public static final int SN_FIELD_NUMBER = 1;
-    private int sn_ = 0;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sn_ = "";
     /**
-     * <code>required int32 sn = 1;</code>
+     * <code>required string sn = 1;</code>
      * @return Whether the sn field is set.
      */
     @java.lang.Override
@@ -151710,12 +152910,41 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required int32 sn = 1;</code>
+     * <code>required string sn = 1;</code>
      * @return The sn.
      */
     @java.lang.Override
-    public int getSn() {
-      return sn_;
+    public java.lang.String getSn() {
+      java.lang.Object ref = sn_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          sn_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string sn = 1;</code>
+     * @return The bytes for sn.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSnBytes() {
+      java.lang.Object ref = sn_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sn_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -151737,7 +152966,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt32(1, sn_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, sn_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -151749,8 +152978,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, sn_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, sn_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -151769,8 +152997,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       if (hasSn() != other.hasSn()) return false;
       if (hasSn()) {
-        if (getSn()
-            != other.getSn()) return false;
+        if (!getSn()
+            .equals(other.getSn())) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -151785,7 +153013,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasSn()) {
         hash = (37 * hash) + SN_FIELD_NUMBER;
-        hash = (53 * hash) + getSn();
+        hash = (53 * hash) + getSn().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -151923,7 +153151,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        sn_ = 0;
+        sn_ = "";
         return this;
       }
 
@@ -151978,7 +153206,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.CSGeneralRecruit other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.CSGeneralRecruit.getDefaultInstance()) return this;
         if (other.hasSn()) {
-          setSn(other.getSn());
+          sn_ = other.sn_;
+          bitField0_ |= 0x00000001;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -152009,11 +153239,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                sn_ = input.readInt32();
+              case 10: {
+                sn_ = input.readBytes();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 8
+              } // case 10
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -152031,42 +153261,82 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int sn_ ;
+      private java.lang.Object sn_ = "";
       /**
-       * <code>required int32 sn = 1;</code>
+       * <code>required string sn = 1;</code>
        * @return Whether the sn field is set.
        */
-      @java.lang.Override
       public boolean hasSn() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required int32 sn = 1;</code>
+       * <code>required string sn = 1;</code>
        * @return The sn.
        */
-      @java.lang.Override
-      public int getSn() {
-        return sn_;
+      public java.lang.String getSn() {
+        java.lang.Object ref = sn_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            sn_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>required int32 sn = 1;</code>
+       * <code>required string sn = 1;</code>
+       * @return The bytes for sn.
+       */
+      public com.google.protobuf.ByteString
+          getSnBytes() {
+        java.lang.Object ref = sn_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sn_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string sn = 1;</code>
        * @param value The sn to set.
        * @return This builder for chaining.
        */
-      public Builder setSn(int value) {
-
+      public Builder setSn(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
         sn_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 sn = 1;</code>
+       * <code>required string sn = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearSn() {
+        sn_ = getDefaultInstance().getSn();
         bitField0_ = (bitField0_ & ~0x00000001);
-        sn_ = 0;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string sn = 1;</code>
+       * @param value The bytes for sn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSnBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        sn_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -176709,15 +177979,23 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 sn = 1;</code>
-     * @return Whether the sn field is set.
+     * <pre>
+     * 副本sn，用于判断副本类型
+     * </pre>
+     *
+     * <code>optional int32 instSn = 1;</code>
+     * @return Whether the instSn field is set.
      */
-    boolean hasSn();
+    boolean hasInstSn();
     /**
-     * <code>required int32 sn = 1;</code>
-     * @return The sn.
+     * <pre>
+     * 副本sn，用于判断副本类型
+     * </pre>
+     *
+     * <code>optional int32 instSn = 1;</code>
+     * @return The instSn.
      */
-    int getSn();
+    int getInstSn();
   }
   /**
    * <pre>
@@ -176762,23 +178040,31 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
 
     private int bitField0_;
-    public static final int SN_FIELD_NUMBER = 1;
-    private int sn_ = 0;
+    public static final int INSTSN_FIELD_NUMBER = 1;
+    private int instSn_ = 0;
     /**
-     * <code>required int32 sn = 1;</code>
-     * @return Whether the sn field is set.
+     * <pre>
+     * 副本sn，用于判断副本类型
+     * </pre>
+     *
+     * <code>optional int32 instSn = 1;</code>
+     * @return Whether the instSn field is set.
      */
     @java.lang.Override
-    public boolean hasSn() {
+    public boolean hasInstSn() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required int32 sn = 1;</code>
-     * @return The sn.
+     * <pre>
+     * 副本sn，用于判断副本类型
+     * </pre>
+     *
+     * <code>optional int32 instSn = 1;</code>
+     * @return The instSn.
      */
     @java.lang.Override
-    public int getSn() {
-      return sn_;
+    public int getInstSn() {
+      return instSn_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -176788,10 +178074,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasSn()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -176800,7 +178082,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt32(1, sn_);
+        output.writeInt32(1, instSn_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -176813,7 +178095,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, sn_);
+          .computeInt32Size(1, instSn_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -176830,10 +178112,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.CSInstanceEnter other = (org.gof.demo.worldsrv.msg.Msg.CSInstanceEnter) obj;
 
-      if (hasSn() != other.hasSn()) return false;
-      if (hasSn()) {
-        if (getSn()
-            != other.getSn()) return false;
+      if (hasInstSn() != other.hasInstSn()) return false;
+      if (hasInstSn()) {
+        if (getInstSn()
+            != other.getInstSn()) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -176846,9 +178128,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasSn()) {
-        hash = (37 * hash) + SN_FIELD_NUMBER;
-        hash = (53 * hash) + getSn();
+      if (hasInstSn()) {
+        hash = (37 * hash) + INSTSN_FIELD_NUMBER;
+        hash = (53 * hash) + getInstSn();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -176986,7 +178268,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        sn_ = 0;
+        instSn_ = 0;
         return this;
       }
 
@@ -177022,7 +178304,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.sn_ = sn_;
+          result.instSn_ = instSn_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
@@ -177040,8 +178322,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.CSInstanceEnter other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.CSInstanceEnter.getDefaultInstance()) return this;
-        if (other.hasSn()) {
-          setSn(other.getSn());
+        if (other.hasInstSn()) {
+          setInstSn(other.getInstSn());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -177050,9 +178332,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasSn()) {
-          return false;
-        }
         return true;
       }
 
@@ -177073,7 +178352,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 done = true;
                 break;
               case 8: {
-                sn_ = input.readInt32();
+                instSn_ = input.readInt32();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
@@ -177094,42 +178373,58 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int sn_ ;
+      private int instSn_ ;
       /**
-       * <code>required int32 sn = 1;</code>
-       * @return Whether the sn field is set.
+       * <pre>
+       * 副本sn，用于判断副本类型
+       * </pre>
+       *
+       * <code>optional int32 instSn = 1;</code>
+       * @return Whether the instSn field is set.
        */
       @java.lang.Override
-      public boolean hasSn() {
+      public boolean hasInstSn() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required int32 sn = 1;</code>
-       * @return The sn.
+       * <pre>
+       * 副本sn，用于判断副本类型
+       * </pre>
+       *
+       * <code>optional int32 instSn = 1;</code>
+       * @return The instSn.
        */
       @java.lang.Override
-      public int getSn() {
-        return sn_;
+      public int getInstSn() {
+        return instSn_;
       }
       /**
-       * <code>required int32 sn = 1;</code>
-       * @param value The sn to set.
+       * <pre>
+       * 副本sn，用于判断副本类型
+       * </pre>
+       *
+       * <code>optional int32 instSn = 1;</code>
+       * @param value The instSn to set.
        * @return This builder for chaining.
        */
-      public Builder setSn(int value) {
+      public Builder setInstSn(int value) {
 
-        sn_ = value;
+        instSn_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 sn = 1;</code>
+       * <pre>
+       * 副本sn，用于判断副本类型
+       * </pre>
+       *
+       * <code>optional int32 instSn = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearSn() {
+      public Builder clearInstSn() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        sn_ = 0;
+        instSn_ = 0;
         onChanged();
         return this;
       }
@@ -180216,15 +181511,42 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required bool auto = 1;</code>
-     * @return Whether the auto field is set.
+     * <pre>
+     * 副本sn
+     * </pre>
+     *
+     * <code>optional int32 instSn = 1;</code>
+     * @return Whether the instSn field is set.
      */
-    boolean hasAuto();
+    boolean hasInstSn();
     /**
-     * <code>required bool auto = 1;</code>
-     * @return The auto.
+     * <pre>
+     * 副本sn
+     * </pre>
+     *
+     * <code>optional int32 instSn = 1;</code>
+     * @return The instSn.
      */
-    boolean getAuto();
+    int getInstSn();
+
+    /**
+     * <pre>
+     * 次数
+     * </pre>
+     *
+     * <code>optional int32 num = 2;</code>
+     * @return Whether the num field is set.
+     */
+    boolean hasNum();
+    /**
+     * <pre>
+     * 次数
+     * </pre>
+     *
+     * <code>optional int32 num = 2;</code>
+     * @return The num.
+     */
+    int getNum();
   }
   /**
    * <pre>
@@ -180269,23 +181591,58 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
 
     private int bitField0_;
-    public static final int AUTO_FIELD_NUMBER = 1;
-    private boolean auto_ = false;
+    public static final int INSTSN_FIELD_NUMBER = 1;
+    private int instSn_ = 0;
     /**
-     * <code>required bool auto = 1;</code>
-     * @return Whether the auto field is set.
+     * <pre>
+     * 副本sn
+     * </pre>
+     *
+     * <code>optional int32 instSn = 1;</code>
+     * @return Whether the instSn field is set.
      */
     @java.lang.Override
-    public boolean hasAuto() {
+    public boolean hasInstSn() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required bool auto = 1;</code>
-     * @return The auto.
+     * <pre>
+     * 副本sn
+     * </pre>
+     *
+     * <code>optional int32 instSn = 1;</code>
+     * @return The instSn.
      */
     @java.lang.Override
-    public boolean getAuto() {
-      return auto_;
+    public int getInstSn() {
+      return instSn_;
+    }
+
+    public static final int NUM_FIELD_NUMBER = 2;
+    private int num_ = 0;
+    /**
+     * <pre>
+     * 次数
+     * </pre>
+     *
+     * <code>optional int32 num = 2;</code>
+     * @return Whether the num field is set.
+     */
+    @java.lang.Override
+    public boolean hasNum() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * 次数
+     * </pre>
+     *
+     * <code>optional int32 num = 2;</code>
+     * @return The num.
+     */
+    @java.lang.Override
+    public int getNum() {
+      return num_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -180295,10 +181652,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasAuto()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -180307,7 +181660,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeBool(1, auto_);
+        output.writeInt32(1, instSn_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt32(2, num_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -180320,7 +181676,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, auto_);
+          .computeInt32Size(1, instSn_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, num_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -180337,10 +181697,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.CSInstanceAuto other = (org.gof.demo.worldsrv.msg.Msg.CSInstanceAuto) obj;
 
-      if (hasAuto() != other.hasAuto()) return false;
-      if (hasAuto()) {
-        if (getAuto()
-            != other.getAuto()) return false;
+      if (hasInstSn() != other.hasInstSn()) return false;
+      if (hasInstSn()) {
+        if (getInstSn()
+            != other.getInstSn()) return false;
+      }
+      if (hasNum() != other.hasNum()) return false;
+      if (hasNum()) {
+        if (getNum()
+            != other.getNum()) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -180353,10 +181718,13 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasAuto()) {
-        hash = (37 * hash) + AUTO_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getAuto());
+      if (hasInstSn()) {
+        hash = (37 * hash) + INSTSN_FIELD_NUMBER;
+        hash = (53 * hash) + getInstSn();
+      }
+      if (hasNum()) {
+        hash = (37 * hash) + NUM_FIELD_NUMBER;
+        hash = (53 * hash) + getNum();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -180494,7 +181862,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        auto_ = false;
+        instSn_ = 0;
+        num_ = 0;
         return this;
       }
 
@@ -180530,8 +181899,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.auto_ = auto_;
+          result.instSn_ = instSn_;
           to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.num_ = num_;
+          to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -180548,8 +181921,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.CSInstanceAuto other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.CSInstanceAuto.getDefaultInstance()) return this;
-        if (other.hasAuto()) {
-          setAuto(other.getAuto());
+        if (other.hasInstSn()) {
+          setInstSn(other.getInstSn());
+        }
+        if (other.hasNum()) {
+          setNum(other.getNum());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -180558,9 +181934,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasAuto()) {
-          return false;
-        }
         return true;
       }
 
@@ -180581,10 +181954,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 done = true;
                 break;
               case 8: {
-                auto_ = input.readBool();
+                instSn_ = input.readInt32();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                num_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -180602,42 +181980,114 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private boolean auto_ ;
+      private int instSn_ ;
       /**
-       * <code>required bool auto = 1;</code>
-       * @return Whether the auto field is set.
+       * <pre>
+       * 副本sn
+       * </pre>
+       *
+       * <code>optional int32 instSn = 1;</code>
+       * @return Whether the instSn field is set.
        */
       @java.lang.Override
-      public boolean hasAuto() {
+      public boolean hasInstSn() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required bool auto = 1;</code>
-       * @return The auto.
+       * <pre>
+       * 副本sn
+       * </pre>
+       *
+       * <code>optional int32 instSn = 1;</code>
+       * @return The instSn.
        */
       @java.lang.Override
-      public boolean getAuto() {
-        return auto_;
+      public int getInstSn() {
+        return instSn_;
       }
       /**
-       * <code>required bool auto = 1;</code>
-       * @param value The auto to set.
+       * <pre>
+       * 副本sn
+       * </pre>
+       *
+       * <code>optional int32 instSn = 1;</code>
+       * @param value The instSn to set.
        * @return This builder for chaining.
        */
-      public Builder setAuto(boolean value) {
+      public Builder setInstSn(int value) {
 
-        auto_ = value;
+        instSn_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>required bool auto = 1;</code>
+       * <pre>
+       * 副本sn
+       * </pre>
+       *
+       * <code>optional int32 instSn = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearAuto() {
+      public Builder clearInstSn() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        auto_ = false;
+        instSn_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int num_ ;
+      /**
+       * <pre>
+       * 次数
+       * </pre>
+       *
+       * <code>optional int32 num = 2;</code>
+       * @return Whether the num field is set.
+       */
+      @java.lang.Override
+      public boolean hasNum() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * 次数
+       * </pre>
+       *
+       * <code>optional int32 num = 2;</code>
+       * @return The num.
+       */
+      @java.lang.Override
+      public int getNum() {
+        return num_;
+      }
+      /**
+       * <pre>
+       * 次数
+       * </pre>
+       *
+       * <code>optional int32 num = 2;</code>
+       * @param value The num to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNum(int value) {
+
+        num_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 次数
+       * </pre>
+       *
+       * <code>optional int32 num = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNum() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        num_ = 0;
         onChanged();
         return this;
       }
@@ -181180,15 +182630,42 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 sn = 1;</code>
-     * @return Whether the sn field is set.
+     * <pre>
+     * 章节ID
+     * </pre>
+     *
+     * <code>optional int32 chapterId = 1;</code>
+     * @return Whether the chapterId field is set.
      */
-    boolean hasSn();
+    boolean hasChapterId();
     /**
-     * <code>required int32 sn = 1;</code>
-     * @return The sn.
+     * <pre>
+     * 章节ID
+     * </pre>
+     *
+     * <code>optional int32 chapterId = 1;</code>
+     * @return The chapterId.
      */
-    int getSn();
+    int getChapterId();
+
+    /**
+     * <pre>
+     * 索引
+     * </pre>
+     *
+     * <code>optional int32 index = 2;</code>
+     * @return Whether the index field is set.
+     */
+    boolean hasIndex();
+    /**
+     * <pre>
+     * 索引
+     * </pre>
+     *
+     * <code>optional int32 index = 2;</code>
+     * @return The index.
+     */
+    int getIndex();
   }
   /**
    * <pre>
@@ -181233,23 +182710,58 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
 
     private int bitField0_;
-    public static final int SN_FIELD_NUMBER = 1;
-    private int sn_ = 0;
+    public static final int CHAPTERID_FIELD_NUMBER = 1;
+    private int chapterId_ = 0;
     /**
-     * <code>required int32 sn = 1;</code>
-     * @return Whether the sn field is set.
+     * <pre>
+     * 章节ID
+     * </pre>
+     *
+     * <code>optional int32 chapterId = 1;</code>
+     * @return Whether the chapterId field is set.
      */
     @java.lang.Override
-    public boolean hasSn() {
+    public boolean hasChapterId() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required int32 sn = 1;</code>
-     * @return The sn.
+     * <pre>
+     * 章节ID
+     * </pre>
+     *
+     * <code>optional int32 chapterId = 1;</code>
+     * @return The chapterId.
      */
     @java.lang.Override
-    public int getSn() {
-      return sn_;
+    public int getChapterId() {
+      return chapterId_;
+    }
+
+    public static final int INDEX_FIELD_NUMBER = 2;
+    private int index_ = 0;
+    /**
+     * <pre>
+     * 索引
+     * </pre>
+     *
+     * <code>optional int32 index = 2;</code>
+     * @return Whether the index field is set.
+     */
+    @java.lang.Override
+    public boolean hasIndex() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * 索引
+     * </pre>
+     *
+     * <code>optional int32 index = 2;</code>
+     * @return The index.
+     */
+    @java.lang.Override
+    public int getIndex() {
+      return index_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -181259,10 +182771,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasSn()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -181271,7 +182779,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt32(1, sn_);
+        output.writeInt32(1, chapterId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt32(2, index_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -181284,7 +182795,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, sn_);
+          .computeInt32Size(1, chapterId_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, index_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -181301,10 +182816,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.CSBoxAward other = (org.gof.demo.worldsrv.msg.Msg.CSBoxAward) obj;
 
-      if (hasSn() != other.hasSn()) return false;
-      if (hasSn()) {
-        if (getSn()
-            != other.getSn()) return false;
+      if (hasChapterId() != other.hasChapterId()) return false;
+      if (hasChapterId()) {
+        if (getChapterId()
+            != other.getChapterId()) return false;
+      }
+      if (hasIndex() != other.hasIndex()) return false;
+      if (hasIndex()) {
+        if (getIndex()
+            != other.getIndex()) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -181317,9 +182837,13 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasSn()) {
-        hash = (37 * hash) + SN_FIELD_NUMBER;
-        hash = (53 * hash) + getSn();
+      if (hasChapterId()) {
+        hash = (37 * hash) + CHAPTERID_FIELD_NUMBER;
+        hash = (53 * hash) + getChapterId();
+      }
+      if (hasIndex()) {
+        hash = (37 * hash) + INDEX_FIELD_NUMBER;
+        hash = (53 * hash) + getIndex();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -181457,7 +182981,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        sn_ = 0;
+        chapterId_ = 0;
+        index_ = 0;
         return this;
       }
 
@@ -181493,8 +183018,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.sn_ = sn_;
+          result.chapterId_ = chapterId_;
           to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.index_ = index_;
+          to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -181511,8 +183040,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.CSBoxAward other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.CSBoxAward.getDefaultInstance()) return this;
-        if (other.hasSn()) {
-          setSn(other.getSn());
+        if (other.hasChapterId()) {
+          setChapterId(other.getChapterId());
+        }
+        if (other.hasIndex()) {
+          setIndex(other.getIndex());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -181521,9 +183053,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasSn()) {
-          return false;
-        }
         return true;
       }
 
@@ -181544,10 +183073,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 done = true;
                 break;
               case 8: {
-                sn_ = input.readInt32();
+                chapterId_ = input.readInt32();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                index_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -181565,42 +183099,114 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int sn_ ;
+      private int chapterId_ ;
       /**
-       * <code>required int32 sn = 1;</code>
-       * @return Whether the sn field is set.
+       * <pre>
+       * 章节ID
+       * </pre>
+       *
+       * <code>optional int32 chapterId = 1;</code>
+       * @return Whether the chapterId field is set.
        */
       @java.lang.Override
-      public boolean hasSn() {
+      public boolean hasChapterId() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required int32 sn = 1;</code>
-       * @return The sn.
+       * <pre>
+       * 章节ID
+       * </pre>
+       *
+       * <code>optional int32 chapterId = 1;</code>
+       * @return The chapterId.
        */
       @java.lang.Override
-      public int getSn() {
-        return sn_;
+      public int getChapterId() {
+        return chapterId_;
       }
       /**
-       * <code>required int32 sn = 1;</code>
-       * @param value The sn to set.
+       * <pre>
+       * 章节ID
+       * </pre>
+       *
+       * <code>optional int32 chapterId = 1;</code>
+       * @param value The chapterId to set.
        * @return This builder for chaining.
        */
-      public Builder setSn(int value) {
+      public Builder setChapterId(int value) {
 
-        sn_ = value;
+        chapterId_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 sn = 1;</code>
+       * <pre>
+       * 章节ID
+       * </pre>
+       *
+       * <code>optional int32 chapterId = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearSn() {
+      public Builder clearChapterId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        sn_ = 0;
+        chapterId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int index_ ;
+      /**
+       * <pre>
+       * 索引
+       * </pre>
+       *
+       * <code>optional int32 index = 2;</code>
+       * @return Whether the index field is set.
+       */
+      @java.lang.Override
+      public boolean hasIndex() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * 索引
+       * </pre>
+       *
+       * <code>optional int32 index = 2;</code>
+       * @return The index.
+       */
+      @java.lang.Override
+      public int getIndex() {
+        return index_;
+      }
+      /**
+       * <pre>
+       * 索引
+       * </pre>
+       *
+       * <code>optional int32 index = 2;</code>
+       * @param value The index to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIndex(int value) {
+
+        index_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 索引
+       * </pre>
+       *
+       * <code>optional int32 index = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIndex() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        index_ = 0;
         onChanged();
         return this;
       }
@@ -182518,17 +184124,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
   public interface CSInstanceLotteryOrBuilder extends
       // @@protoc_insertion_point(interface_extends:org.gof.demo.worldsrv.msg.CSInstanceLottery)
       com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>required int32 sn = 1;</code>
-     * @return Whether the sn field is set.
-     */
-    boolean hasSn();
-    /**
-     * <code>required int32 sn = 1;</code>
-     * @return The sn.
-     */
-    int getSn();
   }
   /**
    * <pre>
@@ -182572,26 +184167,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
               org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery.class, org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery.Builder.class);
     }
 
-    private int bitField0_;
-    public static final int SN_FIELD_NUMBER = 1;
-    private int sn_ = 0;
-    /**
-     * <code>required int32 sn = 1;</code>
-     * @return Whether the sn field is set.
-     */
-    @java.lang.Override
-    public boolean hasSn() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>required int32 sn = 1;</code>
-     * @return The sn.
-     */
-    @java.lang.Override
-    public int getSn() {
-      return sn_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -182599,10 +184174,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasSn()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -182610,9 +184181,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt32(1, sn_);
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -182622,10 +184190,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, sn_);
-      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -182641,11 +184205,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery other = (org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery) obj;
 
-      if (hasSn() != other.hasSn()) return false;
-      if (hasSn()) {
-        if (getSn()
-            != other.getSn()) return false;
-      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -182657,10 +184216,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasSn()) {
-        hash = (37 * hash) + SN_FIELD_NUMBER;
-        hash = (53 * hash) + getSn();
-      }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -182796,8 +184351,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        sn_ = 0;
         return this;
       }
 
@@ -182824,19 +184377,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery buildPartial() {
         org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery result = new org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery result) {
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.sn_ = sn_;
-          to_bitField0_ |= 0x00000001;
-        }
-        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -182851,9 +184393,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.CSInstanceLottery.getDefaultInstance()) return this;
-        if (other.hasSn()) {
-          setSn(other.getSn());
-        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -182861,9 +184400,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasSn()) {
-          return false;
-        }
         return true;
       }
 
@@ -182883,11 +184419,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
               case 0:
                 done = true;
                 break;
-              case 8: {
-                sn_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -182901,47 +184432,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         } finally {
           onChanged();
         } // finally
-        return this;
-      }
-      private int bitField0_;
-
-      private int sn_ ;
-      /**
-       * <code>required int32 sn = 1;</code>
-       * @return Whether the sn field is set.
-       */
-      @java.lang.Override
-      public boolean hasSn() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <code>required int32 sn = 1;</code>
-       * @return The sn.
-       */
-      @java.lang.Override
-      public int getSn() {
-        return sn_;
-      }
-      /**
-       * <code>required int32 sn = 1;</code>
-       * @param value The sn to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSn(int value) {
-
-        sn_ = value;
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 sn = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSn() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        sn_ = 0;
-        onChanged();
         return this;
       }
 
@@ -193137,21 +194627,23 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated int32 sns = 1;</code>
-     * @return A list containing the sns.
+     * <pre>
+     * 每日活动活跃度ID
+     * </pre>
+     *
+     * <code>optional int32 code = 1;</code>
+     * @return Whether the code field is set.
      */
-    java.util.List<java.lang.Integer> getSnsList();
+    boolean hasCode();
     /**
-     * <code>repeated int32 sns = 1;</code>
-     * @return The count of sns.
+     * <pre>
+     * 每日活动活跃度ID
+     * </pre>
+     *
+     * <code>optional int32 code = 1;</code>
+     * @return The code.
      */
-    int getSnsCount();
-    /**
-     * <code>repeated int32 sns = 1;</code>
-     * @param index The index of the element to return.
-     * @return The sns at the given index.
-     */
-    int getSns(int index);
+    int getCode();
   }
   /**
    * <pre>
@@ -193180,7 +194672,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       super(builder);
     }
     private CSRsvLivenessAwards() {
-      sns_ = emptyIntList();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -193196,33 +194687,32 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
               org.gof.demo.worldsrv.msg.Msg.CSRsvLivenessAwards.class, org.gof.demo.worldsrv.msg.Msg.CSRsvLivenessAwards.Builder.class);
     }
 
-    public static final int SNS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private com.google.protobuf.Internal.IntList sns_ =
-        emptyIntList();
+    private int bitField0_;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_ = 0;
     /**
-     * <code>repeated int32 sns = 1;</code>
-     * @return A list containing the sns.
+     * <pre>
+     * 每日活动活跃度ID
+     * </pre>
+     *
+     * <code>optional int32 code = 1;</code>
+     * @return Whether the code field is set.
      */
     @java.lang.Override
-    public java.util.List<java.lang.Integer>
-        getSnsList() {
-      return sns_;
+    public boolean hasCode() {
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>repeated int32 sns = 1;</code>
-     * @return The count of sns.
+     * <pre>
+     * 每日活动活跃度ID
+     * </pre>
+     *
+     * <code>optional int32 code = 1;</code>
+     * @return The code.
      */
-    public int getSnsCount() {
-      return sns_.size();
-    }
-    /**
-     * <code>repeated int32 sns = 1;</code>
-     * @param index The index of the element to return.
-     * @return The sns at the given index.
-     */
-    public int getSns(int index) {
-      return sns_.getInt(index);
+    @java.lang.Override
+    public int getCode() {
+      return code_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -193239,8 +194729,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < sns_.size(); i++) {
-        output.writeInt32(1, sns_.getInt(i));
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeInt32(1, code_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -193251,14 +194741,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (size != -1) return size;
 
       size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < sns_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(sns_.getInt(i));
-        }
-        size += dataSize;
-        size += 1 * getSnsList().size();
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -193275,8 +194760,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.CSRsvLivenessAwards other = (org.gof.demo.worldsrv.msg.Msg.CSRsvLivenessAwards) obj;
 
-      if (!getSnsList()
-          .equals(other.getSnsList())) return false;
+      if (hasCode() != other.hasCode()) return false;
+      if (hasCode()) {
+        if (getCode()
+            != other.getCode()) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -193288,9 +194776,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getSnsCount() > 0) {
-        hash = (37 * hash) + SNS_FIELD_NUMBER;
-        hash = (53 * hash) + getSnsList().hashCode();
+      if (hasCode()) {
+        hash = (37 * hash) + CODE_FIELD_NUMBER;
+        hash = (53 * hash) + getCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -193428,7 +194916,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        sns_ = emptyIntList();
+        code_ = 0;
         return this;
       }
 
@@ -193462,10 +194950,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial0(org.gof.demo.worldsrv.msg.Msg.CSRsvLivenessAwards result) {
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          sns_.makeImmutable();
-          result.sns_ = sns_;
+          result.code_ = code_;
+          to_bitField0_ |= 0x00000001;
         }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -193480,16 +194970,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.CSRsvLivenessAwards other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.CSRsvLivenessAwards.getDefaultInstance()) return this;
-        if (!other.sns_.isEmpty()) {
-          if (sns_.isEmpty()) {
-            sns_ = other.sns_;
-            sns_.makeImmutable();
-            bitField0_ |= 0x00000001;
-          } else {
-            ensureSnsIsMutable();
-            sns_.addAll(other.sns_);
-          }
-          onChanged();
+        if (other.hasCode()) {
+          setCode(other.getCode());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -193518,21 +195000,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 done = true;
                 break;
               case 8: {
-                int v = input.readInt32();
-                ensureSnsIsMutable();
-                sns_.addInt(v);
+                code_ = input.readInt32();
+                bitField0_ |= 0x00000001;
                 break;
               } // case 8
-              case 10: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureSnsIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  sns_.addInt(input.readInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 10
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -193550,86 +195021,58 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList sns_ = emptyIntList();
-      private void ensureSnsIsMutable() {
-        if (!sns_.isModifiable()) {
-          sns_ = makeMutableCopy(sns_);
-        }
-        bitField0_ |= 0x00000001;
-      }
+      private int code_ ;
       /**
-       * <code>repeated int32 sns = 1;</code>
-       * @return A list containing the sns.
+       * <pre>
+       * 每日活动活跃度ID
+       * </pre>
+       *
+       * <code>optional int32 code = 1;</code>
+       * @return Whether the code field is set.
        */
-      public java.util.List<java.lang.Integer>
-          getSnsList() {
-        sns_.makeImmutable();
-        return sns_;
+      @java.lang.Override
+      public boolean hasCode() {
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>repeated int32 sns = 1;</code>
-       * @return The count of sns.
+       * <pre>
+       * 每日活动活跃度ID
+       * </pre>
+       *
+       * <code>optional int32 code = 1;</code>
+       * @return The code.
        */
-      public int getSnsCount() {
-        return sns_.size();
+      @java.lang.Override
+      public int getCode() {
+        return code_;
       }
       /**
-       * <code>repeated int32 sns = 1;</code>
-       * @param index The index of the element to return.
-       * @return The sns at the given index.
-       */
-      public int getSns(int index) {
-        return sns_.getInt(index);
-      }
-      /**
-       * <code>repeated int32 sns = 1;</code>
-       * @param index The index to set the value at.
-       * @param value The sns to set.
+       * <pre>
+       * 每日活动活跃度ID
+       * </pre>
+       *
+       * <code>optional int32 code = 1;</code>
+       * @param value The code to set.
        * @return This builder for chaining.
        */
-      public Builder setSns(
-          int index, int value) {
+      public Builder setCode(int value) {
 
-        ensureSnsIsMutable();
-        sns_.setInt(index, value);
+        code_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated int32 sns = 1;</code>
-       * @param value The sns to add.
+       * <pre>
+       * 每日活动活跃度ID
+       * </pre>
+       *
+       * <code>optional int32 code = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder addSns(int value) {
-
-        ensureSnsIsMutable();
-        sns_.addInt(value);
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 sns = 1;</code>
-       * @param values The sns to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllSns(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureSnsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, sns_);
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 sns = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSns() {
-        sns_ = emptyIntList();
+      public Builder clearCode() {
         bitField0_ = (bitField0_ & ~0x00000001);
+        code_ = 0;
         onChanged();
         return this;
       }
@@ -255769,6 +257212,94 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
      */
     org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getFriendListOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * 申请人列表
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+     */
+    java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> 
+        getApplyListList();
+    /**
+     * <pre>
+     * 申请人列表
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+     */
+    org.gof.demo.worldsrv.msg.Msg.DFriendInfo getApplyList(int index);
+    /**
+     * <pre>
+     * 申请人列表
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+     */
+    int getApplyListCount();
+    /**
+     * <pre>
+     * 申请人列表
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+     */
+    java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
+        getApplyListOrBuilderList();
+    /**
+     * <pre>
+     * 申请人列表
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+     */
+    org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getApplyListOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * 黑名单
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+     */
+    java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> 
+        getBlackListList();
+    /**
+     * <pre>
+     * 黑名单
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+     */
+    org.gof.demo.worldsrv.msg.Msg.DFriendInfo getBlackList(int index);
+    /**
+     * <pre>
+     * 黑名单
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+     */
+    int getBlackListCount();
+    /**
+     * <pre>
+     * 黑名单
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+     */
+    java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
+        getBlackListOrBuilderList();
+    /**
+     * <pre>
+     * 黑名单
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+     */
+    org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getBlackListOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -255798,6 +257329,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
     private SCFriendList() {
       friendList_ = java.util.Collections.emptyList();
+      applyList_ = java.util.Collections.emptyList();
+      blackList_ = java.util.Collections.emptyList();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -255874,6 +257407,128 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return friendList_.get(index);
     }
 
+    public static final int APPLYLIST_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> applyList_;
+    /**
+     * <pre>
+     * 申请人列表
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getApplyListList() {
+      return applyList_;
+    }
+    /**
+     * <pre>
+     * 申请人列表
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
+        getApplyListOrBuilderList() {
+      return applyList_;
+    }
+    /**
+     * <pre>
+     * 申请人列表
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+     */
+    @java.lang.Override
+    public int getApplyListCount() {
+      return applyList_.size();
+    }
+    /**
+     * <pre>
+     * 申请人列表
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+     */
+    @java.lang.Override
+    public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getApplyList(int index) {
+      return applyList_.get(index);
+    }
+    /**
+     * <pre>
+     * 申请人列表
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+     */
+    @java.lang.Override
+    public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getApplyListOrBuilder(
+        int index) {
+      return applyList_.get(index);
+    }
+
+    public static final int BLACKLIST_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> blackList_;
+    /**
+     * <pre>
+     * 黑名单
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getBlackListList() {
+      return blackList_;
+    }
+    /**
+     * <pre>
+     * 黑名单
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
+        getBlackListOrBuilderList() {
+      return blackList_;
+    }
+    /**
+     * <pre>
+     * 黑名单
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+     */
+    @java.lang.Override
+    public int getBlackListCount() {
+      return blackList_.size();
+    }
+    /**
+     * <pre>
+     * 黑名单
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+     */
+    @java.lang.Override
+    public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getBlackList(int index) {
+      return blackList_.get(index);
+    }
+    /**
+     * <pre>
+     * 黑名单
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+     */
+    @java.lang.Override
+    public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getBlackListOrBuilder(
+        int index) {
+      return blackList_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -255891,6 +257546,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       for (int i = 0; i < friendList_.size(); i++) {
         output.writeMessage(1, friendList_.get(i));
       }
+      for (int i = 0; i < applyList_.size(); i++) {
+        output.writeMessage(2, applyList_.get(i));
+      }
+      for (int i = 0; i < blackList_.size(); i++) {
+        output.writeMessage(3, blackList_.get(i));
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -255903,6 +257564,14 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       for (int i = 0; i < friendList_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, friendList_.get(i));
+      }
+      for (int i = 0; i < applyList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, applyList_.get(i));
+      }
+      for (int i = 0; i < blackList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, blackList_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -255921,6 +257590,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       if (!getFriendListList()
           .equals(other.getFriendListList())) return false;
+      if (!getApplyListList()
+          .equals(other.getApplyListList())) return false;
+      if (!getBlackListList()
+          .equals(other.getBlackListList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -255935,6 +257608,14 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (getFriendListCount() > 0) {
         hash = (37 * hash) + FRIENDLIST_FIELD_NUMBER;
         hash = (53 * hash) + getFriendListList().hashCode();
+      }
+      if (getApplyListCount() > 0) {
+        hash = (37 * hash) + APPLYLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getApplyListList().hashCode();
+      }
+      if (getBlackListCount() > 0) {
+        hash = (37 * hash) + BLACKLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getBlackListList().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -256079,6 +257760,20 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
           friendListBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
+        if (applyListBuilder_ == null) {
+          applyList_ = java.util.Collections.emptyList();
+        } else {
+          applyList_ = null;
+          applyListBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (blackListBuilder_ == null) {
+          blackList_ = java.util.Collections.emptyList();
+        } else {
+          blackList_ = null;
+          blackListBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -256120,6 +257815,24 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
           result.friendList_ = friendList_;
         } else {
           result.friendList_ = friendListBuilder_.build();
+        }
+        if (applyListBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            applyList_ = java.util.Collections.unmodifiableList(applyList_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.applyList_ = applyList_;
+        } else {
+          result.applyList_ = applyListBuilder_.build();
+        }
+        if (blackListBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0)) {
+            blackList_ = java.util.Collections.unmodifiableList(blackList_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.blackList_ = blackList_;
+        } else {
+          result.blackList_ = blackListBuilder_.build();
         }
       }
 
@@ -256165,6 +257878,58 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
             }
           }
         }
+        if (applyListBuilder_ == null) {
+          if (!other.applyList_.isEmpty()) {
+            if (applyList_.isEmpty()) {
+              applyList_ = other.applyList_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureApplyListIsMutable();
+              applyList_.addAll(other.applyList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.applyList_.isEmpty()) {
+            if (applyListBuilder_.isEmpty()) {
+              applyListBuilder_.dispose();
+              applyListBuilder_ = null;
+              applyList_ = other.applyList_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              applyListBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   internalGetApplyListFieldBuilder() : null;
+            } else {
+              applyListBuilder_.addAllMessages(other.applyList_);
+            }
+          }
+        }
+        if (blackListBuilder_ == null) {
+          if (!other.blackList_.isEmpty()) {
+            if (blackList_.isEmpty()) {
+              blackList_ = other.blackList_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureBlackListIsMutable();
+              blackList_.addAll(other.blackList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.blackList_.isEmpty()) {
+            if (blackListBuilder_.isEmpty()) {
+              blackListBuilder_.dispose();
+              blackListBuilder_ = null;
+              blackList_ = other.blackList_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              blackListBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   internalGetBlackListFieldBuilder() : null;
+            } else {
+              blackListBuilder_.addAllMessages(other.blackList_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -256204,6 +257969,32 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 }
                 break;
               } // case 10
+              case 18: {
+                org.gof.demo.worldsrv.msg.Msg.DFriendInfo m =
+                    input.readMessage(
+                        org.gof.demo.worldsrv.msg.Msg.DFriendInfo.parser(),
+                        extensionRegistry);
+                if (applyListBuilder_ == null) {
+                  ensureApplyListIsMutable();
+                  applyList_.add(m);
+                } else {
+                  applyListBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                org.gof.demo.worldsrv.msg.Msg.DFriendInfo m =
+                    input.readMessage(
+                        org.gof.demo.worldsrv.msg.Msg.DFriendInfo.parser(),
+                        extensionRegistry);
+                if (blackListBuilder_ == null) {
+                  ensureBlackListIsMutable();
+                  blackList_.add(m);
+                } else {
+                  blackListBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -256531,6 +258322,630 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
           friendList_ = null;
         }
         return friendListBuilder_;
+      }
+
+      private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> applyList_ =
+        java.util.Collections.emptyList();
+      private void ensureApplyListIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          applyList_ = new java.util.ArrayList<org.gof.demo.worldsrv.msg.Msg.DFriendInfo>(applyList_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> applyListBuilder_;
+
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getApplyListList() {
+        if (applyListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(applyList_);
+        } else {
+          return applyListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public int getApplyListCount() {
+        if (applyListBuilder_ == null) {
+          return applyList_.size();
+        } else {
+          return applyListBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getApplyList(int index) {
+        if (applyListBuilder_ == null) {
+          return applyList_.get(index);
+        } else {
+          return applyListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public Builder setApplyList(
+          int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
+        if (applyListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureApplyListIsMutable();
+          applyList_.set(index, value);
+          onChanged();
+        } else {
+          applyListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public Builder setApplyList(
+          int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
+        if (applyListBuilder_ == null) {
+          ensureApplyListIsMutable();
+          applyList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          applyListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public Builder addApplyList(org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
+        if (applyListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureApplyListIsMutable();
+          applyList_.add(value);
+          onChanged();
+        } else {
+          applyListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public Builder addApplyList(
+          int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
+        if (applyListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureApplyListIsMutable();
+          applyList_.add(index, value);
+          onChanged();
+        } else {
+          applyListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public Builder addApplyList(
+          org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
+        if (applyListBuilder_ == null) {
+          ensureApplyListIsMutable();
+          applyList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          applyListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public Builder addApplyList(
+          int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
+        if (applyListBuilder_ == null) {
+          ensureApplyListIsMutable();
+          applyList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          applyListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public Builder addAllApplyList(
+          java.lang.Iterable<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfo> values) {
+        if (applyListBuilder_ == null) {
+          ensureApplyListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, applyList_);
+          onChanged();
+        } else {
+          applyListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public Builder clearApplyList() {
+        if (applyListBuilder_ == null) {
+          applyList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          applyListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public Builder removeApplyList(int index) {
+        if (applyListBuilder_ == null) {
+          ensureApplyListIsMutable();
+          applyList_.remove(index);
+          onChanged();
+        } else {
+          applyListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder getApplyListBuilder(
+          int index) {
+        return internalGetApplyListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getApplyListOrBuilder(
+          int index) {
+        if (applyListBuilder_ == null) {
+          return applyList_.get(index);  } else {
+          return applyListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
+           getApplyListOrBuilderList() {
+        if (applyListBuilder_ != null) {
+          return applyListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(applyList_);
+        }
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addApplyListBuilder() {
+        return internalGetApplyListFieldBuilder().addBuilder(
+            org.gof.demo.worldsrv.msg.Msg.DFriendInfo.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addApplyListBuilder(
+          int index) {
+        return internalGetApplyListFieldBuilder().addBuilder(
+            index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 申请人列表
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo applyList = 2;</code>
+       */
+      public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder> 
+           getApplyListBuilderList() {
+        return internalGetApplyListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
+          internalGetApplyListFieldBuilder() {
+        if (applyListBuilder_ == null) {
+          applyListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder>(
+                  applyList_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          applyList_ = null;
+        }
+        return applyListBuilder_;
+      }
+
+      private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> blackList_ =
+        java.util.Collections.emptyList();
+      private void ensureBlackListIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          blackList_ = new java.util.ArrayList<org.gof.demo.worldsrv.msg.Msg.DFriendInfo>(blackList_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> blackListBuilder_;
+
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getBlackListList() {
+        if (blackListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(blackList_);
+        } else {
+          return blackListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public int getBlackListCount() {
+        if (blackListBuilder_ == null) {
+          return blackList_.size();
+        } else {
+          return blackListBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getBlackList(int index) {
+        if (blackListBuilder_ == null) {
+          return blackList_.get(index);
+        } else {
+          return blackListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public Builder setBlackList(
+          int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
+        if (blackListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlackListIsMutable();
+          blackList_.set(index, value);
+          onChanged();
+        } else {
+          blackListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public Builder setBlackList(
+          int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
+        if (blackListBuilder_ == null) {
+          ensureBlackListIsMutable();
+          blackList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          blackListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public Builder addBlackList(org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
+        if (blackListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlackListIsMutable();
+          blackList_.add(value);
+          onChanged();
+        } else {
+          blackListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public Builder addBlackList(
+          int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
+        if (blackListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlackListIsMutable();
+          blackList_.add(index, value);
+          onChanged();
+        } else {
+          blackListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public Builder addBlackList(
+          org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
+        if (blackListBuilder_ == null) {
+          ensureBlackListIsMutable();
+          blackList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          blackListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public Builder addBlackList(
+          int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
+        if (blackListBuilder_ == null) {
+          ensureBlackListIsMutable();
+          blackList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          blackListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public Builder addAllBlackList(
+          java.lang.Iterable<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfo> values) {
+        if (blackListBuilder_ == null) {
+          ensureBlackListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, blackList_);
+          onChanged();
+        } else {
+          blackListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public Builder clearBlackList() {
+        if (blackListBuilder_ == null) {
+          blackList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          blackListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public Builder removeBlackList(int index) {
+        if (blackListBuilder_ == null) {
+          ensureBlackListIsMutable();
+          blackList_.remove(index);
+          onChanged();
+        } else {
+          blackListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder getBlackListBuilder(
+          int index) {
+        return internalGetBlackListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getBlackListOrBuilder(
+          int index) {
+        if (blackListBuilder_ == null) {
+          return blackList_.get(index);  } else {
+          return blackListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
+           getBlackListOrBuilderList() {
+        if (blackListBuilder_ != null) {
+          return blackListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(blackList_);
+        }
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addBlackListBuilder() {
+        return internalGetBlackListFieldBuilder().addBuilder(
+            org.gof.demo.worldsrv.msg.Msg.DFriendInfo.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addBlackListBuilder(
+          int index) {
+        return internalGetBlackListFieldBuilder().addBuilder(
+            index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 黑名单
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo blackList = 3;</code>
+       */
+      public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder> 
+           getBlackListBuilderList() {
+        return internalGetBlackListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
+          internalGetBlackListFieldBuilder() {
+        if (blackListBuilder_ == null) {
+          blackListBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder>(
+                  blackList_,
+                  ((bitField0_ & 0x00000004) != 0),
+                  getParentForChildren(),
+                  isClean());
+          blackList_ = null;
+        }
+        return blackListBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:org.gof.demo.worldsrv.msg.SCFriendList)
@@ -257088,6 +259503,25 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
      * @return The result.
      */
     boolean getResult();
+
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return Whether the humanId field is set.
+     */
+    boolean hasHumanId();
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return The humanId.
+     */
+    long getHumanId();
   }
   /**
    * <pre>
@@ -257159,6 +259593,33 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return result_;
     }
 
+    public static final int HUMANID_FIELD_NUMBER = 2;
+    private long humanId_ = 0L;
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return Whether the humanId field is set.
+     */
+    @java.lang.Override
+    public boolean hasHumanId() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return The humanId.
+     */
+    @java.lang.Override
+    public long getHumanId() {
+      return humanId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -257176,6 +259637,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeBool(1, result_);
       }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(2, humanId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -257188,6 +259652,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, result_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, humanId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -257209,6 +259677,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (getResult()
             != other.getResult()) return false;
       }
+      if (hasHumanId() != other.hasHumanId()) return false;
+      if (hasHumanId()) {
+        if (getHumanId()
+            != other.getHumanId()) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -257224,6 +259697,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         hash = (37 * hash) + RESULT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getResult());
+      }
+      if (hasHumanId()) {
+        hash = (37 * hash) + HUMANID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getHumanId());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -257362,6 +259840,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         super.clear();
         bitField0_ = 0;
         result_ = false;
+        humanId_ = 0L;
         return this;
       }
 
@@ -257400,6 +259879,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
           result.result_ = result_;
           to_bitField0_ |= 0x00000001;
         }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.humanId_ = humanId_;
+          to_bitField0_ |= 0x00000002;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -257417,6 +259900,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (other == org.gof.demo.worldsrv.msg.Msg.SCRequestFriend.getDefaultInstance()) return this;
         if (other.hasResult()) {
           setResult(other.getResult());
+        }
+        if (other.hasHumanId()) {
+          setHumanId(other.getHumanId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -257449,6 +259935,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                humanId_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -257522,6 +260013,62 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
+      private long humanId_ ;
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return Whether the humanId field is set.
+       */
+      @java.lang.Override
+      public boolean hasHumanId() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return The humanId.
+       */
+      @java.lang.Override
+      public long getHumanId() {
+        return humanId_;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @param value The humanId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHumanId(long value) {
+
+        humanId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHumanId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        humanId_ = 0L;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:org.gof.demo.worldsrv.msg.SCRequestFriend)
     }
 
@@ -257578,15 +260125,33 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int64 humanId = 1;</code>
-     * @return Whether the humanId field is set.
+     * <pre>
+     * 申请人ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 1;</code>
+     * @return A list containing the humanIds.
      */
-    boolean hasHumanId();
+    java.util.List<java.lang.Long> getHumanIdsList();
     /**
-     * <code>required int64 humanId = 1;</code>
-     * @return The humanId.
+     * <pre>
+     * 申请人ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 1;</code>
+     * @return The count of humanIds.
      */
-    long getHumanId();
+    int getHumanIdsCount();
+    /**
+     * <pre>
+     * 申请人ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 1;</code>
+     * @param index The index of the element to return.
+     * @return The humanIds at the given index.
+     */
+    long getHumanIds(int index);
   }
   /**
    * <pre>
@@ -257615,6 +260180,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       super(builder);
     }
     private CSAcceptFriend() {
+      humanIds_ = emptyLongList();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -257630,24 +260196,45 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
               org.gof.demo.worldsrv.msg.Msg.CSAcceptFriend.class, org.gof.demo.worldsrv.msg.Msg.CSAcceptFriend.Builder.class);
     }
 
-    private int bitField0_;
-    public static final int HUMANID_FIELD_NUMBER = 1;
-    private long humanId_ = 0L;
+    public static final int HUMANIDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.LongList humanIds_ =
+        emptyLongList();
     /**
-     * <code>required int64 humanId = 1;</code>
-     * @return Whether the humanId field is set.
+     * <pre>
+     * 申请人ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 1;</code>
+     * @return A list containing the humanIds.
      */
     @java.lang.Override
-    public boolean hasHumanId() {
-      return ((bitField0_ & 0x00000001) != 0);
+    public java.util.List<java.lang.Long>
+        getHumanIdsList() {
+      return humanIds_;
     }
     /**
-     * <code>required int64 humanId = 1;</code>
-     * @return The humanId.
+     * <pre>
+     * 申请人ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 1;</code>
+     * @return The count of humanIds.
      */
-    @java.lang.Override
-    public long getHumanId() {
-      return humanId_;
+    public int getHumanIdsCount() {
+      return humanIds_.size();
+    }
+    /**
+     * <pre>
+     * 申请人ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 1;</code>
+     * @param index The index of the element to return.
+     * @return The humanIds at the given index.
+     */
+    public long getHumanIds(int index) {
+      return humanIds_.getLong(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -257657,10 +260244,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasHumanId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -257668,8 +260251,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt64(1, humanId_);
+      for (int i = 0; i < humanIds_.size(); i++) {
+        output.writeInt64(1, humanIds_.getLong(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -257680,9 +260263,14 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, humanId_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < humanIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(humanIds_.getLong(i));
+        }
+        size += dataSize;
+        size += 1 * getHumanIdsList().size();
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -257699,11 +260287,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.CSAcceptFriend other = (org.gof.demo.worldsrv.msg.Msg.CSAcceptFriend) obj;
 
-      if (hasHumanId() != other.hasHumanId()) return false;
-      if (hasHumanId()) {
-        if (getHumanId()
-            != other.getHumanId()) return false;
-      }
+      if (!getHumanIdsList()
+          .equals(other.getHumanIdsList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -257715,10 +260300,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasHumanId()) {
-        hash = (37 * hash) + HUMANID_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getHumanId());
+      if (getHumanIdsCount() > 0) {
+        hash = (37 * hash) + HUMANIDS_FIELD_NUMBER;
+        hash = (53 * hash) + getHumanIdsList().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -257856,7 +260440,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        humanId_ = 0L;
+        humanIds_ = emptyLongList();
         return this;
       }
 
@@ -257890,12 +260474,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial0(org.gof.demo.worldsrv.msg.Msg.CSAcceptFriend result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.humanId_ = humanId_;
-          to_bitField0_ |= 0x00000001;
+          humanIds_.makeImmutable();
+          result.humanIds_ = humanIds_;
         }
-        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -257910,8 +260492,16 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.CSAcceptFriend other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.CSAcceptFriend.getDefaultInstance()) return this;
-        if (other.hasHumanId()) {
-          setHumanId(other.getHumanId());
+        if (!other.humanIds_.isEmpty()) {
+          if (humanIds_.isEmpty()) {
+            humanIds_ = other.humanIds_;
+            humanIds_.makeImmutable();
+            bitField0_ |= 0x00000001;
+          } else {
+            ensureHumanIdsIsMutable();
+            humanIds_.addAll(other.humanIds_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -257920,9 +260510,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasHumanId()) {
-          return false;
-        }
         return true;
       }
 
@@ -257943,10 +260530,21 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 done = true;
                 break;
               case 8: {
-                humanId_ = input.readInt64();
-                bitField0_ |= 0x00000001;
+                long v = input.readInt64();
+                ensureHumanIdsIsMutable();
+                humanIds_.addLong(v);
                 break;
               } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureHumanIdsIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  humanIds_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -257964,42 +260562,114 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private long humanId_ ;
-      /**
-       * <code>required int64 humanId = 1;</code>
-       * @return Whether the humanId field is set.
-       */
-      @java.lang.Override
-      public boolean hasHumanId() {
-        return ((bitField0_ & 0x00000001) != 0);
+      private com.google.protobuf.Internal.LongList humanIds_ = emptyLongList();
+      private void ensureHumanIdsIsMutable() {
+        if (!humanIds_.isModifiable()) {
+          humanIds_ = makeMutableCopy(humanIds_);
+        }
+        bitField0_ |= 0x00000001;
       }
       /**
-       * <code>required int64 humanId = 1;</code>
-       * @return The humanId.
+       * <pre>
+       * 申请人ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 1;</code>
+       * @return A list containing the humanIds.
        */
-      @java.lang.Override
-      public long getHumanId() {
-        return humanId_;
+      public java.util.List<java.lang.Long>
+          getHumanIdsList() {
+        humanIds_.makeImmutable();
+        return humanIds_;
       }
       /**
-       * <code>required int64 humanId = 1;</code>
-       * @param value The humanId to set.
+       * <pre>
+       * 申请人ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 1;</code>
+       * @return The count of humanIds.
+       */
+      public int getHumanIdsCount() {
+        return humanIds_.size();
+      }
+      /**
+       * <pre>
+       * 申请人ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 1;</code>
+       * @param index The index of the element to return.
+       * @return The humanIds at the given index.
+       */
+      public long getHumanIds(int index) {
+        return humanIds_.getLong(index);
+      }
+      /**
+       * <pre>
+       * 申请人ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The humanIds to set.
        * @return This builder for chaining.
        */
-      public Builder setHumanId(long value) {
+      public Builder setHumanIds(
+          int index, long value) {
 
-        humanId_ = value;
+        ensureHumanIdsIsMutable();
+        humanIds_.setLong(index, value);
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>required int64 humanId = 1;</code>
+       * <pre>
+       * 申请人ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 1;</code>
+       * @param value The humanIds to add.
        * @return This builder for chaining.
        */
-      public Builder clearHumanId() {
+      public Builder addHumanIds(long value) {
+
+        ensureHumanIdsIsMutable();
+        humanIds_.addLong(value);
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 1;</code>
+       * @param values The humanIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllHumanIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureHumanIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, humanIds_);
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 申请人ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHumanIds() {
+        humanIds_ = emptyLongList();
         bitField0_ = (bitField0_ & ~0x00000001);
-        humanId_ = 0L;
         onChanged();
         return this;
       }
@@ -258077,6 +260747,35 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
      * @return The result.
      */
     boolean getResult();
+
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 2;</code>
+     * @return A list containing the humanIds.
+     */
+    java.util.List<java.lang.Long> getHumanIdsList();
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 2;</code>
+     * @return The count of humanIds.
+     */
+    int getHumanIdsCount();
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 2;</code>
+     * @param index The index of the element to return.
+     * @return The humanIds at the given index.
+     */
+    long getHumanIds(int index);
   }
   /**
    * <pre>
@@ -258105,6 +260804,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       super(builder);
     }
     private SCAcceptFriend() {
+      humanIds_ = emptyLongList();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -258148,6 +260848,47 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return result_;
     }
 
+    public static final int HUMANIDS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.LongList humanIds_ =
+        emptyLongList();
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 2;</code>
+     * @return A list containing the humanIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getHumanIdsList() {
+      return humanIds_;
+    }
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 2;</code>
+     * @return The count of humanIds.
+     */
+    public int getHumanIdsCount() {
+      return humanIds_.size();
+    }
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>repeated int64 humanIds = 2;</code>
+     * @param index The index of the element to return.
+     * @return The humanIds at the given index.
+     */
+    public long getHumanIds(int index) {
+      return humanIds_.getLong(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -258165,6 +260906,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeBool(1, result_);
       }
+      for (int i = 0; i < humanIds_.size(); i++) {
+        output.writeInt64(2, humanIds_.getLong(i));
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -258177,6 +260921,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, result_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < humanIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(humanIds_.getLong(i));
+        }
+        size += dataSize;
+        size += 1 * getHumanIdsList().size();
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -258198,6 +260951,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (getResult()
             != other.getResult()) return false;
       }
+      if (!getHumanIdsList()
+          .equals(other.getHumanIdsList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -258213,6 +260968,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         hash = (37 * hash) + RESULT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getResult());
+      }
+      if (getHumanIdsCount() > 0) {
+        hash = (37 * hash) + HUMANIDS_FIELD_NUMBER;
+        hash = (53 * hash) + getHumanIdsList().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -258351,6 +261110,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         super.clear();
         bitField0_ = 0;
         result_ = false;
+        humanIds_ = emptyLongList();
         return this;
       }
 
@@ -258389,6 +261149,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
           result.result_ = result_;
           to_bitField0_ |= 0x00000001;
         }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          humanIds_.makeImmutable();
+          result.humanIds_ = humanIds_;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -258406,6 +261170,17 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (other == org.gof.demo.worldsrv.msg.Msg.SCAcceptFriend.getDefaultInstance()) return this;
         if (other.hasResult()) {
           setResult(other.getResult());
+        }
+        if (!other.humanIds_.isEmpty()) {
+          if (humanIds_.isEmpty()) {
+            humanIds_ = other.humanIds_;
+            humanIds_.makeImmutable();
+            bitField0_ |= 0x00000002;
+          } else {
+            ensureHumanIdsIsMutable();
+            humanIds_.addAll(other.humanIds_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -258438,6 +261213,22 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                long v = input.readInt64();
+                ensureHumanIdsIsMutable();
+                humanIds_.addLong(v);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureHumanIdsIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  humanIds_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -258507,6 +261298,118 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clearResult() {
         bitField0_ = (bitField0_ & ~0x00000001);
         result_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList humanIds_ = emptyLongList();
+      private void ensureHumanIdsIsMutable() {
+        if (!humanIds_.isModifiable()) {
+          humanIds_ = makeMutableCopy(humanIds_);
+        }
+        bitField0_ |= 0x00000002;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 2;</code>
+       * @return A list containing the humanIds.
+       */
+      public java.util.List<java.lang.Long>
+          getHumanIdsList() {
+        humanIds_.makeImmutable();
+        return humanIds_;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 2;</code>
+       * @return The count of humanIds.
+       */
+      public int getHumanIdsCount() {
+        return humanIds_.size();
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 2;</code>
+       * @param index The index of the element to return.
+       * @return The humanIds at the given index.
+       */
+      public long getHumanIds(int index) {
+        return humanIds_.getLong(index);
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The humanIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHumanIds(
+          int index, long value) {
+
+        ensureHumanIdsIsMutable();
+        humanIds_.setLong(index, value);
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 2;</code>
+       * @param value The humanIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addHumanIds(long value) {
+
+        ensureHumanIdsIsMutable();
+        humanIds_.addLong(value);
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 2;</code>
+       * @param values The humanIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllHumanIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureHumanIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, humanIds_);
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>repeated int64 humanIds = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHumanIds() {
+        humanIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -259066,6 +261969,25 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
      * @return The result.
      */
     boolean getResult();
+
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return Whether the humanId field is set.
+     */
+    boolean hasHumanId();
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return The humanId.
+     */
+    long getHumanId();
   }
   /**
    * <pre>
@@ -259137,6 +262059,33 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       return result_;
     }
 
+    public static final int HUMANID_FIELD_NUMBER = 2;
+    private long humanId_ = 0L;
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return Whether the humanId field is set.
+     */
+    @java.lang.Override
+    public boolean hasHumanId() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return The humanId.
+     */
+    @java.lang.Override
+    public long getHumanId() {
+      return humanId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -259154,6 +262103,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeBool(1, result_);
       }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(2, humanId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -259166,6 +262118,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, result_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, humanId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -259187,6 +262143,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (getResult()
             != other.getResult()) return false;
       }
+      if (hasHumanId() != other.hasHumanId()) return false;
+      if (hasHumanId()) {
+        if (getHumanId()
+            != other.getHumanId()) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -259202,6 +262163,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         hash = (37 * hash) + RESULT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getResult());
+      }
+      if (hasHumanId()) {
+        hash = (37 * hash) + HUMANID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getHumanId());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -259340,6 +262306,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         super.clear();
         bitField0_ = 0;
         result_ = false;
+        humanId_ = 0L;
         return this;
       }
 
@@ -259378,6 +262345,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
           result.result_ = result_;
           to_bitField0_ |= 0x00000001;
         }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.humanId_ = humanId_;
+          to_bitField0_ |= 0x00000002;
+        }
         result.bitField0_ |= to_bitField0_;
       }
 
@@ -259395,6 +262366,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         if (other == org.gof.demo.worldsrv.msg.Msg.SCRefuseFriend.getDefaultInstance()) return this;
         if (other.hasResult()) {
           setResult(other.getResult());
+        }
+        if (other.hasHumanId()) {
+          setHumanId(other.getHumanId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -259427,6 +262401,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                humanId_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -259496,6 +262475,62 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clearResult() {
         bitField0_ = (bitField0_ & ~0x00000001);
         result_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long humanId_ ;
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return Whether the humanId field is set.
+       */
+      @java.lang.Override
+      public boolean hasHumanId() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return The humanId.
+       */
+      @java.lang.Override
+      public long getHumanId() {
+        return humanId_;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @param value The humanId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHumanId(long value) {
+
+        humanId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHumanId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        humanId_ = 0L;
         onChanged();
         return this;
       }
@@ -259921,27 +262956,47 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> 
-        getFriendsList();
+        getInfosList();
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
-    org.gof.demo.worldsrv.msg.Msg.DFriendInfo getFriends(int index);
+    org.gof.demo.worldsrv.msg.Msg.DFriendInfo getInfos(int index);
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
-    int getFriendsCount();
+    int getInfosCount();
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
-        getFriendsOrBuilderList();
+        getInfosOrBuilderList();
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
-    org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getFriendsOrBuilder(
+    org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getInfosOrBuilder(
         int index);
   }
   /**
@@ -259971,7 +263026,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       super(builder);
     }
     private SCRecommendFriend() {
-      friends_ = java.util.Collections.emptyList();
+      infos_ = java.util.Collections.emptyList();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -259987,45 +263042,65 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
               org.gof.demo.worldsrv.msg.Msg.SCRecommendFriend.class, org.gof.demo.worldsrv.msg.Msg.SCRecommendFriend.Builder.class);
     }
 
-    public static final int FRIENDS_FIELD_NUMBER = 1;
+    public static final int INFOS_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> friends_;
+    private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> infos_;
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getFriendsList() {
-      return friends_;
+    public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getInfosList() {
+      return infos_;
     }
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     @java.lang.Override
     public java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
-        getFriendsOrBuilderList() {
-      return friends_;
+        getInfosOrBuilderList() {
+      return infos_;
     }
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     @java.lang.Override
-    public int getFriendsCount() {
-      return friends_.size();
+    public int getInfosCount() {
+      return infos_.size();
     }
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     @java.lang.Override
-    public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getFriends(int index) {
-      return friends_.get(index);
+    public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getInfos(int index) {
+      return infos_.get(index);
     }
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     @java.lang.Override
-    public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getFriendsOrBuilder(
+    public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getInfosOrBuilder(
         int index) {
-      return friends_.get(index);
+      return infos_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -260042,8 +263117,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < friends_.size(); i++) {
-        output.writeMessage(1, friends_.get(i));
+      for (int i = 0; i < infos_.size(); i++) {
+        output.writeMessage(1, infos_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -260054,9 +263129,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < friends_.size(); i++) {
+      for (int i = 0; i < infos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, friends_.get(i));
+          .computeMessageSize(1, infos_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -260073,8 +263148,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.SCRecommendFriend other = (org.gof.demo.worldsrv.msg.Msg.SCRecommendFriend) obj;
 
-      if (!getFriendsList()
-          .equals(other.getFriendsList())) return false;
+      if (!getInfosList()
+          .equals(other.getInfosList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -260086,9 +263161,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getFriendsCount() > 0) {
-        hash = (37 * hash) + FRIENDS_FIELD_NUMBER;
-        hash = (53 * hash) + getFriendsList().hashCode();
+      if (getInfosCount() > 0) {
+        hash = (37 * hash) + INFOS_FIELD_NUMBER;
+        hash = (53 * hash) + getInfosList().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -260226,11 +263301,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        if (friendsBuilder_ == null) {
-          friends_ = java.util.Collections.emptyList();
+        if (infosBuilder_ == null) {
+          infos_ = java.util.Collections.emptyList();
         } else {
-          friends_ = null;
-          friendsBuilder_.clear();
+          infos_ = null;
+          infosBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -260266,14 +263341,14 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
 
       private void buildPartialRepeatedFields(org.gof.demo.worldsrv.msg.Msg.SCRecommendFriend result) {
-        if (friendsBuilder_ == null) {
+        if (infosBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
-            friends_ = java.util.Collections.unmodifiableList(friends_);
+            infos_ = java.util.Collections.unmodifiableList(infos_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.friends_ = friends_;
+          result.infos_ = infos_;
         } else {
-          result.friends_ = friendsBuilder_.build();
+          result.infos_ = infosBuilder_.build();
         }
       }
 
@@ -260293,29 +263368,29 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.SCRecommendFriend other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.SCRecommendFriend.getDefaultInstance()) return this;
-        if (friendsBuilder_ == null) {
-          if (!other.friends_.isEmpty()) {
-            if (friends_.isEmpty()) {
-              friends_ = other.friends_;
+        if (infosBuilder_ == null) {
+          if (!other.infos_.isEmpty()) {
+            if (infos_.isEmpty()) {
+              infos_ = other.infos_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureFriendsIsMutable();
-              friends_.addAll(other.friends_);
+              ensureInfosIsMutable();
+              infos_.addAll(other.infos_);
             }
             onChanged();
           }
         } else {
-          if (!other.friends_.isEmpty()) {
-            if (friendsBuilder_.isEmpty()) {
-              friendsBuilder_.dispose();
-              friendsBuilder_ = null;
-              friends_ = other.friends_;
+          if (!other.infos_.isEmpty()) {
+            if (infosBuilder_.isEmpty()) {
+              infosBuilder_.dispose();
+              infosBuilder_ = null;
+              infos_ = other.infos_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              friendsBuilder_ = 
+              infosBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   internalGetFriendsFieldBuilder() : null;
+                   internalGetInfosFieldBuilder() : null;
             } else {
-              friendsBuilder_.addAllMessages(other.friends_);
+              infosBuilder_.addAllMessages(other.infos_);
             }
           }
         }
@@ -260350,11 +263425,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                     input.readMessage(
                         org.gof.demo.worldsrv.msg.Msg.DFriendInfo.parser(),
                         extensionRegistry);
-                if (friendsBuilder_ == null) {
-                  ensureFriendsIsMutable();
-                  friends_.add(m);
+                if (infosBuilder_ == null) {
+                  ensureInfosIsMutable();
+                  infos_.add(m);
                 } else {
-                  friendsBuilder_.addMessage(m);
+                  infosBuilder_.addMessage(m);
                 }
                 break;
               } // case 10
@@ -260375,244 +263450,316 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> friends_ =
+      private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> infos_ =
         java.util.Collections.emptyList();
-      private void ensureFriendsIsMutable() {
+      private void ensureInfosIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          friends_ = new java.util.ArrayList<org.gof.demo.worldsrv.msg.Msg.DFriendInfo>(friends_);
+          infos_ = new java.util.ArrayList<org.gof.demo.worldsrv.msg.Msg.DFriendInfo>(infos_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> friendsBuilder_;
+          org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> infosBuilder_;
 
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getFriendsList() {
-        if (friendsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(friends_);
+      public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getInfosList() {
+        if (infosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(infos_);
         } else {
-          return friendsBuilder_.getMessageList();
+          return infosBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public int getFriendsCount() {
-        if (friendsBuilder_ == null) {
-          return friends_.size();
+      public int getInfosCount() {
+        if (infosBuilder_ == null) {
+          return infos_.size();
         } else {
-          return friendsBuilder_.getCount();
+          return infosBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getFriends(int index) {
-        if (friendsBuilder_ == null) {
-          return friends_.get(index);
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getInfos(int index) {
+        if (infosBuilder_ == null) {
+          return infos_.get(index);
         } else {
-          return friendsBuilder_.getMessage(index);
+          return infosBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder setFriends(
+      public Builder setInfos(
           int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
-        if (friendsBuilder_ == null) {
+        if (infosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFriendsIsMutable();
-          friends_.set(index, value);
+          ensureInfosIsMutable();
+          infos_.set(index, value);
           onChanged();
         } else {
-          friendsBuilder_.setMessage(index, value);
+          infosBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder setFriends(
+      public Builder setInfos(
           int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.set(index, builderForValue.build());
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.set(index, builderForValue.build());
           onChanged();
         } else {
-          friendsBuilder_.setMessage(index, builderForValue.build());
+          infosBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder addFriends(org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
-        if (friendsBuilder_ == null) {
+      public Builder addInfos(org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
+        if (infosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFriendsIsMutable();
-          friends_.add(value);
+          ensureInfosIsMutable();
+          infos_.add(value);
           onChanged();
         } else {
-          friendsBuilder_.addMessage(value);
+          infosBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder addFriends(
+      public Builder addInfos(
           int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
-        if (friendsBuilder_ == null) {
+        if (infosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFriendsIsMutable();
-          friends_.add(index, value);
+          ensureInfosIsMutable();
+          infos_.add(index, value);
           onChanged();
         } else {
-          friendsBuilder_.addMessage(index, value);
+          infosBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder addFriends(
+      public Builder addInfos(
           org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.add(builderForValue.build());
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.add(builderForValue.build());
           onChanged();
         } else {
-          friendsBuilder_.addMessage(builderForValue.build());
+          infosBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder addFriends(
+      public Builder addInfos(
           int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.add(index, builderForValue.build());
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.add(index, builderForValue.build());
           onChanged();
         } else {
-          friendsBuilder_.addMessage(index, builderForValue.build());
+          infosBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder addAllFriends(
+      public Builder addAllInfos(
           java.lang.Iterable<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfo> values) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, friends_);
+              values, infos_);
           onChanged();
         } else {
-          friendsBuilder_.addAllMessages(values);
+          infosBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder clearFriends() {
-        if (friendsBuilder_ == null) {
-          friends_ = java.util.Collections.emptyList();
+      public Builder clearInfos() {
+        if (infosBuilder_ == null) {
+          infos_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          friendsBuilder_.clear();
+          infosBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder removeFriends(int index) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.remove(index);
+      public Builder removeInfos(int index) {
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.remove(index);
           onChanged();
         } else {
-          friendsBuilder_.remove(index);
+          infosBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder getFriendsBuilder(
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder getInfosBuilder(
           int index) {
-        return internalGetFriendsFieldBuilder().getBuilder(index);
+        return internalGetInfosFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getFriendsOrBuilder(
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getInfosOrBuilder(
           int index) {
-        if (friendsBuilder_ == null) {
-          return friends_.get(index);  } else {
-          return friendsBuilder_.getMessageOrBuilder(index);
+        if (infosBuilder_ == null) {
+          return infos_.get(index);  } else {
+          return infosBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
       public java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
-           getFriendsOrBuilderList() {
-        if (friendsBuilder_ != null) {
-          return friendsBuilder_.getMessageOrBuilderList();
+           getInfosOrBuilderList() {
+        if (infosBuilder_ != null) {
+          return infosBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(friends_);
+          return java.util.Collections.unmodifiableList(infos_);
         }
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addFriendsBuilder() {
-        return internalGetFriendsFieldBuilder().addBuilder(
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addInfosBuilder() {
+        return internalGetInfosFieldBuilder().addBuilder(
             org.gof.demo.worldsrv.msg.Msg.DFriendInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addFriendsBuilder(
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addInfosBuilder(
           int index) {
-        return internalGetFriendsFieldBuilder().addBuilder(
+        return internalGetInfosFieldBuilder().addBuilder(
             index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
       public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder> 
-           getFriendsBuilderList() {
-        return internalGetFriendsFieldBuilder().getBuilderList();
+           getInfosBuilderList() {
+        return internalGetInfosFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
           org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
-          internalGetFriendsFieldBuilder() {
-        if (friendsBuilder_ == null) {
-          friendsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          internalGetInfosFieldBuilder() {
+        if (infosBuilder_ == null) {
+          infosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder>(
-                  friends_,
+                  infos_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
-          friends_ = null;
+          infos_ = null;
         }
-        return friendsBuilder_;
+        return infosBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:org.gof.demo.worldsrv.msg.SCRecommendFriend)
@@ -260671,21 +263818,23 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required string name = 1;</code>
-     * @return Whether the name field is set.
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 1;</code>
+     * @return Whether the humanId field is set.
      */
-    boolean hasName();
+    boolean hasHumanId();
     /**
-     * <code>required string name = 1;</code>
-     * @return The name.
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 1;</code>
+     * @return The humanId.
      */
-    java.lang.String getName();
-    /**
-     * <code>required string name = 1;</code>
-     * @return The bytes for name.
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
+    long getHumanId();
   }
   /**
    * <pre>
@@ -260714,7 +263863,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       super(builder);
     }
     private CSSearchFriend() {
-      name_ = "";
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -260731,53 +263879,31 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
 
     private int bitField0_;
-    public static final int NAME_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object name_ = "";
+    public static final int HUMANID_FIELD_NUMBER = 1;
+    private long humanId_ = 0L;
     /**
-     * <code>required string name = 1;</code>
-     * @return Whether the name field is set.
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 1;</code>
+     * @return Whether the humanId field is set.
      */
     @java.lang.Override
-    public boolean hasName() {
+    public boolean hasHumanId() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required string name = 1;</code>
-     * @return The name.
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 1;</code>
+     * @return The humanId.
      */
     @java.lang.Override
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          name_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string name = 1;</code>
-     * @return The bytes for name.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getHumanId() {
+      return humanId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -260787,10 +263913,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasName()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -260799,7 +263921,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, name_);
+        output.writeInt64(1, humanId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -260811,7 +263933,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, name_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, humanId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -260828,10 +263951,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.CSSearchFriend other = (org.gof.demo.worldsrv.msg.Msg.CSSearchFriend) obj;
 
-      if (hasName() != other.hasName()) return false;
-      if (hasName()) {
-        if (!getName()
-            .equals(other.getName())) return false;
+      if (hasHumanId() != other.hasHumanId()) return false;
+      if (hasHumanId()) {
+        if (getHumanId()
+            != other.getHumanId()) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -260844,9 +263967,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasName()) {
-        hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getName().hashCode();
+      if (hasHumanId()) {
+        hash = (37 * hash) + HUMANID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getHumanId());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -260984,7 +264108,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        name_ = "";
+        humanId_ = 0L;
         return this;
       }
 
@@ -261020,7 +264144,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.name_ = name_;
+          result.humanId_ = humanId_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
@@ -261038,10 +264162,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.CSSearchFriend other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.CSSearchFriend.getDefaultInstance()) return this;
-        if (other.hasName()) {
-          name_ = other.name_;
-          bitField0_ |= 0x00000001;
-          onChanged();
+        if (other.hasHumanId()) {
+          setHumanId(other.getHumanId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -261050,9 +264172,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasName()) {
-          return false;
-        }
         return true;
       }
 
@@ -261072,11 +264191,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
               case 0:
                 done = true;
                 break;
-              case 10: {
-                name_ = input.readBytes();
+              case 8: {
+                humanId_ = input.readInt64();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 10
+              } // case 8
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -261094,82 +264213,58 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      private long humanId_ ;
       /**
-       * <code>required string name = 1;</code>
-       * @return Whether the name field is set.
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 1;</code>
+       * @return Whether the humanId field is set.
        */
-      public boolean hasName() {
+      @java.lang.Override
+      public boolean hasHumanId() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required string name = 1;</code>
-       * @return The name.
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 1;</code>
+       * @return The humanId.
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public long getHumanId() {
+        return humanId_;
       }
       /**
-       * <code>required string name = 1;</code>
-       * @return The bytes for name.
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string name = 1;</code>
-       * @param value The name to set.
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 1;</code>
+       * @param value The humanId to set.
        * @return This builder for chaining.
        */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        name_ = value;
+      public Builder setHumanId(long value) {
+
+        humanId_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>required string name = 1;</code>
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearName() {
-        name_ = getDefaultInstance().getName();
+      public Builder clearHumanId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string name = 1;</code>
-       * @param value The bytes for name to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        name_ = value;
-        bitField0_ |= 0x00000001;
+        humanId_ = 0L;
         onChanged();
         return this;
       }
@@ -261230,27 +264325,47 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> 
-        getFriendsList();
+        getInfosList();
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
-    org.gof.demo.worldsrv.msg.Msg.DFriendInfo getFriends(int index);
+    org.gof.demo.worldsrv.msg.Msg.DFriendInfo getInfos(int index);
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
-    int getFriendsCount();
+    int getInfosCount();
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
-        getFriendsOrBuilderList();
+        getInfosOrBuilderList();
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
-    org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getFriendsOrBuilder(
+    org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getInfosOrBuilder(
         int index);
   }
   /**
@@ -261280,7 +264395,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       super(builder);
     }
     private SCSearchFriend() {
-      friends_ = java.util.Collections.emptyList();
+      infos_ = java.util.Collections.emptyList();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -261296,45 +264411,65 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
               org.gof.demo.worldsrv.msg.Msg.SCSearchFriend.class, org.gof.demo.worldsrv.msg.Msg.SCSearchFriend.Builder.class);
     }
 
-    public static final int FRIENDS_FIELD_NUMBER = 1;
+    public static final int INFOS_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> friends_;
+    private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> infos_;
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getFriendsList() {
-      return friends_;
+    public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getInfosList() {
+      return infos_;
     }
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     @java.lang.Override
     public java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
-        getFriendsOrBuilderList() {
-      return friends_;
+        getInfosOrBuilderList() {
+      return infos_;
     }
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     @java.lang.Override
-    public int getFriendsCount() {
-      return friends_.size();
+    public int getInfosCount() {
+      return infos_.size();
     }
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     @java.lang.Override
-    public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getFriends(int index) {
-      return friends_.get(index);
+    public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getInfos(int index) {
+      return infos_.get(index);
     }
     /**
-     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+     * <pre>
+     * 好友信息
+     * </pre>
+     *
+     * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
      */
     @java.lang.Override
-    public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getFriendsOrBuilder(
+    public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getInfosOrBuilder(
         int index) {
-      return friends_.get(index);
+      return infos_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -261351,8 +264486,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < friends_.size(); i++) {
-        output.writeMessage(1, friends_.get(i));
+      for (int i = 0; i < infos_.size(); i++) {
+        output.writeMessage(1, infos_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -261363,9 +264498,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < friends_.size(); i++) {
+      for (int i = 0; i < infos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, friends_.get(i));
+          .computeMessageSize(1, infos_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -261382,8 +264517,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.SCSearchFriend other = (org.gof.demo.worldsrv.msg.Msg.SCSearchFriend) obj;
 
-      if (!getFriendsList()
-          .equals(other.getFriendsList())) return false;
+      if (!getInfosList()
+          .equals(other.getInfosList())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -261395,9 +264530,9 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getFriendsCount() > 0) {
-        hash = (37 * hash) + FRIENDS_FIELD_NUMBER;
-        hash = (53 * hash) + getFriendsList().hashCode();
+      if (getInfosCount() > 0) {
+        hash = (37 * hash) + INFOS_FIELD_NUMBER;
+        hash = (53 * hash) + getInfosList().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -261535,11 +264670,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        if (friendsBuilder_ == null) {
-          friends_ = java.util.Collections.emptyList();
+        if (infosBuilder_ == null) {
+          infos_ = java.util.Collections.emptyList();
         } else {
-          friends_ = null;
-          friendsBuilder_.clear();
+          infos_ = null;
+          infosBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -261575,14 +264710,14 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
 
       private void buildPartialRepeatedFields(org.gof.demo.worldsrv.msg.Msg.SCSearchFriend result) {
-        if (friendsBuilder_ == null) {
+        if (infosBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
-            friends_ = java.util.Collections.unmodifiableList(friends_);
+            infos_ = java.util.Collections.unmodifiableList(infos_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.friends_ = friends_;
+          result.infos_ = infos_;
         } else {
-          result.friends_ = friendsBuilder_.build();
+          result.infos_ = infosBuilder_.build();
         }
       }
 
@@ -261602,29 +264737,29 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.SCSearchFriend other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.SCSearchFriend.getDefaultInstance()) return this;
-        if (friendsBuilder_ == null) {
-          if (!other.friends_.isEmpty()) {
-            if (friends_.isEmpty()) {
-              friends_ = other.friends_;
+        if (infosBuilder_ == null) {
+          if (!other.infos_.isEmpty()) {
+            if (infos_.isEmpty()) {
+              infos_ = other.infos_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureFriendsIsMutable();
-              friends_.addAll(other.friends_);
+              ensureInfosIsMutable();
+              infos_.addAll(other.infos_);
             }
             onChanged();
           }
         } else {
-          if (!other.friends_.isEmpty()) {
-            if (friendsBuilder_.isEmpty()) {
-              friendsBuilder_.dispose();
-              friendsBuilder_ = null;
-              friends_ = other.friends_;
+          if (!other.infos_.isEmpty()) {
+            if (infosBuilder_.isEmpty()) {
+              infosBuilder_.dispose();
+              infosBuilder_ = null;
+              infos_ = other.infos_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              friendsBuilder_ = 
+              infosBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   internalGetFriendsFieldBuilder() : null;
+                   internalGetInfosFieldBuilder() : null;
             } else {
-              friendsBuilder_.addAllMessages(other.friends_);
+              infosBuilder_.addAllMessages(other.infos_);
             }
           }
         }
@@ -261659,11 +264794,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                     input.readMessage(
                         org.gof.demo.worldsrv.msg.Msg.DFriendInfo.parser(),
                         extensionRegistry);
-                if (friendsBuilder_ == null) {
-                  ensureFriendsIsMutable();
-                  friends_.add(m);
+                if (infosBuilder_ == null) {
+                  ensureInfosIsMutable();
+                  infos_.add(m);
                 } else {
-                  friendsBuilder_.addMessage(m);
+                  infosBuilder_.addMessage(m);
                 }
                 break;
               } // case 10
@@ -261684,244 +264819,316 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> friends_ =
+      private java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> infos_ =
         java.util.Collections.emptyList();
-      private void ensureFriendsIsMutable() {
+      private void ensureInfosIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          friends_ = new java.util.ArrayList<org.gof.demo.worldsrv.msg.Msg.DFriendInfo>(friends_);
+          infos_ = new java.util.ArrayList<org.gof.demo.worldsrv.msg.Msg.DFriendInfo>(infos_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> friendsBuilder_;
+          org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> infosBuilder_;
 
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getFriendsList() {
-        if (friendsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(friends_);
+      public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo> getInfosList() {
+        if (infosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(infos_);
         } else {
-          return friendsBuilder_.getMessageList();
+          return infosBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public int getFriendsCount() {
-        if (friendsBuilder_ == null) {
-          return friends_.size();
+      public int getInfosCount() {
+        if (infosBuilder_ == null) {
+          return infos_.size();
         } else {
-          return friendsBuilder_.getCount();
+          return infosBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getFriends(int index) {
-        if (friendsBuilder_ == null) {
-          return friends_.get(index);
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo getInfos(int index) {
+        if (infosBuilder_ == null) {
+          return infos_.get(index);
         } else {
-          return friendsBuilder_.getMessage(index);
+          return infosBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder setFriends(
+      public Builder setInfos(
           int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
-        if (friendsBuilder_ == null) {
+        if (infosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFriendsIsMutable();
-          friends_.set(index, value);
+          ensureInfosIsMutable();
+          infos_.set(index, value);
           onChanged();
         } else {
-          friendsBuilder_.setMessage(index, value);
+          infosBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder setFriends(
+      public Builder setInfos(
           int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.set(index, builderForValue.build());
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.set(index, builderForValue.build());
           onChanged();
         } else {
-          friendsBuilder_.setMessage(index, builderForValue.build());
+          infosBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder addFriends(org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
-        if (friendsBuilder_ == null) {
+      public Builder addInfos(org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
+        if (infosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFriendsIsMutable();
-          friends_.add(value);
+          ensureInfosIsMutable();
+          infos_.add(value);
           onChanged();
         } else {
-          friendsBuilder_.addMessage(value);
+          infosBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder addFriends(
+      public Builder addInfos(
           int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo value) {
-        if (friendsBuilder_ == null) {
+        if (infosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureFriendsIsMutable();
-          friends_.add(index, value);
+          ensureInfosIsMutable();
+          infos_.add(index, value);
           onChanged();
         } else {
-          friendsBuilder_.addMessage(index, value);
+          infosBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder addFriends(
+      public Builder addInfos(
           org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.add(builderForValue.build());
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.add(builderForValue.build());
           onChanged();
         } else {
-          friendsBuilder_.addMessage(builderForValue.build());
+          infosBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder addFriends(
+      public Builder addInfos(
           int index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder builderForValue) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.add(index, builderForValue.build());
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.add(index, builderForValue.build());
           onChanged();
         } else {
-          friendsBuilder_.addMessage(index, builderForValue.build());
+          infosBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder addAllFriends(
+      public Builder addAllInfos(
           java.lang.Iterable<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfo> values) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, friends_);
+              values, infos_);
           onChanged();
         } else {
-          friendsBuilder_.addAllMessages(values);
+          infosBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder clearFriends() {
-        if (friendsBuilder_ == null) {
-          friends_ = java.util.Collections.emptyList();
+      public Builder clearInfos() {
+        if (infosBuilder_ == null) {
+          infos_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          friendsBuilder_.clear();
+          infosBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public Builder removeFriends(int index) {
-        if (friendsBuilder_ == null) {
-          ensureFriendsIsMutable();
-          friends_.remove(index);
+      public Builder removeInfos(int index) {
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.remove(index);
           onChanged();
         } else {
-          friendsBuilder_.remove(index);
+          infosBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder getFriendsBuilder(
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder getInfosBuilder(
           int index) {
-        return internalGetFriendsFieldBuilder().getBuilder(index);
+        return internalGetInfosFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getFriendsOrBuilder(
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder getInfosOrBuilder(
           int index) {
-        if (friendsBuilder_ == null) {
-          return friends_.get(index);  } else {
-          return friendsBuilder_.getMessageOrBuilder(index);
+        if (infosBuilder_ == null) {
+          return infos_.get(index);  } else {
+          return infosBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
       public java.util.List<? extends org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
-           getFriendsOrBuilderList() {
-        if (friendsBuilder_ != null) {
-          return friendsBuilder_.getMessageOrBuilderList();
+           getInfosOrBuilderList() {
+        if (infosBuilder_ != null) {
+          return infosBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(friends_);
+          return java.util.Collections.unmodifiableList(infos_);
         }
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addFriendsBuilder() {
-        return internalGetFriendsFieldBuilder().addBuilder(
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addInfosBuilder() {
+        return internalGetInfosFieldBuilder().addBuilder(
             org.gof.demo.worldsrv.msg.Msg.DFriendInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
-      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addFriendsBuilder(
+      public org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder addInfosBuilder(
           int index) {
-        return internalGetFriendsFieldBuilder().addBuilder(
+        return internalGetInfosFieldBuilder().addBuilder(
             index, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo friends = 1;</code>
+       * <pre>
+       * 好友信息
+       * </pre>
+       *
+       * <code>repeated .org.gof.demo.worldsrv.msg.DFriendInfo infos = 1;</code>
        */
       public java.util.List<org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder> 
-           getFriendsBuilderList() {
-        return internalGetFriendsFieldBuilder().getBuilderList();
+           getInfosBuilderList() {
+        return internalGetInfosFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
           org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder> 
-          internalGetFriendsFieldBuilder() {
-        if (friendsBuilder_ == null) {
-          friendsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          internalGetInfosFieldBuilder() {
+        if (infosBuilder_ == null) {
+          infosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               org.gof.demo.worldsrv.msg.Msg.DFriendInfo, org.gof.demo.worldsrv.msg.Msg.DFriendInfo.Builder, org.gof.demo.worldsrv.msg.Msg.DFriendInfoOrBuilder>(
-                  friends_,
+                  infos_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
-          friends_ = null;
+          infos_ = null;
         }
-        return friendsBuilder_;
+        return infosBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:org.gof.demo.worldsrv.msg.SCSearchFriend)
@@ -262462,15 +265669,42 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required bool success = 1;</code>
-     * @return Whether the success field is set.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return Whether the result field is set.
      */
-    boolean hasSuccess();
+    boolean hasResult();
     /**
-     * <code>required bool success = 1;</code>
-     * @return The success.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return The result.
      */
-    boolean getSuccess();
+    boolean getResult();
+
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return Whether the humanId field is set.
+     */
+    boolean hasHumanId();
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return The humanId.
+     */
+    long getHumanId();
   }
   /**
    * <pre>
@@ -262515,23 +265749,58 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
 
     private int bitField0_;
-    public static final int SUCCESS_FIELD_NUMBER = 1;
-    private boolean success_ = false;
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private boolean result_ = false;
     /**
-     * <code>required bool success = 1;</code>
-     * @return Whether the success field is set.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return Whether the result field is set.
      */
     @java.lang.Override
-    public boolean hasSuccess() {
+    public boolean hasResult() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required bool success = 1;</code>
-     * @return The success.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return The result.
      */
     @java.lang.Override
-    public boolean getSuccess() {
-      return success_;
+    public boolean getResult() {
+      return result_;
+    }
+
+    public static final int HUMANID_FIELD_NUMBER = 2;
+    private long humanId_ = 0L;
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return Whether the humanId field is set.
+     */
+    @java.lang.Override
+    public boolean hasHumanId() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return The humanId.
+     */
+    @java.lang.Override
+    public long getHumanId() {
+      return humanId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -262541,10 +265810,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasSuccess()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -262553,7 +265818,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeBool(1, success_);
+        output.writeBool(1, result_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(2, humanId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -262566,7 +265834,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, success_);
+          .computeBoolSize(1, result_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, humanId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -262583,10 +265855,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.SCRemoveFriend other = (org.gof.demo.worldsrv.msg.Msg.SCRemoveFriend) obj;
 
-      if (hasSuccess() != other.hasSuccess()) return false;
-      if (hasSuccess()) {
-        if (getSuccess()
-            != other.getSuccess()) return false;
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (getResult()
+            != other.getResult()) return false;
+      }
+      if (hasHumanId() != other.hasHumanId()) return false;
+      if (hasHumanId()) {
+        if (getHumanId()
+            != other.getHumanId()) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -262599,10 +265876,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasSuccess()) {
-        hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getSuccess());
+            getResult());
+      }
+      if (hasHumanId()) {
+        hash = (37 * hash) + HUMANID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getHumanId());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -262740,7 +266022,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        success_ = false;
+        result_ = false;
+        humanId_ = 0L;
         return this;
       }
 
@@ -262776,8 +266059,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.success_ = success_;
+          result.result_ = result_;
           to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.humanId_ = humanId_;
+          to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -262794,8 +266081,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.SCRemoveFriend other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.SCRemoveFriend.getDefaultInstance()) return this;
-        if (other.hasSuccess()) {
-          setSuccess(other.getSuccess());
+        if (other.hasResult()) {
+          setResult(other.getResult());
+        }
+        if (other.hasHumanId()) {
+          setHumanId(other.getHumanId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -262804,9 +266094,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasSuccess()) {
-          return false;
-        }
         return true;
       }
 
@@ -262827,10 +266114,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 done = true;
                 break;
               case 8: {
-                success_ = input.readBool();
+                result_ = input.readBool();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                humanId_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -262848,42 +266140,114 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private boolean success_ ;
+      private boolean result_ ;
       /**
-       * <code>required bool success = 1;</code>
-       * @return Whether the success field is set.
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
+       * @return Whether the result field is set.
        */
       @java.lang.Override
-      public boolean hasSuccess() {
+      public boolean hasResult() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required bool success = 1;</code>
-       * @return The success.
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
+       * @return The result.
        */
       @java.lang.Override
-      public boolean getSuccess() {
-        return success_;
+      public boolean getResult() {
+        return result_;
       }
       /**
-       * <code>required bool success = 1;</code>
-       * @param value The success to set.
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
+       * @param value The result to set.
        * @return This builder for chaining.
        */
-      public Builder setSuccess(boolean value) {
+      public Builder setResult(boolean value) {
 
-        success_ = value;
+        result_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>required bool success = 1;</code>
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearSuccess() {
+      public Builder clearResult() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        success_ = false;
+        result_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long humanId_ ;
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return Whether the humanId field is set.
+       */
+      @java.lang.Override
+      public boolean hasHumanId() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return The humanId.
+       */
+      @java.lang.Override
+      public long getHumanId() {
+        return humanId_;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @param value The humanId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHumanId(long value) {
+
+        humanId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHumanId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        humanId_ = 0L;
         onChanged();
         return this;
       }
@@ -263426,15 +266790,42 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required bool success = 1;</code>
-     * @return Whether the success field is set.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return Whether the result field is set.
      */
-    boolean hasSuccess();
+    boolean hasResult();
     /**
-     * <code>required bool success = 1;</code>
-     * @return The success.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return The result.
      */
-    boolean getSuccess();
+    boolean getResult();
+
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return Whether the humanId field is set.
+     */
+    boolean hasHumanId();
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return The humanId.
+     */
+    long getHumanId();
   }
   /**
    * <pre>
@@ -263479,23 +266870,58 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
 
     private int bitField0_;
-    public static final int SUCCESS_FIELD_NUMBER = 1;
-    private boolean success_ = false;
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private boolean result_ = false;
     /**
-     * <code>required bool success = 1;</code>
-     * @return Whether the success field is set.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return Whether the result field is set.
      */
     @java.lang.Override
-    public boolean hasSuccess() {
+    public boolean hasResult() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required bool success = 1;</code>
-     * @return The success.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return The result.
      */
     @java.lang.Override
-    public boolean getSuccess() {
-      return success_;
+    public boolean getResult() {
+      return result_;
+    }
+
+    public static final int HUMANID_FIELD_NUMBER = 2;
+    private long humanId_ = 0L;
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return Whether the humanId field is set.
+     */
+    @java.lang.Override
+    public boolean hasHumanId() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return The humanId.
+     */
+    @java.lang.Override
+    public long getHumanId() {
+      return humanId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -263505,10 +266931,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasSuccess()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -263517,7 +266939,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeBool(1, success_);
+        output.writeBool(1, result_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(2, humanId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -263530,7 +266955,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, success_);
+          .computeBoolSize(1, result_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, humanId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -263547,10 +266976,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.SCToBlackList other = (org.gof.demo.worldsrv.msg.Msg.SCToBlackList) obj;
 
-      if (hasSuccess() != other.hasSuccess()) return false;
-      if (hasSuccess()) {
-        if (getSuccess()
-            != other.getSuccess()) return false;
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (getResult()
+            != other.getResult()) return false;
+      }
+      if (hasHumanId() != other.hasHumanId()) return false;
+      if (hasHumanId()) {
+        if (getHumanId()
+            != other.getHumanId()) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -263563,10 +266997,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasSuccess()) {
-        hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getSuccess());
+            getResult());
+      }
+      if (hasHumanId()) {
+        hash = (37 * hash) + HUMANID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getHumanId());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -263704,7 +267143,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        success_ = false;
+        result_ = false;
+        humanId_ = 0L;
         return this;
       }
 
@@ -263740,8 +267180,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.success_ = success_;
+          result.result_ = result_;
           to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.humanId_ = humanId_;
+          to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -263758,8 +267202,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.SCToBlackList other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.SCToBlackList.getDefaultInstance()) return this;
-        if (other.hasSuccess()) {
-          setSuccess(other.getSuccess());
+        if (other.hasResult()) {
+          setResult(other.getResult());
+        }
+        if (other.hasHumanId()) {
+          setHumanId(other.getHumanId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -263768,9 +267215,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasSuccess()) {
-          return false;
-        }
         return true;
       }
 
@@ -263791,10 +267235,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 done = true;
                 break;
               case 8: {
-                success_ = input.readBool();
+                result_ = input.readBool();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                humanId_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -263812,42 +267261,114 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private boolean success_ ;
+      private boolean result_ ;
       /**
-       * <code>required bool success = 1;</code>
-       * @return Whether the success field is set.
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
+       * @return Whether the result field is set.
        */
       @java.lang.Override
-      public boolean hasSuccess() {
+      public boolean hasResult() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required bool success = 1;</code>
-       * @return The success.
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
+       * @return The result.
        */
       @java.lang.Override
-      public boolean getSuccess() {
-        return success_;
+      public boolean getResult() {
+        return result_;
       }
       /**
-       * <code>required bool success = 1;</code>
-       * @param value The success to set.
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
+       * @param value The result to set.
        * @return This builder for chaining.
        */
-      public Builder setSuccess(boolean value) {
+      public Builder setResult(boolean value) {
 
-        success_ = value;
+        result_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>required bool success = 1;</code>
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearSuccess() {
+      public Builder clearResult() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        success_ = false;
+        result_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long humanId_ ;
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return Whether the humanId field is set.
+       */
+      @java.lang.Override
+      public boolean hasHumanId() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return The humanId.
+       */
+      @java.lang.Override
+      public long getHumanId() {
+        return humanId_;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @param value The humanId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHumanId(long value) {
+
+        humanId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHumanId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        humanId_ = 0L;
         onChanged();
         return this;
       }
@@ -264390,15 +267911,42 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required bool success = 1;</code>
-     * @return Whether the success field is set.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return Whether the result field is set.
      */
-    boolean hasSuccess();
+    boolean hasResult();
     /**
-     * <code>required bool success = 1;</code>
-     * @return The success.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return The result.
      */
-    boolean getSuccess();
+    boolean getResult();
+
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return Whether the humanId field is set.
+     */
+    boolean hasHumanId();
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return The humanId.
+     */
+    long getHumanId();
   }
   /**
    * <pre>
@@ -264443,23 +267991,58 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     }
 
     private int bitField0_;
-    public static final int SUCCESS_FIELD_NUMBER = 1;
-    private boolean success_ = false;
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private boolean result_ = false;
     /**
-     * <code>required bool success = 1;</code>
-     * @return Whether the success field is set.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return Whether the result field is set.
      */
     @java.lang.Override
-    public boolean hasSuccess() {
+    public boolean hasResult() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required bool success = 1;</code>
-     * @return The success.
+     * <pre>
+     * 是否成功
+     * </pre>
+     *
+     * <code>optional bool result = 1;</code>
+     * @return The result.
      */
     @java.lang.Override
-    public boolean getSuccess() {
-      return success_;
+    public boolean getResult() {
+      return result_;
+    }
+
+    public static final int HUMANID_FIELD_NUMBER = 2;
+    private long humanId_ = 0L;
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return Whether the humanId field is set.
+     */
+    @java.lang.Override
+    public boolean hasHumanId() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * 玩家ID
+     * </pre>
+     *
+     * <code>optional int64 humanId = 2;</code>
+     * @return The humanId.
+     */
+    @java.lang.Override
+    public long getHumanId() {
+      return humanId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -264469,10 +268052,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasSuccess()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -264481,7 +268060,10 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeBool(1, success_);
+        output.writeBool(1, result_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(2, humanId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -264494,7 +268076,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, success_);
+          .computeBoolSize(1, result_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, humanId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -264511,10 +268097,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       org.gof.demo.worldsrv.msg.Msg.SCRemoveBlackList other = (org.gof.demo.worldsrv.msg.Msg.SCRemoveBlackList) obj;
 
-      if (hasSuccess() != other.hasSuccess()) return false;
-      if (hasSuccess()) {
-        if (getSuccess()
-            != other.getSuccess()) return false;
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (getResult()
+            != other.getResult()) return false;
+      }
+      if (hasHumanId() != other.hasHumanId()) return false;
+      if (hasHumanId()) {
+        if (getHumanId()
+            != other.getHumanId()) return false;
       }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
@@ -264527,10 +268118,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasSuccess()) {
-        hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getSuccess());
+            getResult());
+      }
+      if (hasHumanId()) {
+        hash = (37 * hash) + HUMANID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getHumanId());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -264668,7 +268264,8 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        success_ = false;
+        result_ = false;
+        humanId_ = 0L;
         return this;
       }
 
@@ -264704,8 +268301,12 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.success_ = success_;
+          result.result_ = result_;
           to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.humanId_ = humanId_;
+          to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -264722,8 +268323,11 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       public Builder mergeFrom(org.gof.demo.worldsrv.msg.Msg.SCRemoveBlackList other) {
         if (other == org.gof.demo.worldsrv.msg.Msg.SCRemoveBlackList.getDefaultInstance()) return this;
-        if (other.hasSuccess()) {
-          setSuccess(other.getSuccess());
+        if (other.hasResult()) {
+          setResult(other.getResult());
+        }
+        if (other.hasHumanId()) {
+          setHumanId(other.getHumanId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -264732,9 +268336,6 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasSuccess()) {
-          return false;
-        }
         return true;
       }
 
@@ -264755,10 +268356,15 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
                 done = true;
                 break;
               case 8: {
-                success_ = input.readBool();
+                result_ = input.readBool();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                humanId_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -264776,42 +268382,114 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private boolean success_ ;
+      private boolean result_ ;
       /**
-       * <code>required bool success = 1;</code>
-       * @return Whether the success field is set.
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
+       * @return Whether the result field is set.
        */
       @java.lang.Override
-      public boolean hasSuccess() {
+      public boolean hasResult() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required bool success = 1;</code>
-       * @return The success.
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
+       * @return The result.
        */
       @java.lang.Override
-      public boolean getSuccess() {
-        return success_;
+      public boolean getResult() {
+        return result_;
       }
       /**
-       * <code>required bool success = 1;</code>
-       * @param value The success to set.
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
+       * @param value The result to set.
        * @return This builder for chaining.
        */
-      public Builder setSuccess(boolean value) {
+      public Builder setResult(boolean value) {
 
-        success_ = value;
+        result_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <code>required bool success = 1;</code>
+       * <pre>
+       * 是否成功
+       * </pre>
+       *
+       * <code>optional bool result = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearSuccess() {
+      public Builder clearResult() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        success_ = false;
+        result_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long humanId_ ;
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return Whether the humanId field is set.
+       */
+      @java.lang.Override
+      public boolean hasHumanId() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return The humanId.
+       */
+      @java.lang.Override
+      public long getHumanId() {
+        return humanId_;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @param value The humanId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHumanId(long value) {
+
+        humanId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 玩家ID
+       * </pre>
+       *
+       * <code>optional int64 humanId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHumanId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        humanId_ = 0L;
         onChanged();
         return this;
       }
@@ -274003,463 +277681,471 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
       "\014\n\004time\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\r\n\005isWin\030\003 \001" +
       "(\010\022\014\n\004rank\030\004 \001(\005\022\020\n\010isActive\030\005 \001(\010\022\r\n\005le" +
       "vel\030\006 \001(\005\022\022\n\nrankChange\030\007 \001(\005\022\017\n\007humanSn" +
-      "\030\010 \001(\t\"p\n\013DFriendInfo\022\n\n\002id\030\001 \001(\003\022\014\n\004nam" +
-      "e\030\002 \001(\t\022\r\n\005level\030\003 \001(\005\022\022\n\nprofession\030\004 \001" +
-      "(\005\022\022\n\nfightPower\030\005 \001(\005\022\020\n\010isOnline\030\006 \001(\010" +
-      "\"?\n\006DSkill\022\017\n\007skillSn\030\001 \001(\005\022\022\n\nskillLeve" +
-      "l\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\"$\n\007DInborn\022\n\n\002" +
-      "sn\030\001 \001(\005\022\r\n\005level\030\002 \001(\005\"\021\n\tSCMsgFill:\004\210\303" +
-      "\032e\"A\n\007CSLogin\022\017\n\007account\030\001 \002(\t\022\020\n\010passwo" +
-      "rd\030\002 \001(\t\022\r\n\005token\030\003 \001(\t:\004\210\303\032o\"?\n\rSCLogin" +
-      "Result\022\022\n\nresultCode\030\001 \001(\005\022\024\n\014resultReas" +
-      "on\030\002 \001(\t:\004\210\303\032p\"<\n\022CSAccountReconnect\022\014\n\004" +
-      "name\030\001 \002(\t\022\022\n\nsessionKey\030\002 \002(\003:\004\210\303\032y\"4\n\030" +
-      "SCAccountReconnectResult\022\022\n\nresultCode\030\001" +
-      " \001(\005:\004\210\303\032z\"%\n\rCSChangeModel\022\r\n\005model\030\001 \002" +
-      "(\t:\005\210\303\032\215\001\"4\n\rSCChangeModel\022\r\n\005humId\030\001 \001(" +
-      "\003\022\r\n\005model\030\002 \002(\t:\005\210\303\032\216\001\"\034\n\023CSAccountRand" +
-      "omName:\005\210\303\032\227\001\"*\n\023SCAccountRandomName\022\014\n\004" +
-      "name\030\001 \001(\t:\005\210\303\032\230\001\"\032\n\021CSQueryCharacters:\005" +
-      "\210\303\032\353\007\"[\n\027SCQueryCharactersResult\0229\n\nchar" +
-      "acters\030\001 \003(\0132%.org.gof.demo.worldsrv.msg" +
-      ".DCharacter:\005\210\303\032\354\007\"X\n\021CSCharacterCreate\022" +
-      "\014\n\004name\030\001 \002(\t\022\022\n\nprofession\030\002 \002(\005\022\013\n\003sex" +
-      "\030\003 \002(\005\022\r\n\005genSn\030\004 \001(\t:\005\210\303\032\355\007\"[\n\027SCCharac" +
-      "terCreateResult\022\022\n\nresultCode\030\001 \002(\005\022\017\n\007h" +
-      "umanId\030\002 \001(\003\022\024\n\014resultReason\030\003 \001(\t:\005\210\303\032\356" +
-      "\007\"&\n\021CSCharacterDelete\022\n\n\002id\030\001 \002(\003:\005\210\303\032\357" +
-      "\007\"4\n\027SCCharacterDeleteResult\022\022\n\nresultCo" +
-      "de\030\001 \002(\005:\005\210\303\032\360\007\"*\n\020CSCharacterLogin\022\017\n\007h" +
-      "umanId\030\001 \002(\003:\005\210\303\032\361\007\"3\n\026SCCharacterLoginR" +
-      "esult\022\022\n\nresultCode\030\001 \002(\005:\005\210\303\032\362\007\"\263\004\n\nSCI" +
-      "nitData\0220\n\005human\030\001 \001(\0132!.org.gof.demo.wo" +
-      "rldsrv.msg.DHuman\0228\n\005stage\030\002 \001(\0132).org.g" +
-      "of.demo.worldsrv.msg.DInitDataStage\0220\n\005s" +
-      "kill\030\003 \003(\0132!.org.gof.demo.worldsrv.msg.D" +
-      "Skill\022-\n\004dBag\030\004 \003(\0132\037.org.gof.demo.world" +
-      "srv.msg.DBag\022.\n\005altar\030\005 \001(\0132\037.org.gof.de" +
-      "mo.worldsrv.msg.DBag\022/\n\005tasks\030\006 \003(\0132 .or" +
-      "g.gof.demo.worldsrv.msg.DTask\022\026\n\016excuteT" +
-      "askCode\030\007 \001(\005\022/\n\005mails\030\010 \003(\0132 .org.gof.d" +
-      "emo.worldsrv.msg.DMail\0227\n\ttreasures\030\t \003(" +
-      "\0132$.org.gof.demo.worldsrv.msg.DTreasure\022" +
-      ":\n\nblackGoods\030\n \003(\0132&.org.gof.demo.world" +
-      "srv.msg.DBlackGoods\0222\n\006signIn\030\013 \001(\0132\".or" +
-      "g.gof.demo.worldsrv.msg.DSignIn:\005\210\303\032\315\010\"L" +
-      "\n\021SCHumanInfoChange\0220\n\005human\030\001 \001(\0132!.org" +
-      ".gof.demo.worldsrv.msg.DHuman:\005\210\303\032\324\010\"V\n\027" +
-      "SCStageObjectInfoChange\0224\n\003obj\030\001 \001(\0132\'.o" +
-      "rg.gof.demo.worldsrv.msg.DStageObject:\005\210" +
-      "\303\032\325\010\"\024\n\013CSHumanInfo:\005\210\303\032\326\010\"F\n\013SCHumanInf" +
-      "o\0220\n\005human\030\001 \001(\0132!.org.gof.demo.worldsrv" +
-      ".msg.DHuman:\005\210\303\032\327\010\"\023\n\nSCDieStage:\005\210\303\032\331\010\"" +
-      "3\n\010SCResult\022\016\n\006result\030\001 \002(\005\022\020\n\010errorMsg\030" +
-      "\002 \001(\t:\005\210\303\032\337\010\"$\n\013SCHumanKick\022\016\n\006reason\030\001 " +
-      "\001(\t:\005\210\303\032\260\t\"&\n\014CSStageEnter\022\017\n\007stageSn\030\001 " +
-      "\002(\005:\005\210\303\032\261\t\"<\n\022SCStageEnterResult\022\016\n\006resu" +
-      "lt\030\001 \002(\005\022\017\n\007stageSn\030\002 \001(\005:\005\210\303\032\262\t\"\'\n\rCSSt" +
-      "ageSwitch\022\017\n\007stageSn\030\001 \002(\005:\005\210\303\032\263\t\"\'\n\rSCS" +
-      "tageSwitch\022\017\n\007stageSn\030\001 \002(\005:\005\210\303\032\264\t\"\301\001\n\013C" +
-      "SStageMove\022\r\n\005objId\030\001 \001(\003\0225\n\010posBegin\030\002 " +
-      "\001(\0132#.org.gof.demo.worldsrv.msg.DVector3" +
-      "\0223\n\006posEnd\030\003 \003(\0132#.org.gof.demo.worldsrv" +
-      ".msg.DVector3\0220\n\003dir\030\004 \001(\0132#.org.gof.dem" +
-      "o.worldsrv.msg.DVector3:\005\210\303\032\273\t\"\301\001\n\013SCSta" +
-      "geMove\022\r\n\005objId\030\001 \001(\003\0225\n\010posBegin\030\002 \001(\0132" +
-      "#.org.gof.demo.worldsrv.msg.DVector3\0223\n\006" +
-      "posEnd\030\003 \003(\0132#.org.gof.demo.worldsrv.msg" +
-      ".DVector3\0220\n\003dir\030\004 \001(\0132#.org.gof.demo.wo" +
-      "rldsrv.msg.DVector3:\005\210\303\032\274\t\"T\n\rSCStageSet" +
-      "Pos\022\n\n\002id\030\001 \002(\003\0220\n\003pos\030\002 \002(\0132#.org.gof.d" +
-      "emo.worldsrv.msg.DVector3:\005\210\303\032\275\t\"]\n\017CSSt" +
-      "ageMoveStop\022\016\n\006sendId\030\001 \001(\003\0223\n\006posEnd\030\002 " +
-      "\001(\0132#.org.gof.demo.worldsrv.msg.DVector2" +
-      ":\005\210\303\032\276\t\"\\\n\017SCStageMoveStop\022\r\n\005objId\030\001 \001(" +
-      "\003\0223\n\006posEnd\030\002 \001(\0132#.org.gof.demo.worldsr" +
-      "v.msg.DVector2:\005\210\303\032\277\t\"f\n\023SCStageObjectAp" +
-      "pear\022:\n\tobjAppear\030\001 \001(\0132\'.org.gof.demo.w" +
-      "orldsrv.msg.DStageObject\022\014\n\004type\030\002 \001(\005:\005" +
-      "\210\303\032\300\t\"s\n\026SCStageObjectDisappear\022\r\n\005objId" +
-      "\030\001 \001(\003\022\014\n\004type\030\002 \001(\005\022\022\n\nkillerName\030\003 \001(\t" +
-      "\022\020\n\010killerId\030\004 \001(\003\022\017\n\007skillSn\030\005 \001(\005:\005\210\303\032" +
-      "\301\t\"\030\n\017SCStageEnterEnd:\005\210\303\032\302\t\"N\n\023SCStageM" +
-      "oveTeleport\0220\n\003pos\030\001 \002(\0132#.org.gof.demo." +
-      "worldsrv.msg.DVector3:\005\210\303\032\304\t\"\204\001\n\014CSStage" +
-      "Move2\0225\n\010posBegin\030\001 \001(\0132#.org.gof.demo.w" +
-      "orldsrv.msg.DVector2\0226\n\tdirection\030\002 \001(\0132" +
-      "#.org.gof.demo.worldsrv.msg.DVector2:\005\210\303" +
-      "\032\306\t\"S\n\014SCStageMove2\022\n\n\002id\030\001 \002(\003\0220\n\003pos\030\002" +
-      " \002(\0132#.org.gof.demo.worldsrv.msg.DVector" +
-      "3:\005\210\303\032\307\t\"H\n\rSCStagePullTo\0220\n\003pos\030\001 \002(\0132#" +
-      ".org.gof.demo.worldsrv.msg.DVector3:\005\210\303\032" +
-      "\312\t\"\210\001\n\025SCUnitobjStatusChange\022\014\n\004type\030\001 \001" +
-      "(\003\022\n\n\002id\030\002 \001(\003\022\024\n\014teamBundleID\030\003 \001(\003\022\017\n\007" +
-      "canMove\030\004 \001(\010\022\024\n\014canCastSkill\030\005 \001(\010\022\021\n\tc" +
-      "anAttack\030\006 \001(\010:\005\210\303\032\313\t\"8\n\024SCStageObjectLe" +
-      "velUp\022\n\n\002id\030\001 \002(\003\022\r\n\005level\030\002 \001(\005:\005\210\303\032\314\t\"" +
-      "\210\001\n\013SCSceneInit\022:\n\010triggers\030\001 \003(\0132(.org." +
-      "gof.demo.worldsrv.msg.DSceneTrigger\0226\n\006e" +
-      "vents\030\002 \003(\0132&.org.gof.demo.worldsrv.msg." +
-      "DSceneEvent:\005\210\303\032\343\t\"P\n\021SCScenePlotChange\022" +
-      "4\n\005plots\030\001 \003(\0132%.org.gof.demo.worldsrv.m" +
-      "sg.DScenePlot:\005\210\303\032\344\t\"#\n\016CSSceneTrigger\022\n" +
-      "\n\002sn\030\001 \002(\005:\005\210\303\032\345\t\"!\n\014CSSceneEvent\022\n\n\002sn\030" +
-      "\001 \002(\005:\005\210\303\032\346\t\"&\n\021SCSceneEventStart\022\n\n\002sn\030" +
-      "\001 \002(\005:\005\210\303\032\347\t\"\231\001\n\nCSFightAtk\022\020\n\010casterId\030" +
-      "\001 \002(\003\022\017\n\007skillId\030\002 \002(\005\022\r\n\005tarId\030\003 \001(\003\0220\n" +
-      "\003pos\030\004 \001(\0132#.org.gof.demo.worldsrv.msg.D" +
-      "Vector2\022\021\n\tatkerType\030\005 \001(\005\022\r\n\005final\030\006 \001(" +
-      "\010:\005\210\303\032\225\n\"=\n\020SCFightAtkResult\022\022\n\nresultCo" +
-      "de\030\001 \002(\005\022\016\n\006sendId\030\002 \002(\003:\005\210\303\032\226\n\"\231\004\n\014SCFi" +
-      "ghtSkill\022\016\n\006castId\030\001 \001(\003\022\017\n\007skillId\030\002 \001(" +
-      "\005\022\r\n\005tarId\030\003 \001(\003\0220\n\003pos\030\004 \001(\0132#.org.gof." +
-      "demo.worldsrv.msg.DVector2\022\021\n\tatkerType\030" +
-      "\005 \001(\005\022\r\n\005defId\030\006 \003(\003\0226\n\005hpChg\030\007 \001(\0132\'.or" +
-      "g.gof.demo.worldsrv.msg.SCFightHpChg\022\016\n\006" +
-      "period\030\010 \001(\005\022\r\n\005final\030\t \001(\010\0224\n\007backPos\030\n" +
-      " \003(\0132#.org.gof.demo.worldsrv.msg.DBackPo" +
-      "s\0223\n\006attPos\030\013 \001(\0132#.org.gof.demo.worldsr" +
-      "v.msg.DVector2\022\014\n\004rage\030\014 \001(\005\0224\n\007rageAdd\030" +
-      "\r \003(\0132#.org.gof.demo.worldsrv.msg.DRageA" +
-      "dd\022\025\n\rskillShakePct\030\016 \001(\001\022\026\n\016skillTeamGe" +
-      "nId\030\017 \003(\003\022\021\n\trageHuman\030\020 \001(\005\022\022\n\nmutilMag" +
-      "ic\030\021 \001(\005\022\022\n\ncomboCount\030\022 \001(\005\022\016\n\006missId\030\023" +
-      " \003(\003:\005\210\303\032\227\n\"_\n\014SCFightHpChg\0227\n\tdhpChgTar" +
-      "\030\001 \003(\0132$.org.gof.demo.worldsrv.msg.DHpCh" +
-      "gTar\022\017\n\007skillSn\030\002 \001(\005:\005\210\303\032\230\n\"$\n\rCSFightR" +
-      "evive\022\014\n\004type\030\001 \001(\005:\005\210\303\032\236\n\",\n\022SCFightSta" +
-      "geChange\022\017\n\007stageSn\030\001 \002(\005:\005\210\303\032\237\n\"o\n\017SCFi" +
-      "ghtDotHpChg\022\r\n\005dotSn\030\001 \001(\005\0226\n\005hpChg\030\002 \001(" +
-      "\0132\'.org.gof.demo.worldsrv.msg.SCFightHpC" +
-      "hg\022\016\n\006castId\030\003 \001(\003:\005\210\303\032\240\n\"-\n\010DRageAdd\022\r\n" +
-      "\005value\030\001 \001(\005\022\013\n\003max\030\002 \001(\005:\005\210\303\032\241\n\"u\n\022SCFi" +
-      "ghtBulletHpChg\022\020\n\010bulletID\030\001 \001(\003\0226\n\005hpCh" +
-      "g\030\002 \001(\0132\'.org.gof.demo.worldsrv.msg.SCFi" +
-      "ghtHpChg\022\016\n\006castId\030\003 \001(\003:\005\210\303\032\244\n\"g\n\021SCFig" +
-      "htBulletMove\022\020\n\010bulletID\030\001 \001(\003\022\020\n\010bullet" +
-      "SN\030\002 \001(\005\022\024\n\014unitOriginId\030\003 \001(\003\022\021\n\tunitTa" +
-      "rId\030\004 \001(\003:\005\210\303\032\245\n\"=\n\020CSSkillInterrupt\022\021\n\t" +
-      "unitObjID\030\001 \001(\003\022\017\n\007skillSn\030\002 \001(\005:\005\210\303\032\246\n\"" +
-      "=\n\020SCSkillInterrupt\022\021\n\tunitObjID\030\001 \001(\003\022\017" +
-      "\n\007skillSn\030\002 \001(\005:\005\210\303\032\247\n\"_\n\021CSSkillAddGene" +
-      "ral\022\021\n\tgeneralSn\030\001 \001(\t\0220\n\003pos\030\002 \001(\0132#.or" +
-      "g.gof.demo.worldsrv.msg.DVector2:\005\210\303\032\250\n\"" +
-      "0\n\024CSSkillRemoveGeneral\022\021\n\tunitObjID\030\001 \001" +
-      "(\003:\005\210\303\032\251\n\"4\n\030CSSkillAddGeneralToUnion\022\021\n" +
-      "\tgeneralId\030\001 \002(\003:\005\210\303\032\252\n\"\032\n\021CSUnionFightS" +
-      "tart:\005\210\303\032\253\n\"\034\n\023CSUnionFightAIPause:\005\210\303\032\254" +
-      "\n\"\036\n\025CSUnionFightAIUnpause:\005\210\303\032\255\n\"\034\n\023CSU" +
-      "nionFightSpecial:\005\210\303\032\256\n\"\'\n\020CSUnionFightA" +
-      "uto\022\014\n\004auto\030\001 \002(\010:\005\210\303\032\257\n\"\037\n\026SCFightSkill" +
-      "TeamCancel:\005\210\303\032\260\n\"h\n\rSCFightRevive\022\017\n\007hu",
-      "manId\030\001 \001(\003\022\r\n\005hpCur\030\002 \001(\005\0220\n\003pos\030\003 \001(\0132" +
-      "#.org.gof.demo.worldsrv.msg.DVector2:\005\210\303" +
-      "\032\306\n\"H\n\013SCBagUpdate\0222\n\003bag\030\001 \002(\0132%.org.go" +
-      "f.demo.worldsrv.msg.DBagUpdate:\005\210\303\032\370\n\"<\n" +
-      "\tCSUseItem\022\014\n\004type\030\001 \001(\005\022\r\n\005index\030\002 \001(\005\022" +
-      "\013\n\003num\030\003 \001(\005:\005\210\303\032\371\n\"#\n\014CSArrangeBag\022\014\n\004t" +
-      "ype\030\001 \002(\005:\005\210\303\032\373\n\"5\n\016CSItemBachSell\022\014\n\004ty" +
-      "pe\030\001 \001(\005\022\016\n\006polist\030\002 \003(\005:\005\210\303\032\375\n\"\"\n\013CSBag" +
-      "Expand\022\014\n\004type\030\001 \002(\005:\005\210\303\032\377\n\"6\n\013SCBagExpa" +
-      "nd\022\016\n\006result\030\001 \002(\005\022\020\n\010capacity\030\002 \002(\005:\005\210\303" +
-      "\032\200\013\"7\n\014CSInformChat\022\017\n\007content\030\001 \002(\t\022\017\n\007" +
-      "channel\030\002 \002(\005:\005\210\303\032\335\013\"3\n\013SCInformMsg\022\014\n\004t" +
-      "ype\030\001 \002(\005\022\017\n\007content\030\002 \002(\t:\005\210\303\032\336\013\"6\n\016SCI" +
-      "nformMsgAll\022\014\n\004type\030\001 \002(\005\022\017\n\007content\030\002 \002" +
-      "(\t:\005\210\303\032\340\013\"\026\n\rCSGeneralList:\005\210\303\032\355\016\"Q\n\rSCG" +
-      "eneralList\0229\n\010generals\030\001 \003(\0132\'.org.gof.d" +
-      "emo.worldsrv.msg.DGeneralInfo:\005\210\303\032\356\016\"\"\n\r" +
-      "CSGeneralInfo\022\n\n\002id\030\001 \002(\003:\005\210\303\032\357\016\"P\n\rSCGe" +
-      "neralInfo\0228\n\007general\030\001 \002(\0132\'.org.gof.dem" +
-      "o.worldsrv.msg.DGeneralInfo:\005\210\303\032\360\016\"%\n\020CS" +
-      "GeneralRecruit\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\361\016\"i\n\026SCG" +
-      "eneralRecruitResult\022\016\n\006result\030\001 \002(\005\0228\n\007g" +
-      "eneral\030\002 \001(\0132\'.org.gof.demo.worldsrv.msg" +
-      ".DGeneralInfo:\005\210\303\032\362\016\"<\n\017CSGeneralExpAdd\022" +
-      "\022\n\ngeneralIds\030\001 \003(\003\022\016\n\006counts\030\002 \003(\005:\005\210\303\032" +
-      "\363\016\"S\n\017SCGeneralExpAdd\0229\n\010generals\030\001 \003(\0132" +
-      "\'.org.gof.demo.worldsrv.msg.DGeneralInfo" +
-      ":\005\210\303\032\364\016\"$\n\017CSGeneralStarUp\022\n\n\002id\030\001 \002(\003:\005" +
-      "\210\303\032\365\016\"b\n\017SCGeneralStarUp\022\016\n\006result\030\001 \002(\005" +
-      "\0228\n\007general\030\002 \001(\0132\'.org.gof.demo.worldsr" +
-      "v.msg.DGeneralInfo:\005\210\303\032\366\016\"\'\n\022CSGeneralQu" +
-      "alityUp\022\n\n\002id\030\001 \002(\003:\005\210\303\032\367\016\"e\n\022SCGeneralQ" +
-      "ualityUp\022\016\n\006result\030\001 \002(\005\0228\n\007general\030\002 \001(" +
-      "\0132\'.org.gof.demo.worldsrv.msg.DGeneralIn" +
-      "fo:\005\210\303\032\370\016\"5\n\020CSGeneralEquipUp\022\n\n\002id\030\001 \002(" +
-      "\003\022\016\n\006partSn\030\002 \002(\005:\005\210\303\032\371\016\"c\n\020SCGeneralEqu" +
-      "ipUp\022\016\n\006result\030\001 \002(\005\0228\n\007general\030\002 \001(\0132\'." +
-      "org.gof.demo.worldsrv.msg.DGeneralInfo:\005" +
-      "\210\303\032\372\016\"\023\n\nCSFragInfo:\005\210\303\032\373\016\"H\n\nSCFragInfo" +
-      "\0223\n\005frags\030\001 \003(\0132$.org.gof.demo.worldsrv." +
-      "msg.DFragInfo:\005\210\303\032\374\016\"\"\n\rCSOneFragInfo\022\n\n" +
-      "\002sn\030\001 \002(\005:\005\210\303\032\375\016\"J\n\rSCOneFragInfo\0222\n\004fra" +
-      "g\030\001 \002(\0132$.org.gof.demo.worldsrv.msg.DFra" +
-      "gInfo:\005\210\303\032\376\016\",\n\nCSSellFrag\022\n\n\002sn\030\001 \002(\005\022\013" +
-      "\n\003num\030\002 \002(\005:\005\210\303\032\377\016\"#\n\nSCSellFrag\022\016\n\006resu" +
-      "lt\030\001 \002(\005:\005\210\303\032\200\017\"\034\n\023CSGenTaskFightTimes:\005" +
-      "\210\303\032\201\017\"Z\n\023SCGenTaskFightTimes\022<\n\005times\030\001 " +
-      "\003(\0132-.org.gof.demo.worldsrv.msg.DGenTask" +
-      "FightTimes:\005\210\303\032\202\017\".\n\022CSEnterGeneralTask\022" +
-      "\021\n\tgeneralId\030\001 \002(\003:\005\210\303\032\203\017\",\n\022SCEnterGene" +
-      "ralTask\022\017\n\007stageSn\030\001 \002(\005:\005\210\303\032\204\017\".\n\030SCGen" +
-      "eralTaskFightResult\022\013\n\003win\030\001 \002(\010:\005\210\303\032\205\017\"" +
-      "\\\n\023SCGeneralTaskReward\022>\n\007rewards\030\001 \003(\0132" +
-      "-.org.gof.demo.worldsrv.msg.DGeneralTask" +
-      "Reward:\005\210\303\032\206\017\"-\n\021CSGeneralToAttIng\022\021\n\tge" +
-      "neralId\030\001 \002(\003:\005\210\303\032\207\017\"+\n\021SCGeneralToAttIn" +
-      "g\022\017\n\007success\030\001 \002(\010:\005\210\303\032\210\017\"\034\n\023CSGeneralIn" +
-      "foAttIng:\005\210\303\032\211\017\"W\n\023SCGeneralInfoAttIng\0229" +
-      "\n\010generals\030\001 \003(\0132\'.org.gof.demo.worldsrv" +
-      ".msg.DGeneralInfo:\005\210\303\032\212\017\"$\n\017SCGeneralRem" +
-      "ove\022\n\n\002id\030\001 \002(\003:\005\210\303\032\213\017\"0\n\024CSGeneralChoos" +
-      "eFirst\022\021\n\tgeneralId\030\001 \002(\003:\005\210\303\032\214\017\"4\n\032SCGe" +
-      "neralChooseFirstResult\022\017\n\007success\030\001 \002(\010:" +
-      "\005\210\303\032\215\017\"Q\n\tSCBuffAdd\022\r\n\005objId\030\001 \001(\003\022.\n\004bu" +
-      "ff\030\002 \001(\0132 .org.gof.demo.worldsrv.msg.DBu" +
-      "ff:\005\210\303\032\212\016\"T\n\014SCBuffUpdate\022\r\n\005objId\030\001 \001(\003" +
-      "\022.\n\004buff\030\002 \001(\0132 .org.gof.demo.worldsrv.m" +
-      "sg.DBuff:\005\210\303\032\213\016\"0\n\014SCBuffDispel\022\r\n\005objId" +
-      "\030\001 \001(\003\022\n\n\002sn\030\002 \001(\005:\005\210\303\032\214\016\"(\n\023CSBuffDispe" +
-      "lByHuman\022\n\n\002sn\030\001 \002(\003:\005\210\303\032\215\016\"\037\n\010CSSignIn\022" +
-      "\014\n\004type\030\001 \002(\005:\005\210\303\032\320\017\" \n\010SCSignIn\022\r\n\005stat" +
-      "e\030\001 \001(\005:\005\210\303\032\321\017\"(\n\023CSCommitQuestNormal\022\n\n" +
-      "\002sn\030\001 \002(\005:\005\210\303\032\265\020\"\'\n\022CSCommitQuestDaily\022\n" +
-      "\n\002sn\030\001 \002(\005:\005\210\303\032\266\020\"\024\n\013CSOpenQuest:\005\210\303\032\267\020\"" +
-      "\031\n\020CSOpenQuestDaily:\005\210\303\032\270\020\"G\n\013SCQuestInf" +
-      "o\0221\n\006quests\030\001 \003(\0132!.org.gof.demo.worldsr" +
-      "v.msg.DQuest:\005\210\303\032\271\020\"\035\n\024CSOpenQuestInstDa" +
-      "ily:\005\210\303\032\272\020\".\n\025SCQuestInstDailyCount\022\016\n\006c" +
-      "ounts\030\001 \003(\005:\005\210\303\032\273\020\"-\n\026CSCommitQuestInstD" +
-      "aily\022\014\n\004code\030\001 \001(\005:\005\210\303\032\274\020\"V\n\024SCQuestInst" +
-      "DailyInfo\0227\n\tinstances\030\001 \003(\0132$.org.gof.d" +
-      "emo.worldsrv.msg.DInstance:\005\210\303\032\275\020\"2\n\031SCC" +
-      "ommitQuestNormalResult\022\016\n\006result\030\001 \002(\005:\005" +
-      "\210\303\032\311\020\"$\n\017CSInstanceEnter\022\n\n\002sn\030\001 \002(\005:\005\210\303" +
-      "\032\231\021\"\030\n\017CSInstanceLeave:\005\210\303\032\232\021\"\026\n\rCSInsta" +
-      "nceEnd:\005\210\303\032\233\021\"d\n\rSCInstanceEnd\022\013\n\003win\030\001 " +
-      "\002(\010\022\014\n\004star\030\002 \001(\005\0221\n\007rewards\030\003 \003(\0132 .org" +
-      ".gof.demo.worldsrv.msg.DItem:\005\210\303\032\234\021\"R\n\017S" +
-      "CUpdateChapter\0228\n\007chapter\030\001 \002(\0132\'.org.go" +
-      "f.demo.worldsrv.msg.DChapterInfo:\005\210\303\032\237\021\"" +
-      "P\n\014SCAllChapter\0229\n\010chapters\030\001 \003(\0132\'.org." +
-      "gof.demo.worldsrv.msg.DChapterInfo:\005\210\303\032\240" +
-      "\021\"%\n\016CSInstanceAuto\022\014\n\004auto\030\001 \002(\010:\005\210\303\032\241\021" +
-      "\"%\n\016SCInstanceAuto\022\014\n\004auto\030\001 \002(\010:\005\210\303\032\242\021\"" +
-      "\037\n\nCSBoxAward\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\244\021\"T\n\nSCBo" +
-      "xAward\022\016\n\006result\030\001 \002(\005\022/\n\005items\030\002 \003(\0132 ." +
-      "org.gof.demo.worldsrv.msg.DItem:\005\210\303\032\245\021\"&" +
-      "\n\021CSInstanceLottery\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\246\021\"K" +
-      "\n\021SCInstanceLottery\022/\n\005items\030\001 \003(\0132 .org" +
-      ".gof.demo.worldsrv.msg.DItem:\005\210\303\032\247\021\"#\n\014C" +
-      "SChangeName\022\014\n\004name\030\001 \002(\t:\005\210\303\032\375\021\"9\n\022SCCh" +
-      "angeNameResult\022\016\n\006result\030\001 \002(\005\022\014\n\004name\030\002" +
-      " \001(\t:\005\210\303\032\376\021\",\n\027SCChangeNameQuestFinish\022\n" +
-      "\n\002sn\030\001 \002(\005:\005\210\303\032\377\021\"\033\n\022CSChangeNameRandom:" +
-      "\005\210\303\032\200\022\"?\n\030SCChangeNameRandomResult\022\016\n\006re" +
-      "sult\030\001 \002(\005\022\014\n\004name\030\002 \001(\t:\005\210\303\032\201\022\"B\n\tSCAdd" +
-      "Mail\022.\n\004mail\030\001 \002(\0132 .org.gof.demo.worlds" +
-      "rv.msg.DMail:\005\210\303\032\341\022\"\023\n\nCSMailList:\005\210\303\032\342\022" +
-      "\"D\n\nSCMailList\022/\n\005mails\030\001 \003(\0132 .org.gof." +
-      "demo.worldsrv.msg.DMail:\005\210\303\032\343\022\"\037\n\nCSRead" +
-      "Mail\022\n\n\002id\030\001 \002(\003:\005\210\303\032\344\022\"!\n\014CSPickupMail\022" +
-      "\n\n\002id\030\001 \002(\003:\005\210\303\032\345\022\"R\n\014SCPickupMail\022\n\n\002id" +
-      "\030\001 \002(\003\022/\n\005items\030\002 \003(\0132 .org.gof.demo.wor" +
-      "ldsrv.msg.DItem:\005\210\303\032\346\022\"\030\n\017CSPickupAllMai" +
-      "l:\005\210\303\032\347\022\"I\n\017SCPickupAllMail\022/\n\005items\030\001 \003" +
-      "(\0132 .org.gof.demo.worldsrv.msg.DItem:\005\210\303" +
-      "\032\350\022\"\024\n\013CSClearMail:\005\210\303\032\351\022\"\"\n\014SCDeleteMai" +
-      "l\022\013\n\003ids\030\001 \003(\003:\005\210\303\032\352\022\"+\n\025CSCheckMailRemo" +
-      "veable\022\013\n\003ids\030\001 \003(\003:\005\210\303\032\353\022\"+\n\025SCCheckMai" +
-      "lRemoveable\022\013\n\003ids\030\001 \003(\003:\005\210\303\032\354\022\")\n\023CSRsv" +
-      "LivenessAwards\022\013\n\003sns\030\001 \003(\005:\005\210\303\032\305\023\"0\n\031SC" +
-      "RsvLivenessAwardsResult\022\014\n\004code\030\001 \001(\005:\005\210" +
-      "\303\032\306\023\"\031\n\020CSOpenLivenessUI:\005\210\303\032\307\023\"c\n\016SCLiv" +
-      "enessInfo\0226\n\010liveness\030\001 \003(\0132$.org.gof.de" +
-      "mo.worldsrv.msg.DLiveness\022\022\n\nawardsRsvd\030" +
-      "\002 \003(\005:\005\210\303\032\310\023\"3\n\tCSEquipUp\022\017\n\007humanId\030\001 \002" +
-      "(\003\022\016\n\006partSn\030\002 \002(\005:\005\210\303\032\251\024\"\"\n\tSCEquipUp\022\016" +
-      "\n\006result\030\001 \002(\005:\005\210\303\032\252\024\"5\n\013CSEquipDown\022\017\n\007" +
-      "humanId\030\001 \002(\003\022\016\n\006partSn\030\002 \002(\005:\005\210\303\032\253\024\"$\n\013" +
-      "SCEquipDown\022\016\n\006result\030\001 \002(\005:\005\210\303\032\254\024\"8\n\016CS" +
-      "EquipReclaim\022\017\n\007humanId\030\001 \002(\003\022\016\n\006partSn\030" +
-      "\002 \002(\005:\005\210\303\032\255\024\"X\n\016SCEquipReclaim\022\016\n\006result" +
-      "\030\001 \002(\005\022/\n\005items\030\002 \003(\0132 .org.gof.demo.wor" +
-      "ldsrv.msg.DItem:\005\210\303\032\256\024\"b\n\026SCEquipChangeB" +
-      "oardcast\022\017\n\007humanId\030\001 \002(\003\0220\n\005human\030\002 \001(\013" +
-      "2!.org.gof.demo.worldsrv.msg.DHuman:\005\210\303\032" +
-      "\260\024\"8\n\016CSPartQianghua\022\017\n\007humanId\030\001 \002(\003\022\016\n" +
-      "\006partSn\030\002 \002(\005:\005\210\303\032\261\024\"\'\n\016SCPartQianghua\022\016" +
-      "\n\006result\030\001 \002(\005:\005\210\303\032\262\024\"L\n\017CSPartChongxing" +
-      "\022\017\n\007humanId\030\001 \002(\003\022\016\n\006partSn\030\002 \002(\005\022\021\n\tmat" +
-      "erials\030\003 \003(\005:\005\210\303\032\263\024\"(\n\017SCPartChongxing\022\016" +
-      "\n\006result\030\001 \002(\005:\005\210\303\032\264\024\"0\n\007CSGemUp\022\014\n\004part" +
-      "\030\001 \001(\005\022\020\n\010bagIndex\030\002 \001(\005:\005\210\303\032\215\025\"4\n\nCSGem" +
-      "UpAll\022\017\n\007humanId\030\001 \002(\003\022\016\n\006partSn\030\002 \002(\005:\005" +
-      "\210\303\032\217\025\"!\n\010SCSetGem\022\016\n\006result\030\001 \002(\005:\005\210\303\032\220\025" +
-      "\"B\n\tCSGemDown\022\017\n\007humanId\030\001 \002(\003\022\016\n\006partSn" +
-      "\030\002 \002(\005\022\r\n\005index\030\003 \002(\005:\005\210\303\032\221\025\"6\n\014CSGemDow" +
-      "nAll\022\017\n\007humanId\030\001 \002(\003\022\016\n\006partSn\030\002 \002(\005:\005\210" +
-      "\303\032\223\025\"2\n\016CSGemComposite\022\n\n\002sn\030\001 \002(\005\022\r\n\005co" +
-      "unt\030\002 \002(\005:\005\210\303\032\225\025\"3\n\016SCGemComposite\022\016\n\006re" +
-      "sult\030\001 \002(\005\022\n\n\002sn\030\002 \001(\005:\005\210\303\032\226\025\"&\n\021CSGemCo" +
-      "mpositeTop\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\227\025\"*\n\021SCGemCo" +
-      "mpositeTop\022\016\n\006result\030\001 \002(\005:\005\210\303\032\230\025\"\035\n\024CSG" +
-      "emCompositeAllTop:\005\210\303\032\231\025\"-\n\024SCGemComposi" +
-      "teAllTop\022\016\n\006result\030\001 \002(\005:\005\210\303\032\232\025\"\035\n\010CSGat" +
-      "cha\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\361\025\"\037\n\nCSGatcha10\022\n\n\002" +
-      "sn\030\001 \002(\005:\005\210\303\032\362\025\"B\n\010SCGatcha\022/\n\005items\030\001 \003" +
-      "(\0132 .org.gof.demo.worldsrv.msg.DItem:\005\210\303" +
-      "\032\363\025\"\024\n\013CSSkillInit:\005\210\303\032\337\026\"\202\001\n\021SCSkillIni" +
-      "tResult\0221\n\006skills\030\001 \003(\0132!.org.gof.demo.w" +
-      "orldsrv.msg.DSkill\0223\n\007inborns\030\002 \003(\0132\".or" +
-      "g.gof.demo.worldsrv.msg.DInborn:\005\210\303\032\340\026\"#" +
-      "\n\016CSSkillLevelup\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\341\026\"_\n\024S" +
-      "CSkillLevelupResult\022\016\n\006result\030\001 \002(\005\0220\n\005s" +
-      "kill\030\002 \001(\0132!.org.gof.demo.worldsrv.msg.D" +
-      "Skill:\005\210\303\032\342\026\"$\n\017CSInbornLevelup\022\n\n\002sn\030\001 " +
-      "\002(\005:\005\210\303\032\343\026\"b\n\025SCInbornLevelupResult\022\016\n\006r" +
-      "esult\030\001 \002(\005\0222\n\006inborn\030\002 \001(\0132\".org.gof.de" +
-      "mo.worldsrv.msg.DInborn:\005\210\303\032\344\026\"#\n\016CSChan" +
-      "geInborn\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\345\026\"-\n\024SCChangeI" +
-      "nbornResult\022\016\n\006result\030\001 \002(\005:\005\210\303\032\346\026\"\"\n\rCS" +
-      "AddRelSkill\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\353\026\",\n\023SCAddR" +
-      "elSkillResult\022\016\n\006result\030\001 \002(\005:\005\210\303\032\354\026\"\"\n\r" +
-      "CSDelRelSkill\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\355\026\",\n\023SCDe" +
-      "lRelSkillResult\022\016\n\006result\030\001 \002(\005:\005\210\303\032\356\026\"!" +
-      "\n\nCSOpenMall\022\014\n\004type\030\001 \002(\005:\005\210\303\032\271\027\"L\n\014SCM" +
-      "allResult\0225\n\010virtuals\030\001 \003(\0132#.org.gof.de" +
-      "mo.worldsrv.msg.DVirtual:\005\210\303\032\272\027\"2\n\016CSBuy" +
-      "MallGoods\022\n\n\002sn\030\001 \002(\005\022\r\n\005count\030\002 \002(\005:\005\210\303" +
-      "\032\273\027\"\'\n\016SCBuyMallGoods\022\016\n\006result\030\001 \002(\005:\005\210" +
-      "\303\032\274\027\"\032\n\021CSRequestShopTags:\005\210\303\032\275\027\"\'\n\020SCRe" +
-      "sultShopTags\022\014\n\004tags\030\001 \003(\t:\005\210\303\032\276\027\"\037\n\nCSO" +
-      "penShop\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\277\027\"E\n\014SCShopResu" +
-      "lt\022.\n\004shop\030\001 \002(\0132 .org.gof.demo.worldsrv" +
-      ".msg.DShop:\005\210\303\032\300\027\"2\n\016CSBuyShopGoods\022\n\n\002s" +
-      "n\030\001 \002(\005\022\r\n\005count\030\002 \002(\005:\005\210\303\032\301\027\"\'\n\016SCBuySh" +
-      "opGoods\022\016\n\006result\030\001 \002(\005:\005\210\303\032\302\027\"\"\n\rCSRefr" +
-      "eshShop\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\303\027\"\\\n\023SCRefreshS" +
-      "hopResult\022\016\n\006result\030\001 \002(\005\022.\n\004shop\030\002 \002(\0132" +
-      " .org.gof.demo.worldsrv.msg.DShop:\005\210\303\032\304\027" +
-      "\"G\n\016SCOpenTempShop\022.\n\004shop\030\001 \002(\0132 .org.g" +
-      "of.demo.worldsrv.msg.DShop:\005\210\303\032\305\027\"\036\n\tCSB" +
-      "uyShop\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\306\027\"(\n\017SCBuyShopRe" +
-      "sult\022\016\n\006result\030\001 \002(\005:\005\210\303\032\307\027\"#\n\016CSInstanc" +
-      "eRank\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\235\030\"P\n\016SCInstanceRa" +
-      "nk\0227\n\005ranks\030\001 \003(\0132(.org.gof.demo.worldsr" +
-      "v.msg.DInstanceRank:\005\210\303\032\236\030\"\024\n\013CSLevelRan" +
-      "k:\005\210\303\032\237\030\"J\n\013SCLevelRank\0224\n\005ranks\030\001 \003(\0132%" +
-      ".org.gof.demo.worldsrv.msg.DLevelRank:\005\210" +
-      "\303\032\240\030\"\025\n\014CSCombatRank:\005\210\303\032\241\030\"L\n\014SCCombatR" +
-      "ank\0225\n\005ranks\030\001 \003(\0132&.org.gof.demo.worlds" +
-      "rv.msg.DCombatRank:\005\210\303\032\242\030\"J\n\nSCAllLayer\022" +
-      "5\n\006layers\030\001 \003(\0132%.org.gof.demo.worldsrv." +
-      "msg.DLayerInfo:\005\210\303\032\201\031\"\025\n\014CSLayerEnter:\005\210" +
-      "\303\032\202\031\"\023\n\nCSLayerEnd:\005\210\303\032\203\031\"S\n\nSCLayerEnd\022" +
-      "\013\n\003win\030\001 \002(\010\0221\n\007rewards\030\002 \003(\0132 .org.gof." +
-      "demo.worldsrv.msg.DItem:\005\210\303\032\204\031\"\025\n\014CSLaye" +
-      "rLeave:\005\210\303\032\205\031\"\025\n\014CSLayerAward:\005\210\303\032\206\031\"V\n\014" +
-      "SCLayerAward\022\016\n\006result\030\001 \002(\005\022/\n\005items\030\002 " +
-      "\003(\0132 .org.gof.demo.worldsrv.msg.DItem:\005\210" +
-      "\303\032\207\031\"\033\n\022CSLayerRefreshBuff:\005\210\303\032\210\031\",\n\022SCL" +
-      "ayerRefreshBuff\022\017\n\007buffSns\030\001 \003(\005:\005\210\303\032\211\031\"" +
-      "\027\n\016CSRefreshTower:\005\210\303\032\212\031\"\030\n\017CSTeamReqOpe" +
-      "nUI:\005\210\303\032\345\031\"V\n\025SCTeamReqOpenUIResult\0226\n\005t" +
-      "eams\030\001 \003(\0132\'.org.gof.demo.worldsrv.msg.D" +
-      "TeamRepItem:\005\210\303\032\346\031\"&\n\rCSTeamReqJoin\022\016\n\006t" +
-      "eamId\030\001 \002(\003:\005\210\303\032\347\031\"p\n\023SCTeamReqSelfResul" +
-      "t\0224\n\003rep\030\001 \001(\0132\'.org.gof.demo.worldsrv.m" +
-      "sg.DTeamRepItem\022\016\n\006result\030\002 \001(\005\022\014\n\004info\030" +
-      "\003 \001(\t:\005\210\303\032\350\031\")\n\017CSTeamReqLaunch\022\017\n\007stage" +
-      "Sn\030\001 \002(\005:\005\210\303\032\351\031\")\n\017CSTeamRepCreate\022\017\n\007st" +
-      "ageSn\030\001 \002(\005:\005\210\303\032\353\031\"\027\n\016CSTeamRepLeave:\005\210\303" +
-      "\032\355\031\"\027\n\016SCTeamRepLeave:\005\210\303\032\356\031\"\'\n\rCSTeamRe" +
-      "pKick\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\357\031\"*\n\020SCTeamR" +
-      "eqLeftNum\022\017\n\007stageSn\030\001 \002(\005:\005\210\303\032\360\031\"\026\n\rSCT" +
-      "eamRepKick:\005\210\303\032\362\031\"\031\n\020CSTeamReqCloseUI:\005\210" +
-      "\303\032\363\031\" \n\027CSTeamReqUpdateRealTime:\005\210\303\032\364\031\"X" +
-      "\n\027SCTeamReqUpdateRealTime\0226\n\005teams\030\001 \003(\013" +
-      "2\'.org.gof.demo.worldsrv.msg.DTeamRepIte" +
-      "m:\005\210\303\032\364\031\"\034\n\023CSTeamRepLeaveQueue:\005\210\303\032\365\031\"\034" +
-      "\n\023SCTeamRepLeaveQueue:\005\210\303\032\366\031\"\026\n\rCSTeamRe" +
-      "pCall:\005\210\303\032\371\031\"&\n\014CSTeamInvite\022\017\n\007humanId\030" +
-      "\001 \002(\003:\005\210\303\032\203\032\"7\n\014SCTeamInvite\022\016\n\006fromId\030\001" +
-      " \002(\003\022\020\n\010fromName\030\002 \001(\t:\005\210\303\032\204\032\"<\n\023CSTeamI" +
-      "nviteConfirm\022\016\n\006accept\030\001 \002(\010\022\016\n\006teamId\030\002" +
-      " \001(\003:\005\210\303\032\205\032\"$\n\013CSTeamApply\022\016\n\006teamId\030\001 \002" +
-      "(\003:\005\210\303\032\207\032\"&\n\013SCTeamApply\022\020\n\010humanIds\030\001 \003" +
-      "(\003:\005\210\303\032\210\032\"-\n\022CSTeamApplyConfirm\022\020\n\010human" +
-      "Ids\030\001 \003(\003:\005\210\303\032\211\032\"\023\n\nCSTeamMine:\005\210\303\032\212\032\"J\n" +
-      "\nSCTeamMine\0225\n\004team\030\001 \001(\0132\'.org.gof.demo" +
-      ".worldsrv.msg.DTeamRepItem:\005\210\303\032\212\032\"\024\n\013CST" +
-      "eamLeave:\005\210\303\032\213\032\"\024\n\013SCTeamLeave:\005\210\303\032\214\032\",\n" +
-      "\022CSCompetitionEnter\022\017\n\007humanId\030\001 \001(\003:\005\210\303" +
-      "\032\311\032\"\031\n\020CSCompetitionEnd:\005\210\303\032\312\032\"z\n\020SCComp" +
-      "etitionEnd\022\r\n\005isWin\030\001 \001(\010\022\017\n\007newRank\030\002 \001" +
-      "(\005\022\017\n\007oldRank\030\003 \001(\005\022\014\n\004coin\030\004 \001(\003\022\013\n\003exp" +
-      "\030\005 \001(\003\022\023\n\013competMoney\030\006 \001(\003:\005\210\303\032\313\032\"\033\n\022CS" +
-      "CompetitionLeave:\005\210\303\032\314\032\"\027\n\016CSRefreshEnem" +
-      "y:\005\210\303\032\315\032\"q\n\021SCCompetitionInfo\0224\n\005infos\030\001" +
-      " \003(\0132%.org.gof.demo.worldsrv.msg.DHumanI" +
-      "nfo\022\r\n\005count\030\002 \001(\005\022\020\n\010timeCool\030\003 \001(\005:\005\210\303" +
-      "\032\317\032\"\026\n\rCSResetCDTime:\005\210\303\032\320\032\"*\n\rSCResetCD" +
-      "Time\022\022\n\nresultCode\030\001 \001(\005:\005\210\303\032\321\032\"!\n\nCSOpe" +
-      "nRank\022\014\n\004page\030\001 \001(\005:\005\210\303\032\322\032\"$\n\014SCRankResu" +
-      "lt\022\r\n\005ranks\030\001 \003(\005:\005\210\303\032\323\032\"\037\n\026CSCompetitio" +
-      "nBattleLog:\005\210\303\032\324\032\"T\n\026SCCompetitionBattle" +
-      "Log\0223\n\004logs\030\001 \003(\0132%.org.gof.demo.worldsr" +
-      "v.msg.DBattleLog:\005\210\303\032\325\032\"#\n\016CSRefreshCoun" +
-      "t\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\326\032\"+\n\016SCRefreshCount\022\022" +
-      "\n\nresultCode\030\001 \001(\005:\005\210\303\032\327\032\"(\n\021CSGetSeflRa" +
-      "nkPage\022\014\n\004type\030\001 \002(\005:\005\210\303\032\330\032\"(\n\021SCGetSefl" +
-      "RankPage\022\014\n\004rank\030\001 \002(\005:\005\210\303\032\331\032\"\025\n\014CSFrien" +
-      "dList:\005\210\303\032\255\033\"Q\n\014SCFriendList\022:\n\nfriendLi" +
-      "st\030\001 \003(\0132&.org.gof.demo.worldsrv.msg.DFr" +
-      "iendInfo:\005\210\303\032\256\033\")\n\017CSRequestFriend\022\017\n\007hu" +
-      "manId\030\001 \002(\003:\005\210\303\032\257\033\"(\n\017SCRequestFriend\022\016\n" +
-      "\006result\030\001 \001(\010:\005\210\303\032\260\033\"(\n\016CSAcceptFriend\022\017" +
-      "\n\007humanId\030\001 \002(\003:\005\210\303\032\261\033\"\'\n\016SCAcceptFriend" +
-      "\022\016\n\006result\030\001 \001(\010:\005\210\303\032\262\033\"(\n\016CSRefuseFrien" +
-      "d\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\263\033\"\'\n\016SCRefuseFri" +
-      "end\022\016\n\006result\030\001 \001(\010:\005\210\303\032\264\033\"\032\n\021CSRecommen" +
-      "dFriend:\005\210\303\032\265\033\"S\n\021SCRecommendFriend\0227\n\007f" +
-      "riends\030\001 \003(\0132&.org.gof.demo.worldsrv.msg" +
-      ".DFriendInfo:\005\210\303\032\266\033\"%\n\016CSSearchFriend\022\014\n" +
-      "\004name\030\001 \002(\t:\005\210\303\032\267\033\"P\n\016SCSearchFriend\0227\n\007" +
-      "friends\030\001 \003(\0132&.org.gof.demo.worldsrv.ms" +
-      "g.DFriendInfo:\005\210\303\032\270\033\"(\n\016CSRemoveFriend\022\017" +
-      "\n\007humanId\030\001 \002(\003:\005\210\303\032\271\033\"(\n\016SCRemoveFriend" +
-      "\022\017\n\007success\030\001 \002(\010:\005\210\303\032\272\033\"\'\n\rCSToBlackLis" +
-      "t\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\275\033\"\'\n\rSCToBlackLi" +
-      "st\022\017\n\007success\030\001 \002(\010:\005\210\303\032\276\033\"+\n\021CSRemoveBl" +
-      "ackList\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\277\033\"+\n\021SCRem" +
-      "oveBlackList\022\017\n\007success\030\001 \002(\010:\005\210\303\032\300\033\"\031\n\020" +
-      "CSBulletinOpenUI:\005\210\303\032\221\034\"R\n\020SCBulletinOpe" +
-      "nUI\0227\n\005items\030\001 \003(\0132(.org.gof.demo.worlds" +
-      "rv.msg.DBulletinItem:\005\210\303\032\222\034\"\034\n\006CSTest\022\013\n" +
-      "\003msg\030\001 \002(\t:\005\210\303\032\255M\"&\n\016CSTestAddMoney\022\r\n\005c" +
-      "ount\030\001 \002(\003:\005\210\303\032\256M\"/\n\rCSTestAddItem\022\n\n\002sn" +
-      "\030\001 \002(\005\022\013\n\003num\030\002 \002(\005:\005\210\303\032\257M\"&\n\021CSTestGive" +
-      "General\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\264M\"\031\n\020CSTestWhoI" +
-      "sMyDad:\005\210\303\032\265M\"#\n\016CSTestEnterRep\022\n\n\002sn\030\001 " +
-      "\002(\005:\005\210\303\032\275M\"\035\n\024CSTestGiveAllGeneral:\005\210\303\032\277" +
-      "M\"\032\n\021CSTestSendSysMail:\005\210\303\032\300M\"!\n\tCSTestV" +
-      "IP\022\r\n\005level\030\001 \002(\005:\005\210\303\032\301M\"5\n\022CSTestInstan" +
-      "ceStar\022\n\n\002sn\030\001 \002(\005\022\014\n\004star\030\002 \002(\005:\005\210\303\032\302M\"" +
-      "\'\n\020CSTestUpdateTime\022\014\n\004time\030\001 \002(\003:\005\210\303\032\303M" +
-      "\"\'\n\rCSInformToAll\022\017\n\007content\030\001 \002(\t:\005\210\303\032\304" +
-      "M*\244\001\n\020EWorldObjectType\022\t\n\005HUMAN\020\000\022\013\n\007MON" +
-      "STER\020\001\022\010\n\004DROP\020\002\022\007\n\003DOT\020\003\022\n\n\006BULLET\020\004\022\007\n" +
-      "\003NPC\020\005\022\010\n\004PICK\020\006\022\013\n\007TRIGGER\020\007\022\n\n\006COMMON\020" +
-      "\010\022\013\n\007GENERAL\020\t\022\013\n\007COMPETE\020\n\022\t\n\005SROLE\020\013\022\010" +
-      "\n\004HERO\020\014*G\n\016EAreaEventType\022\010\n\004NONE\020\000\022\020\n\014" +
-      "NORMAL_EVENT\020\001\022\r\n\tTRANSPORT\020\002\022\n\n\006SAFETY\020" +
-      "\003*(\n\010ENpcType\022\016\n\nNpc_Normal\020\000\022\014\n\010Npc_Are" +
-      "a\020\001*\036\n\020EstageCommonType\022\n\n\006common\020\001*d\n\014E" +
-      "SkillArmPos\022\n\n\006normal\020\001\022\n\n\006skill1\020\002\022\n\n\006s" +
-      "kill2\020\003\022\n\n\006skill3\020\004\022\n\n\006skill4\020\005\022\013\n\007fette" +
-      "r1\020\006\022\013\n\007fetter2\020\007"
+      "\030\010 \001(\t\"l\n\013DFriendInfo\022\017\n\007humanSn\030\001 \001(\t\022\014" +
+      "\n\004name\030\002 \001(\t\022\r\n\005level\030\003 \001(\005\022\016\n\006combat\030\004 " +
+      "\001(\005\022\017\n\007humanId\030\005 \001(\003\022\016\n\006online\030\006 \001(\010\"?\n\006" +
+      "DSkill\022\017\n\007skillSn\030\001 \001(\005\022\022\n\nskillLevel\030\002 " +
+      "\001(\005\022\020\n\010position\030\003 \001(\005\"$\n\007DInborn\022\n\n\002sn\030\001" +
+      " \001(\005\022\r\n\005level\030\002 \001(\005\"\021\n\tSCMsgFill:\004\210\303\032e\"A" +
+      "\n\007CSLogin\022\017\n\007account\030\001 \002(\t\022\020\n\010password\030\002" +
+      " \001(\t\022\r\n\005token\030\003 \001(\t:\004\210\303\032o\"?\n\rSCLoginResu" +
+      "lt\022\022\n\nresultCode\030\001 \001(\005\022\024\n\014resultReason\030\002" +
+      " \001(\t:\004\210\303\032p\"<\n\022CSAccountReconnect\022\014\n\004name" +
+      "\030\001 \002(\t\022\022\n\nsessionKey\030\002 \002(\003:\004\210\303\032y\"4\n\030SCAc" +
+      "countReconnectResult\022\022\n\nresultCode\030\001 \001(\005" +
+      ":\004\210\303\032z\"%\n\rCSChangeModel\022\r\n\005model\030\001 \002(\t:\005" +
+      "\210\303\032\215\001\"4\n\rSCChangeModel\022\r\n\005humId\030\001 \001(\003\022\r\n" +
+      "\005model\030\002 \002(\t:\005\210\303\032\216\001\"\034\n\023CSAccountRandomNa" +
+      "me:\005\210\303\032\227\001\"*\n\023SCAccountRandomName\022\014\n\004name" +
+      "\030\001 \001(\t:\005\210\303\032\230\001\"\032\n\021CSQueryCharacters:\005\210\303\032\353" +
+      "\007\"[\n\027SCQueryCharactersResult\0229\n\ncharacte" +
+      "rs\030\001 \003(\0132%.org.gof.demo.worldsrv.msg.DCh" +
+      "aracter:\005\210\303\032\354\007\"X\n\021CSCharacterCreate\022\014\n\004n" +
+      "ame\030\001 \002(\t\022\022\n\nprofession\030\002 \002(\005\022\013\n\003sex\030\003 \002" +
+      "(\005\022\r\n\005genSn\030\004 \001(\t:\005\210\303\032\355\007\"[\n\027SCCharacterC" +
+      "reateResult\022\022\n\nresultCode\030\001 \002(\005\022\017\n\007human" +
+      "Id\030\002 \001(\003\022\024\n\014resultReason\030\003 \001(\t:\005\210\303\032\356\007\"&\n" +
+      "\021CSCharacterDelete\022\n\n\002id\030\001 \002(\003:\005\210\303\032\357\007\"4\n" +
+      "\027SCCharacterDeleteResult\022\022\n\nresultCode\030\001" +
+      " \002(\005:\005\210\303\032\360\007\"*\n\020CSCharacterLogin\022\017\n\007human" +
+      "Id\030\001 \002(\003:\005\210\303\032\361\007\"3\n\026SCCharacterLoginResul" +
+      "t\022\022\n\nresultCode\030\001 \002(\005:\005\210\303\032\362\007\"\263\004\n\nSCInitD" +
+      "ata\0220\n\005human\030\001 \001(\0132!.org.gof.demo.worlds" +
+      "rv.msg.DHuman\0228\n\005stage\030\002 \001(\0132).org.gof.d" +
+      "emo.worldsrv.msg.DInitDataStage\0220\n\005skill" +
+      "\030\003 \003(\0132!.org.gof.demo.worldsrv.msg.DSkil" +
+      "l\022-\n\004dBag\030\004 \003(\0132\037.org.gof.demo.worldsrv." +
+      "msg.DBag\022.\n\005altar\030\005 \001(\0132\037.org.gof.demo.w" +
+      "orldsrv.msg.DBag\022/\n\005tasks\030\006 \003(\0132 .org.go" +
+      "f.demo.worldsrv.msg.DTask\022\026\n\016excuteTaskC" +
+      "ode\030\007 \001(\005\022/\n\005mails\030\010 \003(\0132 .org.gof.demo." +
+      "worldsrv.msg.DMail\0227\n\ttreasures\030\t \003(\0132$." +
+      "org.gof.demo.worldsrv.msg.DTreasure\022:\n\nb" +
+      "lackGoods\030\n \003(\0132&.org.gof.demo.worldsrv." +
+      "msg.DBlackGoods\0222\n\006signIn\030\013 \001(\0132\".org.go" +
+      "f.demo.worldsrv.msg.DSignIn:\005\210\303\032\315\010\"L\n\021SC" +
+      "HumanInfoChange\0220\n\005human\030\001 \001(\0132!.org.gof" +
+      ".demo.worldsrv.msg.DHuman:\005\210\303\032\324\010\"V\n\027SCSt" +
+      "ageObjectInfoChange\0224\n\003obj\030\001 \001(\0132\'.org.g" +
+      "of.demo.worldsrv.msg.DStageObject:\005\210\303\032\325\010" +
+      "\"\024\n\013CSHumanInfo:\005\210\303\032\326\010\"F\n\013SCHumanInfo\0220\n" +
+      "\005human\030\001 \001(\0132!.org.gof.demo.worldsrv.msg" +
+      ".DHuman:\005\210\303\032\327\010\"&\n\nSCDieStage\022\021\n\tstageTyp" +
+      "e\030\001 \001(\t:\005\210\303\032\331\010\"3\n\010SCResult\022\016\n\006result\030\001 \002" +
+      "(\005\022\020\n\010errorMsg\030\002 \001(\t:\005\210\303\032\337\010\"$\n\013SCHumanKi" +
+      "ck\022\016\n\006reason\030\001 \001(\t:\005\210\303\032\260\t\"&\n\014CSStageEnte" +
+      "r\022\017\n\007stageSn\030\001 \002(\005:\005\210\303\032\261\t\"<\n\022SCStageEnte" +
+      "rResult\022\016\n\006result\030\001 \002(\005\022\017\n\007stageSn\030\002 \001(\005" +
+      ":\005\210\303\032\262\t\"\'\n\rCSStageSwitch\022\017\n\007stageSn\030\001 \002(" +
+      "\005:\005\210\303\032\263\t\"\'\n\rSCStageSwitch\022\017\n\007stageSn\030\001 \002" +
+      "(\005:\005\210\303\032\264\t\"\301\001\n\013CSStageMove\022\r\n\005objId\030\001 \001(\003" +
+      "\0225\n\010posBegin\030\002 \001(\0132#.org.gof.demo.worlds" +
+      "rv.msg.DVector3\0223\n\006posEnd\030\003 \003(\0132#.org.go" +
+      "f.demo.worldsrv.msg.DVector3\0220\n\003dir\030\004 \001(" +
+      "\0132#.org.gof.demo.worldsrv.msg.DVector3:\005" +
+      "\210\303\032\273\t\"\301\001\n\013SCStageMove\022\r\n\005objId\030\001 \001(\003\0225\n\010" +
+      "posBegin\030\002 \001(\0132#.org.gof.demo.worldsrv.m" +
+      "sg.DVector3\0223\n\006posEnd\030\003 \003(\0132#.org.gof.de" +
+      "mo.worldsrv.msg.DVector3\0220\n\003dir\030\004 \001(\0132#." +
+      "org.gof.demo.worldsrv.msg.DVector3:\005\210\303\032\274" +
+      "\t\"T\n\rSCStageSetPos\022\n\n\002id\030\001 \002(\003\0220\n\003pos\030\002 " +
+      "\002(\0132#.org.gof.demo.worldsrv.msg.DVector3" +
+      ":\005\210\303\032\275\t\"]\n\017CSStageMoveStop\022\016\n\006sendId\030\001 \001" +
+      "(\003\0223\n\006posEnd\030\002 \001(\0132#.org.gof.demo.worlds" +
+      "rv.msg.DVector2:\005\210\303\032\276\t\"\\\n\017SCStageMoveSto" +
+      "p\022\r\n\005objId\030\001 \001(\003\0223\n\006posEnd\030\002 \001(\0132#.org.g" +
+      "of.demo.worldsrv.msg.DVector2:\005\210\303\032\277\t\"f\n\023" +
+      "SCStageObjectAppear\022:\n\tobjAppear\030\001 \001(\0132\'" +
+      ".org.gof.demo.worldsrv.msg.DStageObject\022" +
+      "\014\n\004type\030\002 \001(\005:\005\210\303\032\300\t\"s\n\026SCStageObjectDis" +
+      "appear\022\r\n\005objId\030\001 \001(\003\022\014\n\004type\030\002 \001(\005\022\022\n\nk" +
+      "illerName\030\003 \001(\t\022\020\n\010killerId\030\004 \001(\003\022\017\n\007ski" +
+      "llSn\030\005 \001(\005:\005\210\303\032\301\t\"\030\n\017SCStageEnterEnd:\005\210\303" +
+      "\032\302\t\"N\n\023SCStageMoveTeleport\0220\n\003pos\030\001 \002(\0132" +
+      "#.org.gof.demo.worldsrv.msg.DVector3:\005\210\303" +
+      "\032\304\t\"\204\001\n\014CSStageMove2\0225\n\010posBegin\030\001 \001(\0132#" +
+      ".org.gof.demo.worldsrv.msg.DVector2\0226\n\td" +
+      "irection\030\002 \001(\0132#.org.gof.demo.worldsrv.m" +
+      "sg.DVector2:\005\210\303\032\306\t\"S\n\014SCStageMove2\022\n\n\002id" +
+      "\030\001 \002(\003\0220\n\003pos\030\002 \002(\0132#.org.gof.demo.world" +
+      "srv.msg.DVector3:\005\210\303\032\307\t\"H\n\rSCStagePullTo" +
+      "\0220\n\003pos\030\001 \002(\0132#.org.gof.demo.worldsrv.ms" +
+      "g.DVector3:\005\210\303\032\312\t\"\210\001\n\025SCUnitobjStatusCha" +
+      "nge\022\014\n\004type\030\001 \001(\003\022\n\n\002id\030\002 \001(\003\022\024\n\014teamBun" +
+      "dleID\030\003 \001(\003\022\017\n\007canMove\030\004 \001(\010\022\024\n\014canCastS" +
+      "kill\030\005 \001(\010\022\021\n\tcanAttack\030\006 \001(\010:\005\210\303\032\313\t\"8\n\024" +
+      "SCStageObjectLevelUp\022\n\n\002id\030\001 \002(\003\022\r\n\005leve" +
+      "l\030\002 \001(\005:\005\210\303\032\314\t\"\210\001\n\013SCSceneInit\022:\n\010trigge" +
+      "rs\030\001 \003(\0132(.org.gof.demo.worldsrv.msg.DSc" +
+      "eneTrigger\0226\n\006events\030\002 \003(\0132&.org.gof.dem" +
+      "o.worldsrv.msg.DSceneEvent:\005\210\303\032\343\t\"P\n\021SCS" +
+      "cenePlotChange\0224\n\005plots\030\001 \003(\0132%.org.gof." +
+      "demo.worldsrv.msg.DScenePlot:\005\210\303\032\344\t\"#\n\016C" +
+      "SSceneTrigger\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\345\t\"!\n\014CSSc" +
+      "eneEvent\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\346\t\"&\n\021SCSceneEv" +
+      "entStart\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\347\t\"\231\001\n\nCSFightA" +
+      "tk\022\020\n\010casterId\030\001 \002(\003\022\017\n\007skillId\030\002 \002(\005\022\r\n" +
+      "\005tarId\030\003 \001(\003\0220\n\003pos\030\004 \001(\0132#.org.gof.demo" +
+      ".worldsrv.msg.DVector2\022\021\n\tatkerType\030\005 \001(" +
+      "\005\022\r\n\005final\030\006 \001(\010:\005\210\303\032\225\n\"=\n\020SCFightAtkRes" +
+      "ult\022\022\n\nresultCode\030\001 \002(\005\022\016\n\006sendId\030\002 \002(\003:" +
+      "\005\210\303\032\226\n\"\231\004\n\014SCFightSkill\022\016\n\006castId\030\001 \001(\003\022" +
+      "\017\n\007skillId\030\002 \001(\005\022\r\n\005tarId\030\003 \001(\003\0220\n\003pos\030\004" +
+      " \001(\0132#.org.gof.demo.worldsrv.msg.DVector" +
+      "2\022\021\n\tatkerType\030\005 \001(\005\022\r\n\005defId\030\006 \003(\003\0226\n\005h" +
+      "pChg\030\007 \001(\0132\'.org.gof.demo.worldsrv.msg.S" +
+      "CFightHpChg\022\016\n\006period\030\010 \001(\005\022\r\n\005final\030\t \001" +
+      "(\010\0224\n\007backPos\030\n \003(\0132#.org.gof.demo.world" +
+      "srv.msg.DBackPos\0223\n\006attPos\030\013 \001(\0132#.org.g" +
+      "of.demo.worldsrv.msg.DVector2\022\014\n\004rage\030\014 " +
+      "\001(\005\0224\n\007rageAdd\030\r \003(\0132#.org.gof.demo.worl" +
+      "dsrv.msg.DRageAdd\022\025\n\rskillShakePct\030\016 \001(\001" +
+      "\022\026\n\016skillTeamGenId\030\017 \003(\003\022\021\n\trageHuman\030\020 " +
+      "\001(\005\022\022\n\nmutilMagic\030\021 \001(\005\022\022\n\ncomboCount\030\022 " +
+      "\001(\005\022\016\n\006missId\030\023 \003(\003:\005\210\303\032\227\n\"_\n\014SCFightHpC" +
+      "hg\0227\n\tdhpChgTar\030\001 \003(\0132$.org.gof.demo.wor" +
+      "ldsrv.msg.DHpChgTar\022\017\n\007skillSn\030\002 \001(\005:\005\210\303" +
+      "\032\230\n\"$\n\rCSFightRevive\022\014\n\004type\030\001 \001(\005:\005\210\303\032\236" +
+      "\n\",\n\022SCFightStageChange\022\017\n\007stageSn\030\001 \002(\005" +
+      ":\005\210\303\032\237\n\"o\n\017SCFightDotHpChg\022\r\n\005dotSn\030\001 \001(" +
+      "\005\0226\n\005hpChg\030\002 \001(\0132\'.org.gof.demo.worldsrv" +
+      ".msg.SCFightHpChg\022\016\n\006castId\030\003 \001(\003:\005\210\303\032\240\n" +
+      "\"-\n\010DRageAdd\022\r\n\005value\030\001 \001(\005\022\013\n\003max\030\002 \001(\005" +
+      ":\005\210\303\032\241\n\"u\n\022SCFightBulletHpChg\022\020\n\010bulletI" +
+      "D\030\001 \001(\003\0226\n\005hpChg\030\002 \001(\0132\'.org.gof.demo.wo" +
+      "rldsrv.msg.SCFightHpChg\022\016\n\006castId\030\003 \001(\003:" +
+      "\005\210\303\032\244\n\"g\n\021SCFightBulletMove\022\020\n\010bulletID\030" +
+      "\001 \001(\003\022\020\n\010bulletSN\030\002 \001(\005\022\024\n\014unitOriginId\030" +
+      "\003 \001(\003\022\021\n\tunitTarId\030\004 \001(\003:\005\210\303\032\245\n\"=\n\020CSSki" +
+      "llInterrupt\022\021\n\tunitObjID\030\001 \001(\003\022\017\n\007skillS" +
+      "n\030\002 \001(\005:\005\210\303\032\246\n\"=\n\020SCSkillInterrupt\022\021\n\tun" +
+      "itObjID\030\001 \001(\003\022\017\n\007skillSn\030\002 \001(\005:\005\210\303\032\247\n\"_\n" +
+      "\021CSSkillAddGeneral\022\021\n\tgeneralSn\030\001 \001(\t\0220\n" +
+      "\003pos\030\002 \001(\0132#.org.gof.demo.worldsrv.msg.D" +
+      "Vector2:\005\210\303\032\250\n\"0\n\024CSSkillRemoveGeneral\022\021" +
+      "\n\tunitObjID\030\001 \001(\003:\005\210\303\032\251\n\"4\n\030CSSkillAddGe" +
+      "neralToUnion\022\021\n\tgeneralId\030\001 \002(\003:\005\210\303\032\252\n\"\032" +
+      "\n\021CSUnionFightStart:\005\210\303\032\253\n\"\034\n\023CSUnionFig" +
+      "htAIPause:\005\210\303\032\254\n\"\036\n\025CSUnionFightAIUnpaus" +
+      "e:\005\210\303\032\255\n\"\034\n\023CSUnionFightSpecial:\005\210\303\032\256\n\"\'" +
+      "\n\020CSUnionFightAuto\022\014\n\004auto\030\001 \002(\010:\005\210\303\032\257\n\"" +
+      "\037\n\026SCFightSkillTeamCancel:\005\210\303\032\260\n\"h\n\rSCFi",
+      "ghtRevive\022\017\n\007humanId\030\001 \001(\003\022\r\n\005hpCur\030\002 \001(" +
+      "\005\0220\n\003pos\030\003 \001(\0132#.org.gof.demo.worldsrv.m" +
+      "sg.DVector2:\005\210\303\032\306\n\"H\n\013SCBagUpdate\0222\n\003bag" +
+      "\030\001 \002(\0132%.org.gof.demo.worldsrv.msg.DBagU" +
+      "pdate:\005\210\303\032\370\n\"<\n\tCSUseItem\022\014\n\004type\030\001 \001(\005\022" +
+      "\r\n\005index\030\002 \001(\005\022\013\n\003num\030\003 \001(\005:\005\210\303\032\371\n\"#\n\014CS" +
+      "ArrangeBag\022\014\n\004type\030\001 \002(\005:\005\210\303\032\373\n\"5\n\016CSIte" +
+      "mBachSell\022\014\n\004type\030\001 \001(\005\022\016\n\006polist\030\002 \003(\005:" +
+      "\005\210\303\032\375\n\"\"\n\013CSBagExpand\022\014\n\004type\030\001 \002(\005:\005\210\303\032" +
+      "\377\n\"6\n\013SCBagExpand\022\016\n\006result\030\001 \002(\005\022\020\n\010cap" +
+      "acity\030\002 \002(\005:\005\210\303\032\200\013\"7\n\014CSInformChat\022\017\n\007co" +
+      "ntent\030\001 \002(\t\022\017\n\007channel\030\002 \002(\005:\005\210\303\032\335\013\"\201\001\n\013" +
+      "SCInformMsg\022\017\n\007channel\030\001 \001(\005\022\017\n\007content\030" +
+      "\002 \001(\t\022\023\n\013sendHumanId\030\003 \001(\003\022\025\n\rsendHumanN" +
+      "ame\030\004 \001(\t\022\016\n\006campId\030\005 \001(\003\022\r\n\005isSys\030\006 \001(\010" +
+      ":\005\210\303\032\336\013\"6\n\016SCInformMsgAll\022\014\n\004type\030\001 \002(\005\022" +
+      "\017\n\007content\030\002 \002(\t:\005\210\303\032\340\013\"\026\n\rCSGeneralList" +
+      ":\005\210\303\032\355\016\"Q\n\rSCGeneralList\0229\n\010generals\030\001 \003" +
+      "(\0132\'.org.gof.demo.worldsrv.msg.DGeneralI" +
+      "nfo:\005\210\303\032\356\016\"\"\n\rCSGeneralInfo\022\n\n\002id\030\001 \002(\003:" +
+      "\005\210\303\032\357\016\"P\n\rSCGeneralInfo\0228\n\007general\030\001 \002(\013" +
+      "2\'.org.gof.demo.worldsrv.msg.DGeneralInf" +
+      "o:\005\210\303\032\360\016\"%\n\020CSGeneralRecruit\022\n\n\002sn\030\001 \002(\t" +
+      ":\005\210\303\032\361\016\"i\n\026SCGeneralRecruitResult\022\016\n\006res" +
+      "ult\030\001 \002(\005\0228\n\007general\030\002 \001(\0132\'.org.gof.dem" +
+      "o.worldsrv.msg.DGeneralInfo:\005\210\303\032\362\016\"<\n\017CS" +
+      "GeneralExpAdd\022\022\n\ngeneralIds\030\001 \003(\003\022\016\n\006cou" +
+      "nts\030\002 \003(\005:\005\210\303\032\363\016\"S\n\017SCGeneralExpAdd\0229\n\010g" +
+      "enerals\030\001 \003(\0132\'.org.gof.demo.worldsrv.ms" +
+      "g.DGeneralInfo:\005\210\303\032\364\016\"$\n\017CSGeneralStarUp" +
+      "\022\n\n\002id\030\001 \002(\003:\005\210\303\032\365\016\"b\n\017SCGeneralStarUp\022\016" +
+      "\n\006result\030\001 \002(\005\0228\n\007general\030\002 \001(\0132\'.org.go" +
+      "f.demo.worldsrv.msg.DGeneralInfo:\005\210\303\032\366\016\"" +
+      "\'\n\022CSGeneralQualityUp\022\n\n\002id\030\001 \002(\003:\005\210\303\032\367\016" +
+      "\"e\n\022SCGeneralQualityUp\022\016\n\006result\030\001 \002(\005\0228" +
+      "\n\007general\030\002 \001(\0132\'.org.gof.demo.worldsrv." +
+      "msg.DGeneralInfo:\005\210\303\032\370\016\"5\n\020CSGeneralEqui" +
+      "pUp\022\n\n\002id\030\001 \002(\003\022\016\n\006partSn\030\002 \002(\005:\005\210\303\032\371\016\"c" +
+      "\n\020SCGeneralEquipUp\022\016\n\006result\030\001 \002(\005\0228\n\007ge" +
+      "neral\030\002 \001(\0132\'.org.gof.demo.worldsrv.msg." +
+      "DGeneralInfo:\005\210\303\032\372\016\"\023\n\nCSFragInfo:\005\210\303\032\373\016" +
+      "\"H\n\nSCFragInfo\0223\n\005frags\030\001 \003(\0132$.org.gof." +
+      "demo.worldsrv.msg.DFragInfo:\005\210\303\032\374\016\"\"\n\rCS" +
+      "OneFragInfo\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\375\016\"J\n\rSCOneF" +
+      "ragInfo\0222\n\004frag\030\001 \002(\0132$.org.gof.demo.wor" +
+      "ldsrv.msg.DFragInfo:\005\210\303\032\376\016\",\n\nCSSellFrag" +
+      "\022\n\n\002sn\030\001 \002(\005\022\013\n\003num\030\002 \002(\005:\005\210\303\032\377\016\"#\n\nSCSe" +
+      "llFrag\022\016\n\006result\030\001 \002(\005:\005\210\303\032\200\017\"\034\n\023CSGenTa" +
+      "skFightTimes:\005\210\303\032\201\017\"Z\n\023SCGenTaskFightTim" +
+      "es\022<\n\005times\030\001 \003(\0132-.org.gof.demo.worldsr" +
+      "v.msg.DGenTaskFightTimes:\005\210\303\032\202\017\".\n\022CSEnt" +
+      "erGeneralTask\022\021\n\tgeneralId\030\001 \002(\003:\005\210\303\032\203\017\"" +
+      ",\n\022SCEnterGeneralTask\022\017\n\007stageSn\030\001 \002(\005:\005" +
+      "\210\303\032\204\017\".\n\030SCGeneralTaskFightResult\022\013\n\003win" +
+      "\030\001 \002(\010:\005\210\303\032\205\017\"\\\n\023SCGeneralTaskReward\022>\n\007" +
+      "rewards\030\001 \003(\0132-.org.gof.demo.worldsrv.ms" +
+      "g.DGeneralTaskReward:\005\210\303\032\206\017\"-\n\021CSGeneral" +
+      "ToAttIng\022\021\n\tgeneralId\030\001 \002(\003:\005\210\303\032\207\017\"+\n\021SC" +
+      "GeneralToAttIng\022\017\n\007success\030\001 \002(\010:\005\210\303\032\210\017\"" +
+      "\034\n\023CSGeneralInfoAttIng:\005\210\303\032\211\017\"W\n\023SCGener" +
+      "alInfoAttIng\0229\n\010generals\030\001 \003(\0132\'.org.gof" +
+      ".demo.worldsrv.msg.DGeneralInfo:\005\210\303\032\212\017\"$" +
+      "\n\017SCGeneralRemove\022\n\n\002id\030\001 \002(\003:\005\210\303\032\213\017\"0\n\024" +
+      "CSGeneralChooseFirst\022\021\n\tgeneralId\030\001 \002(\003:" +
+      "\005\210\303\032\214\017\"4\n\032SCGeneralChooseFirstResult\022\017\n\007" +
+      "success\030\001 \002(\010:\005\210\303\032\215\017\"Q\n\tSCBuffAdd\022\r\n\005obj" +
+      "Id\030\001 \001(\003\022.\n\004buff\030\002 \001(\0132 .org.gof.demo.wo" +
+      "rldsrv.msg.DBuff:\005\210\303\032\212\016\"T\n\014SCBuffUpdate\022" +
+      "\r\n\005objId\030\001 \001(\003\022.\n\004buff\030\002 \001(\0132 .org.gof.d" +
+      "emo.worldsrv.msg.DBuff:\005\210\303\032\213\016\"0\n\014SCBuffD" +
+      "ispel\022\r\n\005objId\030\001 \001(\003\022\n\n\002sn\030\002 \001(\005:\005\210\303\032\214\016\"" +
+      "(\n\023CSBuffDispelByHuman\022\n\n\002sn\030\001 \002(\003:\005\210\303\032\215" +
+      "\016\"\037\n\010CSSignIn\022\014\n\004type\030\001 \002(\005:\005\210\303\032\320\017\" \n\010SC" +
+      "SignIn\022\r\n\005state\030\001 \001(\005:\005\210\303\032\321\017\"(\n\023CSCommit" +
+      "QuestNormal\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\265\020\"\'\n\022CSComm" +
+      "itQuestDaily\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\266\020\"\024\n\013CSOpe" +
+      "nQuest:\005\210\303\032\267\020\"\031\n\020CSOpenQuestDaily:\005\210\303\032\270\020" +
+      "\"G\n\013SCQuestInfo\0221\n\006quests\030\001 \003(\0132!.org.go" +
+      "f.demo.worldsrv.msg.DQuest:\005\210\303\032\271\020\"\035\n\024CSO" +
+      "penQuestInstDaily:\005\210\303\032\272\020\".\n\025SCQuestInstD" +
+      "ailyCount\022\016\n\006counts\030\001 \003(\005:\005\210\303\032\273\020\"-\n\026CSCo" +
+      "mmitQuestInstDaily\022\014\n\004code\030\001 \001(\005:\005\210\303\032\274\020\"" +
+      "V\n\024SCQuestInstDailyInfo\0227\n\tinstances\030\001 \003" +
+      "(\0132$.org.gof.demo.worldsrv.msg.DInstance" +
+      ":\005\210\303\032\275\020\"2\n\031SCCommitQuestNormalResult\022\016\n\006" +
+      "result\030\001 \002(\005:\005\210\303\032\311\020\"(\n\017CSInstanceEnter\022\016" +
+      "\n\006instSn\030\001 \001(\005:\005\210\303\032\231\021\"\030\n\017CSInstanceLeave" +
+      ":\005\210\303\032\232\021\"\026\n\rCSInstanceEnd:\005\210\303\032\233\021\"d\n\rSCIns" +
+      "tanceEnd\022\013\n\003win\030\001 \002(\010\022\014\n\004star\030\002 \001(\005\0221\n\007r" +
+      "ewards\030\003 \003(\0132 .org.gof.demo.worldsrv.msg" +
+      ".DItem:\005\210\303\032\234\021\"R\n\017SCUpdateChapter\0228\n\007chap" +
+      "ter\030\001 \002(\0132\'.org.gof.demo.worldsrv.msg.DC" +
+      "hapterInfo:\005\210\303\032\237\021\"P\n\014SCAllChapter\0229\n\010cha" +
+      "pters\030\001 \003(\0132\'.org.gof.demo.worldsrv.msg." +
+      "DChapterInfo:\005\210\303\032\240\021\"4\n\016CSInstanceAuto\022\016\n" +
+      "\006instSn\030\001 \001(\005\022\013\n\003num\030\002 \001(\005:\005\210\303\032\241\021\"%\n\016SCI" +
+      "nstanceAuto\022\014\n\004auto\030\001 \002(\010:\005\210\303\032\242\021\"5\n\nCSBo" +
+      "xAward\022\021\n\tchapterId\030\001 \001(\005\022\r\n\005index\030\002 \001(\005" +
+      ":\005\210\303\032\244\021\"T\n\nSCBoxAward\022\016\n\006result\030\001 \002(\005\022/\n" +
+      "\005items\030\002 \003(\0132 .org.gof.demo.worldsrv.msg" +
+      ".DItem:\005\210\303\032\245\021\"\032\n\021CSInstanceLottery:\005\210\303\032\246" +
+      "\021\"K\n\021SCInstanceLottery\022/\n\005items\030\001 \003(\0132 ." +
+      "org.gof.demo.worldsrv.msg.DItem:\005\210\303\032\247\021\"#" +
+      "\n\014CSChangeName\022\014\n\004name\030\001 \002(\t:\005\210\303\032\375\021\"9\n\022S" +
+      "CChangeNameResult\022\016\n\006result\030\001 \002(\005\022\014\n\004nam" +
+      "e\030\002 \001(\t:\005\210\303\032\376\021\",\n\027SCChangeNameQuestFinis" +
+      "h\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\377\021\"\033\n\022CSChangeNameRand" +
+      "om:\005\210\303\032\200\022\"?\n\030SCChangeNameRandomResult\022\016\n" +
+      "\006result\030\001 \002(\005\022\014\n\004name\030\002 \001(\t:\005\210\303\032\201\022\"B\n\tSC" +
+      "AddMail\022.\n\004mail\030\001 \002(\0132 .org.gof.demo.wor" +
+      "ldsrv.msg.DMail:\005\210\303\032\341\022\"\023\n\nCSMailList:\005\210\303" +
+      "\032\342\022\"D\n\nSCMailList\022/\n\005mails\030\001 \003(\0132 .org.g" +
+      "of.demo.worldsrv.msg.DMail:\005\210\303\032\343\022\"\037\n\nCSR" +
+      "eadMail\022\n\n\002id\030\001 \002(\003:\005\210\303\032\344\022\"!\n\014CSPickupMa" +
+      "il\022\n\n\002id\030\001 \002(\003:\005\210\303\032\345\022\"R\n\014SCPickupMail\022\n\n" +
+      "\002id\030\001 \002(\003\022/\n\005items\030\002 \003(\0132 .org.gof.demo." +
+      "worldsrv.msg.DItem:\005\210\303\032\346\022\"\030\n\017CSPickupAll" +
+      "Mail:\005\210\303\032\347\022\"I\n\017SCPickupAllMail\022/\n\005items\030" +
+      "\001 \003(\0132 .org.gof.demo.worldsrv.msg.DItem:" +
+      "\005\210\303\032\350\022\"\024\n\013CSClearMail:\005\210\303\032\351\022\"\"\n\014SCDelete" +
+      "Mail\022\013\n\003ids\030\001 \003(\003:\005\210\303\032\352\022\"+\n\025CSCheckMailR" +
+      "emoveable\022\013\n\003ids\030\001 \003(\003:\005\210\303\032\353\022\"+\n\025SCCheck" +
+      "MailRemoveable\022\013\n\003ids\030\001 \003(\003:\005\210\303\032\354\022\"*\n\023CS" +
+      "RsvLivenessAwards\022\014\n\004code\030\001 \001(\005:\005\210\303\032\305\023\"0" +
+      "\n\031SCRsvLivenessAwardsResult\022\014\n\004code\030\001 \001(" +
+      "\005:\005\210\303\032\306\023\"\031\n\020CSOpenLivenessUI:\005\210\303\032\307\023\"c\n\016S" +
+      "CLivenessInfo\0226\n\010liveness\030\001 \003(\0132$.org.go" +
+      "f.demo.worldsrv.msg.DLiveness\022\022\n\nawardsR" +
+      "svd\030\002 \003(\005:\005\210\303\032\310\023\"3\n\tCSEquipUp\022\017\n\007humanId" +
+      "\030\001 \002(\003\022\016\n\006partSn\030\002 \002(\005:\005\210\303\032\251\024\"\"\n\tSCEquip" +
+      "Up\022\016\n\006result\030\001 \002(\005:\005\210\303\032\252\024\"5\n\013CSEquipDown" +
+      "\022\017\n\007humanId\030\001 \002(\003\022\016\n\006partSn\030\002 \002(\005:\005\210\303\032\253\024" +
+      "\"$\n\013SCEquipDown\022\016\n\006result\030\001 \002(\005:\005\210\303\032\254\024\"8" +
+      "\n\016CSEquipReclaim\022\017\n\007humanId\030\001 \002(\003\022\016\n\006par" +
+      "tSn\030\002 \002(\005:\005\210\303\032\255\024\"X\n\016SCEquipReclaim\022\016\n\006re" +
+      "sult\030\001 \002(\005\022/\n\005items\030\002 \003(\0132 .org.gof.demo" +
+      ".worldsrv.msg.DItem:\005\210\303\032\256\024\"b\n\026SCEquipCha" +
+      "ngeBoardcast\022\017\n\007humanId\030\001 \002(\003\0220\n\005human\030\002" +
+      " \001(\0132!.org.gof.demo.worldsrv.msg.DHuman:" +
+      "\005\210\303\032\260\024\"8\n\016CSPartQianghua\022\017\n\007humanId\030\001 \002(" +
+      "\003\022\016\n\006partSn\030\002 \002(\005:\005\210\303\032\261\024\"\'\n\016SCPartQiangh" +
+      "ua\022\016\n\006result\030\001 \002(\005:\005\210\303\032\262\024\"L\n\017CSPartChong" +
+      "xing\022\017\n\007humanId\030\001 \002(\003\022\016\n\006partSn\030\002 \002(\005\022\021\n" +
+      "\tmaterials\030\003 \003(\005:\005\210\303\032\263\024\"(\n\017SCPartChongxi" +
+      "ng\022\016\n\006result\030\001 \002(\005:\005\210\303\032\264\024\"0\n\007CSGemUp\022\014\n\004" +
+      "part\030\001 \001(\005\022\020\n\010bagIndex\030\002 \001(\005:\005\210\303\032\215\025\"4\n\nC" +
+      "SGemUpAll\022\017\n\007humanId\030\001 \002(\003\022\016\n\006partSn\030\002 \002" +
+      "(\005:\005\210\303\032\217\025\"!\n\010SCSetGem\022\016\n\006result\030\001 \002(\005:\005\210" +
+      "\303\032\220\025\"B\n\tCSGemDown\022\017\n\007humanId\030\001 \002(\003\022\016\n\006pa" +
+      "rtSn\030\002 \002(\005\022\r\n\005index\030\003 \002(\005:\005\210\303\032\221\025\"6\n\014CSGe" +
+      "mDownAll\022\017\n\007humanId\030\001 \002(\003\022\016\n\006partSn\030\002 \002(" +
+      "\005:\005\210\303\032\223\025\"2\n\016CSGemComposite\022\n\n\002sn\030\001 \002(\005\022\r" +
+      "\n\005count\030\002 \002(\005:\005\210\303\032\225\025\"3\n\016SCGemComposite\022\016" +
+      "\n\006result\030\001 \002(\005\022\n\n\002sn\030\002 \001(\005:\005\210\303\032\226\025\"&\n\021CSG" +
+      "emCompositeTop\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\227\025\"*\n\021SCG" +
+      "emCompositeTop\022\016\n\006result\030\001 \002(\005:\005\210\303\032\230\025\"\035\n" +
+      "\024CSGemCompositeAllTop:\005\210\303\032\231\025\"-\n\024SCGemCom" +
+      "positeAllTop\022\016\n\006result\030\001 \002(\005:\005\210\303\032\232\025\"\035\n\010C" +
+      "SGatcha\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\361\025\"\037\n\nCSGatcha10" +
+      "\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\362\025\"B\n\010SCGatcha\022/\n\005items" +
+      "\030\001 \003(\0132 .org.gof.demo.worldsrv.msg.DItem" +
+      ":\005\210\303\032\363\025\"\024\n\013CSSkillInit:\005\210\303\032\337\026\"\202\001\n\021SCSkil" +
+      "lInitResult\0221\n\006skills\030\001 \003(\0132!.org.gof.de" +
+      "mo.worldsrv.msg.DSkill\0223\n\007inborns\030\002 \003(\0132" +
+      "\".org.gof.demo.worldsrv.msg.DInborn:\005\210\303\032" +
+      "\340\026\"#\n\016CSSkillLevelup\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\341\026\"" +
+      "_\n\024SCSkillLevelupResult\022\016\n\006result\030\001 \002(\005\022" +
+      "0\n\005skill\030\002 \001(\0132!.org.gof.demo.worldsrv.m" +
+      "sg.DSkill:\005\210\303\032\342\026\"$\n\017CSInbornLevelup\022\n\n\002s" +
+      "n\030\001 \002(\005:\005\210\303\032\343\026\"b\n\025SCInbornLevelupResult\022" +
+      "\016\n\006result\030\001 \002(\005\0222\n\006inborn\030\002 \001(\0132\".org.go" +
+      "f.demo.worldsrv.msg.DInborn:\005\210\303\032\344\026\"#\n\016CS" +
+      "ChangeInborn\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\345\026\"-\n\024SCCha" +
+      "ngeInbornResult\022\016\n\006result\030\001 \002(\005:\005\210\303\032\346\026\"\"" +
+      "\n\rCSAddRelSkill\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\353\026\",\n\023SC" +
+      "AddRelSkillResult\022\016\n\006result\030\001 \002(\005:\005\210\303\032\354\026" +
+      "\"\"\n\rCSDelRelSkill\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\355\026\",\n\023" +
+      "SCDelRelSkillResult\022\016\n\006result\030\001 \002(\005:\005\210\303\032" +
+      "\356\026\"!\n\nCSOpenMall\022\014\n\004type\030\001 \002(\005:\005\210\303\032\271\027\"L\n" +
+      "\014SCMallResult\0225\n\010virtuals\030\001 \003(\0132#.org.go" +
+      "f.demo.worldsrv.msg.DVirtual:\005\210\303\032\272\027\"2\n\016C" +
+      "SBuyMallGoods\022\n\n\002sn\030\001 \002(\005\022\r\n\005count\030\002 \002(\005" +
+      ":\005\210\303\032\273\027\"\'\n\016SCBuyMallGoods\022\016\n\006result\030\001 \002(" +
+      "\005:\005\210\303\032\274\027\"\032\n\021CSRequestShopTags:\005\210\303\032\275\027\"\'\n\020" +
+      "SCResultShopTags\022\014\n\004tags\030\001 \003(\t:\005\210\303\032\276\027\"\037\n" +
+      "\nCSOpenShop\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\277\027\"E\n\014SCShop" +
+      "Result\022.\n\004shop\030\001 \002(\0132 .org.gof.demo.worl" +
+      "dsrv.msg.DShop:\005\210\303\032\300\027\"2\n\016CSBuyShopGoods\022" +
+      "\n\n\002sn\030\001 \002(\005\022\r\n\005count\030\002 \002(\005:\005\210\303\032\301\027\"\'\n\016SCB" +
+      "uyShopGoods\022\016\n\006result\030\001 \002(\005:\005\210\303\032\302\027\"\"\n\rCS" +
+      "RefreshShop\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\303\027\"\\\n\023SCRefr" +
+      "eshShopResult\022\016\n\006result\030\001 \002(\005\022.\n\004shop\030\002 " +
+      "\002(\0132 .org.gof.demo.worldsrv.msg.DShop:\005\210" +
+      "\303\032\304\027\"G\n\016SCOpenTempShop\022.\n\004shop\030\001 \002(\0132 .o" +
+      "rg.gof.demo.worldsrv.msg.DShop:\005\210\303\032\305\027\"\036\n" +
+      "\tCSBuyShop\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\306\027\"(\n\017SCBuySh" +
+      "opResult\022\016\n\006result\030\001 \002(\005:\005\210\303\032\307\027\"#\n\016CSIns" +
+      "tanceRank\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\235\030\"P\n\016SCInstan" +
+      "ceRank\0227\n\005ranks\030\001 \003(\0132(.org.gof.demo.wor" +
+      "ldsrv.msg.DInstanceRank:\005\210\303\032\236\030\"\024\n\013CSLeve" +
+      "lRank:\005\210\303\032\237\030\"J\n\013SCLevelRank\0224\n\005ranks\030\001 \003" +
+      "(\0132%.org.gof.demo.worldsrv.msg.DLevelRan" +
+      "k:\005\210\303\032\240\030\"\025\n\014CSCombatRank:\005\210\303\032\241\030\"L\n\014SCCom" +
+      "batRank\0225\n\005ranks\030\001 \003(\0132&.org.gof.demo.wo" +
+      "rldsrv.msg.DCombatRank:\005\210\303\032\242\030\"J\n\nSCAllLa" +
+      "yer\0225\n\006layers\030\001 \003(\0132%.org.gof.demo.world" +
+      "srv.msg.DLayerInfo:\005\210\303\032\201\031\"\025\n\014CSLayerEnte" +
+      "r:\005\210\303\032\202\031\"\023\n\nCSLayerEnd:\005\210\303\032\203\031\"S\n\nSCLayer" +
+      "End\022\013\n\003win\030\001 \002(\010\0221\n\007rewards\030\002 \003(\0132 .org." +
+      "gof.demo.worldsrv.msg.DItem:\005\210\303\032\204\031\"\025\n\014CS" +
+      "LayerLeave:\005\210\303\032\205\031\"\025\n\014CSLayerAward:\005\210\303\032\206\031" +
+      "\"V\n\014SCLayerAward\022\016\n\006result\030\001 \002(\005\022/\n\005item" +
+      "s\030\002 \003(\0132 .org.gof.demo.worldsrv.msg.DIte" +
+      "m:\005\210\303\032\207\031\"\033\n\022CSLayerRefreshBuff:\005\210\303\032\210\031\",\n" +
+      "\022SCLayerRefreshBuff\022\017\n\007buffSns\030\001 \003(\005:\005\210\303" +
+      "\032\211\031\"\027\n\016CSRefreshTower:\005\210\303\032\212\031\"\030\n\017CSTeamRe" +
+      "qOpenUI:\005\210\303\032\345\031\"V\n\025SCTeamReqOpenUIResult\022" +
+      "6\n\005teams\030\001 \003(\0132\'.org.gof.demo.worldsrv.m" +
+      "sg.DTeamRepItem:\005\210\303\032\346\031\"&\n\rCSTeamReqJoin\022" +
+      "\016\n\006teamId\030\001 \002(\003:\005\210\303\032\347\031\"p\n\023SCTeamReqSelfR" +
+      "esult\0224\n\003rep\030\001 \001(\0132\'.org.gof.demo.worlds" +
+      "rv.msg.DTeamRepItem\022\016\n\006result\030\002 \001(\005\022\014\n\004i" +
+      "nfo\030\003 \001(\t:\005\210\303\032\350\031\")\n\017CSTeamReqLaunch\022\017\n\007s" +
+      "tageSn\030\001 \002(\005:\005\210\303\032\351\031\")\n\017CSTeamRepCreate\022\017" +
+      "\n\007stageSn\030\001 \002(\005:\005\210\303\032\353\031\"\027\n\016CSTeamRepLeave" +
+      ":\005\210\303\032\355\031\"\027\n\016SCTeamRepLeave:\005\210\303\032\356\031\"\'\n\rCSTe" +
+      "amRepKick\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\357\031\"*\n\020SCT" +
+      "eamReqLeftNum\022\017\n\007stageSn\030\001 \002(\005:\005\210\303\032\360\031\"\026\n" +
+      "\rSCTeamRepKick:\005\210\303\032\362\031\"\031\n\020CSTeamReqCloseU" +
+      "I:\005\210\303\032\363\031\" \n\027CSTeamReqUpdateRealTime:\005\210\303\032" +
+      "\364\031\"X\n\027SCTeamReqUpdateRealTime\0226\n\005teams\030\001" +
+      " \003(\0132\'.org.gof.demo.worldsrv.msg.DTeamRe" +
+      "pItem:\005\210\303\032\364\031\"\034\n\023CSTeamRepLeaveQueue:\005\210\303\032" +
+      "\365\031\"\034\n\023SCTeamRepLeaveQueue:\005\210\303\032\366\031\"\026\n\rCSTe" +
+      "amRepCall:\005\210\303\032\371\031\"&\n\014CSTeamInvite\022\017\n\007huma" +
+      "nId\030\001 \002(\003:\005\210\303\032\203\032\"7\n\014SCTeamInvite\022\016\n\006from" +
+      "Id\030\001 \002(\003\022\020\n\010fromName\030\002 \001(\t:\005\210\303\032\204\032\"<\n\023CST" +
+      "eamInviteConfirm\022\016\n\006accept\030\001 \002(\010\022\016\n\006team" +
+      "Id\030\002 \001(\003:\005\210\303\032\205\032\"$\n\013CSTeamApply\022\016\n\006teamId" +
+      "\030\001 \002(\003:\005\210\303\032\207\032\"&\n\013SCTeamApply\022\020\n\010humanIds" +
+      "\030\001 \003(\003:\005\210\303\032\210\032\"-\n\022CSTeamApplyConfirm\022\020\n\010h" +
+      "umanIds\030\001 \003(\003:\005\210\303\032\211\032\"\023\n\nCSTeamMine:\005\210\303\032\212" +
+      "\032\"J\n\nSCTeamMine\0225\n\004team\030\001 \001(\0132\'.org.gof." +
+      "demo.worldsrv.msg.DTeamRepItem:\005\210\303\032\212\032\"\024\n" +
+      "\013CSTeamLeave:\005\210\303\032\213\032\"\024\n\013SCTeamLeave:\005\210\303\032\214" +
+      "\032\",\n\022CSCompetitionEnter\022\017\n\007humanId\030\001 \001(\003" +
+      ":\005\210\303\032\311\032\"\031\n\020CSCompetitionEnd:\005\210\303\032\312\032\"z\n\020SC" +
+      "CompetitionEnd\022\r\n\005isWin\030\001 \001(\010\022\017\n\007newRank" +
+      "\030\002 \001(\005\022\017\n\007oldRank\030\003 \001(\005\022\014\n\004coin\030\004 \001(\003\022\013\n" +
+      "\003exp\030\005 \001(\003\022\023\n\013competMoney\030\006 \001(\003:\005\210\303\032\313\032\"\033" +
+      "\n\022CSCompetitionLeave:\005\210\303\032\314\032\"\027\n\016CSRefresh" +
+      "Enemy:\005\210\303\032\315\032\"q\n\021SCCompetitionInfo\0224\n\005inf" +
+      "os\030\001 \003(\0132%.org.gof.demo.worldsrv.msg.DHu" +
+      "manInfo\022\r\n\005count\030\002 \001(\005\022\020\n\010timeCool\030\003 \001(\005" +
+      ":\005\210\303\032\317\032\"\026\n\rCSResetCDTime:\005\210\303\032\320\032\"*\n\rSCRes" +
+      "etCDTime\022\022\n\nresultCode\030\001 \001(\005:\005\210\303\032\321\032\"!\n\nC" +
+      "SOpenRank\022\014\n\004page\030\001 \001(\005:\005\210\303\032\322\032\"$\n\014SCRank" +
+      "Result\022\r\n\005ranks\030\001 \003(\005:\005\210\303\032\323\032\"\037\n\026CSCompet" +
+      "itionBattleLog:\005\210\303\032\324\032\"T\n\026SCCompetitionBa" +
+      "ttleLog\0223\n\004logs\030\001 \003(\0132%.org.gof.demo.wor" +
+      "ldsrv.msg.DBattleLog:\005\210\303\032\325\032\"#\n\016CSRefresh" +
+      "Count\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\326\032\"+\n\016SCRefreshCou" +
+      "nt\022\022\n\nresultCode\030\001 \001(\005:\005\210\303\032\327\032\"(\n\021CSGetSe" +
+      "flRankPage\022\014\n\004type\030\001 \002(\005:\005\210\303\032\330\032\"(\n\021SCGet" +
+      "SeflRankPage\022\014\n\004rank\030\001 \002(\005:\005\210\303\032\331\032\"\025\n\014CSF" +
+      "riendList:\005\210\303\032\255\033\"\307\001\n\014SCFriendList\022:\n\nfri" +
+      "endList\030\001 \003(\0132&.org.gof.demo.worldsrv.ms" +
+      "g.DFriendInfo\0229\n\tapplyList\030\002 \003(\0132&.org.g" +
+      "of.demo.worldsrv.msg.DFriendInfo\0229\n\tblac" +
+      "kList\030\003 \003(\0132&.org.gof.demo.worldsrv.msg." +
+      "DFriendInfo:\005\210\303\032\256\033\")\n\017CSRequestFriend\022\017\n" +
+      "\007humanId\030\001 \002(\003:\005\210\303\032\257\033\"9\n\017SCRequestFriend" +
+      "\022\016\n\006result\030\001 \001(\010\022\017\n\007humanId\030\002 \001(\003:\005\210\303\032\260\033" +
+      "\")\n\016CSAcceptFriend\022\020\n\010humanIds\030\001 \003(\003:\005\210\303" +
+      "\032\261\033\"9\n\016SCAcceptFriend\022\016\n\006result\030\001 \001(\010\022\020\n" +
+      "\010humanIds\030\002 \003(\003:\005\210\303\032\262\033\"(\n\016CSRefuseFriend" +
+      "\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\263\033\"8\n\016SCRefuseFrie" +
+      "nd\022\016\n\006result\030\001 \001(\010\022\017\n\007humanId\030\002 \001(\003:\005\210\303\032" +
+      "\264\033\"\032\n\021CSRecommendFriend:\005\210\303\032\265\033\"Q\n\021SCReco" +
+      "mmendFriend\0225\n\005infos\030\001 \003(\0132&.org.gof.dem" +
+      "o.worldsrv.msg.DFriendInfo:\005\210\303\032\266\033\"(\n\016CSS" +
+      "earchFriend\022\017\n\007humanId\030\001 \001(\003:\005\210\303\032\267\033\"N\n\016S" +
+      "CSearchFriend\0225\n\005infos\030\001 \003(\0132&.org.gof.d" +
+      "emo.worldsrv.msg.DFriendInfo:\005\210\303\032\270\033\"(\n\016C" +
+      "SRemoveFriend\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\271\033\"8\n" +
+      "\016SCRemoveFriend\022\016\n\006result\030\001 \001(\010\022\017\n\007human" +
+      "Id\030\002 \001(\003:\005\210\303\032\272\033\"\'\n\rCSToBlackList\022\017\n\007huma" +
+      "nId\030\001 \002(\003:\005\210\303\032\275\033\"7\n\rSCToBlackList\022\016\n\006res" +
+      "ult\030\001 \001(\010\022\017\n\007humanId\030\002 \001(\003:\005\210\303\032\276\033\"+\n\021CSR" +
+      "emoveBlackList\022\017\n\007humanId\030\001 \002(\003:\005\210\303\032\277\033\";" +
+      "\n\021SCRemoveBlackList\022\016\n\006result\030\001 \001(\010\022\017\n\007h" +
+      "umanId\030\002 \001(\003:\005\210\303\032\300\033\"\031\n\020CSBulletinOpenUI:" +
+      "\005\210\303\032\221\034\"R\n\020SCBulletinOpenUI\0227\n\005items\030\001 \003(" +
+      "\0132(.org.gof.demo.worldsrv.msg.DBulletinI" +
+      "tem:\005\210\303\032\222\034\"\034\n\006CSTest\022\013\n\003msg\030\001 \002(\t:\005\210\303\032\255M" +
+      "\"&\n\016CSTestAddMoney\022\r\n\005count\030\001 \002(\003:\005\210\303\032\256M" +
+      "\"/\n\rCSTestAddItem\022\n\n\002sn\030\001 \002(\005\022\013\n\003num\030\002 \002" +
+      "(\005:\005\210\303\032\257M\"&\n\021CSTestGiveGeneral\022\n\n\002sn\030\001 \002" +
+      "(\005:\005\210\303\032\264M\"\031\n\020CSTestWhoIsMyDad:\005\210\303\032\265M\"#\n\016" +
+      "CSTestEnterRep\022\n\n\002sn\030\001 \002(\005:\005\210\303\032\275M\"\035\n\024CST" +
+      "estGiveAllGeneral:\005\210\303\032\277M\"\032\n\021CSTestSendSy" +
+      "sMail:\005\210\303\032\300M\"!\n\tCSTestVIP\022\r\n\005level\030\001 \002(\005" +
+      ":\005\210\303\032\301M\"5\n\022CSTestInstanceStar\022\n\n\002sn\030\001 \002(" +
+      "\005\022\014\n\004star\030\002 \002(\005:\005\210\303\032\302M\"\'\n\020CSTestUpdateTi" +
+      "me\022\014\n\004time\030\001 \002(\003:\005\210\303\032\303M\"\'\n\rCSInformToAll" +
+      "\022\017\n\007content\030\001 \002(\t:\005\210\303\032\304M*\244\001\n\020EWorldObjec" +
+      "tType\022\t\n\005HUMAN\020\000\022\013\n\007MONSTER\020\001\022\010\n\004DROP\020\002\022" +
+      "\007\n\003DOT\020\003\022\n\n\006BULLET\020\004\022\007\n\003NPC\020\005\022\010\n\004PICK\020\006\022" +
+      "\013\n\007TRIGGER\020\007\022\n\n\006COMMON\020\010\022\013\n\007GENERAL\020\t\022\013\n" +
+      "\007COMPETE\020\n\022\t\n\005SROLE\020\013\022\010\n\004HERO\020\014*G\n\016EArea" +
+      "EventType\022\010\n\004NONE\020\000\022\020\n\014NORMAL_EVENT\020\001\022\r\n" +
+      "\tTRANSPORT\020\002\022\n\n\006SAFETY\020\003*(\n\010ENpcType\022\016\n\n" +
+      "Npc_Normal\020\000\022\014\n\010Npc_Area\020\001*\036\n\020EstageComm" +
+      "onType\022\n\n\006common\020\001*d\n\014ESkillArmPos\022\n\n\006no" +
+      "rmal\020\001\022\n\n\006skill1\020\002\022\n\n\006skill2\020\003\022\n\n\006skill3" +
+      "\020\004\022\n\n\006skill4\020\005\022\013\n\007fetter1\020\006\022\013\n\007fetter2\020\007"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -274856,7 +278542,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_DFriendInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_DFriendInfo_descriptor,
-        new java.lang.String[] { "Id", "Name", "Level", "Profession", "FightPower", "IsOnline", });
+        new java.lang.String[] { "HumanSn", "Name", "Level", "Combat", "HumanId", "Online", });
     internal_static_org_gof_demo_worldsrv_msg_DSkill_descriptor =
       getDescriptor().getMessageType(63);
     internal_static_org_gof_demo_worldsrv_msg_DSkill_fieldAccessorTable = new
@@ -275006,7 +278692,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_SCDieStage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCDieStage_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "StageType", });
     internal_static_org_gof_demo_worldsrv_msg_SCResult_descriptor =
       getDescriptor().getMessageType(88);
     internal_static_org_gof_demo_worldsrv_msg_SCResult_fieldAccessorTable = new
@@ -275336,7 +279022,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_SCInformMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCInformMsg_descriptor,
-        new java.lang.String[] { "Type", "Content", });
+        new java.lang.String[] { "Channel", "Content", "SendHumanId", "SendHumanName", "CampId", "IsSys", });
     internal_static_org_gof_demo_worldsrv_msg_SCInformMsgAll_descriptor =
       getDescriptor().getMessageType(143);
     internal_static_org_gof_demo_worldsrv_msg_SCInformMsgAll_fieldAccessorTable = new
@@ -275642,7 +279328,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_CSInstanceEnter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_CSInstanceEnter_descriptor,
-        new java.lang.String[] { "Sn", });
+        new java.lang.String[] { "InstSn", });
     internal_static_org_gof_demo_worldsrv_msg_CSInstanceLeave_descriptor =
       getDescriptor().getMessageType(194);
     internal_static_org_gof_demo_worldsrv_msg_CSInstanceLeave_fieldAccessorTable = new
@@ -275678,7 +279364,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_CSInstanceAuto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_CSInstanceAuto_descriptor,
-        new java.lang.String[] { "Auto", });
+        new java.lang.String[] { "InstSn", "Num", });
     internal_static_org_gof_demo_worldsrv_msg_SCInstanceAuto_descriptor =
       getDescriptor().getMessageType(200);
     internal_static_org_gof_demo_worldsrv_msg_SCInstanceAuto_fieldAccessorTable = new
@@ -275690,7 +279376,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_CSBoxAward_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_CSBoxAward_descriptor,
-        new java.lang.String[] { "Sn", });
+        new java.lang.String[] { "ChapterId", "Index", });
     internal_static_org_gof_demo_worldsrv_msg_SCBoxAward_descriptor =
       getDescriptor().getMessageType(202);
     internal_static_org_gof_demo_worldsrv_msg_SCBoxAward_fieldAccessorTable = new
@@ -275702,7 +279388,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_CSInstanceLottery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_CSInstanceLottery_descriptor,
-        new java.lang.String[] { "Sn", });
+        new java.lang.String[] { });
     internal_static_org_gof_demo_worldsrv_msg_SCInstanceLottery_descriptor =
       getDescriptor().getMessageType(204);
     internal_static_org_gof_demo_worldsrv_msg_SCInstanceLottery_fieldAccessorTable = new
@@ -275816,7 +279502,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_CSRsvLivenessAwards_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_CSRsvLivenessAwards_descriptor,
-        new java.lang.String[] { "Sns", });
+        new java.lang.String[] { "Code", });
     internal_static_org_gof_demo_worldsrv_msg_SCRsvLivenessAwardsResult_descriptor =
       getDescriptor().getMessageType(223);
     internal_static_org_gof_demo_worldsrv_msg_SCRsvLivenessAwardsResult_fieldAccessorTable = new
@@ -276512,7 +280198,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_SCFriendList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCFriendList_descriptor,
-        new java.lang.String[] { "FriendList", });
+        new java.lang.String[] { "FriendList", "ApplyList", "BlackList", });
     internal_static_org_gof_demo_worldsrv_msg_CSRequestFriend_descriptor =
       getDescriptor().getMessageType(339);
     internal_static_org_gof_demo_worldsrv_msg_CSRequestFriend_fieldAccessorTable = new
@@ -276524,19 +280210,19 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_SCRequestFriend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCRequestFriend_descriptor,
-        new java.lang.String[] { "Result", });
+        new java.lang.String[] { "Result", "HumanId", });
     internal_static_org_gof_demo_worldsrv_msg_CSAcceptFriend_descriptor =
       getDescriptor().getMessageType(341);
     internal_static_org_gof_demo_worldsrv_msg_CSAcceptFriend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_CSAcceptFriend_descriptor,
-        new java.lang.String[] { "HumanId", });
+        new java.lang.String[] { "HumanIds", });
     internal_static_org_gof_demo_worldsrv_msg_SCAcceptFriend_descriptor =
       getDescriptor().getMessageType(342);
     internal_static_org_gof_demo_worldsrv_msg_SCAcceptFriend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCAcceptFriend_descriptor,
-        new java.lang.String[] { "Result", });
+        new java.lang.String[] { "Result", "HumanIds", });
     internal_static_org_gof_demo_worldsrv_msg_CSRefuseFriend_descriptor =
       getDescriptor().getMessageType(343);
     internal_static_org_gof_demo_worldsrv_msg_CSRefuseFriend_fieldAccessorTable = new
@@ -276548,7 +280234,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_SCRefuseFriend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCRefuseFriend_descriptor,
-        new java.lang.String[] { "Result", });
+        new java.lang.String[] { "Result", "HumanId", });
     internal_static_org_gof_demo_worldsrv_msg_CSRecommendFriend_descriptor =
       getDescriptor().getMessageType(345);
     internal_static_org_gof_demo_worldsrv_msg_CSRecommendFriend_fieldAccessorTable = new
@@ -276560,19 +280246,19 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_SCRecommendFriend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCRecommendFriend_descriptor,
-        new java.lang.String[] { "Friends", });
+        new java.lang.String[] { "Infos", });
     internal_static_org_gof_demo_worldsrv_msg_CSSearchFriend_descriptor =
       getDescriptor().getMessageType(347);
     internal_static_org_gof_demo_worldsrv_msg_CSSearchFriend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_CSSearchFriend_descriptor,
-        new java.lang.String[] { "Name", });
+        new java.lang.String[] { "HumanId", });
     internal_static_org_gof_demo_worldsrv_msg_SCSearchFriend_descriptor =
       getDescriptor().getMessageType(348);
     internal_static_org_gof_demo_worldsrv_msg_SCSearchFriend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCSearchFriend_descriptor,
-        new java.lang.String[] { "Friends", });
+        new java.lang.String[] { "Infos", });
     internal_static_org_gof_demo_worldsrv_msg_CSRemoveFriend_descriptor =
       getDescriptor().getMessageType(349);
     internal_static_org_gof_demo_worldsrv_msg_CSRemoveFriend_fieldAccessorTable = new
@@ -276584,7 +280270,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_SCRemoveFriend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCRemoveFriend_descriptor,
-        new java.lang.String[] { "Success", });
+        new java.lang.String[] { "Result", "HumanId", });
     internal_static_org_gof_demo_worldsrv_msg_CSToBlackList_descriptor =
       getDescriptor().getMessageType(351);
     internal_static_org_gof_demo_worldsrv_msg_CSToBlackList_fieldAccessorTable = new
@@ -276596,7 +280282,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_SCToBlackList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCToBlackList_descriptor,
-        new java.lang.String[] { "Success", });
+        new java.lang.String[] { "Result", "HumanId", });
     internal_static_org_gof_demo_worldsrv_msg_CSRemoveBlackList_descriptor =
       getDescriptor().getMessageType(353);
     internal_static_org_gof_demo_worldsrv_msg_CSRemoveBlackList_fieldAccessorTable = new
@@ -276608,7 +280294,7 @@ public final class Msg extends com.google.protobuf.GeneratedFile {
     internal_static_org_gof_demo_worldsrv_msg_SCRemoveBlackList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_gof_demo_worldsrv_msg_SCRemoveBlackList_descriptor,
-        new java.lang.String[] { "Success", });
+        new java.lang.String[] { "Result", "HumanId", });
     internal_static_org_gof_demo_worldsrv_msg_CSBulletinOpenUI_descriptor =
       getDescriptor().getMessageType(355);
     internal_static_org_gof_demo_worldsrv_msg_CSBulletinOpenUI_fieldAccessorTable = new

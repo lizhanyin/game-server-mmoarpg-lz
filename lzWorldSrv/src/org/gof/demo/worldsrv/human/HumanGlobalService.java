@@ -24,7 +24,6 @@ import org.gof.demo.worldsrv.common.GameServiceBase;
 import org.gof.demo.worldsrv.inform.Inform;
 import org.gof.demo.worldsrv.msg.Msg.SCHumanKick;
 import org.gof.demo.worldsrv.msg.Msg.SCInformMsg;
-//import org.gof.demo.worldsrv.msg.Msg.SCInformMsgAll;
 import org.gof.demo.worldsrv.support.D;
 import org.gof.demo.worldsrv.support.HumanException;
 import org.gof.demo.worldsrv.support.I18n;
@@ -165,7 +164,7 @@ public class HumanGlobalService extends GameServiceBase {
         long humanId = 0;
         HumanGlobalInfo humanInfo = null;
         for(HumanGlobalInfo h : datas.values()) {
-            if(StringUtils.equals(account, h.account)) {
+            if(account.equalsIgnoreCase(h.account)) {
                 logined = true;
                 humanId = h.id;
                 humanInfo = h;

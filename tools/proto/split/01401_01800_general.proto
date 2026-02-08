@@ -63,8 +63,12 @@ message CSInformChat {
 // 消息通知
 message SCInformMsg {
   option (msgid) = 1502;
-  required int32 type = 1;
-  required string content = 2;
+  optional int32 channel = 1;          // 频道
+  optional string content = 2;         // 内容
+  optional int64 sendHumanId = 3;      // 玩家ID
+  optional string sendHumanName = 4;   // 玩家昵称
+  optional int64 campId = 5;           // 阵营ID
+  optional bool isSys = 6;             // 是否是系统
 }
 
 // MsgID: 1504
@@ -106,7 +110,7 @@ message SCGeneralInfo {
 // 招募武将
 message CSGeneralRecruit {
   option (msgid) = 1905;
-  required int32 sn = 1;
+  required string sn = 1;
 }
 
 // MsgID: 1906
