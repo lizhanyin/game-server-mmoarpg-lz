@@ -17,7 +17,6 @@ import org.gof.core.support.SysException;
 import org.gof.core.support.Utils;
 import org.gof.demo.worldsrv.character.HumanObject;
 import org.gof.demo.worldsrv.character.HumanObjectServiceProxy;
-import org.gof.demo.worldsrv.config.ConfGolbal;
 import org.gof.demo.worldsrv.config.ConfMail;
 import org.gof.demo.worldsrv.entity.Mail;
 import org.gof.demo.worldsrv.general.GeneralPlusManager;
@@ -551,35 +550,37 @@ public class MailManager extends ManagerBase {
     /**
      * 验证邮件是否有效
      * @param humanObj
-     * @param mailId
+     * @param mailIds
      */
-    public void checkMailRemoveable(HumanObject humanObj, long mailId){
-        Mail mail = null;
-        
-        //查找当前的邮件
-        for (Mail m : humanObj.mailList) {
-            if(m.getId() == mailId){
-                mail = m;
-                break;
+    public void checkMailRemoveable(HumanObject humanObj, List<Long> mailIds){
+        for (long mailId : mailIds) {
+            Mail mail = null;
+
+            //查找当前的邮件
+            for (Mail m : humanObj.mailList) {
+                if(m.getId() == mailId){
+                    mail = m;
+                    break;
+                }
             }
-        }    
-        
-        //没找到
-        if(mail == null){
-            Inform.user(humanObj.getHumanId(), Inform.提示操作,"该邮件不存在!");
-            return;
+
+            //没找到
+            if(mail == null){
+                Inform.user(humanObj.getHumanId(), Inform.提示操作,"该邮件不存在!");
+                return;
+            }
+
+            //删除邮件操作
+            long state = Port.getTime() > mail.getEtime()?0:mail.getEtime();
+            if(state <= 0){
+                humanObj.mailList.remove(mail);
+                mail.remove();
+            }
+
+            SCCheckMailRemoveable.Builder msg = SCCheckMailRemoveable.newBuilder();
+            msg.setSpanTime(state);
+            humanObj.sendMsg(msg);
         }
-        
-        //删除邮件操作
-        long state = Port.getTime() > mail.getEtime()?0:mail.getEtime();
-        if(state <= 0){
-            humanObj.mailList.remove(mail);
-            mail.remove();                
-        }
-        
-        SCCheckMailRemoveable.Builder msg = SCCheckMailRemoveable.newBuilder();
-        msg.setSpanTime(state);
-        humanObj.sendMsg(msg);
     }
     
     /**

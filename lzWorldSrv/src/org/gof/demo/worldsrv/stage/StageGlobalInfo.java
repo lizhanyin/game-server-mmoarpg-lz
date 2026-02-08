@@ -8,12 +8,12 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  */
 public class StageGlobalInfo {
     public final long id;                //地图真实ID
-    public final int sn;                //地图配置SN
+    public final int sn;                 //地图配置SN
     public final String name;            //地图名称
-    public final String nodeId;        //Node名称
-    public final String portId;        //Port名称
-    public int lineNum = 1;        //分线的编号
-    public int humanNum = 0;            //地图中玩家个数
+    public final String nodeId;          //Node名称
+    public final String portId;          //Port名称
+    public int lineNum = 1;              //分线的编号
+    public int humanNum = 0;             //地图中玩家个数
     
     /**
      * 构造函数

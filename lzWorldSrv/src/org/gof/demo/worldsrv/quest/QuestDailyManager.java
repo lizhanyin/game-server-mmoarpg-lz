@@ -49,7 +49,7 @@ public class QuestDailyManager extends ManagerBase {
     @Listener({EventKey.HUMAN_RESET_ZERO, EventKey.HUMAN_FIRST_LOGIN})
     public void resetQuestDailyFirst(Param param) {
         HumanObject humanObj = param.get("humanObj");
-        Human human = humanObj.getHuman();
+        // Human human = humanObj.getHuman();
         
         List<ConfQuest> confList = new ArrayList<ConfQuest>();
         confList.addAll(ConfQuest.findAll());

@@ -40,15 +40,17 @@ message CSItemBachSell {
 // 扩展背包
 message CSBagExpand {
   option (msgid) = 1407;
-  required int32 type = 1;
+  optional int32 type = 1;          // 背包号（1主2次）
+  optional int32 toIndex = 2;       // 要扩到的格
 }
 
 // MsgID: 1408
 // 背包扩展结果
 message SCBagExpand {
   option (msgid) = 1408;
-  required int32 result = 1;
-  required int32 capacity = 2;
+  optional int32 code = 1;         // 提示码 (0:成功，其他：失败)
+  optional string reason = 2;      // 提示信息
+  optional int32 toIndex = 3;      // 扩容后的格子数
 }
 
 // MsgID: 1501
@@ -89,7 +91,7 @@ message CSGeneralList {
 // 武将列表
 message SCGeneralList {
   option (msgid) = 1902;
-  repeated DGeneralInfo generals = 1;
+  repeated DGeneralInfo units = 1;
 }
 
 // MsgID: 1903
@@ -103,7 +105,7 @@ message CSGeneralInfo {
 // 武将信息
 message SCGeneralInfo {
   option (msgid) = 1904;
-  required DGeneralInfo general = 1;
+  required DGeneralInfo unit = 1;
 }
 
 // MsgID: 1905
@@ -117,23 +119,25 @@ message CSGeneralRecruit {
 // 武将招募结果
 message SCGeneralRecruitResult {
   option (msgid) = 1906;
-  required int32 result = 1;
-  optional DGeneralInfo general = 2;
+  required string sn = 1;       // 伙伴SN
+  required bool result = 2;
 }
 
 // MsgID: 1907
 // 武将添加经验
 message CSGeneralExpAdd {
   option (msgid) = 1907;
-  repeated int64 generalIds = 1;
-  repeated int32 counts = 2;
+  required int64 id = 1;         // 伙伴ID
+  required int32 propSn = 2;     // 经验丹SN
+  optional int32 propNum = 3 [default = 1];  // 经验丹数量
 }
 
 // MsgID: 1908
 // 武将添加经验结果
 message SCGeneralExpAdd {
   option (msgid) = 1908;
-  repeated DGeneralInfo generals = 1;
+  required bool result = 1;
+  optional int32 exp = 2;        // 增加的经验
 }
 
 // MsgID: 1909
@@ -147,8 +151,9 @@ message CSGeneralStarUp {
 // 武将升星结果
 message SCGeneralStarUp {
   option (msgid) = 1910;
-  required int32 result = 1;
-  optional DGeneralInfo general = 2;
+  required bool result = 1;
+  required string sn = 2;        // 伙伴SN
+  required int32 star = 3;
 }
 
 // MsgID: 1911
@@ -162,24 +167,23 @@ message CSGeneralQualityUp {
 // 武将升品结果
 message SCGeneralQualityUp {
   option (msgid) = 1912;
-  required int32 result = 1;
-  optional DGeneralInfo general = 2;
+  required bool result = 1;
+  required string sn = 2;        // 伙伴SN
 }
 
 // MsgID: 1913
 // 武将装备强化
 message CSGeneralEquipUp {
   option (msgid) = 1913;
-  required int64 id = 1;
-  required int32 partSn = 2;
+  required int64 id = 1;         // 伙伴ID
+  required int32 equipSn = 2;    // 装备Sn
 }
 
 // MsgID: 1914
 // 武将装备强化结果
 message SCGeneralEquipUp {
   option (msgid) = 1914;
-  required int32 result = 1;
-  optional DGeneralInfo general = 2;
+  required bool result = 1;
 }
 
 // MsgID: 1915
@@ -192,36 +196,37 @@ message CSFragInfo {
 // 碎片信息
 message SCFragInfo {
   option (msgid) = 1916;
-  repeated DFragInfo frags = 1;
+  repeated DFragInfo info = 1;   // 伙伴碎片信息
+  optional int32 rareNum = 2;
 }
 
 // MsgID: 1917
 // 获取单个碎片信息
 message CSOneFragInfo {
   option (msgid) = 1917;
-  required int32 sn = 1;
+  required int32 fragSn = 1;     // 伙伴碎片sn fragSn = 0:可用于兑换稀有伙伴的碎片数量
 }
 
 // MsgID: 1918
 // 单个碎片信息
 message SCOneFragInfo {
   option (msgid) = 1918;
-  required DFragInfo frag = 1;
+  required int32 sn = 1;         // 碎片SN fragSn = 0:可用于兑换稀有伙伴的碎片数量
+  required int32 num = 2;        // 碎片数量
 }
 
 // MsgID: 1919
 // 出售碎片
 message CSSellFrag {
   option (msgid) = 1919;
-  required int32 sn = 1;
-  required int32 num = 2;
+  repeated int32 fragSn = 1;     // 碎片sn
 }
 
 // MsgID: 1920
 // 出售碎片结果
 message SCSellFrag {
   option (msgid) = 1920;
-  required int32 result = 1;
+  required bool result = 1;
 }
 
 // MsgID: 1921
@@ -234,62 +239,67 @@ message CSGenTaskFightTimes {
 // 武将任务战斗次数
 message SCGenTaskFightTimes {
   option (msgid) = 1922;
-  repeated DGenTaskFightTimes times = 1;
+  repeated DGenTaskFightTimes info = 1;   // 伙伴副本当日剩余挑战次数信息
 }
 
 // MsgID: 1923
 // 进入武将任务
 message CSEnterGeneralTask {
   option (msgid) = 1923;
-  required int64 generalId = 1;
+  required int32 sn = 1;         // 伙伴副本SN
 }
 
 // MsgID: 1924
 // 进入武将任务
 message SCEnterGeneralTask {
   option (msgid) = 1924;
-  required int32 stageSn = 1;
+  optional bool result = 1;        // 无注释
+  optional int64 enterTime = 2;    // 进入副本的时间
+  optional string reason = 3;      // 提示信息
 }
 
 // MsgID: 1925
 // 武将任务战斗结果
 message SCGeneralTaskFightResult {
   option (msgid) = 1925;
-  required bool win = 1;
+  optional bool result = 1;        // 无注释
+  optional string reason = 3;      // 提示信息
 }
 
 // MsgID: 1926
 // 武将任务奖励
 message SCGeneralTaskReward {
   option (msgid) = 1926;
-  repeated DGeneralTaskReward rewards = 1;
+  repeated DGeneralTaskReward info = 1;   // 奖励
 }
 
 // MsgID: 1927
 // 武将上阵
 message CSGeneralToAttIng {
   option (msgid) = 1927;
-  required int64 generalId = 1;
+  repeated int64 units = 1;      // 出阵伙伴ID
 }
 
 // MsgID: 1928
 // 武将上阵结果
 message SCGeneralToAttIng {
   option (msgid) = 1928;
-  required bool success = 1;
+  repeated int64 units = 2;      // 出战伙伴ID列表
 }
 
 // MsgID: 1929
 // 上阵武将信息
 message CSGeneralInfoAttIng {
   option (msgid) = 1929;
+  required int32 type = 1;       // 阵容类别（副本、爬塔、竞技场）
 }
 
 // MsgID: 1930
 // 上阵武将信息
 message SCGeneralInfoAttIng {
   option (msgid) = 1930;
-  repeated DGeneralInfo generals = 1;
+  required int32 type = 1;       // 阵容类别
+  repeated int64 units = 2;      // 出战伙伴ID列表
 }
 
 // MsgID: 1931

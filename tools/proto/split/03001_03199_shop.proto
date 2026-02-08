@@ -23,7 +23,7 @@ message CSOpenMall {
 // 商城结果
 message SCMallResult {
   option (msgid) = 3002;
-  repeated DVirtual virtuals = 1;
+  repeated int32 itemList = 1;
 }
 
 // MsgID: 3003
@@ -38,7 +38,7 @@ message CSBuyMallGoods {
 // 购买商城商品
 message SCBuyMallGoods {
   option (msgid) = 3004;
-  required int32 result = 1;
+  required int32 code = 1;         // 结果码
 }
 
 // MsgID: 3005
@@ -51,7 +51,7 @@ message CSRequestShopTags {
 // 商店标签结果
 message SCResultShopTags {
   option (msgid) = 3006;
-  repeated string tags = 1;
+  repeated int32 tags = 1;         // 商店标签列表
 }
 
 // MsgID: 3007
@@ -80,7 +80,7 @@ message CSBuyShopGoods {
 // 购买商店商品
 message SCBuyShopGoods {
   option (msgid) = 3010;
-  required int32 result = 1;
+  required int32 code = 1;         // 结果码
 }
 
 // MsgID: 3011
@@ -94,15 +94,15 @@ message CSRefreshShop {
 // 刷新商店结果
 message SCRefreshShopResult {
   option (msgid) = 3012;
-  required int32 result = 1;
-  required DShop shop = 2;
+  required int32 code = 1;         // 结果码
+  required DShop shop = 2;         // 商店信息
 }
 
 // MsgID: 3013
 // 打开临时商店
 message SCOpenTempShop {
   option (msgid) = 3013;
-  required DShop shop = 1;
+  required int32 shopSn = 1;       // 商店SN
 }
 
 // MsgID: 3014
@@ -116,5 +116,5 @@ message CSBuyShop {
 // 购买商店结果
 message SCBuyShopResult {
   option (msgid) = 3015;
-  required int32 result = 1;
+  required int32 code = 1;         // 结果码
 }

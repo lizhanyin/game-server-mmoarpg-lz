@@ -8,7 +8,6 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.gof.core.InputStream;
 import org.gof.core.OutputStream;
 import org.gof.core.interfaces.ISerializable;
-import org.gof.demo.worldsrv.msg.Msg.DQuest;
 import org.gof.demo.worldsrv.msg.Msg.DShop;
 
 import com.alibaba.fastjson2.JSON;
@@ -20,9 +19,9 @@ import com.alibaba.fastjson2.JSONObject;
  */
 public class ShopVO implements ISerializable {
     public int sn;        
-    public int refreshCount;            //付费刷新次数
-    public long refreshTime;            //上次刷新时间
-    public int status;                    //解锁状态  -1：未解锁   -2：临时解锁   -3：永久解锁   -4：永久开启
+    public int refreshCount;             //付费刷新次数
+    public long refreshTime;             //上次刷新时间
+    public int status;                   //解锁状态  -1：未解锁   -2：临时解锁   -3：永久解锁   -4：永久开启
     public long openTime;                //临时解锁时间
     public int openCount;                //临时解锁次数
     public List<GoodsVO> shelfs = new ArrayList<GoodsVO>();        //商品列表

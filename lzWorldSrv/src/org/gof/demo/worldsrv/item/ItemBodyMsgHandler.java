@@ -21,7 +21,6 @@ import org.gof.demo.worldsrv.msg.Msg.CSPartQianghua;
 import org.gof.demo.worldsrv.msg.Msg.SCEquipDown;
 import org.gof.demo.worldsrv.msg.Msg.SCEquipReclaim;
 import org.gof.demo.worldsrv.msg.Msg.SCGemComposite;
-import org.gof.demo.worldsrv.msg.Msg.SCGemCompositeAllTop;
 import org.gof.demo.worldsrv.msg.Msg.SCGemCompositeTop;
 import org.gof.demo.worldsrv.msg.Msg.SCPartChongxing;
 import org.gof.demo.worldsrv.msg.Msg.SCPartQianghua;

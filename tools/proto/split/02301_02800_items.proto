@@ -23,8 +23,9 @@ message CSChangeName {
 // 修改名字结果
 message SCChangeNameResult {
   option (msgid) = 2302;
-  required int32 result = 1;
+  required bool result = 1;
   optional string name = 2;
+  optional string shield = 3;  // 屏蔽字
 }
 
 // MsgID: 2303
@@ -86,8 +87,9 @@ message CSPickupMail {
 // 领取邮件附件
 message SCPickupMail {
   option (msgid) = 2406;
-  required int64 id = 1;
-  repeated DItem items = 2;
+  required int32 code = 1;         // 结果码
+  optional string reason = 2;      // 原因
+  repeated DItem items = 3;
 }
 
 // MsgID: 2407
@@ -100,7 +102,9 @@ message CSPickupAllMail {
 // 领取所有邮件附件
 message SCPickupAllMail {
   option (msgid) = 2408;
-  repeated DItem items = 1;
+  required int32 code = 1;         // 结果码
+  optional string reason = 2;      // 原因
+  repeated DItem items = 3;
 }
 
 // MsgID: 2409
@@ -128,6 +132,7 @@ message CSCheckMailRemoveable {
 message SCCheckMailRemoveable {
   option (msgid) = 2412;
   repeated int64 ids = 1;
+  optional int64 spanTime = 2;  // 剩余时间
 }
 
 // MsgID: 2501
@@ -163,14 +168,15 @@ message SCLivenessInfo {
 message CSEquipUp {
   option (msgid) = 2601;
   required int64 humanId = 1;
-  required int32 partSn = 2;
+  required int32 index = 2;          // 装备位置
 }
 
 // MsgID: 2602
 // 装备强化
 message SCEquipUp {
   option (msgid) = 2602;
-  required int32 result = 1;
+  optional int32 index = 1;         // 装备穿戴成功后所在的装备位
+  optional int32 bagIndex = 2;      // 装备在背包中的位置
 }
 
 // MsgID: 2603
@@ -178,14 +184,14 @@ message SCEquipUp {
 message CSEquipDown {
   option (msgid) = 2603;
   required int64 humanId = 1;
-  required int32 partSn = 2;
+  required int32 index = 2;          // 装备位置
 }
 
 // MsgID: 2604
 // 卸下装备
 message SCEquipDown {
   option (msgid) = 2604;
-  required int32 result = 1;
+  required int32 code = 1;
 }
 
 // MsgID: 2605
@@ -193,14 +199,14 @@ message SCEquipDown {
 message CSEquipReclaim {
   option (msgid) = 2605;
   required int64 humanId = 1;
-  required int32 partSn = 2;
+  repeated int32 indexList = 2;    // 要分解的装备位置列表
 }
 
 // MsgID: 2606
 // 装备分解
 message SCEquipReclaim {
   option (msgid) = 2606;
-  required int32 result = 1;
+  required int32 code = 1;
   repeated DItem items = 2;
 }
 
@@ -217,14 +223,14 @@ message SCEquipChangeBoardcast {
 message CSPartQianghua {
   option (msgid) = 2609;
   required int64 humanId = 1;
-  required int32 partSn = 2;
+  required int32 part = 2;           // 部位
 }
 
 // MsgID: 2610
 // 部位强化
 message SCPartQianghua {
   option (msgid) = 2610;
-  required int32 result = 1;
+  required int32 code = 1;
 }
 
 // MsgID: 2611
@@ -232,15 +238,17 @@ message SCPartQianghua {
 message CSPartChongxing {
   option (msgid) = 2611;
   required int64 humanId = 1;
-  required int32 partSn = 2;
-  repeated int32 materials = 3;
+  required int32 part = 2;           // 部位
+  optional int32 phase = 3;         // 阶段
+  optional int32 seekPos = 4;       // 目标位置
 }
 
 // MsgID: 2612
 // 部位重铸
 message SCPartChongxing {
   option (msgid) = 2612;
-  required int32 result = 1;
+  required int32 code = 1;
+  optional int32 grade = 2;          // 重铸后的等级
 }
 
 // MsgID: 2701
@@ -256,14 +264,15 @@ message CSGemUp {
 message CSGemUpAll {
   option (msgid) = 2703;
   required int64 humanId = 1;
-  required int32 partSn = 2;
+  required int32 part = 2;
 }
 
 // MsgID: 2704
 // 设置宝石
 message SCSetGem {
   option (msgid) = 2704;
-  required int32 result = 1;
+  required int32 code = 1;
+  repeated int32 posInfo = 2;        // 位置信息数组
 }
 
 // MsgID: 2705
@@ -271,8 +280,8 @@ message SCSetGem {
 message CSGemDown {
   option (msgid) = 2705;
   required int64 humanId = 1;
-  required int32 partSn = 2;
-  required int32 index = 3;
+  required int32 part = 2;
+  required int32 slot = 3;
 }
 
 // MsgID: 2707
@@ -280,37 +289,36 @@ message CSGemDown {
 message CSGemDownAll {
   option (msgid) = 2707;
   required int64 humanId = 1;
-  required int32 partSn = 2;
+  required int32 part = 2;
 }
 
 // MsgID: 2709
 // 宝石合成
 message CSGemComposite {
   option (msgid) = 2709;
-  required int32 sn = 1;
-  required int32 count = 2;
+  required int32 bagIndex = 1;
 }
 
 // MsgID: 2710
 // 宝石合成
 message SCGemComposite {
   option (msgid) = 2710;
-  required int32 result = 1;
-  optional int32 sn = 2;
+  required int32 code = 1;
+  optional int32 sn = 2;             // 宝石sn
 }
 
 // MsgID: 2711
 // 宝石合成至顶级
 message CSGemCompositeTop {
   option (msgid) = 2711;
-  required int32 sn = 1;
+  required int32 bagIndex = 1;
 }
 
 // MsgID: 2712
 // 宝石合成至顶级
 message SCGemCompositeTop {
   option (msgid) = 2712;
-  required int32 result = 1;
+  required int32 code = 1;
 }
 
 // MsgID: 2713
@@ -323,7 +331,7 @@ message CSGemCompositeAllTop {
 // 全部宝石合成至顶级
 message SCGemCompositeAllTop {
   option (msgid) = 2714;
-  required int32 result = 1;
+  required int32 code = 1;
 }
 
 // MsgID: 2801

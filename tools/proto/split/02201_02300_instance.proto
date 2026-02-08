@@ -35,23 +35,27 @@ message CSInstanceEnd {
 // 副本结束
 message SCInstanceEnd {
   option (msgid) = 2204;
-  required bool win = 1;
-  optional int32 star = 2;
-  repeated DItem rewards = 3;
+  optional int32 instSn = 1;             // 副本sn
+  repeated int32 stars = 2;             // 副本星星数组
+  repeated DProduce lotteryProduces = 3; // 抽奖产出物
+  repeated DProduce produces = 4;       // 产出物品
+  optional int32 humanExp = 5;          // 角色经验
+  optional int32 generalExp = 6;         // 伙伴经验
+  optional int32 income = 7;             // 金币收益
 }
 
 // MsgID: 2207
 // 章节更新
 message SCUpdateChapter {
   option (msgid) = 2207;
-  required DChapterInfo chapter = 1;
+  optional DChapterInfo info = 1;
 }
 
 // MsgID: 2208
 // 所有章节
 message SCAllChapter {
   option (msgid) = 2208;
-  repeated DChapterInfo chapters = 1;
+  repeated DChapterInfo infos = 1;
 }
 
 // MsgID: 2209
@@ -66,7 +70,9 @@ message CSInstanceAuto {
 // 副本自动战斗
 message SCInstanceAuto {
   option (msgid) = 2210;
-  required bool auto = 1;
+  repeated DProduce produces = 1;       // 产出物品
+  optional int32 income = 2;            // 金币收益
+  optional int32 humanExp = 3;          // 角色经验
 }
 
 // MsgID: 2212
@@ -81,8 +87,9 @@ message CSBoxAward {
 // 宝箱奖励
 message SCBoxAward {
   option (msgid) = 2213;
-  required int32 result = 1;
-  repeated DItem items = 2;
+  optional int32 code = 1;         // 成功
+  optional int32 chapterId = 2;    // 无注释
+  optional int32 index = 3;        // 无注释
 }
 
 // MsgID: 2214
@@ -95,5 +102,5 @@ message CSInstanceLottery {
 // 副本抽奖
 message SCInstanceLottery {
   option (msgid) = 2215;
-  repeated DItem items = 1;
+  optional DProduce produce = 1;      // 得到的产出物
 }

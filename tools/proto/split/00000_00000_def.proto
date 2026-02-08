@@ -259,9 +259,9 @@ message DItem {
 message DBagUpdate {
   optional int32 pType = 1;
   optional int32 type = 2;
-  repeated DBagCellNumChange numChanger = 3;
-  repeated DBagCellAdd adder = 4;
-  repeated DBagCellMove move = 5;
+  optional DBagCellNumChange numChanger = 3;
+  optional DBagCellAdd adder = 4;
+  optional DBagCellMove move = 5;
 }
 
 // 背包数据
@@ -380,7 +380,11 @@ message DBulletinItem {
 
 // 初始化副本数据
 message DInitDataStage {
-  optional int32 stageSn = 1;
+  required DVector2 posNow = 5;   // 初始坐标
+  required int64 id = 1;            // 地图真实ID
+  required int32 sn = 2;            // 地图配置SN
+  optional int32 instanceSn = 3;   // 副本Sn（如果是副本，会有此属性）
+  optional int32 lineNum = 4;       // 分线号 默认为1
 }
 
 // ============================================================
@@ -565,6 +569,8 @@ message DSceneEvent {
   optional int32 sn = 1;
   optional string name = 2;
   optional int32 type = 3;
+  optional int32 id = 4;
+  optional int32 status = 5;
 }
 
 // 场景剧情
@@ -573,6 +579,7 @@ message DScenePlot {
   optional string name = 2;
   optional int32 type = 3;
   repeated DSceneEvent events = 4;
+  optional int32 id = 5;
 }
 
 // 一次伤害信息
@@ -629,23 +636,20 @@ message DBuffProp {
 
 // 武将装备
 message DGeneralEquipment {
-  optional int32 sn = 1;               // 部位SN
-  optional int32 qhLv = 2;             // 强化等级
-  repeated int32 cxLvs = 3;            // 重置等级
-  optional int32 equipSn = 4;          // 装备SN
-  repeated int32 gemSns = 5;           // 宝石SN
+  required int32 sn = 1;               // 装备SN
+  required int32 quality = 2;          // 装备品质
 }
 
 // 武将信息
 message DGeneralInfo {
-  optional int64 id = 1;
-  optional string sn = 2;
-  optional int32 level = 3;
-  optional int32 star = 4;             // 星级
-  optional int32 quality = 5;          // 品质
-  optional int32 exp = 6;              // 经验
-  optional int32 status = 7;           // 状态
-  repeated DGeneralEquipment equipments = 8; // 装备列表
+  required int64 id = 1;              // 角色ID
+  optional DUnit unit = 2;
+  repeated DSkill skill = 4;          // 技能
+  repeated DGeneralEquipment equipment = 5;  // 伙伴装备信息
+  optional int32 star = 6;            // 星级
+  optional int32 quality = 7;         // 品质
+  optional int32 combat = 8;          // 伙伴的战斗力
+  optional int32 attingPos = 9;       // 伙伴出战位置 -1：未出战
 }
 
 // 碎片信息
@@ -656,44 +660,47 @@ message DFragInfo {
 
 // 武将任务战斗次数
 message DGenTaskFightTimes {
-  optional int64 generalId = 1;
-  optional int32 times = 2;
+  optional int32 type = 1;           // 副本类型
+  optional int32 remainingTimes = 2; // 剩余数量
 }
 
 // 武将任务奖励
 message DGeneralTaskReward {
-  optional int64 generalId = 1;
-  repeated DItem items = 2;
+  optional int32 sn = 1;          // 物品 ID/SN
+  optional int32 num = 2;         // 物品数量
 }
 
 // 副本实例
 message DInstance {
-  optional int32 sn = 1;
-  optional int32 star = 2;             // 星级
-  optional int32 fightCount = 3;       // 战斗次数
-  optional int32 state = 4;            // 状态
+  optional int32 instSn = 1;           // 副本sn
+  repeated int32 stars = 2;            // 副本星星 1-未完成，2-完成
+  optional int32 attNum = 3;           // 进入次数
+  optional int32 reset = 4;            // 重置次数
 }
 
 // 章节信息
 message DChapterInfo {
-  optional int32 sn = 1;
-  optional int32 state = 2;
-  repeated int32 instanceSns = 3;      // 副本SN列表
+  optional int32 chapterId = 1;       // 章节ID
+  optional int32 state = 2;           // 状态
+  repeated DInstance instance = 3;     // 副本对象列表
+  repeated int32 boxState = 4;        // 宝箱状态列表
 }
 
 // 副本排名
 message DInstanceRank {
   optional int32 rank = 1;
-  optional string name = 2;
-  optional int32 value = 3;
+  optional string humanName = 2;
+  optional int32 humanLevel = 3;
+  optional int32 stars = 4;
+  optional int32 characterSn = 5;
 }
 
 // 等级排名
 message DLevelRank {
   optional int32 rank = 1;
-  optional string name = 2;
-  optional int32 level = 3;
-  optional int32 fightPower = 4;
+  optional string humanName = 2;
+  optional int32 humanLevel = 3;
+  optional int32 characterSn = 4;
 }
 
 // 战斗力排名

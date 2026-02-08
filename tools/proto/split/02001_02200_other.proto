@@ -30,14 +30,14 @@ message SCSignIn {
 // 提交普通任务
 message CSCommitQuestNormal {
   option (msgid) = 2101;
-  required int32 sn = 1;
+  required int32 code = 1;
 }
 
 // MsgID: 2102
 // 提交日常任务
 message CSCommitQuestDaily {
   option (msgid) = 2102;
-  required int32 sn = 1;
+  required int32 code = 1;
 }
 
 // MsgID: 2103
@@ -56,7 +56,7 @@ message CSOpenQuestDaily {
 // 任务信息
 message SCQuestInfo {
   option (msgid) = 2105;
-  repeated DQuest quests = 1;
+  repeated DQuest quest = 1;
 }
 
 // MsgID: 2106
@@ -69,7 +69,7 @@ message CSOpenQuestInstDaily {
 // 副本日常次数
 message SCQuestInstDailyCount {
   option (msgid) = 2107;
-  repeated int32 counts = 1;
+  required int32 count = 1;
 }
 
 // MsgID: 2108
@@ -83,12 +83,12 @@ message CSCommitQuestInstDaily {
 // 副本日常信息
 message SCQuestInstDailyInfo {
   option (msgid) = 2109;
-  repeated DInstance instances = 1;
+  repeated DQuest quest = 1;
 }
 
 // MsgID: 2121
 // 提交普通任务结果
 message SCCommitQuestNormalResult {
   option (msgid) = 2121;
-  required int32 result = 1;
+  required int32 code = 1;
 }

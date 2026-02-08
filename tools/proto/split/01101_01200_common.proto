@@ -53,7 +53,9 @@ message CSHumanInfo {
 // 角色信息
 message SCHumanInfo {
   option (msgid) = 1111;
-  optional DHuman human = 1;
+  optional int32 generalColCount = 1;  // 武将收集数量
+  optional int32 combat = 2;            // 战斗力
+  optional int32 competeTopRank = 3;    // 竞技场最高排名
 }
 
 // MsgID: 1113

@@ -10,7 +10,6 @@ import org.gof.core.support.BufferPool;
 import org.gof.core.support.SysException;
 import org.gof.core.dbsrv.DBServiceProxy;
 import org.gof.core.support.log.LogCore;
-import org.gof.demo.worldsrv.entity.Unit;
 import org.gof.core.gen.GofGenFile;
 
 @GofGenFile

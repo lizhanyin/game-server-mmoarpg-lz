@@ -68,8 +68,8 @@ public class MailMsgHandler {
     @MsgReceiver(CSCheckMailRemoveable.class)
     public void onCSCheckMailRemoveable(MsgParam param) {
         CSCheckMailRemoveable msg = param.getMsg();
-        
-        MailManager.inst().checkMailRemoveable(param.getHumanObject(), msg.getId());
+
+        MailManager.inst().checkMailRemoveable(param.getHumanObject(), msg.getIdsList());
     }    
     
 }

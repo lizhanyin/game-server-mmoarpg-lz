@@ -28,7 +28,6 @@ import org.gof.demo.worldsrv.support.I18n;
 import org.gof.demo.worldsrv.support.Log;
 import org.gof.demo.worldsrv.support.ReasonResult;
 import org.gof.demo.worldsrv.support.enumKey.ConfGlobalKey;
-import org.gof.demo.worldsrv.support.observer.Event;
 import org.gof.demo.worldsrv.support.observer.EventKey;
 
 /**
@@ -280,7 +279,7 @@ public class QuestInstDailyManager extends ManagerBase {
             for(QuestVO vo : voList) {
                 ConfQuestInstDaily quest = ConfQuestInstDaily.get(vo.sn);
                 if(quest == null)continue;
-                if(quest.get(vo.sn).repId != reqId) continue;
+                if(ConfQuestInstDaily.get(vo.sn).repId != reqId) continue;
                 switch (vo.type) {
                 case QuestTypeKey.QUEST_INST_TYPE_1:
                     if (Integer.parseInt(monsterObj.sn) == quest.target[0]) {

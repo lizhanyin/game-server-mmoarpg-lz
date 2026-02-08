@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.commons.lang3.StringUtils;
 import org.gof.core.CallPoint;
 import org.gof.core.Port;
 import org.gof.core.connsrv.ConnectionProxy;

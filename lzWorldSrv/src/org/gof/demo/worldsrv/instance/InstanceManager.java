@@ -332,7 +332,7 @@ public class InstanceManager extends ManagerBase {
         StageManager.inst().stageStarEndCheck(humanObj.stageObj);
         
         
-        int star = StageManager.inst().caculateStageStar(humanObj.stageObj);
+        StageManager.inst().caculateStageStar(humanObj.stageObj);
         
         GeneralManager.inst().recoverHp(humanObj);
         endMsg.setInstSn(confRep.sn);

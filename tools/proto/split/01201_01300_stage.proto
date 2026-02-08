@@ -193,5 +193,6 @@ message CSSceneEvent {
 // 场景事件开始
 message SCSceneEventStart {
   option (msgid) = 1255;
-  required int32 sn = 1;
+  required int32 poltId = 1;       // 剧本ID
+  required int32 eventId = 2;      // 事件ID
 }

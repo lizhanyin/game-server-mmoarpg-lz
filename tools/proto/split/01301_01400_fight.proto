@@ -203,5 +203,5 @@ message SCFightRevive {
 // 背包更新
 message SCBagUpdate {
   option (msgid) = 1400;
-  required DBagUpdate bag = 1;
+  repeated DBagUpdate updates = 1;
 }

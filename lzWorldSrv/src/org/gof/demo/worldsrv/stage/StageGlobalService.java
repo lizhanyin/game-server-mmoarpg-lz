@@ -104,13 +104,13 @@ public class StageGlobalService extends Service {
             return;
         }
         
-        //添加分线信息
+        //移除分线信息
         ConfMap conf = ConfMap.get(information.sn);
         if(conf.humanMaxNum > 0) {
             Map<Long, StageGlobalInfo> mulLines = stageMulLines.get(information.sn);
              if(mulLines != null) {
-                 mulLines.remove(information);
-             } 
+                 mulLines.remove(information.id);
+             }
         }
         
         Event.fireEx(EventKey.STAGE_CANCEL, information.sn, 
@@ -154,7 +154,7 @@ public class StageGlobalService extends Service {
             
             //如果为空，就取默认出生地图
             if(information == null) {
-                information = this.infos.get(HumanManager.stageInitSn);  //1是SN
+                information = this.infos.get((long) HumanManager.stageInitSn);  //1是SN
             }
 
             StageGlobalServiceProxy proxy = StageGlobalServiceProxy.newInstance();

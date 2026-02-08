@@ -23,7 +23,8 @@ message CSInstanceRank {
 // 副本排行榜
 message SCInstanceRank {
   option (msgid) = 3102;
-  repeated DInstanceRank ranks = 1;
+  repeated DInstanceRank rank = 1;
+  optional int32 selfRank = 2;
 }
 
 // MsgID: 3103
@@ -36,7 +37,8 @@ message CSLevelRank {
 // 等级排行榜
 message SCLevelRank {
   option (msgid) = 3104;
-  repeated DLevelRank ranks = 1;
+  repeated DLevelRank rank = 1;
+  optional int32 selfRank = 2;
 }
 
 // MsgID: 3105
